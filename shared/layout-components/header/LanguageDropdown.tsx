@@ -2,6 +2,7 @@
 import React from 'react';
 import { Dropdown } from 'react-bootstrap';
 import Link from 'next/link';
+import { basePath } from '@/next.config';
 
 const LanguageDropdown = () => {
   return (
