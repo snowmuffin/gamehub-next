@@ -323,23 +323,23 @@ const Header = ({ local_variable, ThemeChanger }: any) => {
             <SidebarToggle local_variable={local_variable} ThemeChanger={ThemeChanger} />
           </div>
           <ul className="header-content-right">
-            {/* <li className="header-element header-search d-md-block d-none">
+            <li className="header-element header-search d-md-block d-none">
               <SearchBar />
             </li>
             <li className="header-element d-md-none d-block">
               <Link href="#!" scroll={false} className="header-link" onClick={handleShow3} data-bs-toggle="modal" data-bs-target="#header-responsive-search">
-              <i className="bi bi-search header-link-icon"></i>
+                <i className="bi bi-search header-link-icon"></i>
               </Link>
             </li>
-            <LanguageDropdown /> 
+            <LanguageDropdown /> {/* Use the new LanguageDropdown component */}
             <FullscreenToggle />
             <li className="header-element">
               <Link href="#!" scroll={false} className="header-link" data-bs-toggle="offcanvas" data-bs-target="#apps-header-offcanvas" onClick={handleShow}>
-              <i className="bi bi-grid header-link-icon"></i>
+                <i className="bi bi-grid header-link-icon"></i>
               </Link>
             </li>
             <NotificationDropdown />
-            <ProfileDropdown /> */}
+            <ProfileDropdown /> {/* Use the new ProfileDropdown component */}
             <SwitcherIcon />
           </ul>
           <ResponsiveSearchModal show={show3} handleClose={handleClose3} />
