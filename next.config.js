@@ -1,24 +1,29 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === "production";
+const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
   reactStrictMode: true,
-  trailingSlash: true,
   swcMinify: true,
-  basePath: "",
-  assetPrefix: "",
+  trailingSlash: false,
+
+  basePath: '',
+  assetPrefix: '',
+
   images: {
-    loader: "imgix",
-    path: "/",
+    unoptimized: true,
+    loader: 'default',
+    path: '/',
   },
+
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: isProd,
   },
+
   async rewrites() {
     return [
       {
-        source: "/api/:path*", // Proxy all requests starting with /api
-        destination: "http://3.35.196.88:4000/:path*", // Target backend server
+        source: '/api/:path*',
+        destination: 'http://3.35.196.88:4000/:path*',
       },
     ];
   },
