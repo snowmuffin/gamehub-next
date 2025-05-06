@@ -38,8 +38,9 @@ const SigninBasic = () => {
   }, [dispatch]);
 
   const handleSteamLogin = () => {
+    const steamAuthUrl = process.env.STEAM_AUTH_URL || "http://localhost:4000/auth/steam"; // Use environment variable with fallback
     const popup = window.open(
-      "http://localhost:4000/auth/steam", // Steam 인증 URL
+      steamAuthUrl,
       "Steam Login",
       "width=600,height=700"
     );
