@@ -22,7 +22,7 @@ const nextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: 'http://3.35.196.88:4000/:path*',
+        destination: 'http://REDACTED_IP:4000/:path*',
       },
     ];
   },
