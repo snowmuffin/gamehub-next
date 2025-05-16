@@ -323,6 +323,7 @@ const Header = ({ local_variable, ThemeChanger }: any) => {
             <SidebarToggle local_variable={local_variable} ThemeChanger={ThemeChanger} />
           </div>
           <ul className="header-content-right">
+                        <LanguageDropdown /> 
             {/* <li className="header-element header-search d-md-block d-none">
               <SearchBar />
             </li>
@@ -331,7 +332,7 @@ const Header = ({ local_variable, ThemeChanger }: any) => {
               <i className="bi bi-search header-link-icon"></i>
               </Link>
             </li>
-            <LanguageDropdown /> 
+
             <FullscreenToggle />
             <li className="header-element">
               <Link href="#!" scroll={false} className="header-link" data-bs-toggle="offcanvas" data-bs-target="#apps-header-offcanvas" onClick={handleShow}>
