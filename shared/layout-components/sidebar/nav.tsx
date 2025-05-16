@@ -1,3 +1,4 @@
+import path from "path";
 import React from "react";
 
 const DashboardIcon = (
@@ -763,40 +764,12 @@ export const MENUITEMS: any = [
     children: [
       {
         title: "Server Overview",
-        type: "sub",
+        type: "link",
+        path: "/wiki/server-overview",
         menusub: true,
         active: false,
         selected: false,
-        children: [
-          {
-            path: "/wiki/server-overview/sek-center",
-            type: "link",
-            active: false,
-            selected: false,
-            title: "SEK Center",
-          },
-          {
-            path: "/wiki/server-overview/sek-green-zone",
-            type: "link",
-            active: false,
-            selected: false,
-            title: "SEK Green Zone",
-          },
-          {
-            path: "/wiki/server-overview/sek-blue-zone",
-            type: "link",
-            active: false,
-            selected: false,
-            title: "SEK Blue Zone",
-          },
-          {
-            path: "/wiki/server-overview/sek-red-zone",
-            type: "link",
-            active: false,
-            selected: false,
-            title: "SEK Red Zone",
-          },
-        ],
+
       },
       {
         title: "Commands",

@@ -98,7 +98,6 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
 		if (WindowPreSize.length > 1) {
 			if (currentWidth < 992 && prevWidth >= 992) {
 				console.log("opeing")
-				// less than 992;
 				console.log('Width is less than 992');
 				ThemeChanger({ ...theme, dataToggled: "close" });
 				console.log('menuresize',);
