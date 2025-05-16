@@ -1,3 +1,4 @@
+import path from "path";
 import React from "react";
 
 const DashboardIcon = (
@@ -763,100 +764,20 @@ export const MENUITEMS: any = [
     children: [
       {
         title: "Server Overview",
-        type: "sub",
+        type: "link",
+        path: "/wiki/server-overview",
         menusub: true,
         active: false,
         selected: false,
-        children: [
-          {
-            path: "/wiki/server-overview/sek-center",
-            type: "link",
-            active: false,
-            selected: false,
-            title: "SEK Center",
-          },
-          {
-            path: "/wiki/server-overview/sek-green-zone",
-            type: "link",
-            active: false,
-            selected: false,
-            title: "SEK Green Zone",
-          },
-          {
-            path: "/wiki/server-overview/sek-blue-zone",
-            type: "link",
-            active: false,
-            selected: false,
-            title: "SEK Blue Zone",
-          },
-          {
-            path: "/wiki/server-overview/sek-red-zone",
-            type: "link",
-            active: false,
-            selected: false,
-            title: "SEK Red Zone",
-          },
-        ],
+
       },
       {
         title: "Commands",
-        type: "sub",
+        type: "link",
+        path: "/wiki/commands",
         menusub: true,
         active: false,
         selected: false,
-        children: [
-          {
-            path: "/wiki/commands/item-commands",
-            type: "link",
-            active: false,
-            selected: false,
-            title: "Item Commands",
-          },
-          {
-            path: "/wiki/commands/server-commands",
-            type: "link",
-            active: false,
-            selected: false,
-            title: "Server Commands",
-          },
-          {
-            path: "/wiki/commands/shield-commands",
-            type: "link",
-            active: false,
-            selected: false,
-            title: "Shield Commands",
-          },
-        ],
-      },
-      {
-        title: "Plugins",
-        type: "sub",
-        menusub: true,
-        active: false,
-        selected: false,
-        children: [
-          {
-            path: "/wiki/plugins/essentials-plugin",
-            type: "link",
-            active: false,
-            selected: false,
-            title: "Essentials Plugin",
-          },
-          {
-            path: "/wiki/plugins/ship-fixer",
-            type: "link",
-            active: false,
-            selected: false,
-            title: "Ship Fixer",
-          },
-          {
-            path: "/wiki/plugins/pcu-transferrer",
-            type: "link",
-            active: false,
-            selected: false,
-            title: "PCU Transferrer",
-          },
-        ],
       },
       {
         path: "/wiki/rules",
@@ -866,69 +787,32 @@ export const MENUITEMS: any = [
         title: "Server Rules",
       },
       {
-        path: "/wiki/discord",
-        type: "link",
-        active: false,
-        selected: false,
-        title: "Discord",
-      },
-      {
-        title: "Advanced Guides",
+        title: "Game Guides",
         type: "sub",
         menusub: true,
         active: false,
         selected: false,
         children: [
           {
-            path: "/wiki/advanced-guides/building-strategies",
+            path: "/authentication/coming-soon",
             type: "link",
             active: false,
             selected: false,
-            title: "Building Strategies",
+            title: "Comming soon",
           },
           {
-            path: "/wiki/advanced-guides/combat-tactics",
+            path: "/authentication/coming-soon",
             type: "link",
             active: false,
             selected: false,
-            title: "Combat Tactics",
+            title: "Comming soon",
           },
           {
-            path: "/wiki/advanced-guides/resource-management",
+            path: "/authentication/coming-soon",
             type: "link",
             active: false,
             selected: false,
-            title: "Resource Management",
-          },
-        ],
-      },
-      {
-        title: "Community Contributions",
-        type: "sub",
-        menusub: true,
-        active: false,
-        selected: false,
-        children: [
-          {
-            path: "/wiki/community-contributions/mods",
-            type: "link",
-            active: false,
-            selected: false,
-            title: "Mods",
-          },
-          {
-            path: "/wiki/community-contributions/tutorials",
-            type: "link",
-            active: false,
-            selected: false,
-            title: "Tutorials",
-          },
-          {
-            path: "/wiki/community-contributions/events",
-            type: "link",
-            active: false,
-            selected: false,
-            title: "Events",
+            title: "Comming soon",
           },
         ],
       },
@@ -947,6 +831,7 @@ export const MENUITEMS: any = [
         type: "link",
         active: false,
         selected: false,
+        disabled: true,
         title: "Leaflet Maps",
       },
       {
@@ -954,6 +839,8 @@ export const MENUITEMS: any = [
         type: "link",
         active: false,
         selected: false,
+        disabled: true,
+
         title: "Vector Maps",
       },
     ],
