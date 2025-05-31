@@ -32,6 +32,10 @@ const CommandsEn = () => (
                                     <span className="fw-medium text-primary">!cmd downloaditem &lt;item_name&gt; &lt;quantity&gt;</span>
                                     <div className="text-muted">Downloads an item from your web inventory.</div>
                                 </li>
+                                <li className="mb-3">
+                                    <span className="fw-medium text-primary">!cmd globalencounters gps</span>
+                                    <div className="text-muted">Retrieves all Factorum GPS coordinates available in the session.</div>
+                                </li>
                             </ol>
                             <h5 className="fw-medium pb-3 text-primary mt-4">Block Commands</h5>
                             <ol className="fs-14">
