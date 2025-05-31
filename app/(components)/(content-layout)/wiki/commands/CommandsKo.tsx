@@ -32,6 +32,10 @@ const CommandsKo = () => (
                                     <span className="fw-medium text-primary">!cmd downloaditem &lt;item_name&gt; &lt;quantity&gt;</span>
                                     <div className="text-muted">웹 인벤토리에서 아이템을 다운로드합니다.</div>
                                 </li>
+                                <li className="mb-3">
+                                    <span className="fw-medium text-primary">!cmd globalencounters gps</span>
+                                    <div className="text-muted">세션 내 모든 팩토럼 GPS 좌표를 조회합니다.</div>
+                                </li>
                             </ol>
                             <h5 className="fw-medium pb-3 text-primary mt-4">블록 관련 명령어</h5>
                             <ol className="fs-14">
