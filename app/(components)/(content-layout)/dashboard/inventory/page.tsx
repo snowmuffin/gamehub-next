@@ -65,7 +65,7 @@ const Inventory = () => {
                       <div className="bottom-left"></div>
                       <div className="bottom-right"></div>
                       <Card.Body className="p-5">
-                        <Link href="/apps/ecommerce/product-details">
+                        <Link href="">
                           <img
                             src={`/assets/images/items/${
                               product.icon
