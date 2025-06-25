@@ -286,11 +286,6 @@
   dependencies:
     preact "~10.12.1"
 
-"@fullcalendar/daygrid@6.1.15":
-  version "6.1.15"
-  resolved "https://registry.yarnpkg.com/@fullcalendar/daygrid/-/daygrid-6.1.15.tgz#91208b0955ba805ddad285a53ee6f53855146963"
-  integrity sha512-j8tL0HhfiVsdtOCLfzK2J0RtSkiad3BYYemwQKq512cx6btz6ZZ2RNc/hVnIxluuWFyvx5sXZwoeTJsFSFTEFA==
-
 "@fullcalendar/daygrid@^6.1.17", "@fullcalendar/daygrid@~6.1.15":
   version "6.1.17"
   resolved "https://registry.yarnpkg.com/@fullcalendar/daygrid/-/daygrid-6.1.17.tgz#3ff9d8d99da872631b661bf9ca5a47ed849421cf"
@@ -4049,7 +4044,8 @@ scheduler@^0.26.0:
   version "0.1.0"
   dependencies:
     "@emotion/styled" "11.14.0"
-    "@fullcalendar/daygrid" "6.1.15"
+    "@fullcalendar/core" "^6.1.17"
+    "@fullcalendar/daygrid" "^6.1.17"
     "@fullcalendar/interaction" "6.1.15"
     "@fullcalendar/react" "6.1.15"
     "@fullcalendar/timegrid" "6.1.15"
@@ -4067,6 +4063,7 @@ scheduler@^0.26.0:
     apexcharts "^4.5.0"
     axios "1.8.4"
     bootstrap "^5.3.3"
+    chart.js "^4.4.9"
     d3-geo "^3.1.1"
     dragula "^3.7.3"
     echarts "5.6.0"
@@ -4075,6 +4072,7 @@ scheduler@^0.26.0:
     filepond-plugin-image-exif-orientation "^1.0.11"
     filepond-plugin-image-preview "^4.6.12"
     formik "2.4.6"
+    gridjs "^6.2.0"
     gridjs-react "^6.1.1"
     leaflet "^1.9.4"
     moment "^2.30.1"
@@ -4110,7 +4108,7 @@ scheduler@^0.26.0:
     redux-thunk "^3.1.0"
     rodal "^2.1.0"
     sass "1.86.0"
-    scifi "file:../../../Library/Caches/Yarn/v6/npm-scifi-0.1.0-d24c2d91-fc7c-4cc5-9ad7-824db8a3531e-1746527904995/node_modules/scifi"
+    scifi "file:../../../Library/Caches/Yarn/v6/npm-scifi-0.1.0-e94d5670-9171-4b5e-8bb3-18f5ff441241-1750847388757/node_modules/scifi"
     simplebar-react "3.3.0"
     suneditor "2.47.5"
     suneditor-react "^3.6.1"
