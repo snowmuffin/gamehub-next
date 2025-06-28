@@ -14,8 +14,8 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-# 프로젝트 디렉토리로 이동
-PROJECT_DIR="/Users/iminjae/Documents/Github/gamehub-next"
+# 현재 디렉토리를 프로젝트 디렉토리로 사용
+PROJECT_DIR=$(pwd)
 cd "$PROJECT_DIR"
 
 echo -e "${BLUE}📂 프로젝트 디렉토리: $PROJECT_DIR${NC}"
@@ -23,6 +23,11 @@ echo -e "${BLUE}📂 프로젝트 디렉토리: $PROJECT_DIR${NC}"
 # Git pull (선택사항 - 주석 해제하여 사용)
 # echo -e "${YELLOW}📥 최신 코드 가져오기...${NC}"
 # git pull origin main
+
+# Node.js 및 npm 버전 확인
+echo -e "${BLUE}🔍 환경 정보:${NC}"
+echo "Node.js 버전: $(node --version)"
+echo "npm 버전: $(npm --version)"
 
 # Node modules 설치/업데이트
 echo -e "${YELLOW}📦 의존성 설치/업데이트...${NC}"

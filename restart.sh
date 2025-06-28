@@ -12,9 +12,11 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-# 프로젝트 디렉토리로 이동
-PROJECT_DIR="/Users/iminjae/Documents/Github/gamehub-next"
+# 현재 디렉토리를 프로젝트 디렉토리로 사용
+PROJECT_DIR=$(pwd)
 cd "$PROJECT_DIR"
+
+echo "📂 프로젝트 디렉토리: $PROJECT_DIR"
 
 # 빌드
 echo -e "${YELLOW}🔨 프로젝트 빌드...${NC}"
