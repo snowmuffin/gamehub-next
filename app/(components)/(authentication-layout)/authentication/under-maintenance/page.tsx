@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 import { DayCounter } from "../../../../../shared/data/authentication/comingdata";
 import { Button, Col, Row } from "react-bootstrap";
 import Link from "next/link";
-import Seo from "@/shared/layout-components/seo/seo";
+import Seo from "@/shared/layout-components/seo";
 
 const UnderMaintenance = () => {
     return (
