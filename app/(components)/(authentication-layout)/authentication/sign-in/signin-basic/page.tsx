@@ -16,7 +16,16 @@ const SigninBasic = () => {
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
-      if (event.origin !== window.location.origin) return; // 보안 확인
+      // 허용된 origin 목록
+      const allowedOrigins = [
+        window.location.origin,                   // 현재 페이지 origin
+        'http://13.125.32.159:4000',             // 백엔드 IP
+        'https://api.snowmuffingame.com',        // 백엔드 도메인
+        'http://se.snowmuffingame.com',          // 프론트 도메인
+        'https://se.snowmuffingame.com',         // 프론트 도메인 (HTTPS)
+      ];
+      
+      if (!allowedOrigins.includes(event.origin)) return; // 보안 확인
       const { status, token, user, error } = event.data;
 
       if (status === 200 && token) {
