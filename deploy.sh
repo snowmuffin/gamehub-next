@@ -24,6 +24,23 @@ echo -e "${BLUE}📂 프로젝트 디렉토리: $PROJECT_DIR${NC}"
 # echo -e "${YELLOW}📥 최신 코드 가져오기...${NC}"
 # git pull origin main
 
+# 환경 변수 파일 확인 및 로드
+if [ -f ".env.production" ]; then
+    echo -e "${BLUE}📝 .env.production 파일을 로드합니다${NC}"
+    export $(grep -v '^#' .env.production | xargs)
+    echo "NEXT_PUBLIC_API_URL: $NEXT_PUBLIC_API_URL"
+    echo "NODE_ENV: $NODE_ENV"
+    echo "PORT: $PORT"
+elif [ -f ".env" ]; then
+    echo -e "${BLUE}📝 .env 파일을 로드합니다${NC}"
+    export $(grep -v '^#' .env | xargs)
+else
+    echo -e "${YELLOW}⚠️ 환경 변수 파일이 없습니다. 기본값을 사용합니다.${NC}"
+    export NODE_ENV=production
+    export PORT=3000
+    export NEXT_PUBLIC_API_URL=https://api.snowmuffingame.com
+fi
+
 # Node.js 및 yarn 버전 확인
 echo -e "${BLUE}🔍 환경 정보:${NC}"
 echo "Node.js 버전: $(node --version)"

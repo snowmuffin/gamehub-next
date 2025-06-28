@@ -21,7 +21,8 @@
     "yarn:install": "yarn install",
     "yarn:build": "yarn build",
     "yarn:start": "yarn start",
-    "yarn:clean": "./yarn-clean.sh"
+    "yarn:clean": "./yarn-clean.sh",
+    "env:set": "./set-env.sh"
   },
   "dependencies": {
     "@emotion/styled": "11.14.0",

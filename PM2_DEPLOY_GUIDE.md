@@ -15,9 +15,20 @@ cd /path/to/your/project
 
 ### 2. 환경 변수 설정
 ```bash
-# 환경 변수 파일 복사 및 수정
+# 환경 변수 자동 설정 (권장)
+./set-env.sh
+
+# 또는 수동 설정
 cp .env.example .env.production
 nano .env.production
+```
+
+### 3. 환경 변수 확인
+```bash
+# 설정된 환경 변수 확인
+echo $NEXT_PUBLIC_API_URL
+echo $NODE_ENV
+echo $PORT
 ```
 
 ## 🚀 배포 스크립트
