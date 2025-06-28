@@ -55,7 +55,13 @@ const SigninBasic = () => {
   }, [dispatch]);
 
   const handleSteamLogin = () => {
-    const steamAuthUrl = process.env.NEXT_PUBLIC_STEAM_AUTH_URL || "http://localhost:4000/auth/steam"; // Use environment variable with fallback
+    // 현재 origin을 백엔드에 전달하여 올바른 postMessage target을 설정할 수 있도록 함
+    const currentOrigin = window.location.origin;
+    const baseUrl = process.env.NEXT_PUBLIC_STEAM_AUTH_URL || "http://localhost:4000/auth/steam";
+    
+    // URL에 현재 origin을 파라미터로 추가
+    const steamAuthUrl = `${baseUrl}?origin=${encodeURIComponent(currentOrigin)}`;
+    
     const popup = window.open(
       steamAuthUrl,
       "Steam Login",
