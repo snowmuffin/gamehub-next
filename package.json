@@ -17,7 +17,11 @@
     "pm2:stop": "pm2 stop gamehub-next",
     "pm2:delete": "pm2 delete gamehub-next",
     "pm2:status": "pm2 status",
-    "pm2:logs": "pm2 logs gamehub-next"
+    "pm2:logs": "pm2 logs gamehub-next",
+    "yarn:install": "yarn install",
+    "yarn:build": "yarn build",
+    "yarn:start": "yarn start",
+    "yarn:clean": "./yarn-clean.sh"
   },
   "dependencies": {
     "@emotion/styled": "11.14.0",
