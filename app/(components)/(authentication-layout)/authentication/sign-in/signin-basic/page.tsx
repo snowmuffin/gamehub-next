@@ -1,5 +1,5 @@
 "use client";
-import Seo from "@/shared/layout-components/seo/seo";
+import Seo from "@/shared/layout-components/seo";
 import { useSelector, useDispatch } from "react-redux";
 import React, { Fragment, useEffect } from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
@@ -16,7 +16,24 @@ const SigninBasic = () => {
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
-      if (event.origin !== window.location.origin) return; // 보안 확인
+      // 허용된 origin 목록 (HTTP/HTTPS 모두 포함)
+      const allowedOrigins = [
+        window.location.origin,                   // 현재 페이지 origin
+        'http://13.125.32.159:4000',             // 백엔드 IP
+        'https://api.snowmuffingame.com',        // 백엔드 도메인
+        'http://se.snowmuffingame.com',          // 프론트 도메인 (HTTP)
+        'https://se.snowmuffingame.com',         // 프론트 도메인 (HTTPS)
+      ];
+      
+      // 추가적으로 도메인이 같으면 프로토콜 차이는 허용
+      const currentHost = window.location.hostname;
+      const eventUrl = new URL(event.origin);
+      const isAllowedDomain = eventUrl.hostname === currentHost || 
+                              eventUrl.hostname === 'se.snowmuffingame.com' ||
+                              eventUrl.hostname === 'api.snowmuffingame.com' ||
+                              eventUrl.hostname === '13.125.32.159';
+      
+      if (!allowedOrigins.includes(event.origin) && !isAllowedDomain) return; // 보안 확인
       const { status, token, user, error } = event.data;
 
       if (status === 200 && token) {
@@ -38,7 +55,13 @@ const SigninBasic = () => {
   }, [dispatch]);
 
   const handleSteamLogin = () => {
-    const steamAuthUrl = process.env.NEXT_PUBLIC_STEAM_AUTH_URL || "http://localhost:4000/auth/steam"; // Use environment variable with fallback
+    // 현재 origin을 백엔드에 전달하여 올바른 postMessage target을 설정할 수 있도록 함
+    const currentOrigin = window.location.origin;
+    const baseUrl = process.env.NEXT_PUBLIC_STEAM_AUTH_URL || "http://localhost:4000/auth/steam";
+    
+    // URL에 현재 origin을 파라미터로 추가
+    const steamAuthUrl = `${baseUrl}?origin=${encodeURIComponent(currentOrigin)}`;
+    
     const popup = window.open(
       steamAuthUrl,
       "Steam Login",
