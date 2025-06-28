@@ -22,8 +22,8 @@ export const steamLogin = createAsyncThunk(
   "auth/steamLogin",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get<SteamLoginResponse>("/api/auth/steam"); // Replace with your API endpoint
-      return response.data.token; // Assuming the API returns a JWT token
+      const response = await axios.get<SteamLoginResponse>("/api/auth/steam"); 
+      return response.data.token; 
     } catch (error: any) {
       return rejectWithValue(error.response?.data?.message || "Login failed");
     }
