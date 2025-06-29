@@ -14,3 +14,4 @@ const Seo = ({ title }:any) => {
 }
 
 export default Seo
+export { Seo }
