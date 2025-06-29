@@ -23,23 +23,17 @@ echo -e "${BLUE}🔍 환경 변수 확인:${NC}"
 echo "NODE_ENV: ${NODE_ENV:-'production'}"
 echo "PORT: ${PORT:-'3000'}"
 
-# Node.js 및 yarn 버전 확인
+# Node.js 및 npm 버전 확인
 echo -e "${BLUE}🔍 시스템 정보:${NC}"
 echo "운영체제: $(uname -a)"
 echo "Node.js 버전: $(node --version 2>/dev/null || echo '❌ Node.js가 설치되지 않음')"
-echo "yarn 버전: $(yarn --version 2>/dev/null || echo '❌ yarn이 설치되지 않음')"
+echo "npm 버전: $(npm --version 2>/dev/null || echo '❌ npm이 설치되지 않음')"
 echo "PM2 버전: $(pm2 --version 2>/dev/null || echo '❌ PM2가 설치되지 않음')"
-
-# yarn이 설치되어 있지 않다면 설치
-if ! command -v yarn &> /dev/null; then
-    echo -e "${YELLOW}📦 yarn 설치 중...${NC}"
-    npm install -g yarn
-fi
 
 # PM2가 설치되어 있지 않다면 설치
 if ! command -v pm2 &> /dev/null; then
     echo -e "${YELLOW}📦 PM2 설치 중...${NC}"
-    yarn global add pm2
+    npm install -g pm2
 fi
 
 # 로그 디렉토리 생성
@@ -55,11 +49,11 @@ fi
 
 # 의존성 설치
 echo -e "${YELLOW}📦 의존성 설치...${NC}"
-yarn install
+npm install
 
 # 빌드
 echo -e "${YELLOW}🔨 프로젝트 빌드...${NC}"
-yarn build
+npm run build
 
 # PM2 startup 설정 (부팅시 자동 시작)
 echo -e "${YELLOW}⚙️ PM2 startup 설정...${NC}"

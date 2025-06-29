@@ -1,6 +1,6 @@
-# PM2 GameHub Next.js 배포 가이드 (EC2 환경 - Yarn 사용)
+# PM2 GameHub Next.js 배포 가이드 (EC2 환경)
 
-이 프로젝트는 PM2와 Yarn을 사용하여 EC2에서 Next.js 애플리케이션을 배포합니다.
+이 프로젝트는 PM2를 사용하여 EC2에서 Next.js 애플리케이션을 배포합니다.
 
 ## 🚀 EC2 초기 설정
 
@@ -9,7 +9,7 @@
 # 프로젝트 디렉토리로 이동
 cd /path/to/your/project
 
-# EC2 환경 설정 스크립트 실행 (yarn 및 PM2 자동 설치)
+# EC2 환경 설정 스크립트 실행
 ./ec2-setup.sh
 ```
 
@@ -27,8 +27,8 @@ nano .env.production
 # 스크립트 실행 (프로젝트 디렉토리에서)
 ./deploy.sh
 
-# 또는 yarn 스크립트 사용
-yarn pm2:deploy
+# 또는 npm 스크립트 사용
+npm run pm2:deploy
 ```
 
 ### 2. 빠른 재시작
@@ -36,28 +36,28 @@ yarn pm2:deploy
 # 스크립트 실행
 ./restart.sh
 
-# 또는 yarn 스크립트 사용
-yarn pm2:restart
+# 또는 npm 스크립트 사용
+npm run pm2:restart
 ```
 
-## 📋 Yarn 및 PM2 명령어
+## 📋 PM2 명령어
 
-### Yarn 기본 명령어
+### 기본 명령어
 ```bash
-# 의존성 설치
-yarn install
+# PM2 시작
+npm run pm2:start
 
-# 빌드
-yarn build
+# PM2 중지
+npm run pm2:stop
 
-# 시작
-yarn start
+# PM2 삭제
+npm run pm2:delete
 
-# 또는 npm 스크립트로
-yarn pm2:start
-yarn pm2:stop
-yarn pm2:status
-yarn pm2:logs
+# PM2 상태 확인
+npm run pm2:status
+
+# PM2 로그 보기
+npm run pm2:logs
 ```
 
 ### 직접 PM2 명령어

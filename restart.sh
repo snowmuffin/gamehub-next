@@ -20,7 +20,7 @@ echo "📂 프로젝트 디렉토리: $PROJECT_DIR"
 
 # 빌드
 echo -e "${YELLOW}🔨 프로젝트 빌드...${NC}"
-yarn build
+npm run build
 
 # PM2 재시작
 echo -e "${YELLOW}🔄 PM2 애플리케이션 재시작...${NC}"
