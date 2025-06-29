@@ -18,7 +18,14 @@ const nextConfig = {
     ignoreBuildErrors: isProd,
   },
 
+  // 개발/프로덕션 환경에 관계없이 항상 rewrite 적용
   async rewrites() {
+    console.log('🔄 Next.js rewrites 설정 적용됨:', {
+      NODE_ENV: process.env.NODE_ENV,
+      isProd,
+      timestamp: new Date().toISOString()
+    });
+    
     return [
       {
         source: '/api/:path*',
