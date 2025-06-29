@@ -24,18 +24,18 @@ echo -e "${BLUE}📂 프로젝트 디렉토리: $PROJECT_DIR${NC}"
 # echo -e "${YELLOW}📥 최신 코드 가져오기...${NC}"
 # git pull origin main
 
-# Node.js 및 npm 버전 확인
+# Node.js 및 yarn 버전 확인
 echo -e "${BLUE}🔍 환경 정보:${NC}"
 echo "Node.js 버전: $(node --version)"
-echo "npm 버전: $(npm --version)"
+echo "yarn 버전: $(yarn --version)"
 
 # Node modules 설치/업데이트
 echo -e "${YELLOW}📦 의존성 설치/업데이트...${NC}"
-npm install
+yarn install
 
 # 빌드
 echo -e "${YELLOW}🔨 프로젝트 빌드...${NC}"
-npm run build
+yarn build
 
 # 로그 디렉토리 생성
 mkdir -p logs
