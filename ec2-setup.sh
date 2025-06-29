@@ -53,6 +53,18 @@ else
     echo -e "${YELLOW}⚠️ .env 파일이 없습니다. 기본값을 사용합니다.${NC}"
 fi
 
+# .env.production 파일 생성 (EC2용)
+echo -e "${YELLOW}📝 .env.production 파일 생성...${NC}"
+cat > .env.production << 'EOF'
+NODE_ENV=production
+PORT=3000
+NEXT_PUBLIC_API_URL=https://api.snowmuffingame.com
+NEXT_PUBLIC_STEAM_AUTH_URL=https://api.snowmuffingame.com/auth/steam
+EOF
+
+echo -e "${GREEN}✅ .env.production 파일이 생성되었습니다${NC}"
+cat .env.production
+
 # 의존성 설치
 echo -e "${YELLOW}📦 의존성 설치...${NC}"
 yarn install
