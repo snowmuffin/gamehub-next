@@ -1,18 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
-  
-  // API 요청에 대한 로깅 추가
-  if (pathname.startsWith('/api/')) {
-    console.log('🔄 Middleware - API 요청 감지:', {
-      method: request.method,
-      pathname,
-      url: request.url,
-      timestamp: new Date().toISOString()
-    });
-  }
-
   // CORS 설정
   const response = NextResponse.next();
 
@@ -22,8 +10,6 @@ export function middleware(request: NextRequest) {
     'https://api.snowmuffingame.com',      // 백엔드 도메인  
     'http://se.snowmuffingame.com',        // 프론트 도메인
     'https://se.snowmuffingame.com',       // 프론트 도메인 (HTTPS)
-    'http://localhost:3000',               // 로컬 개발
-    'https://localhost:3000',              // 로컬 개발 (HTTPS)
   ];
 
   const origin = request.headers.get('origin');
@@ -54,9 +40,12 @@ export function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     /*
-     * Match all request paths including API routes for CORS handling
-     * - /((?!_next/static|_next/image|favicon.ico).*)
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
      */
-    '/((?!_next/static|_next/image|favicon.ico).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico).*)',
   ],
 };
