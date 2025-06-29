@@ -2,7 +2,7 @@
   "compilerOptions": {
     "lib": [
       "dom",
-      "dom.iterable",
+      "dom.iterable", 
       "esnext"
     ],
     "allowJs": true,
@@ -16,18 +16,15 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": ".",
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@/shared/*": [
-        "./shared/*"
-      ]
+      "@/*": ["./*"],
+      "@/shared/*": ["./shared/*"]
     },
     "target": "ES2017"
   },
