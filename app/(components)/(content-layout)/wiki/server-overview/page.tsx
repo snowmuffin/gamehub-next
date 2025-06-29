@@ -2,7 +2,7 @@
 import React, { Fragment } from "react";
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import Seo from "@/shared/layout-components/seo";
+import Seo from "@/shared/layout-components/seo/seo";
 import ServerOverviewKo from "./ServerOverviewKo";
 import ServerOverviewEn from "./ServerOverviewEn";
 import Link from "next/link";

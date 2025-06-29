@@ -1,5 +1,5 @@
 "use client";
-import Seo from "@/shared/layout-components/seo";
+import Seo from "@/shared/layout-components/seo/seo";
 import React, { Fragment } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 

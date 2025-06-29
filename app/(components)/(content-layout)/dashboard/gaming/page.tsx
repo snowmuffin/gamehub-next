@@ -1,7 +1,7 @@
 "use client";
 import { Civilianpopulation, Civilianpopulationsupport, Completedissues, DangerZone, Energyblock, NewEvent, PendingEvents, Player1, Player2, Player3, Player4, Player5, SafeZone, Skillachieved, TimeSpent, UnsolvedEvents, Usersreport } from "@/shared/data/dashboard/gamingdata";
 const WorldMapCom = dynamic(() => import('@/shared/data/dashboard/mapdata'), { ssr: false });
-import Seo from "@/shared/layout-components/seo";
+import Seo from "@/shared/layout-components/seo/seo";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import React, { Fragment, useEffect, useState } from "react";

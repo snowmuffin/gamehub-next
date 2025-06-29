@@ -2,7 +2,7 @@
 import React, { Fragment } from "react";
 import { Col, Row } from "react-bootstrap";
 import Link from "next/link";
-import Seo from "@/shared/layout-components/seo";
+import Seo from "@/shared/layout-components/seo/seo";
 
 const ComingSoonKo = () => (
     <Fragment>
