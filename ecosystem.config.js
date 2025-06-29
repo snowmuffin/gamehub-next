@@ -1,7 +1,7 @@
 module.exports = {
   apps: [{
     name: 'gamehub-next',
-    script: 'npm',
+    script: 'yarn',
     args: 'start',
     cwd: process.cwd(), // 현재 실행 디렉토리 사용
     instances: 1,
