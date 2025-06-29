@@ -44,11 +44,6 @@ const nextConfig = {
       {
         source: '/api/:path*',
         destination: `${apiUrl}/:path*`,
-        // 모든 환경에서 rewrite 적용
-        has: undefined,
-        permanent: false,
-        // 내부 rewrite로 설정하여 브라우저에서 URL이 변경되지 않도록 함
-        basePath: false,
       },
     ];
   },
