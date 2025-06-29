@@ -10,7 +10,7 @@ import { ThemeChanger } from "@/shared/redux/action";
 import { Autoplay, Pagination } from 'swiper/modules';
 import store from '@/shared/redux/store';
 import { Featuredjobs, JobCategory } from '@/shared/data/pages/landingdata';
-import Seo from '@/shared/layout-components/seo/seo';
+import Seo from '@/shared/layout-components/seo';
 
 const Joblanding = ({ ThemeChanger }: any) => {
 

@@ -1,5 +1,5 @@
 "use client";
-import Seo from "@/shared/layout-components/seo/seo";
+import Seo from "@/shared/layout-components/seo";
 import { useSelector, useDispatch } from "react-redux";
 import React, { Fragment, useEffect } from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
