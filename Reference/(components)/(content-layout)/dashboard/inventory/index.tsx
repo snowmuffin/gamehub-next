@@ -91,7 +91,7 @@ const InventoryEntity = () => {
 
 export default InventoryEntity;
 
-/* 나중에 써먹어볼만한 메뉴
+/* Menu to use later
       component={"div"}
       onContextMenu={handleContextMenu}
   const [contextMenu, setContextMenu] = useState<{

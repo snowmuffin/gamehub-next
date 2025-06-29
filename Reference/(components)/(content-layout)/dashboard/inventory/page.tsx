@@ -6,13 +6,13 @@ import Seo from "@/shared/layout-components/seo/seo";
 import { apiRequest } from "@/shared/api/request"; // Import API request utility
 
 const Inventory = () => {
-  const [products, setProducts] = useState<any[]>([]); // API 데이터를 저장할 상태
-  const [loading, setLoading] = useState<boolean>(true); // 로딩 상태 관리
+  const [products, setProducts] = useState<any[]>([]); // State to store API data
+  const [loading, setLoading] = useState<boolean>(true); // Loading state management
 
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      const response = await apiRequest.get("/space-engineers/item"); // NestJS 엔드포인트 호출
+      const response = await apiRequest.get("/space-engineers/item"); // Call NestJS endpoint
       setProducts(response.data as any[]);
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -47,7 +47,7 @@ const Inventory = () => {
           <Col xxl={9} xl={8} lg={8} md={12}>
             <Row>
               {loading ? (
-                <p>Loading...</p> // 로딩 중일 때 표시
+                <p>Loading...</p> // Display during loading
               ) : products.length > 0 ? (
                 products.map((product) => (
                   <Col
@@ -104,7 +104,7 @@ const Inventory = () => {
                   </Col>
                 ))
               ) : (
-                <p>No products available.</p> // 데이터가 없을 때 표시
+                <p>No products available.</p> // Display when no data available
               )}
             </Row>
           </Col>

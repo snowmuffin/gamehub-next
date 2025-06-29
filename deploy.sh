@@ -1,85 +1,85 @@
 #!/bin/bash
 
-# PM2 재배포 스크립트
-# 이 스크립트는 Next.js 애플리케이션을 PM2로 재배포합니다.
+# PM2 redeployment script
+# This script redeploys the Next.js application using PM2.
 
-set -e  # 에러 발생시 스크립트 중단
+set -e  # Stop script on error
 
-echo "🚀 GameHub Next.js PM2 재배포 시작..."
+echo "🚀 Starting GameHub Next.js PM2 redeployment..."
 
-# 색상 정의
+# Color definitions
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-# 현재 디렉토리를 프로젝트 디렉토리로 사용
+# Use current directory as project directory
 PROJECT_DIR=$(pwd)
 cd "$PROJECT_DIR"
 
-echo -e "${BLUE}📂 프로젝트 디렉토리: $PROJECT_DIR${NC}"
+echo -e "${BLUE}📂 Project directory: $PROJECT_DIR${NC}"
 
-# Git pull (선택사항 - 주석 해제하여 사용)
-# echo -e "${YELLOW}📥 최신 코드 가져오기...${NC}"
+# Git pull (optional - uncomment to use)
+# echo -e "${YELLOW}📥 Fetching latest code...${NC}"
 # git pull origin main
 
-# 환경 변수 파일 확인 및 로드
+# Check and load environment variables file
 if [ -f ".env.production" ]; then
-    echo -e "${BLUE}📝 .env.production 파일을 로드합니다${NC}"
+    echo -e "${BLUE}📝 Loading .env.production file${NC}"
     export $(grep -v '^#' .env.production | xargs)
     echo "NEXT_PUBLIC_API_URL: $NEXT_PUBLIC_API_URL"
     echo "NODE_ENV: $NODE_ENV"
     echo "PORT: $PORT"
 elif [ -f ".env" ]; then
-    echo -e "${BLUE}📝 .env 파일을 로드합니다${NC}"
+    echo -e "${BLUE}📝 Loading .env file${NC}"
     export $(grep -v '^#' .env | xargs)
 else
-    echo -e "${YELLOW}⚠️ 환경 변수 파일이 없습니다. 기본값을 사용합니다.${NC}"
+    echo -e "${YELLOW}⚠️ No environment variable file found. Using default values.${NC}"
     export NODE_ENV=production
     export PORT=3000
     export NEXT_PUBLIC_API_URL=https://api.snowmuffingame.com
 fi
 
-# Node.js 및 yarn 버전 확인
-echo -e "${BLUE}🔍 환경 정보:${NC}"
-echo "Node.js 버전: $(node --version)"
-echo "yarn 버전: $(yarn --version)"
+# Check Node.js and yarn versions
+echo -e "${BLUE}🔍 Environment information:${NC}"
+echo "Node.js version: $(node --version)"
+echo "yarn version: $(yarn --version)"
 
-# Node modules 설치/업데이트
-echo -e "${YELLOW}📦 의존성 설치/업데이트...${NC}"
+# Install/update node modules
+echo -e "${YELLOW}📦 Installing/updating dependencies...${NC}"
 yarn install
 
-# 빌드
-echo -e "${YELLOW}🔨 프로젝트 빌드...${NC}"
+# Build
+echo -e "${YELLOW}🔨 Building project...${NC}"
 yarn build
 
-# 로그 디렉토리 생성
+# Create log directory
 mkdir -p logs
 
-# PM2로 애플리케이션 중지 (존재하는 경우)
-echo -e "${YELLOW}⏹️ 기존 PM2 애플리케이션 중지...${NC}"
-pm2 stop gamehub-next 2>/dev/null || echo "기존 앱이 실행 중이지 않습니다."
+# Stop PM2 application (if exists)
+echo -e "${YELLOW}⏹️ Stopping existing PM2 application...${NC}"
+pm2 stop gamehub-next 2>/dev/null || echo "No existing app is running."
 
-# PM2로 애플리케이션 삭제 (존재하는 경우)
-echo -e "${YELLOW}🗑️ 기존 PM2 애플리케이션 삭제...${NC}"
-pm2 delete gamehub-next 2>/dev/null || echo "삭제할 앱이 없습니다."
+# Delete PM2 application (if exists)
+echo -e "${YELLOW}🗑️ Deleting existing PM2 application...${NC}"
+pm2 delete gamehub-next 2>/dev/null || echo "No app to delete."
 
-# PM2로 새 애플리케이션 시작
-echo -e "${YELLOW}🚀 PM2로 새 애플리케이션 시작...${NC}"
+# Start new application with PM2
+echo -e "${YELLOW}🚀 Starting new application with PM2...${NC}"
 pm2 start ecosystem.config.js --env production
 
-# PM2 프로세스 저장
-echo -e "${YELLOW}💾 PM2 프로세스 목록 저장...${NC}"
+# Save PM2 process list
+echo -e "${YELLOW}💾 Saving PM2 process list...${NC}"
 pm2 save
 
-# PM2 상태 확인
-echo -e "${GREEN}✅ PM2 프로세스 상태:${NC}"
+# Check PM2 status
+echo -e "${GREEN}✅ PM2 process status:${NC}"
 pm2 status
 
-# 로그 확인 (선택사항)
-echo -e "${BLUE}📋 실시간 로그를 보려면 다음 명령어를 사용하세요:${NC}"
+# Log check (optional)
+echo -e "${BLUE}📋 To view real-time logs, use the following command:${NC}"
 echo -e "${BLUE}pm2 logs gamehub-next${NC}"
 
-echo -e "${GREEN}🎉 재배포 완료!${NC}"
-echo -e "${GREEN}애플리케이션이 http://localhost:3000 에서 실행 중입니다.${NC}"
+echo -e "${GREEN}🎉 Redeployment complete!${NC}"
+echo -e "${GREEN}Application is running at http://localhost:3000${NC}"
