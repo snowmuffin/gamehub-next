@@ -16,14 +16,14 @@ const SigninBasic = () => {
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
-      if (event.origin !== window.location.origin) return; // 보안 확인
+      if (event.origin !== window.location.origin) return; // Security check
       const { status, token, user, error } = event.data;
 
       if (status === 200 && token) {
-        // Redux 상태 업데이트
+        // Update Redux state
         dispatch({ type: "auth/steamLogin/fulfilled", payload: token });
 
-        // 인증 완료 후 리디렉션
+        // Redirect after authentication complete
         window.location.href = "/dashboard/gaming";
       } else if (status === 401) {
         setClientError(error || "Steam authentication failed.");

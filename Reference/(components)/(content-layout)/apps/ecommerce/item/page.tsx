@@ -3,32 +3,32 @@ import Link from "next/link";
 import React, { Fragment, useEffect, useState } from "react";
 import { Button, Card, Col, Pagination, Row } from "react-bootstrap";
 import Seo from "@/shared/layout-components/seo/seo";
-//import { fetchResources } from "@/shared/api/apiRequest"; // API 요청 모듈 가져오기
+//import { fetchResources } from "@/shared/api/apiRequest"; // Import API request module
 
 const Marketplace = () => {
-  const [marketItems, setMarketItems] = useState<any[]>([]); // 마켓 데이터를 저장할 상태
-  const [loading, setLoading] = useState<boolean>(true); // 로딩 상태 관리
-  const [page, setPage] = useState<number>(1); // 현재 페이지 상태
-  const limit = 10; // 한 페이지에 표시할 항목 수
+  const [marketItems, setMarketItems] = useState<any[]>([]); // State to store market data
+  const [loading, setLoading] = useState<boolean>(true); // Loading state management
+  const [page, setPage] = useState<number>(1); // Current page state
+  const limit = 10; // Number of items to display per page
 
-  // API 호출로 마켓 데이터 가져오기
+  // Fetch market data with API call
   const fetchMarketItems = async () => {
     try {
-      setLoading(true); // 로딩 상태 시작
+      setLoading(true); // Start loading state
       //const data = await fetchResources("/trade/getMarketplaceItems", {
       //  page,
       //  limit,
-      //}); // API 호출
-      //setMarketItems(data.tableData); // 가져온 데이터를 상태에 저장
+      //}); // API call
+      //setMarketItems(data.tableData); // Store fetched data in state
     } catch (error) {
       console.error("[Marketplace] Error fetching market items:", error);
     } finally {
-      setLoading(false); // 로딩 상태 종료
+      setLoading(false); // End loading state
     }
   };
 
   useEffect(() => {
-    fetchMarketItems(); // 페이지가 변경될 때마다 데이터 가져오기
+    fetchMarketItems(); // Fetch data whenever page changes
   }, [page]);
 
   return (
@@ -39,7 +39,7 @@ const Marketplace = () => {
           <Col xxl={9} xl={8} lg={8} md={12}>
             <Row>
               {loading ? (
-                <p>Loading...</p> // 로딩 중일 때 표시
+                <p>Loading...</p> // Display during loading
               ) : marketItems.length > 0 ? (
                 marketItems.map((item) => (
                   <Col
@@ -84,7 +84,7 @@ const Marketplace = () => {
                   </Col>
                 ))
               ) : (
-                <p>No items available in the marketplace.</p> // 데이터가 없을 때 표시
+                <p>No items available in the marketplace.</p> // Display when no data available
               )}
             </Row>
           </Col>
