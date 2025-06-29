@@ -9,20 +9,7 @@
     "lint": "next lint",
     "postcss": "sass ./public/assets/scss/style.scss ./public/assets/css/style.css && postcss ./public/assets/css/style.css -o ./public/assets/css/style.css",
     "sass": "sass ./public/assets/scss/:./public/assets/css/",
-    "sass-min": "sass ./public/assets/scss/:./public/assets/css/ --style compressed",
-    "pm2:deploy": "./deploy.sh",
-    "pm2:restart": "./restart.sh",
-    "pm2:setup": "./ec2-setup.sh",
-    "pm2:start": "pm2 start ecosystem.config.js --env production",
-    "pm2:stop": "pm2 stop gamehub-next",
-    "pm2:delete": "pm2 delete gamehub-next",
-    "pm2:status": "pm2 status",
-    "pm2:logs": "pm2 logs gamehub-next",
-    "yarn:install": "yarn install",
-    "yarn:build": "yarn build",
-    "yarn:start": "yarn start",
-    "yarn:clean": "./yarn-clean.sh",
-    "env:set": "./set-env.sh"
+    "sass-min": "sass ./public/assets/scss/:./public/assets/css/ --style compressed"
   },
   "dependencies": {
     "@emotion/styled": "11.14.0",
@@ -104,7 +91,7 @@
   },
   "devDependencies": {
     "@types/axios": "^0.9.36",
-    "@types/node": "24.0.7",
+    "@types/node": "20.17.27",
     "@types/react": "18.3.20",
     "@types/react-dom": "18.3.5",
     "@types/validator": "13.12.2",
@@ -112,6 +99,6 @@
     "@typescript-eslint/parser": "5.62.0",
     "eslint": "8.57.1",
     "eslint-config-next": "14.2.1",
-    "typescript": "5.8.3"
+    "typescript": "^5.8.2"
   }
 }

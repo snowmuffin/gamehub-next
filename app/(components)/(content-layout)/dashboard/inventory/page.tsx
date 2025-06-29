@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React, { Fragment, useEffect, useState } from "react";
 import { Card, Col, Row, Button } from "react-bootstrap";
-import Seo from "@/shared/layout-components/seo";
+import Seo from "@/shared/layout-components/seo/seo";
 import { apiRequest } from "@/shared/api/request"; // Import API request utility
 
 const Inventory = () => {

@@ -11,7 +11,7 @@ import { Accordion, Button, Card, Col, Form, Row } from 'react-bootstrap';
 import Link from 'next/link';
 import { Amazingteam, Ourbest } from '@/shared/data/pages/landingdata';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import Seo from '@/shared/layout-components/seo';
+import Seo from '@/shared/layout-components/seo/seo';
 
 const Landing = ({ local_variable, ThemeChanger }: any) => {
 
