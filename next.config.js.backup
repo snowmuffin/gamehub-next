@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-const path = require('path');
 const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
@@ -19,20 +18,11 @@ const nextConfig = {
     ignoreBuildErrors: isProd,
   },
 
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@': path.resolve(__dirname),
-      '@/shared': path.resolve(__dirname, 'shared'),
-    };
-    return config;
-  },
-
   async rewrites() {
     return [
       {
         source: '/api/:path*',
-        destination: 'https://api.snowmuffingame.com/:path*',
+        destination: 'http://13.125.32.159:4000/:path*',
       },
     ];
   },
