@@ -20,10 +20,23 @@ echo -e "${BLUE}📂 프로젝트 디렉토리: $PROJECT_DIR${NC}"
 # .env.production 파일 생성
 echo -e "${YELLOW}📝 .env.production 파일 생성...${NC}"
 cat > .env.production << 'EOF'
+# Production Environment Configuration
 NODE_ENV=production
 PORT=3000
-NEXT_PUBLIC_API_URL=https://api.snowmuffingame.com
-NEXT_PUBLIC_STEAM_AUTH_URL=https://api.snowmuffingame.com/auth/steam
+
+# Frontend Configuration
+NEXT_PUBLIC_FRONTEND_URL=https://yourdomain.com
+NEXT_PUBLIC_FRONTEND_DOMAIN=yourdomain.com
+
+# API Configuration  
+NEXT_PUBLIC_API_URL=https://api.yourdomain.com
+NEXT_PUBLIC_API_DOMAIN=api.yourdomain.com
+
+# Authentication
+NEXT_PUBLIC_STEAM_AUTH_URL=https://api.yourdomain.com/auth/steam
+
+# CORS Configuration
+NEXT_PUBLIC_ALLOWED_ORIGINS=http://yourdomain.com,https://yourdomain.com
 EOF
 
 echo -e "${GREEN}✅ .env.production 파일이 생성되었습니다:${NC}"
@@ -37,8 +50,12 @@ export $(grep -v '^#' .env.production | xargs)
 echo -e "${BLUE}🔍 설정된 환경 변수:${NC}"
 echo "NODE_ENV: $NODE_ENV"
 echo "PORT: $PORT"
+echo "NEXT_PUBLIC_FRONTEND_URL: $NEXT_PUBLIC_FRONTEND_URL"
+echo "NEXT_PUBLIC_FRONTEND_DOMAIN: $NEXT_PUBLIC_FRONTEND_DOMAIN"
 echo "NEXT_PUBLIC_API_URL: $NEXT_PUBLIC_API_URL"
+echo "NEXT_PUBLIC_API_DOMAIN: $NEXT_PUBLIC_API_DOMAIN"
 echo "NEXT_PUBLIC_STEAM_AUTH_URL: $NEXT_PUBLIC_STEAM_AUTH_URL"
+echo "NEXT_PUBLIC_ALLOWED_ORIGINS: $NEXT_PUBLIC_ALLOWED_ORIGINS"
 
 # PM2에 환경 변수 전달하여 재시작
 if pm2 list | grep -q "gamehub-next"; then
@@ -47,8 +64,11 @@ if pm2 list | grep -q "gamehub-next"; then
     # 환경 변수와 함께 PM2 재시작
     NODE_ENV=production \
     PORT=3000 \
-    NEXT_PUBLIC_API_URL=https://api.snowmuffingame.com \
-    NEXT_PUBLIC_STEAM_AUTH_URL=https://api.snowmuffingame.com/auth/steam \
+    NEXT_PUBLIC_FRONTEND_URL=https://yourdomain.com \
+    NEXT_PUBLIC_FRONTEND_DOMAIN=yourdomain.com \
+    NEXT_PUBLIC_API_URL=https://api.yourdomain.com \
+    NEXT_PUBLIC_API_DOMAIN=api.yourdomain.com \
+    NEXT_PUBLIC_STEAM_AUTH_URL=https://api.yourdomain.com/auth/steam \
     pm2 restart gamehub-next --update-env
     
     echo -e "${GREEN}✅ PM2 애플리케이션이 새로운 환경 변수로 재시작되었습니다${NC}"

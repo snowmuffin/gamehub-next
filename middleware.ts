@@ -16,15 +16,31 @@ export function middleware(request: NextRequest) {
   // CORS 설정
   const response = NextResponse.next();
 
-  // 허용할 origin들
-  const allowedOrigins = [
+  // 허용할 origin들 (환경변수 기반)
+  const baseOrigins = [
     "http://13.125.32.159:4000", // 백엔드 IP
-    "https://api.snowmuffingame.com", // 백엔드 도메인
-    "http://se.snowmuffingame.com", // 프론트 도메인
-    "https://se.snowmuffingame.com", // 프론트 도메인 (HTTPS)
+    process.env.NEXT_PUBLIC_API_URL || "https://api.yourdomain.com", // 백엔드 도메인
+    `http://${process.env.NEXT_PUBLIC_FRONTEND_DOMAIN || "se.yourdomain.com"}`, // 프론트 도메인 (HTTP)
+    process.env.NEXT_PUBLIC_FRONTEND_URL || "https://se.yourdomain.com", // 프론트 도메인 (HTTPS)
     "http://localhost:3000", // 로컬 개발
     "https://localhost:3000" // 로컬 개발 (HTTPS)
   ];
+
+  // 추가 허용 도메인들 (환경변수에서 읽기)
+  const additionalOrigins = process.env.NEXT_PUBLIC_ALLOWED_ORIGINS 
+    ? process.env.NEXT_PUBLIC_ALLOWED_ORIGINS.split(',').map(origin => origin.trim())
+    : [];
+
+  const allowedOrigins = [...baseOrigins, ...additionalOrigins];
+
+  // 개발 환경에서 CORS 설정 로깅
+  if (process.env.NODE_ENV === 'development' && pathname.startsWith("/api/")) {
+    console.log("🔧 CORS 설정:", {
+      allowedOrigins,
+      requestOrigin: request.headers.get("origin"),
+      timestamp: new Date().toISOString()
+    });
+  }
 
   const origin = request.headers.get("origin");
 
