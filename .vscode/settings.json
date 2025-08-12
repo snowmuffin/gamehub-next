@@ -1,0 +1,31 @@
+{
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/._*": true,
+    "**/.AppleDouble": true,
+    "**/.LSOverride": true,
+    "**/.DocumentRevisions-V100": true,
+    "**/.fseventsd": true,
+    "**/.Spotlight-V100": true,
+    "**/.TemporaryItems": true,
+    "**/.Trashes": true,
+    "**/.VolumeIcon.icns": true,
+    "**/.com.apple.timemachine.donotpresent": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.next": true,
+    "**/out": true,
+    "**/Reference": true,
+    "**/.DS_Store": true,
+    "**/._*": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/.next/**": true,
+    "**/._*": true,
+    "**/.DS_Store": true
+  }
+}

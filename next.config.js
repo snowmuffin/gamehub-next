@@ -25,6 +25,14 @@ const nextConfig = {
       '@': path.resolve(__dirname),
       '@/shared': path.resolve(__dirname, 'shared'),
     };
+    
+    // macOS 숨김 파일들 무시
+    config.plugins.push(
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^\._/,
+      })
+    );
+    
     return config;
   },
 

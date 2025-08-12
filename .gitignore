@@ -20,6 +20,19 @@
 .DS_Store
 *.pem
 
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
 # debug
 npm-debug.log*
 yarn-debug.log*
@@ -35,4 +48,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .env
+
+# package managers (keep package-lock.json for npm)
 yarn.lock

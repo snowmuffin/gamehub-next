@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+.next/
+out/
+build/
+
+# Reference folder
+Reference/
+
+# macOS
+.DS_Store
+._*
+
+# Logs
+*.log
+
+# Environment variables
+.env*
+
+# Build outputs
+dist/
+*.tsbuildinfo

@@ -1,6 +1,7 @@
 "use client";
 import * as switcherdata from "@/shared/data/switcherdata/switcherdata";
 import React, { useEffect } from "react";
+import Script from "next/script";
 import { connect } from "react-redux";
 import { ThemeChanger } from "@/shared/redux/action";
 import { useRouter, usePathname } from "next/navigation";
@@ -25,7 +26,7 @@ function Layout({ children, local_variable, ThemeChanger }: any) {
 
   useEffect(() => {
     switcherdata.LocalStorageBackup(ThemeChanger);
-  }, []);
+  }, [ThemeChanger]);
 
 
 
@@ -62,7 +63,10 @@ function Layout({ children, local_variable, ThemeChanger }: any) {
         </head>
         <body className={`${local_variable.body ? local_variable.body : ""}`}>
           {children}
-          <script src="https://cdn.jsdelivr.net/npm/dragula@3.7.3/dist/dragula.min.js"></script>
+          <Script 
+            src="https://cdn.jsdelivr.net/npm/dragula@3.7.3/dist/dragula.min.js"
+            strategy="afterInteractive"
+          />
         </body>
       </html>
     </>

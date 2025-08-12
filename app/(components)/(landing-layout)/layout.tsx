@@ -9,7 +9,7 @@ const Landinglayout = ({ children }: any) => {
 
   useEffect(() => {
     setlateLoad(true);
-  });
+  }, []);
 
   return (
 
