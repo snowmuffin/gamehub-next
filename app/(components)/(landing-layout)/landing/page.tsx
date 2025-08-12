@@ -4,6 +4,7 @@ import store from "@/shared/redux/store";
 import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Image from "next/image";
 
 // import required modules
 import { Autoplay, Pagination } from "swiper/modules";
@@ -166,7 +167,7 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
             <div className="header-element">
               <div className="horizontal-logo">
                 <Link href="/dashboard/gaming" className="header-logo">
-                  <img src="../assets/images/brand-logos/toggle-dark.png" alt="logo" className="toggle-dark" />
+                  <Image src="/assets/images/brand-logos/toggle-dark.png" alt="logo" className="toggle-dark" width={120} height={40} />
                 </Link>
               </div>
             </div>
@@ -211,8 +212,8 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
               <div className="landing-logo-container">
                 <div className="horizontal-logo">
                   <Link href="/dashboard/gaming" className="header-logo">
-                    <img src="../assets/images/brand-logos/desktop-logo.png" alt="logo" className="desktop-logo" />
-                    <img src="../assets/images/brand-logos/desktop-dark.png" alt="logo" className="desktop-dark" />
+                    <Image src="/assets/images/brand-logos/desktop-logo.png" alt="logo" className="desktop-logo" width={150} height={50} />
+                    <Image src="/assets/images/brand-logos/desktop-dark.png" alt="logo" className="desktop-dark" width={150} height={50} />
                   </Link>
                 </div>
               </div>
@@ -1615,7 +1616,7 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                 <div className="px-4">
                   <p className="fw-medium mb-3">
                     <Link href="/dashboard/gaming">
-                      <img src="../assets/images/brand-logos/desktop-dark.png" alt="" className="landing-footer-logo" />
+                      <Image src="/assets/images/brand-logos/desktop-dark.png" alt="" className="landing-footer-logo" width={150} height={50} />
                     </Link>
                   </p>
                   <p className="mb-2 op-6 fw-normal fs-14">

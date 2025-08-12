@@ -1,5 +1,5 @@
 import { ChangeEvent } from "react";
-import { useTranslation } from "@/shared/hooks";
+import { useTranslation, useAppDispatch, useAppSelector } from "@/shared/hooks";
 
 import {
   Avatar,
@@ -21,7 +21,6 @@ const ArrowForwardOutlinedIcon = () => <span>→</span>;
 const AddOutlinedIcon = () => <span>+</span>;
 const RemoveOutlinedIcon = () => <span>-</span>;
 
-import { useAppDispatch, useAppSelector } from "@/shared/hooks";
 import { inventoryActions, selectInventory } from "@/shared/redux/inventory";
 import { CopyLabel } from "@/shared/components/CopyLabel";
 import CustomStack from "@/shared/components/CustomStack";
