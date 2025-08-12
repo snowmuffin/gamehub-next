@@ -2,6 +2,7 @@
 import React, { Fragment } from "react";
 import { Col, Row } from "react-bootstrap";
 import Link from "next/link";
+import Image from "next/image";
 import Seo from "@/shared/layout-components/seo";
 
 const ComingSoonKo = () => (
@@ -19,10 +20,12 @@ const ComingSoonKo = () => (
                 <p className="mb-4 fs-14">업데이트 예정입니다!</p>
                 <div className="mt-5">
                   <Link href="/dashboard/gaming">
-                    <img
-                      src="../../assets/images/brand-logos/desktop-dark.png"
+                    <Image
+                      src="/assets/images/brand-logos/desktop-dark.png"
                       alt=""
                       className="authentication-brand"
+                      width={200}
+                      height={50}
                     />
                   </Link>
                 </div>

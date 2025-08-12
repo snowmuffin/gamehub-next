@@ -2,6 +2,7 @@
 import React, { Fragment, useEffect } from "react";
 import { Accordion, Button, Card, Col, Dropdown, Row } from "react-bootstrap";
 import Link from "next/link";
+import Image from "next/image";
 import { connect } from "react-redux";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { ThemeChanger } from "@/shared/redux/action";
@@ -29,7 +30,7 @@ const Joblanding = ({ ThemeChanger }: any) => {
         dataNavLayout: `${localStorage.ynexlayout === "horizontal" ? "horizontal" : "vertical"}`
       });
     };
-  }, []);
+  }, [ThemeChanger]);
 
   useEffect(() => {
     function handleResize() {
@@ -165,7 +166,7 @@ const Joblanding = ({ ThemeChanger }: any) => {
             <div className="header-element">
               <div className="horizontal-logo">
                 <Link href="/dashboard/gaming" className="header-logo">
-                  <img src="../assets/images/brand-logos/toggle-dark.png" alt="logo" className="toggle-dark" />
+                  <Image src="/assets/images/brand-logos/toggle-dark.png" alt="logo" className="toggle-dark" width={120} height={40} />
                 </Link>
               </div>
             </div>
@@ -209,8 +210,8 @@ const Joblanding = ({ ThemeChanger }: any) => {
               <div className="landing-logo-container">
                 <div className="horizontal-logo">
                   <Link href="/dashboard/gaming" className="header-logo">
-                    <img src="../assets/images/brand-logos/desktop-logo.png" alt="logo" className="desktop-logo" />
-                    <img src="../assets/images/brand-logos/desktop-dark.png" alt="logo" className="desktop-dark" />
+                    <Image src="/assets/images/brand-logos/desktop-logo.png" alt="logo" className="desktop-logo" width={150} height={50} />
+                    <Image src="/assets/images/brand-logos/desktop-dark.png" alt="logo" className="desktop-dark" width={150} height={50} />
                   </Link>
                 </div>
               </div>
@@ -538,7 +539,7 @@ const Joblanding = ({ ThemeChanger }: any) => {
                       </div>
                       <div className="d-sm-flex pt-2 align-items-center">
                         <span className="avatar avatar-sm bg-primary-transparent avatar-rounded">
-                          <img src={idx.src1} alt="" />
+                          <Image src={idx.src1} alt="" width={32} height={32} />
                         </span>
                         <div className="ms-2">
                           <p className="fw-medium mb-0 d-flex align-items-center fs-14 op-8">
@@ -689,7 +690,7 @@ const Joblanding = ({ ThemeChanger }: any) => {
                   <div className="bottom-left"></div>
                   <div className="bottom-right"></div>
                   <Link href="#!" scroll={false}>
-                    <img src="../assets/images/media/jobs-landing/blog/1.jpg" className="card-img-top" alt="..." />
+                    <Image src="/assets/images/media/jobs-landing/blog/1.jpg" className="card-img-top" alt="..." width={300} height={200} />
                   </Link>
                   <Card.Body className="">
                     <span className="badge bg-secondary mb-2">Career</span>
@@ -722,7 +723,7 @@ const Joblanding = ({ ThemeChanger }: any) => {
                   <div className="bottom-left"></div>
                   <div className="bottom-right"></div>
                   <Link href="#!" scroll={false}>
-                    <img src="../assets/images/media/jobs-landing/blog/2.jpg" className="card-img-top" alt="..." />
+                    <Image src="/assets/images/media/jobs-landing/blog/2.jpg" className="card-img-top" alt="..." width={300} height={200} />
                   </Link>
                   <Card.Body className="">
                     <span className="badge bg-danger mb-2">Employment</span>
@@ -756,7 +757,7 @@ const Joblanding = ({ ThemeChanger }: any) => {
                   <div className="bottom-left"></div>
                   <div className="bottom-right"></div>
                   <Link href="#!" scroll={false}>
-                    <img src="../assets/images/media/jobs-landing/blog/3.jpg" className="card-img-top" alt="..." />
+                    <Image src="/assets/images/media/jobs-landing/blog/3.jpg" className="card-img-top" alt="..." width={300} height={200} />
                   </Link>
                   <Card.Body className="">
                     <span className="badge bg-warning mb-2">Skill Development</span>
@@ -935,7 +936,7 @@ const Joblanding = ({ ThemeChanger }: any) => {
                         <i className="ri-double-quotes-r"></i>
                       </span>
                       <span className="avatar avatar-lg avatar-rounded mb-2">
-                        <img src="../assets/images/faces/11.jpg" alt="" />
+                        <Image src="/assets/images/faces/11.jpg" alt="" width={64} height={64} />
                       </span>
                       <div>
                         <p className="mb-0 fw-medium fs-16 text-primary">James Lucas</p>
@@ -967,7 +968,7 @@ const Joblanding = ({ ThemeChanger }: any) => {
                         <i className="ri-double-quotes-r"></i>
                       </span>
                       <span className="avatar avatar-lg avatar-rounded mb-2">
-                        <img src="../assets/images/faces/1.jpg" alt="" />
+                        <Image src="/assets/images/faces/1.jpg" alt="" width={64} height={64} />
                       </span>
                       <div>
                         <p className="mb-0 fw-medium fs-16 text-primary">Aldous Cason</p>
@@ -999,7 +1000,7 @@ const Joblanding = ({ ThemeChanger }: any) => {
                         <i className="ri-double-quotes-r"></i>
                       </span>
                       <span className="avatar avatar-lg avatar-rounded mb-2">
-                        <img src="../assets/images/faces/14.jpg" alt="" />
+                        <Image src="/assets/images/faces/14.jpg" alt="" width={64} height={64} />
                       </span>
                       <div>
                         <p className="mb-0 fw-medium fs-16 text-primary">Kiara Advain</p>
@@ -1031,7 +1032,7 @@ const Joblanding = ({ ThemeChanger }: any) => {
                         <i className="ri-double-quotes-r"></i>
                       </span>
                       <span className="avatar avatar-lg avatar-rounded mb-2">
-                        <img src="../assets/images/faces/8.jpg" alt="" />
+                        <Image src="/assets/images/faces/8.jpg" alt="" width={64} height={64} />
                       </span>
                       <div>
                         <p className="mb-0 fw-medium fs-16 text-primary">Jhonson Smith</p>
@@ -1063,7 +1064,7 @@ const Joblanding = ({ ThemeChanger }: any) => {
                         <i className="ri-double-quotes-r"></i>
                       </span>
                       <span className="avatar avatar-lg avatar-rounded mb-2">
-                        <img src="../assets/images/faces/4.jpg" alt="" />
+                        <Image src="/assets/images/faces/4.jpg" alt="" width={64} height={64} />
                       </span>
                       <div>
                         <p className="mb-0 fw-medium fs-16 text-primary">Nitheri Morgan</p>
@@ -1095,7 +1096,7 @@ const Joblanding = ({ ThemeChanger }: any) => {
                         <i className="ri-double-quotes-r"></i>
                       </span>
                       <span className="avatar avatar-lg avatar-rounded mb-2">
-                        <img src="../assets/images/faces/9.jpg" alt="" />
+                        <Image src="/assets/images/faces/9.jpg" alt="" width={64} height={64} />
                       </span>
                       <div>
                         <p className="mb-0 fw-medium fs-16 text-primary">Natalie Miller</p>
@@ -1127,7 +1128,7 @@ const Joblanding = ({ ThemeChanger }: any) => {
                         <i className="ri-double-quotes-r"></i>
                       </span>
                       <span className="avatar avatar-lg avatar-rounded mb-2">
-                        <img src="../assets/images/faces/10.jpg" alt="" />
+                        <Image src="/assets/images/faces/10.jpg" alt="" width={64} height={64} />
                       </span>
                       <div>
                         <p className="mb-0 fw-medium fs-16 text-primary">Dolph MR</p>
@@ -1159,7 +1160,7 @@ const Joblanding = ({ ThemeChanger }: any) => {
                         <i className="ri-double-quotes-r"></i>
                       </span>
                       <span className="avatar avatar-lg avatar-rounded mb-2">
-                        <img src="../assets/images/faces/13.jpg" alt="" />
+                        <Image src="/assets/images/faces/13.jpg" alt="" width={64} height={64} />
                       </span>
                       <div>
                         <p className="mb-0 fw-medium fs-16 text-primary">Evelyn Anna</p>
@@ -1191,7 +1192,7 @@ const Joblanding = ({ ThemeChanger }: any) => {
                         <i className="ri-double-quotes-r"></i>
                       </span>
                       <span className="avatar avatar-lg avatar-rounded mb-2">
-                        <img src="../assets/images/faces/6.jpg" alt="" />
+                        <Image src="/assets/images/faces/6.jpg" alt="" width={64} height={64} />
                       </span>
                       <div>
                         <p className="mb-0 fw-medium fs-16 text-primary">Aldous Cason</p>
@@ -1239,7 +1240,7 @@ const Joblanding = ({ ThemeChanger }: any) => {
             <div className="text-center gap-2 align-items-center justify-content">
               <p className="fw-medium mb-3">
                 <Link href="/dashboard/gaming">
-                  <img src="../assets/images/brand-logos/desktop-dark.png" alt="" className="landing-footer-logo" />
+                  <Image src="/assets/images/brand-logos/desktop-dark.png" alt="" className="landing-footer-logo" width={150} height={50} />
                 </Link>
               </p>
               <div className="mb-4">

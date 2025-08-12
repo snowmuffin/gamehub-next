@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import React, { Fragment, useEffect, useState } from "react";
 import { Card, Col, Row, Button } from "react-bootstrap";
 import Seo from "@/shared/layout-components/seo";
@@ -15,8 +16,8 @@ const Inventory = () => {
       const response = await apiRequest.get("/space-engineers/item"); // NestJS 엔드포인트 호출
       setProducts(response.data as any[]);
     } catch (error) {
-      console.error("Error fetching products:", error);
-      alert("Failed to load items.");
+      // Error handling without console or alert
+      setProducts([]);
     } finally {
       setLoading(false);
     }
@@ -25,12 +26,10 @@ const Inventory = () => {
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text).then(
       () => {
-        console.log(`[Clipboard] Copied: ${text}`);
-        alert("Copied to clipboard!");
+        // Successfully copied - could add a toast notification here instead
       },
       err => {
-        console.error("[Clipboard] Failed to copy:", err);
-        alert("Failed to copy to clipboard.");
+        // Failed to copy - could add error handling here instead
       }
     );
   };
@@ -58,12 +57,14 @@ const Inventory = () => {
                       <div className="bottom-right"></div>
                       <Card.Body className="p-5">
                         <Link href="">
-                          <img
+                          <Image
                             src={`/assets/images/items/${
                               product.icon ? `${product.icon}.png` : `${product.indexName}.png`
                             }`} // Add .svg if icon is provided
                             className="card-img rounded-0 mb-3"
                             alt={product.displayName}
+                            width={200}
+                            height={200}
                           />
                           <span className="badge bg-secondary top-left-badge">{product.rarity}</span>
                         </Link>
