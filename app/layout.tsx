@@ -17,12 +17,8 @@ const isTokenExpired = (token: string): boolean => {
     const currentTime = Date.now();
     const bufferTime = 60 * 1000; // 1-minute buffer
 
-    console.log("Token expiration time:", new Date(expirationTime));
-    console.log("Current time:", new Date(currentTime));
-
     return expirationTime <= currentTime + bufferTime; // Check with buffer
   } catch (error) {
-    console.error("Error parsing token:", error);
     return true; // Treat as expired if any error occurs
   }
 };

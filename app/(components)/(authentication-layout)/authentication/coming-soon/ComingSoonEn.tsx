@@ -2,6 +2,7 @@
 import React, { Fragment } from "react";
 import { Col, Row } from "react-bootstrap";
 import Link from "next/link";
+import Image from "next/image";
 import Seo from "@/shared/layout-components/seo";
 
 const ComingSoonEn = () => (
@@ -19,10 +20,12 @@ const ComingSoonEn = () => (
                 <p className="mb-4 fs-14">Updates are on the way!</p>
                 <div className="mt-5">
                   <Link href="/dashboard/gaming">
-                    <img
-                      src="../../assets/images/brand-logos/desktop-dark.png"
+                    <Image
+                      src="/assets/images/brand-logos/desktop-dark.png"
                       alt=""
                       className="authentication-brand"
+                      width={200}
+                      height={50}
                     />
                   </Link>
                 </div>
