@@ -51,7 +51,7 @@ const Joblanding = ({ ThemeChanger }: any) => {
         window.addEventListener('resize', handleResize);
         // handleResize();
         return () => window.removeEventListener('resize', handleResize);
-    }, []);
+    }, [ThemeChanger]);
 
     function toggleNavigation() {
         if (window.innerWidth <= 992) {

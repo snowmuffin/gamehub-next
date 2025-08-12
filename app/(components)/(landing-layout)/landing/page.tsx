@@ -33,7 +33,7 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                 "dataNavLayout": `${localStorage.ynexlayout == "horizontal" ? "horizontal" : "vertical"}`
             });
         };
-    }, []);
+    }, [ThemeChanger]);
 
     useEffect(() => {
         function handleResize() {
@@ -50,7 +50,7 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
 
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
-    }, []);
+    }, [ThemeChanger]);
     function toggleNavigation() {
         if (window.innerWidth <= 992) {
             const theme = store.getState().local_variable;

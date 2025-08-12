@@ -13,7 +13,7 @@ const ContentLayout = ({ children }: any) => {
 
   useEffect(() => {
     setlateLoad(true);
-  });
+  }, []);
 
   const [MyclassName, setMyClass] = useState("");
 
