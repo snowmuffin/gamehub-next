@@ -8,12 +8,12 @@ import ComingSoonEn from "./ComingSoonEn";
 import ComingSoonKo from "./ComingSoonKo";
 
 const ComingSoon = () => {
-    const language = useSelector((state: any) => state.language.code);
+  const language = useSelector((state: any) => state.language.code);
 
-    if (language === "ko") {
-        return <ComingSoonKo />;
-    }
-    return <ComingSoonEn />;
+  if (language === "ko") {
+    return <ComingSoonKo />;
+  }
+  return <ComingSoonEn />;
 };
 
 export default ComingSoon;

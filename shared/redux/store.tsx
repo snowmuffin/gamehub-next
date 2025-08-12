@@ -8,7 +8,7 @@ import languageReducer from "./languageSlice"; // languageSlice import
 
 const persistConfig = {
   key: "root",
-  storage,
+  storage
 };
 
 const persistedAuthReducer = persistReducer(persistConfig, authReducer);
@@ -17,12 +17,12 @@ const store = configureStore({
   reducer: {
     local_variable: reducer,
     auth: persistedAuthReducer, // Use persisted reducer
-    language: languageReducer, // language 리듀서 추가
+    language: languageReducer // language 리듀서 추가
   },
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
-      serializableCheck: false, // Disable serializable check
-    }),
+      serializableCheck: false // Disable serializable check
+    })
 });
 
 export const persistor = typeof window !== "undefined" ? persistStore(store) : null; // Only initialize in the browser

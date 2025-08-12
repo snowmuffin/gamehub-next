@@ -21,7 +21,7 @@
 [dir="rtl"] {
   &[data-card-style="style2"] {
     .card.custom-card .top-right:before {
-      transform: rotate(-45deg);;
+      transform: rotate(-45deg);
     }
     .card.custom-card:before {
       transform: rotate(-45deg);
@@ -73,7 +73,6 @@
   .choices__list[aria-expanded] {
     box-shadow: rgb(245, 245, 245, 0.1) 0 0.5rem 1.5rem !important;
   }
-
 }
 
 //dark mode styles end
@@ -87,7 +86,6 @@
 [data-header-styles="transparent"][data-theme-mode="dark"] {
   @media (max-width: 991.98px) {
     .app-header .horizontal-logo .header-logo {
-
       .desktop-logo,
       .desktop-dark,
       .toggle-logo {
@@ -195,7 +193,6 @@
     }
 
     &[data-theme-mode="dark"] {
-
       body {
         background-color: rgba(var(--body-bg-rgb), 0.6);
       }
@@ -245,7 +242,7 @@
     }
 
     #Invoice {
-      .list-group-item>a>div {
+      .list-group-item > a > div {
         display: block !important;
       }
     }
@@ -334,7 +331,8 @@
     .app-header {
       position: absolute;
     }
-    &[data-vertical-style="overlay"], &[data-vertical-style="default-menu"] {
+    &[data-vertical-style="overlay"],
+    &[data-vertical-style="default-menu"] {
       .app-header {
         border-bottom: 0;
       }
@@ -447,7 +445,6 @@
           }
         }
 
-        
         &[data-menu-styles="dark"] {
           ul.slide-menu:before {
             display: none;
@@ -455,7 +452,6 @@
         }
 
         &[data-theme-mode="dark"] {
-
           &[data-menu-styles="dark"] {
             ul.slide-menu:before {
               display: block;
@@ -472,7 +468,6 @@
     }
 
     &[data-nav-layout="vertical"] {
-
       &[data-menu-styles="dark"][data-nav-style="menu-click"][data-toggled="menu-click-closed"],
       &[data-menu-styles="dark"][data-nav-style="menu-hover"][data-toggled="menu-hover-closed"] {
         .app-sidebar .main-sidebar-header {
@@ -493,7 +488,6 @@
         .app-sidebar {
           .slide.has-sub {
             .slide-menu {
-
               &.child1,
               &.child2,
               &.child3 {
@@ -510,7 +504,6 @@
           .app-sidebar {
             .slide.has-sub {
               .slide-menu {
-
                 &.child1,
                 &.child2,
                 &.child3 {
@@ -522,11 +515,9 @@
         }
 
         &[data-vertical-style="doublemenu"] {
-
           .app-sidebar {
             .slide.has-sub {
               .slide-menu {
-
                 &.child1,
                 &.child2,
                 &.child3 {
@@ -536,7 +527,6 @@
             }
           }
         }
-
       }
     }
 
@@ -551,7 +541,6 @@
         .app-sidebar {
           .slide.has-sub {
             .slide-menu {
-
               &.child1,
               &.child2,
               &.child3 {
@@ -562,11 +551,9 @@
         }
 
         &[data-vertical-style="doublemenu"] {
-
           .app-sidebar {
             .slide.has-sub {
               .slide-menu {
-
                 &.child1,
                 &.child2,
                 &.child3 {
@@ -576,7 +563,6 @@
             }
           }
         }
-
       }
     }
   }
@@ -587,7 +573,12 @@
   }
 
   .app-sidebar:before {
-    background-image: linear-gradient(to bottom right, var(--default-body-bg-color) 0%, var(--theme-bg-gradient) 25%, var(--default-body-bg-color) 100%);
+    background-image: linear-gradient(
+      to bottom right,
+      var(--default-body-bg-color) 0%,
+      var(--theme-bg-gradient) 25%,
+      var(--default-body-bg-color) 100%
+    );
     opacity: 0.9;
   }
 
@@ -626,7 +617,6 @@
       .app-sidebar {
         .slide.has-sub {
           .slide-menu {
-
             &.child1 {
               background: $default-background;
             }
@@ -736,7 +726,7 @@
   }
 
   @media (min-width: 991.98px) {
-    &[data-nav-layout=horizontal] .app-sidebar {
+    &[data-nav-layout="horizontal"] .app-sidebar {
       border-block: 0 !important;
     }
   }
@@ -798,7 +788,6 @@
 //bg-img5 end
 
 [data-vertical-style="icontext"] {
-
   &[data-bg-img="bgimg1"],
   &[data-bg-img="bgimg2"],
   &[data-bg-img="bgimg3"],
@@ -889,11 +878,9 @@
 /* Start:: card styles */
 // card-style1 start
 [data-card-style="style1"] {
-
   .app-sidebar,
   .card.custom-card,
   .page-header-breadcrumb {
-
     .top-left {
       position: absolute;
       top: 0;
@@ -968,7 +955,6 @@
   }
 
   &[data-card-background="background1"] {
-
     .app-sidebar,
     .card.custom-card,
     .page-header-breadcrumb {
@@ -981,7 +967,6 @@
 
 // card-style2 start
 [data-card-style="style2"] {
-
   .app-sidebar,
   .page-header-breadcrumb {
     border: 0;
@@ -1147,7 +1132,6 @@
   }
 
   &[data-card-background="background1"] {
-
     .app-sidebar,
     .card.custom-card,
     .page-header-breadcrumb {
@@ -1160,7 +1144,6 @@
 
 // card-style3 start
 [data-card-style="style3"] {
-
   .card.custom-card,
   .app-sidebar,
   .page-header-breadcrumb {
@@ -1299,7 +1282,6 @@
   }
 
   &[data-card-background="background1"] {
-
     .app-sidebar,
     .card.custom-card,
     .page-header-breadcrumb {
@@ -1312,7 +1294,6 @@
 
 // card-style4 start
 [data-card-style="style4"] {
-
   .card.custom-card,
   .app-sidebar,
   .page-header-breadcrumb {
@@ -1424,7 +1405,6 @@
   }
 
   &[data-card-background="background1"] {
-
     .app-sidebar,
     .card.custom-card,
     .page-header-breadcrumb {
@@ -1437,7 +1417,6 @@
 
 // card-style5 start
 [data-card-style="style5"] {
-
   .card.custom-card,
   .app-sidebar,
   .page-header-breadcrumb {
@@ -1553,7 +1532,6 @@
   }
 
   &[data-card-background="background1"] {
-
     .app-sidebar,
     .card.custom-card,
     .page-header-breadcrumb {
@@ -1595,7 +1573,6 @@
   }
 
   &[data-card-background="background1"] {
-
     .app-sidebar,
     .card.custom-card,
     .page-header-breadcrumb {
@@ -1609,7 +1586,6 @@
 
 // card-style7 start
 [data-card-style="style7"] {
-
   .card.custom-card,
   .app-sidebar,
   .page-header-breadcrumb {
@@ -1725,7 +1701,6 @@
   }
 
   &[data-card-background="background1"] {
-
     .app-sidebar,
     .card.custom-card,
     .page-header-breadcrumb {
@@ -1861,7 +1836,6 @@
   }
 
   &[data-card-background="background1"] {
-
     .app-sidebar,
     .card.custom-card,
     .page-header-breadcrumb {
@@ -2016,7 +1990,6 @@
   }
 
   &[data-card-background="background1"] {
-
     .app-sidebar,
     .card.custom-card,
     .page-header-breadcrumb {
@@ -2025,7 +1998,9 @@
   }
 
   &[dir="rtl"] {
-    .card.custom-card, .app-sidebar, .page-header-breadcrumb {
+    .card.custom-card,
+    .app-sidebar,
+    .page-header-breadcrumb {
       &:before {
         transform: rotate(-45deg);
       }
@@ -2041,7 +2016,6 @@
 
 //card-style10 start
 [data-card-style="style10"] {
-
   .card.custom-card,
   .app-sidebar,
   .page-header-breadcrumb {
@@ -2136,7 +2110,12 @@
 //card background style1 start
 [data-card-background="background1"] {
   .card.custom-card {
-    background: radial-gradient(circle, var(--default-background) 0%, var(--default-background) 40%, rgba(255, 255, 255, 0.075) 100%);
+    background: radial-gradient(
+      circle,
+      var(--default-background) 0%,
+      var(--default-background) 40%,
+      rgba(255, 255, 255, 0.075) 100%
+    );
     border-inline: 1px solid rgba(255, 255, 255, 0.1);
   }
 
@@ -2154,13 +2133,23 @@
   --default-background: rgba(var(--primary-rgb), 0.1);
 
   .card.custom-card {
-    background: radial-gradient(circle, var(--default-background) 0%, var(--default-background) 40%, rgba(255, 255, 255, 0.025) 100%);
+    background: radial-gradient(
+      circle,
+      var(--default-background) 0%,
+      var(--default-background) 40%,
+      rgba(255, 255, 255, 0.025) 100%
+    );
     border-inline: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .app-sidebar,
   .page-header-breadcrumb {
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.025), var(--default-background) 0%, rgba(255, 255, 255, 0.025) 100%);
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.025),
+      var(--default-background) 0%,
+      rgba(255, 255, 255, 0.025) 100%
+    );
     border-inline: 1px solid rgba(255, 255, 255, 0.1);
   }
 }
@@ -2187,7 +2176,6 @@
 
 //card background style4 start
 [data-card-background="background4"] {
-
   .app-sidebar,
   .card.custom-card,
   .page-header-breadcrumb {
@@ -2218,7 +2206,6 @@
 
 //card background style6 start
 [data-card-background="background6"] {
-
   .app-sidebar,
   .page-header-breadcrumb {
     background: transparent;
@@ -2294,49 +2281,49 @@
 /* Loader Styles */
 
 /* Menu Toggle Button */
-[data-toggled=close-menu-close] .animated-arrow span,
-[data-toggled=detached-close] .animated-arrow span,
-[data-toggled=icon-click-closed] .animated-arrow span,
-[data-toggled=icon-hover-closed] .animated-arrow span,
-[data-toggled=icon-overlay-close] .animated-arrow span,
-[data-toggled=icon-text-close] .animated-arrow span,
-[data-toggled=menu-click-closed] .animated-arrow span,
-[data-toggled=menu-hover-closed] .animated-arrow span {
+[data-toggled="close-menu-close"] .animated-arrow span,
+[data-toggled="detached-close"] .animated-arrow span,
+[data-toggled="icon-click-closed"] .animated-arrow span,
+[data-toggled="icon-hover-closed"] .animated-arrow span,
+[data-toggled="icon-overlay-close"] .animated-arrow span,
+[data-toggled="icon-text-close"] .animated-arrow span,
+[data-toggled="menu-click-closed"] .animated-arrow span,
+[data-toggled="menu-hover-closed"] .animated-arrow span {
   background-color: transparent;
   background: 0 0 !important;
 }
 
-[data-toggled=close-menu-close] .animated-arrow span:before,
-[data-toggled=detached-close] .animated-arrow span:before,
-[data-toggled=icon-click-closed] .animated-arrow span:before,
-[data-toggled=icon-hover-closed] .animated-arrow span:before,
-[data-toggled=icon-overlay-close] .animated-arrow span:before,
-[data-toggled=icon-text-close] .animated-arrow span:before,
-[data-toggled=menu-click-closed] .animated-arrow span:before,
-[data-toggled=menu-hover-closed] .animated-arrow span:before {
+[data-toggled="close-menu-close"] .animated-arrow span:before,
+[data-toggled="detached-close"] .animated-arrow span:before,
+[data-toggled="icon-click-closed"] .animated-arrow span:before,
+[data-toggled="icon-hover-closed"] .animated-arrow span:before,
+[data-toggled="icon-overlay-close"] .animated-arrow span:before,
+[data-toggled="icon-text-close"] .animated-arrow span:before,
+[data-toggled="menu-click-closed"] .animated-arrow span:before,
+[data-toggled="menu-hover-closed"] .animated-arrow span:before {
   inset-block-start: -1px;
 }
 
-[data-toggled=close-menu-close] .animated-arrow span:after,
-[data-toggled=detached-close] .animated-arrow span:after,
-[data-toggled=icon-click-closed] .animated-arrow span:after,
-[data-toggled=icon-hover-closed] .animated-arrow span:after,
-[data-toggled=icon-overlay-close] .animated-arrow span:after,
-[data-toggled=icon-text-close] .animated-arrow span:after,
-[data-toggled=menu-click-closed] .animated-arrow span:after,
-[data-toggled=menu-hover-closed] .animated-arrow span:after {
+[data-toggled="close-menu-close"] .animated-arrow span:after,
+[data-toggled="detached-close"] .animated-arrow span:after,
+[data-toggled="icon-click-closed"] .animated-arrow span:after,
+[data-toggled="icon-hover-closed"] .animated-arrow span:after,
+[data-toggled="icon-overlay-close"] .animated-arrow span:after,
+[data-toggled="icon-text-close"] .animated-arrow span:after,
+[data-toggled="menu-click-closed"] .animated-arrow span:after,
+[data-toggled="menu-hover-closed"] .animated-arrow span:after {
   width: 1.0625rem;
   inset-block-start: -1px;
 }
 
-[data-toggled=close-menu-close] .animated-arrow span:after,
-[data-toggled=detached-close] .animated-arrow span:after,
-[data-toggled=icon-click-closed] .animated-arrow span:after,
-[data-toggled=icon-hover-closed] .animated-arrow span:after,
-[data-toggled=icon-overlay-close] .animated-arrow span:after,
-[data-toggled=icon-text-close] .animated-arrow span:after,
-[data-toggled=menu-click-closed] .animated-arrow span:after,
-[data-toggled=menu-hover-closed] .animated-arrow span:after {
+[data-toggled="close-menu-close"] .animated-arrow span:after,
+[data-toggled="detached-close"] .animated-arrow span:after,
+[data-toggled="icon-click-closed"] .animated-arrow span:after,
+[data-toggled="icon-hover-closed"] .animated-arrow span:after,
+[data-toggled="icon-overlay-close"] .animated-arrow span:after,
+[data-toggled="icon-text-close"] .animated-arrow span:after,
+[data-toggled="menu-click-closed"] .animated-arrow span:after,
+[data-toggled="menu-hover-closed"] .animated-arrow span:after {
   transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
@@ -2344,14 +2331,14 @@
   -webkit-transform: rotate(-45deg);
 }
 
-[data-toggled=close-menu-close] .animated-arrow span:before,
-[data-toggled=detached-close] .animated-arrow span:before,
-[data-toggled=icon-click-closed] .animated-arrow span:before,
-[data-toggled=icon-hover-closed] .animated-arrow span:before,
-[data-toggled=icon-overlay-close] .animated-arrow span:before,
-[data-toggled=icon-text-close] .animated-arrow span:before,
-[data-toggled=menu-click-closed] .animated-arrow span:before,
-[data-toggled=menu-hover-closed] .animated-arrow span:before {
+[data-toggled="close-menu-close"] .animated-arrow span:before,
+[data-toggled="detached-close"] .animated-arrow span:before,
+[data-toggled="icon-click-closed"] .animated-arrow span:before,
+[data-toggled="icon-hover-closed"] .animated-arrow span:before,
+[data-toggled="icon-overlay-close"] .animated-arrow span:before,
+[data-toggled="icon-text-close"] .animated-arrow span:before,
+[data-toggled="menu-click-closed"] .animated-arrow span:before,
+[data-toggled="menu-hover-closed"] .animated-arrow span:before {
   transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);

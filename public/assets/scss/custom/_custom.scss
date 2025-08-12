@@ -91,7 +91,7 @@ button {
 
 /* Start::App Content */
 
-.bd-example>.dropdown-menu {
+.bd-example > .dropdown-menu {
   position: static;
   display: block;
 }
@@ -186,14 +186,14 @@ button {
 
 /* Start::Layouts */
 .bd-example-row [class^="col"],
-.bd-example-cssgrid .grid>* {
+.bd-example-cssgrid .grid > * {
   padding-block-start: 0.75rem;
   padding-block-end: 0.75rem;
   background-color: rgba(var(--light-rgb), 0.75);
   border: 1px solid $default-border;
 }
 
-.bd-example-cssgrid .grid>* {
+.bd-example-cssgrid .grid > * {
   border-radius: 0.25rem;
 }
 
@@ -267,7 +267,7 @@ button {
   background-color: transparent;
   border: 0;
 
-  >div {
+  > div {
     background-color: $light;
     border: 1px solid $default-border;
   }
@@ -608,7 +608,12 @@ button {
       border: 2px solid rgba(255, 255, 255, 0.1);
 
       &.form-check-input {
-        background: linear-gradient(to bottom right, var(--default-body-bg-color) 0%, var(--theme-bg-gradient) 25%, var(--default-body-bg-color) 100%);
+        background: linear-gradient(
+          to bottom right,
+          var(--default-body-bg-color) 0%,
+          var(--theme-bg-gradient) 25%,
+          var(--default-body-bg-color) 100%
+        );
 
         &:checked[type="radio"] {
           background-color: none;
@@ -623,7 +628,12 @@ button {
       border: 2px solid rgba(255, 255, 255, 0.1);
 
       &.form-check-input {
-        background: linear-gradient(to bottom right, var(--default-body-bg-color) 0%, var(--theme-bg-gradient) 25%, var(--default-body-bg-color) 100%);
+        background: linear-gradient(
+          to bottom right,
+          var(--default-body-bg-color) 0%,
+          var(--theme-bg-gradient) 25%,
+          var(--default-body-bg-color) 100%
+        );
 
         &:checked[type="radio"] {
           background-color: none;
@@ -638,7 +648,12 @@ button {
       border: 2px solid rgba(255, 255, 255, 0.1);
 
       &.form-check-input {
-        background: linear-gradient(to bottom right, var(--default-body-bg-color) 0%, var(--theme-bg-gradient) 25%, var(--default-body-bg-color) 100%);
+        background: linear-gradient(
+          to bottom right,
+          var(--default-body-bg-color) 0%,
+          var(--theme-bg-gradient) 25%,
+          var(--default-body-bg-color) 100%
+        );
 
         &:checked[type="radio"] {
           background-color: none;
@@ -653,7 +668,12 @@ button {
       border: 2px solid rgba(255, 255, 255, 0.1);
 
       &.form-check-input {
-        background: linear-gradient(to bottom right, var(--default-body-bg-color) 0%, var(--theme-bg-gradient) 25%, var(--default-body-bg-color) 100%);
+        background: linear-gradient(
+          to bottom right,
+          var(--default-body-bg-color) 0%,
+          var(--theme-bg-gradient) 25%,
+          var(--default-body-bg-color) 100%
+        );
 
         &:checked[type="radio"] {
           background-color: none;
@@ -668,7 +688,12 @@ button {
       background-repeat: repeat;
 
       &.form-check-input {
-        background: linear-gradient(to bottom right, var(--default-body-bg-color) 0%, var(--theme-bg-gradient) 25%, var(--default-body-bg-color) 100%);
+        background: linear-gradient(
+          to bottom right,
+          var(--default-body-bg-color) 0%,
+          var(--theme-bg-gradient) 25%,
+          var(--default-body-bg-color) 100%
+        );
 
         &:checked[type="radio"] {
           background-color: none;
@@ -683,7 +708,12 @@ button {
       background-repeat: repeat;
 
       &.form-check-input {
-        background: linear-gradient(to bottom right, var(--default-body-bg-color) 0%, var(--theme-bg-gradient) 25%, var(--default-body-bg-color) 100%);
+        background: linear-gradient(
+          to bottom right,
+          var(--default-body-bg-color) 0%,
+          var(--theme-bg-gradient) 25%,
+          var(--default-body-bg-color) 100%
+        );
 
         &:checked[type="radio"] {
           background-color: none;
@@ -698,7 +728,12 @@ button {
       background-repeat: repeat;
 
       &.form-check-input {
-        background: linear-gradient(to bottom right, var(--default-body-bg-color) 0%, var(--theme-bg-gradient) 25%, var(--default-body-bg-color) 100%);
+        background: linear-gradient(
+          to bottom right,
+          var(--default-body-bg-color) 0%,
+          var(--theme-bg-gradient) 25%,
+          var(--default-body-bg-color) 100%
+        );
 
         &:checked[type="radio"] {
           background-color: none;
@@ -713,7 +748,12 @@ button {
       background-repeat: repeat;
 
       &.form-check-input {
-        background: linear-gradient(to bottom right, var(--default-body-bg-color) 0%, var(--theme-bg-gradient) 25%, var(--default-body-bg-color) 100%);
+        background: linear-gradient(
+          to bottom right,
+          var(--default-body-bg-color) 0%,
+          var(--theme-bg-gradient) 25%,
+          var(--default-body-bg-color) 100%
+        );
 
         &:checked[type="radio"] {
           background-color: none;
@@ -728,7 +768,12 @@ button {
       background-repeat: repeat;
 
       &.form-check-input {
-        background: linear-gradient(to bottom right, var(--default-body-bg-color) 0%, var(--theme-bg-gradient) 25%, var(--default-body-bg-color) 100%);
+        background: linear-gradient(
+          to bottom right,
+          var(--default-body-bg-color) 0%,
+          var(--theme-bg-gradient) 25%,
+          var(--default-body-bg-color) 100%
+        );
 
         &:checked[type="radio"] {
           background-color: none;
@@ -743,7 +788,12 @@ button {
       background-repeat: repeat;
 
       &.form-check-input {
-        background: linear-gradient(to bottom right, var(--default-body-bg-color) 0%, var(--theme-bg-gradient) 25%, var(--default-body-bg-color) 100%);
+        background: linear-gradient(
+          to bottom right,
+          var(--default-body-bg-color) 0%,
+          var(--theme-bg-gradient) 25%,
+          var(--default-body-bg-color) 100%
+        );
 
         &:checked[type="radio"] {
           background-color: none;
@@ -775,7 +825,12 @@ button {
 }
 
 .offcanvas.offcanvas-end.switcher-offacanvas {
-  background: linear-gradient(to bottom right, var(--default-body-bg-color) 0%, var(--theme-bg-gradient) 25%, var(--default-body-bg-color) 100%);
+  background: linear-gradient(
+    to bottom right,
+    var(--default-body-bg-color) 0%,
+    var(--theme-bg-gradient) 25%,
+    var(--default-body-bg-color) 100%
+  );
   box-shadow: -10px 0px 16px 20px rgba(20, 20, 20, 0.3);
 }
 
@@ -941,7 +996,6 @@ button {
 #ethCoin,
 #dshCoin,
 #glmCoin {
-
   .apexcharts-grid,
   .apexcharts-xaxis {
     line {
@@ -967,7 +1021,6 @@ button {
 
 /* Start:Responsive Dropdowns */
 @media (max-width: 575.98px) {
-
   .cart-dropdown,
   .timelines-dropdown,
   .notifications-dropdown,
@@ -1133,7 +1186,7 @@ button {
 }
 
 .pricing-card {
-  transition: box-shadow .3s;
+  transition: box-shadow 0.3s;
 }
 
 .pricing-body {
@@ -1167,18 +1220,18 @@ button {
 
 .pricing-new {
   position: absolute;
-    height: 18px;
-    background-color: var(--primary08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    inset-block-start: 0;
-    font-weight: 500;
-    font-size: 10px;
-    inset-inline-end: 0;
-    z-index: 10;
-    padding-inline: 17px;
+  height: 18px;
+  background-color: var(--primary08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  inset-block-start: 0;
+  font-weight: 500;
+  font-size: 10px;
+  inset-inline-end: 0;
+  z-index: 10;
+  padding-inline: 17px;
 }
 .price-head {
   position: relative;
@@ -1391,7 +1444,7 @@ button {
   }
 }
 
-.timeline>li {
+.timeline > li {
   position: relative;
   min-height: 3.125rem;
   padding: 0.938rem 0;
@@ -1464,7 +1517,7 @@ button {
   }
 }
 
-.timeline .timeline-body>div+div {
+.timeline .timeline-body > div + div {
   margin-block-start: 0.938rem;
 }
 
@@ -1684,7 +1737,7 @@ button {
   overflow: hidden;
   display: inline-block;
 }
-.upload-btn-wrapper input[type=file] {
+.upload-btn-wrapper input[type="file"] {
   font-size: 6px;
   position: absolute;
   left: 0;
@@ -1819,7 +1872,6 @@ button {
   color: $primary;
   border: 1px solid $primary;
   backdrop-filter: blur(30px);
-  ;
   position: fixed;
   bottom: 20px;
   inset-inline-end: 20px;
@@ -1895,7 +1947,6 @@ button {
 
 /* Start:: Job Details */
 .swiper-related-jobs {
-
   .swiper-button-next,
   .swiper-button-prev {
     background-color: $light;
@@ -1905,7 +1956,6 @@ button {
 
 @media (max-width: 767.98px) {
   .swiper-related-jobs {
-
     .swiper-button-next,
     .swiper-button-prev {
       display: none;
@@ -1950,7 +2000,8 @@ button {
       border-radius: $default-radius !important;
       margin-bottom: 0.5rem;
     }
-    .basic-multi-select,.custom-select {
+    .basic-multi-select,
+    .custom-select {
       margin-bottom: 0.5rem;
     }
     .choices {
@@ -1999,21 +2050,21 @@ button {
 }
 .main-profile-cover {
   background-image: url(../images/media/media-29.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    z-index: 9;
-    &:before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, $primary-03 0%, rgba(0, 14, 12, 0.6) 100%);
-      inset-inline-start: 0;
-      inset-inline-end: 0;
-      inset-block-start: 0;
-      inset-block-end: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 9;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, $primary-03 0%, rgba(0, 14, 12, 0.6) 100%);
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    inset-block-start: 0;
+    inset-block-end: 0;
   }
 }
 
@@ -2240,7 +2291,6 @@ button {
 
 /* Start:: NFT Live Auction */
 .nft-tag.nft-tag-primary {
-
   &:hover,
   &.active {
     color: $primary;
@@ -2252,7 +2302,6 @@ button {
 }
 
 .nft-tag.nft-tag-secondary {
-
   &:hover,
   &.active {
     color: $secondary;
@@ -2264,7 +2313,6 @@ button {
 }
 
 .nft-tag.nft-tag-warning {
-
   &:hover,
   &.active {
     color: $warning;
@@ -2276,7 +2324,6 @@ button {
 }
 
 .nft-tag.nft-tag-info {
-
   &:hover,
   &.active {
     color: $info;
@@ -2288,7 +2335,6 @@ button {
 }
 
 .nft-tag.nft-tag-success {
-
   &:hover,
   &.active {
     color: $success;
@@ -2300,7 +2346,6 @@ button {
 }
 
 .nft-tag.nft-tag-danger {
-
   &:hover,
   &.active {
     color: $danger;
@@ -2312,7 +2357,6 @@ button {
 }
 
 .nft-tag.nft-tag-dark {
-
   &:hover,
   &.active {
     color: $dark;
@@ -2324,7 +2368,6 @@ button {
 }
 
 .nft-tag.nft-tag-orange {
-
   &:hover,
   &.active {
     color: $orange;
@@ -2495,10 +2538,10 @@ button {
 /* End:: Loader */
 
 /* Start:: Offcanvas body padding*/
-  body {
-    padding-right: 0 !important;
-    overflow: auto !important;
-  }
+body {
+  padding-right: 0 !important;
+  overflow: auto !important;
+}
 /* end:: Offcanvas body padding*/
 
 /* start:: kanban*/
@@ -2514,7 +2557,6 @@ button {
 /* end:: kanban*/
 /* start:: kanban*/
 #create-task {
-
   .choices__list--dropdown,
   .choices__list[aria-expanded] {
     border: 0 !important;
@@ -2577,8 +2619,14 @@ button {
     color: #fff;
     // background: linear-gradient(to bottom right, var(--default-body-bg-color) 0%, var(--theme-bg-gradient) 25%, var(--default-body-bg-color) 100%) !important;
   }
-  .apexcharts-tooltip-series-group.apexcharts-active, .apexcharts-tooltip-series-group:last-child {
-    background: linear-gradient(to bottom right, var(--default-body-bg-color) 0%, var(--theme-bg-gradient) 25%, var(--default-body-bg-color) 100%) !important;
+  .apexcharts-tooltip-series-group.apexcharts-active,
+  .apexcharts-tooltip-series-group:last-child {
+    background: linear-gradient(
+      to bottom right,
+      var(--default-body-bg-color) 0%,
+      var(--theme-bg-gradient) 25%,
+      var(--default-body-bg-color) 100%
+    ) !important;
   }
 }
 
@@ -2642,26 +2690,26 @@ h6 {
   margin: 0px 0px -32px 0px;
 }
 
-.form-floating>.form-control:not(:-moz-placeholder-shown)~label::after {
+.form-floating > .form-control:not(:-moz-placeholder-shown) ~ label::after {
   background-color: transparent !important;
 }
 
-.form-floating>.form-control-plaintext~label::after,
-.form-floating>.form-control:focus~label::after,
-.form-floating>.form-control:not(:placeholder-shown)~label::after,
-.form-floating>.form-select~label::after {
+.form-floating > .form-control-plaintext ~ label::after,
+.form-floating > .form-control:focus ~ label::after,
+.form-floating > .form-control:not(:placeholder-shown) ~ label::after,
+.form-floating > .form-select ~ label::after {
   background-color: transparent !important;
 }
 
-.form-floating>.form-control:not(:-moz-placeholder-shown)~label {
+.form-floating > .form-control:not(:-moz-placeholder-shown) ~ label {
   color: $text-muted !important;
   font-weight: 400;
 }
 
-.form-floating>.form-control-plaintext~label,
-.form-floating>.form-control:focus~label,
-.form-floating>.form-control:not(:placeholder-shown)~label,
-.form-floating>.form-select~label {
+.form-floating > .form-control-plaintext ~ label,
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label,
+.form-floating > .form-select ~ label {
   color: $text-muted !important;
   font-weight: 400;
 }
@@ -2726,7 +2774,8 @@ hr {
 /* End:: reviews */
 
 /* Start:: sortable js */
-ul,ol{
+ul,
+ol {
   &.sortable-list {
     li {
       background-color: $primary-005;
@@ -2744,11 +2793,13 @@ ul,ol{
         color: $white;
       }
     }
-    .list-group-item+.list-group-item {
+    .list-group-item + .list-group-item {
       border-top-width: 1px;
     }
   }
-  &#shared-right,&#cloning-right,&#disabling-sorting-right {
+  &#shared-right,
+  &#cloning-right,
+  &#disabling-sorting-right {
     li {
       background-color: rgba(var(--secondary-rgb), 0.05);
       border: 1px solid rgba(var(--secondary-rgb), 0.05);
@@ -2756,7 +2807,7 @@ ul,ol{
   }
   .handle {
     cursor: grab;
-  } 
+  }
 }
 .grid-square {
   width: 100px;
@@ -2771,13 +2822,18 @@ ul,ol{
   align-items: center;
   justify-content: center;
 }
-.nested-sortable, .nested-1, .nested-2, .nested-3 {
+.nested-sortable,
+.nested-1,
+.nested-2,
+.nested-3 {
   margin-top: 5px;
-  .list-group-item+.list-group-item {
+  .list-group-item + .list-group-item {
     border-top-width: 1px;
   }
 }
-.nested-1, .nested-2, .nested-3 {
+.nested-1,
+.nested-2,
+.nested-3 {
   background-color: rgba(var(--primary-rgb), 0.05);
   border: 1px solid rgba(var(--primary-rgb), 0.05);
   font-weight: 500;
@@ -2785,17 +2841,17 @@ ul,ol{
 /* End:: sortable js */
 
 @media (min-width: 1400px) and (max-width: 1600px) {
-    .responsive-item {
-        display: none;
-    }
+  .responsive-item {
+    display: none;
+  }
 }
 /*------ custom end ------*/
 
 /* Start:: Print */
 @media print {
   * {
-      text-shadow: none !important;
-      box-shadow: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
   }
   .dt-print-view {
     background-color: #fff !important;
@@ -2804,79 +2860,82 @@ ul,ol{
 
   *::before,
   *::after {
-      text-shadow: none !important;
-      box-shadow: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
   }
 
   a:not(.btn) {
-      text-decoration: underline;
+    text-decoration: underline;
   }
 
   abbr[title]::after {
-      content: " ("attr(title) ")";
+    content: " (" attr(title) ")";
   }
 
   pre {
-      white-space: pre-wrap !important;
-      border: 1px solid $default-border;
-      page-break-inside: avoid;
+    white-space: pre-wrap !important;
+    border: 1px solid $default-border;
+    page-break-inside: avoid;
   }
 
   blockquote {
-      border: 1px solid $default-border;
-      page-break-inside: avoid;
+    border: 1px solid $default-border;
+    page-break-inside: avoid;
   }
 
   thead {
-      display: table-header-group;
+    display: table-header-group;
   }
 
   tr,
   img {
-      page-break-inside: avoid;
+    page-break-inside: avoid;
   }
 
   p,
   h2,
   h3 {
-      orphans: 3;
-      widows: 3;
+    orphans: 3;
+    widows: 3;
   }
 
   h2,
   h3 {
-      page-break-after: avoid;
+    page-break-after: avoid;
   }
 
   @page {
-      size: a4;
+    size: a4;
   }
 
   body,
   .container {
-      min-width: 992px !important;
+    min-width: 992px !important;
   }
 
   .table,
   .text-wrap table {
-      border-collapse: collapse !important;
+    border-collapse: collapse !important;
   }
 
   .table td,
   .text-wrap table td,
   .table th,
   .text-wrap table th {
-      background-color: $custom-white !important;
-      border-color: $default-border !important;
+    background-color: $custom-white !important;
+    border-color: $default-border !important;
   }
 
   .table-bordered th,
   .text-wrap table th,
   .table-bordered td,
   .text-wrap table td {
-      border: 1px solid $default-border !important;
+    border: 1px solid $default-border !important;
   }
-  .app-sidebar,.app-content .page-header-breadcrumb,.app-header,.footer {
+  .app-sidebar,
+  .app-content .page-header-breadcrumb,
+  .app-header,
+  .footer {
     display: none !important;
   }
   .main-content.app-content {

@@ -47,7 +47,7 @@
   }
 }
 
-@media(min-width: 576px) {
+@media (min-width: 576px) {
   .distance-covered-content {
     position: absolute;
     inset-inline-start: 0;
@@ -56,21 +56,21 @@
   }
 }
 .player-statistics {
-  .apexcharts-svg, .apexcharts-canvas {
+  .apexcharts-svg,
+  .apexcharts-canvas {
     width: auto !important;
   }
 }
 [dir="rtl"] {
   .player-statistics {
-    .apexcharts-svg, .apexcharts-canvas {
+    .apexcharts-svg,
+    .apexcharts-canvas {
       direction: rtl;
     }
   }
-
 }
 #danger-zones,
 #safe-zones {
-
   .apexcharts-pie line,
   .apexcharts-pie circle,
   .apexcharts-series.apexcharts-pie-series .apexcharts-pie-area {
@@ -183,7 +183,6 @@
 
 #male-users,
 #female-users {
-
   .apexcharts-grid line,
   .apexcharts-xaxis line,
   .apexcharts-grid-borders line {
@@ -238,11 +237,13 @@
 
 .todo-list-list {
   .form-check-label {
-    transition: color 0.3s, text-decoration 0.3s;
+    transition:
+      color 0.3s,
+      text-decoration 0.3s;
     font-weight: 400;
   }
 
-  .form-check-input:checked+.form-check-label {
+  .form-check-input:checked + .form-check-label {
     text-decoration: line-through;
     color: $text-muted;
   }
@@ -353,7 +354,6 @@
 /* Ecommerce Dashboard */
 #sales-statistics,
 #website-traffic {
-
   .apexcharts-grid line,
   .apexcharts-xaxis line,
   .apexcharts-grid-borders line {
@@ -451,13 +451,13 @@
 
 [dir="rtl"] {
   #bitcoin-price-graph,
-#neo-price-graph,
-#iota-price-graph,
-#ripple-price-graph,
-#dash-price-graph,
-#Ethereum-price-graph {
-  float: right;
-}
+  #neo-price-graph,
+  #iota-price-graph,
+  #ripple-price-graph,
+  #dash-price-graph,
+  #Ethereum-price-graph {
+    float: right;
+  }
 }
 
 #popTrades {
@@ -501,7 +501,6 @@
 
 .nft-table {
   &.table {
-
     td,
     th {
       padding: 0.83rem;
@@ -511,7 +510,6 @@
 
 .nft-table2 {
   &.table {
-
     td,
     th {
       padding: 0.78rem;
@@ -598,7 +596,6 @@
 }
 
 #lead_source {
-
   .apexcharts-pie line,
   .apexcharts-pie circle {
     stroke: transparent;
@@ -774,15 +771,15 @@
   border: 1px solid $default-border;
 }
 
-.details-container>h5,
-.details-container>p {
+.details-container > h5,
+.details-container > p {
   border-top: 1px solid $default-border;
   margin: 0;
   padding: 10px;
   font-size: 0.7rem;
 }
 
-.details-container>h5 {
+.details-container > h5 {
   border-top: none;
 }
 

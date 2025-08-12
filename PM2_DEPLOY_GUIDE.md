@@ -5,6 +5,7 @@
 ## 🚀 EC2 초기 설정
 
 ### 1. EC2 인스턴스에서 처음 설정
+
 ```bash
 # 프로젝트 디렉토리로 이동
 cd /path/to/your/project
@@ -14,6 +15,7 @@ cd /path/to/your/project
 ```
 
 ### 2. 환경 변수 설정
+
 ```bash
 # 환경 변수 자동 설정 (권장)
 ./set-env.sh
@@ -24,6 +26,7 @@ nano .env.production
 ```
 
 ### 3. 환경 변수 확인
+
 ```bash
 # 설정된 환경 변수 확인
 echo $NEXT_PUBLIC_API_URL
@@ -34,6 +37,7 @@ echo $PORT
 ## 🚀 배포 스크립트
 
 ### 1. 전체 재배포 (권장)
+
 ```bash
 # 스크립트 실행 (프로젝트 디렉토리에서)
 ./deploy.sh
@@ -43,6 +47,7 @@ yarn pm2:deploy
 ```
 
 ### 2. 빠른 재시작
+
 ```bash
 # 스크립트 실행
 ./restart.sh
@@ -54,6 +59,7 @@ yarn pm2:restart
 ## 📋 Yarn 및 PM2 명령어
 
 ### Yarn 기본 명령어
+
 ```bash
 # 의존성 설치
 yarn install
@@ -72,6 +78,7 @@ yarn pm2:logs
 ```
 
 ### 직접 PM2 명령어
+
 ```bash
 # 애플리케이션 시작
 pm2 start ecosystem.config.js --env production
@@ -101,17 +108,21 @@ pm2 save
 ## 🔧 EC2 환경 설정
 
 ### 환경 변수
+
 - `NODE_ENV=production`
 - `PORT=3000` (또는 원하는 포트)
 - `.env.production` 파일에서 관리
 
 ### 보안 그룹 설정
+
 EC2 보안 그룹에서 다음 포트를 열어야 합니다:
+
 - HTTP: 80
 - HTTPS: 443
 - Custom: 3000 (또는 설정한 포트)
 
 ### 방화벽 설정 (Ubuntu)
+
 ```bash
 sudo ufw allow 3000
 sudo ufw allow 80
@@ -130,20 +141,25 @@ sudo ufw allow 443
 ## 🔧 설정 수정
 
 ### 포트 변경
+
 환경 변수 `PORT`를 설정하거나 `ecosystem.config.js`에서 수정:
+
 ```bash
 export PORT=8080
 ```
 
 ### 메모리 제한 변경
+
 `ecosystem.config.js` 파일에서 `max_memory_restart` 값을 수정하세요.
 
 ### 인스턴스 수 변경
+
 `ecosystem.config.js` 파일에서 `instances` 값을 수정하세요.
 
 ## 🐛 문제 해결
 
 ### 포트가 이미 사용 중인 경우
+
 ```bash
 # 포트 3000을 사용하는 프로세스 확인
 sudo lsof -i :3000
@@ -153,6 +169,7 @@ sudo kill -9 <PID>
 ```
 
 ### PM2 프로세스 초기화
+
 ```bash
 # 모든 PM2 프로세스 삭제
 pm2 delete all
@@ -165,6 +182,7 @@ pm2 resurrect
 ```
 
 ### 로그 확인
+
 ```bash
 # 애플리케이션 로그
 pm2 logs gamehub-next
@@ -179,6 +197,7 @@ tail -f logs/combined.log
 ## 🔄 자동 재시작 설정
 
 ### 시스템 재부팅 후 PM2 자동 시작
+
 ```bash
 # PM2 startup 설정
 pm2 startup

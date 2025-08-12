@@ -2,11 +2,7 @@ import path from "path";
 import React from "react";
 
 const DashboardIcon = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="side-menu__icon"
-    viewBox="0 0 256 256"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" className="side-menu__icon" viewBox="0 0 256 256">
     <rect width="256" height="256" fill="none"></rect>
     <path
       d="M152,208V160a8,8,0,0,0-8-8H112a8,8,0,0,0-8,8v48a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V115.54a8,8,0,0,1,2.62-5.92l80-75.54a8,8,0,0,1,10.77,0l80,75.54a8,8,0,0,1,2.62,5.92V208a8,8,0,0,1-8,8H160A8,8,0,0,1,152,208Z"
@@ -24,11 +20,7 @@ const DashboardIcon = (
 );
 
 const PagesIcon = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="side-menu__icon"
-    viewBox="0 0 256 256"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" className="side-menu__icon" viewBox="0 0 256 256">
     <rect width="256" height="256" fill="none"></rect>
     <polygon points="152 32 152 88 208 88 152 32" opacity="0.2"></polygon>
     <path
@@ -53,11 +45,7 @@ const PagesIcon = (
 const TaskIcon = <i className="bx bx-task side-menu__icon"></i>;
 
 const AuthenticationIcon = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="side-menu__icon"
-    viewBox="0 0 256 256"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" className="side-menu__icon" viewBox="0 0 256 256">
     <rect width="256" height="256" fill="none"></rect>
     <path
       d="M128,32A96,96,0,0,0,63.8,199.38h0A72,72,0,0,1,128,160a40,40,0,1,1,40-40,40,40,0,0,1-40,40,72,72,0,0,1,64.2,39.37A96,96,0,0,0,128,32Z"
@@ -117,11 +105,7 @@ const AuthenticationIcon = (
 );
 
 const ErrorIcon = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="side-menu__icon"
-    viewBox="0 0 256 256"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" className="side-menu__icon" viewBox="0 0 256 256">
     <rect width="256" height="256" fill="none"></rect>
     <path
       d="M142.41,40.22l87.46,151.87C236,202.79,228.08,216,215.46,216H40.54C27.92,216,20,202.79,26.13,192.09L113.59,40.22C119.89,29.26,136.11,29.26,142.41,40.22Z"
@@ -151,16 +135,9 @@ const ErrorIcon = (
 );
 
 const UiElementsIcon = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="side-menu__icon"
-    viewBox="0 0 256 256"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" className="side-menu__icon" viewBox="0 0 256 256">
     <rect width="256" height="256" fill="none"></rect>
-    <path
-      d="M216,96v96a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V96Z"
-      opacity="0.2"
-    ></path>
+    <path d="M216,96v96a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V96Z" opacity="0.2"></path>
     <rect
       x="24"
       y="56"
@@ -196,11 +173,7 @@ const UiElementsIcon = (
 );
 
 const Utilities = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="side-menu__icon"
-    viewBox="0 0 256 256"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" className="side-menu__icon" viewBox="0 0 256 256">
     <rect width="256" height="256" fill="none"></rect>
     <circle cx="128" cy="96" r="48" opacity="0.2"></circle>
     <circle
@@ -235,11 +208,7 @@ const Utilities = (
 );
 
 const FormsIcon = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="side-menu__icon"
-    viewBox="0 0 256 256"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" className="side-menu__icon" viewBox="0 0 256 256">
     <rect width="256" height="256" fill="none"></rect>
     <polygon points="152 32 152 88 208 88 152 32" opacity="0.2"></polygon>
     <path
@@ -262,16 +231,9 @@ const FormsIcon = (
 );
 
 const AdvancedUiIcon = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="side-menu__icon"
-    viewBox="0 0 256 256"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" className="side-menu__icon" viewBox="0 0 256 256">
     <rect width="256" height="256" fill="none"></rect>
-    <path
-      d="M128,36a92,92,0,1,0,92,92A92.1,92.1,0,0,0,128,36Z"
-      opacity="0.2"
-    ></path>
+    <path d="M128,36a92,92,0,1,0,92,92A92.1,92.1,0,0,0,128,36Z" opacity="0.2"></path>
     <line
       x1="128"
       y1="64"
@@ -357,16 +319,9 @@ const AdvancedUiIcon = (
 );
 
 const WidgetsIcon = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="side-menu__icon"
-    viewBox="0 0 256 256"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" className="side-menu__icon" viewBox="0 0 256 256">
     <rect width="256" height="256" fill="none"></rect>
-    <path
-      d="M208,128v72a8,8,0,0,1-8,8H56a8,8,0,0,1-8-8V128Z"
-      opacity="0.2"
-    ></path>
+    <path d="M208,128v72a8,8,0,0,1-8,8H56a8,8,0,0,1-8-8V128Z" opacity="0.2"></path>
     <rect
       x="32"
       y="80"
@@ -418,11 +373,7 @@ const WidgetsIcon = (
 );
 
 const AppsIcon = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="side-menu__icon"
-    viewBox="0 0 256 256"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" className="side-menu__icon" viewBox="0 0 256 256">
     <rect width="256" height="256" fill="none"></rect>
     <rect x="48" y="48" width="64" height="64" rx="8" opacity="0.2"></rect>
     <rect x="144" y="48" width="64" height="64" rx="8" opacity="0.2"></rect>
@@ -480,11 +431,7 @@ const AppsIcon = (
 );
 
 const NestedmenuIcon = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="side-menu__icon"
-    viewBox="0 0 256 256"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" className="side-menu__icon" viewBox="0 0 256 256">
     <rect width="256" height="256" fill="none"></rect>
     <polygon points="32 80 128 136 224 80 128 24 32 80" opacity="0.2"></polygon>
     <polyline
@@ -515,11 +462,7 @@ const NestedmenuIcon = (
 );
 
 const TablesIcon = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="side-menu__icon"
-    viewBox="0 0 256 256"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" className="side-menu__icon" viewBox="0 0 256 256">
     <rect width="256" height="256" fill="none"></rect>
     <rect x="48" y="48" width="160" height="160" rx="8" opacity="0.2"></rect>
     <rect
@@ -560,11 +503,7 @@ const TablesIcon = (
 );
 
 const ChartsIcon = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="side-menu__icon"
-    viewBox="0 0 256 256"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" className="side-menu__icon" viewBox="0 0 256 256">
     <rect width="256" height="256" fill="none"></rect>
     <rect x="152" y="40" width="56" height="168" opacity="0.2"></rect>
     <polyline
@@ -606,11 +545,7 @@ const ChartsIcon = (
 );
 
 const MapsIcon = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="side-menu__icon"
-    viewBox="0 0 256 256"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" className="side-menu__icon" viewBox="0 0 256 256">
     <rect width="256" height="256" fill="none"></rect>
     <path
       d="M128,24a80,80,0,0,0-80,80c0,72,80,128,80,128s80-56,80-128A80,80,0,0,0,128,24Zm0,112a32,32,0,1,1,32-32A32,32,0,0,1,128,136Z"
@@ -638,16 +573,9 @@ const MapsIcon = (
 );
 
 const Icons = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="side-menu__icon"
-    viewBox="0 0 256 256"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" className="side-menu__icon" viewBox="0 0 256 256">
     <rect width="256" height="256" fill="none"></rect>
-    <path
-      d="M54,40H202a8,8,0,0,1,7.69,5.8L224,96H32L46.34,45.8A8,8,0,0,1,54,40Z"
-      opacity="0.2"
-    ></path>
+    <path d="M54,40H202a8,8,0,0,1,7.69,5.8L224,96H32L46.34,45.8A8,8,0,0,1,54,40Z" opacity="0.2"></path>
     <path d="M96,96v16a32,32,0,0,1-64,0V96Z" opacity="0.2"></path>
     <path d="M224,96v16a32,32,0,0,1-64,0V96Z" opacity="0.2"></path>
     <path
@@ -705,16 +633,16 @@ export const MENUITEMS: any = [
         type: "link",
         active: false,
         selected: false,
-        title: "Main",
+        title: "Main"
       },
       {
         path: "/dashboard/inventory",
         type: "link",
         active: false,
         selected: false,
-        title: "Inventory",
-      },
-    ],
+        title: "Inventory"
+      }
+    ]
   },
   {
     title: "Market",
@@ -728,16 +656,16 @@ export const MENUITEMS: any = [
         type: "link",
         active: false,
         selected: false,
-        title: "Item",
+        title: "Item"
       },
       {
         path: "/authentication/coming-soon",
         type: "link",
         active: false,
         selected: false,
-        title: "Grid",
+        title: "Grid"
       }
-    ],
+    ]
   },
   {
     title: "Utilities",
@@ -751,9 +679,9 @@ export const MENUITEMS: any = [
         type: "link",
         active: false,
         selected: false,
-        title: "Additional Content",
-      },
-    ],
+        title: "Additional Content"
+      }
+    ]
   },
   {
     title: "Wiki",
@@ -768,8 +696,7 @@ export const MENUITEMS: any = [
         path: "/wiki/server-overview",
         menusub: true,
         active: false,
-        selected: false,
-
+        selected: false
       },
       {
         title: "Commands",
@@ -777,14 +704,14 @@ export const MENUITEMS: any = [
         path: "/wiki/commands",
         menusub: true,
         active: false,
-        selected: false,
+        selected: false
       },
       {
         path: "/wiki/rules",
         type: "link",
         active: false,
         selected: false,
-        title: "Server Rules",
+        title: "Server Rules"
       },
       {
         title: "Game Guides",
@@ -798,25 +725,25 @@ export const MENUITEMS: any = [
             type: "link",
             active: false,
             selected: false,
-            title: "Comming soon",
+            title: "Comming soon"
           },
           {
             path: "/authentication/coming-soon",
             type: "link",
             active: false,
             selected: false,
-            title: "Comming soon",
+            title: "Comming soon"
           },
           {
             path: "/authentication/coming-soon",
             type: "link",
             active: false,
             selected: false,
-            title: "Comming soon",
-          },
-        ],
-      },
-    ],
+            title: "Comming soon"
+          }
+        ]
+      }
+    ]
   },
   {
     title: "Maps",
@@ -832,7 +759,7 @@ export const MENUITEMS: any = [
         active: false,
         selected: false,
         disabled: true,
-        title: "Leaflet Maps",
+        title: "Leaflet Maps"
       },
       {
         path: "/authentication/coming-soon",
@@ -841,10 +768,10 @@ export const MENUITEMS: any = [
         selected: false,
         disabled: true,
 
-        title: "Vector Maps",
-      },
-    ],
-  },
+        title: "Vector Maps"
+      }
+    ]
+  }
 ];
 
 export default MENUITEMS;

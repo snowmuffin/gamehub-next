@@ -28,7 +28,7 @@ const Inventory = () => {
         console.log(`[Clipboard] Copied: ${text}`);
         alert("Copied to clipboard!");
       },
-      (err) => {
+      err => {
         console.error("[Clipboard] Failed to copy:", err);
         alert("Failed to copy to clipboard.");
       }
@@ -49,16 +49,8 @@ const Inventory = () => {
               {loading ? (
                 <p>Loading...</p> // 로딩 중일 때 표시
               ) : products.length > 0 ? (
-                products.map((product) => (
-                  <Col
-                    xxl={3}
-                    xl={6}
-                    lg={6}
-                    md={6}
-                    sm={12}
-                    className=""
-                    key={product.indexName}
-                  >
+                products.map(product => (
+                  <Col xxl={3} xl={6} lg={6} md={6} sm={12} className="" key={product.indexName}>
                     <Card className="custom-card shadow-none my-4">
                       <div className="top-left"></div>
                       <div className="top-right"></div>
@@ -68,34 +60,22 @@ const Inventory = () => {
                         <Link href="">
                           <img
                             src={`/assets/images/items/${
-                              product.icon
-                                ? `${product.icon}.png`
-                                : `${product.indexName}.png`
+                              product.icon ? `${product.icon}.png` : `${product.indexName}.png`
                             }`} // Add .svg if icon is provided
                             className="card-img rounded-0 mb-3"
                             alt={product.displayName}
                           />
-                          <span className="badge bg-secondary top-left-badge">
-                            {product.rarity}
-                          </span>
+                          <span className="badge bg-secondary top-left-badge">{product.rarity}</span>
                         </Link>
-                        <p className="product-name fw-medium mb-0">
-                          {product.displayName}
-                        </p>
-                        <p className="product-description fs-11 text-muted mb-2">
-                          {product.description}
-                        </p>
+                        <p className="product-name fw-medium mb-0">{product.displayName}</p>
+                        <p className="product-description fs-11 text-muted mb-2">{product.description}</p>
 
                         <span className="fs-11 text-success fw-medium mb-2">
                           Available Quantity: {product.quantity}
                         </span>
                         <Button
                           variant="primary"
-                          onClick={() =>
-                            copyToClipboard(
-                              `!cmd downloaditem ${product.indexName} 1`
-                            )
-                          }
+                          onClick={() => copyToClipboard(`!cmd downloaditem ${product.indexName} 1`)}
                         >
                           Download
                         </Button>

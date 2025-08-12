@@ -1,20 +1,20 @@
-import { ApexOptions } from 'apexcharts';
-import dynamic from 'next/dynamic';
-import React from 'react';
-const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
+import { ApexOptions } from "apexcharts";
+import dynamic from "next/dynamic";
+import React from "react";
+const ReactApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 interface spark3 {
-  options?: ApexOptions,
+  options?: ApexOptions;
   width?: number;
-  height?: string | number,
-  series?: ApexOptions['series'],
-  label?: XAxisAnnotations
-  color?: string | string[] | (string & string[]) | undefined
-  endingShape?: string
+  height?: string | number;
+  series?: ApexOptions["series"];
+  label?: XAxisAnnotations;
+  color?: string | string[] | (string & string[]) | undefined;
+  endingShape?: string;
   enabled?: boolean;
 }
 
-export class Bitcoin extends React.Component<{}, spark3>{
+export class Bitcoin extends React.Component<{}, spark3> {
   constructor(props: {} | Readonly<{}>) {
     super(props);
 
@@ -23,13 +23,11 @@ export class Bitcoin extends React.Component<{}, spark3>{
         {
           name: "Value",
           data: [
-            0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53,
-            61, 27, 54, 43, 19, 46, 0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51,
-            35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46, 0, 45, 54, 38, 56, 24,
-            65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19,
-            46,
-          ],
-        },
+            0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46, 0, 45, 54,
+            38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46, 0, 45, 54, 38, 56, 24,
+            65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46
+          ]
+        }
       ],
       options: {
         chart: {
@@ -37,7 +35,7 @@ export class Bitcoin extends React.Component<{}, spark3>{
           height: 30,
           width: 120,
           sparkline: {
-            enabled: true,
+            enabled: true
           },
           dropShadow: {
             enabled: true,
@@ -46,8 +44,8 @@ export class Bitcoin extends React.Component<{}, spark3>{
             left: 0,
             blur: 3,
             color: "#000",
-            opacity: 0.1,
-          },
+            opacity: 0.1
+          }
         },
         stroke: {
           show: true,
@@ -55,31 +53,30 @@ export class Bitcoin extends React.Component<{}, spark3>{
           lineCap: "butt",
           colors: undefined,
           width: 1,
-          dashArray: 0,
+          dashArray: 0
         },
         fill: {
           gradient: {
             // enabled: false,
-          },
+          }
         },
         yaxis: {
           axisBorder: {
-            show: false,
+            show: false
           },
           min: 0,
-          show: false,
+          show: false
         },
         xaxis: {
           axisBorder: {
-            show: false,
-          },
+            show: false
+          }
         },
         tooltip: {
-          enabled: false,
+          enabled: false
         },
-        colors: ["rgb(237, 78, 131)"],
+        colors: ["rgb(237, 78, 131)"]
       }
-
     };
   }
 
@@ -90,7 +87,7 @@ export class Bitcoin extends React.Component<{}, spark3>{
   }
 }
 
-export class Etherium extends React.Component<{}, spark3>{
+export class Etherium extends React.Component<{}, spark3> {
   constructor(props: {} | Readonly<{}>) {
     super(props);
 
@@ -99,13 +96,11 @@ export class Etherium extends React.Component<{}, spark3>{
         {
           name: "Value",
           data: [
-            0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53,
-            61, 27, 54, 43, 19, 46, 0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51,
-            35, 41, 35, 27, 93, 53, 61, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53,
-            61, 27, 54, 43, 19, 46, 0, 45, 54, 93, 53, 61, 27, 54, 43, 19,
-            46,
-          ],
-        },
+            0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46, 0, 45, 54,
+            38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93,
+            53, 61, 27, 54, 43, 19, 46, 0, 45, 54, 93, 53, 61, 27, 54, 43, 19, 46
+          ]
+        }
       ],
       options: {
         chart: {
@@ -113,7 +108,7 @@ export class Etherium extends React.Component<{}, spark3>{
           height: 30,
           width: 120,
           sparkline: {
-            enabled: true,
+            enabled: true
           },
           dropShadow: {
             enabled: true,
@@ -122,8 +117,8 @@ export class Etherium extends React.Component<{}, spark3>{
             left: 0,
             blur: 3,
             color: "#000",
-            opacity: 0.1,
-          },
+            opacity: 0.1
+          }
         },
         stroke: {
           show: true,
@@ -131,30 +126,30 @@ export class Etherium extends React.Component<{}, spark3>{
           lineCap: "butt",
           colors: undefined,
           width: 1,
-          dashArray: 0,
+          dashArray: 0
         },
         fill: {
           gradient: {
             // enabled: false,
-          },
-        }, yaxis: {
+          }
+        },
+        yaxis: {
           axisBorder: {
-            show: false,
+            show: false
           },
           min: 0,
-          show: false,
+          show: false
         },
         xaxis: {
           axisBorder: {
-            show: false,
-          },
+            show: false
+          }
         },
         tooltip: {
-          enabled: false,
+          enabled: false
         },
-        colors: ["rgb(10, 145, 81)"],
+        colors: ["rgb(10, 145, 81)"]
       }
-
     };
   }
 
@@ -170,20 +165,22 @@ export class BTC extends React.Component<{}, spark3> {
     super(props);
 
     this.state = {
-      series: [{
-        name: 'Value',
-        data: [0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46]
-      }],
+      series: [
+        {
+          name: "Value",
+          data: [0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46]
+        }
+      ],
       options: {
         chart: {
-          type: 'line',
+          type: "line",
           height: 40,
           width: 120,
           sparkline: {
             enabled: true
           },
           events: {
-            mounted: (chart) => {
+            mounted: chart => {
               chart.windowResizeHandler();
             }
           },
@@ -193,17 +190,17 @@ export class BTC extends React.Component<{}, spark3> {
             top: 0,
             left: 0,
             blur: 3,
-            color: '#000',
+            color: "#000",
             opacity: 0.1
           }
         },
         stroke: {
           show: true,
-          curve: 'smooth',
-          lineCap: 'butt',
+          curve: "smooth",
+          lineCap: "butt",
           colors: undefined,
           width: 1.5,
-          dashArray: 0,
+          dashArray: 0
         },
         fill: {
           gradient: {
@@ -215,16 +212,15 @@ export class BTC extends React.Component<{}, spark3> {
           show: false,
           axisBorder: {
             show: false
-          },
+          }
         },
         xaxis: {
           axisBorder: {
             show: false
-          },
+          }
         },
-        colors: ['#26bf94'],
+        colors: ["#26bf94"]
       }
-
     };
   }
 
@@ -241,20 +237,22 @@ export class ETH extends React.Component<{}, spark3> {
     super(props);
 
     this.state = {
-      series: [{
-        name: 'Value',
-        data: [0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46]
-      }],
+      series: [
+        {
+          name: "Value",
+          data: [0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46]
+        }
+      ],
       options: {
         chart: {
-          type: 'line',
+          type: "line",
           height: 40,
           width: 120,
           sparkline: {
             enabled: true
           },
           events: {
-            mounted: (chart) => {
+            mounted: chart => {
               chart.windowResizeHandler();
             }
           },
@@ -264,17 +262,17 @@ export class ETH extends React.Component<{}, spark3> {
             top: 0,
             left: 0,
             blur: 3,
-            color: '#000',
+            color: "#000",
             opacity: 0.1
           }
         },
         stroke: {
           show: true,
-          curve: 'smooth',
-          lineCap: 'butt',
+          curve: "smooth",
+          lineCap: "butt",
           colors: undefined,
           width: 1.5,
-          dashArray: 0,
+          dashArray: 0
         },
         fill: {
           gradient: {
@@ -286,23 +284,21 @@ export class ETH extends React.Component<{}, spark3> {
           show: false,
           axisBorder: {
             show: false
-          },
+          }
         },
         xaxis: {
           axisBorder: {
             show: false
-          },
+          }
         },
-        colors: ['#26bf94'],
+        colors: ["#26bf94"]
       }
-
     };
   }
 
   render() {
     return (
       <ReactApexChart options={this.state.options} series={this.state.series} type="line" height={35} width={120} />
-
     );
   }
 }
@@ -312,20 +308,22 @@ export class DASH extends React.Component<{}, spark3> {
     super(props);
 
     this.state = {
-      series: [{
-        name: 'Value',
-        data: [0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46]
-      }],
+      series: [
+        {
+          name: "Value",
+          data: [0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46]
+        }
+      ],
       options: {
         chart: {
-          type: 'line',
+          type: "line",
           height: 40,
           width: 120,
           sparkline: {
             enabled: true
           },
           events: {
-            mounted: (chart) => {
+            mounted: chart => {
               chart.windowResizeHandler();
             }
           },
@@ -335,17 +333,17 @@ export class DASH extends React.Component<{}, spark3> {
             top: 0,
             left: 0,
             blur: 3,
-            color: '#000',
+            color: "#000",
             opacity: 0.1
           }
         },
         stroke: {
           show: true,
-          curve: 'smooth',
-          lineCap: 'butt',
+          curve: "smooth",
+          lineCap: "butt",
           colors: undefined,
           width: 1.5,
-          dashArray: 0,
+          dashArray: 0
         },
         fill: {
           gradient: {
@@ -357,23 +355,21 @@ export class DASH extends React.Component<{}, spark3> {
           show: false,
           axisBorder: {
             show: false
-          },
+          }
         },
         xaxis: {
           axisBorder: {
             show: false
-          },
+          }
         },
-        colors: ['#e6533c'],
+        colors: ["#e6533c"]
       }
-
     };
   }
 
   render() {
     return (
       <ReactApexChart options={this.state.options} series={this.state.series} type="line" height={35} width={120} />
-
     );
   }
 }
@@ -384,13 +380,15 @@ export class BitcoinChart extends React.Component<{}, spark3> {
     super(props);
 
     this.state = {
-      series: [{
-        name: 'Value',
-        data: [0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46]
-      }],
+      series: [
+        {
+          name: "Value",
+          data: [0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46]
+        }
+      ],
       options: {
         chart: {
-          type: 'area',
+          type: "area",
           height: 40,
           width: 150,
           sparkline: {
@@ -402,17 +400,17 @@ export class BitcoinChart extends React.Component<{}, spark3> {
             top: 0,
             left: 0,
             blur: 3,
-            color: '#000',
+            color: "#000",
             opacity: 0.1
           }
         },
         stroke: {
           show: true,
-          curve: 'smooth',
-          lineCap: 'butt',
+          curve: "smooth",
+          lineCap: "butt",
           colors: undefined,
           width: 1,
-          dashArray: 0,
+          dashArray: 0
         },
         fill: {
           gradient: {
@@ -429,9 +427,9 @@ export class BitcoinChart extends React.Component<{}, spark3> {
         xaxis: {
           axisBorder: {
             show: false
-          },
+          }
         },
-        colors: ['rgb(10, 145, 81)'],
+        colors: ["rgb(10, 145, 81)"]
       }
     };
   }
@@ -439,7 +437,6 @@ export class BitcoinChart extends React.Component<{}, spark3> {
   render() {
     return (
       <ReactApexChart options={this.state.options} series={this.state.series} type="area" height={40} width={150} />
-
     );
   }
 }
@@ -450,13 +447,15 @@ export class Dashcoinchart extends React.Component<{}, spark3> {
     super(props);
 
     this.state = {
-      series: [{
-        name: 'Value',
-        data: [0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46]
-      }],
+      series: [
+        {
+          name: "Value",
+          data: [0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46]
+        }
+      ],
       options: {
         chart: {
-          type: 'area',
+          type: "area",
           height: 40,
           width: 150,
           sparkline: {
@@ -468,17 +467,17 @@ export class Dashcoinchart extends React.Component<{}, spark3> {
             top: 0,
             left: 0,
             blur: 3,
-            color: '#000',
+            color: "#000",
             opacity: 0.1
           }
         },
         stroke: {
           show: true,
-          curve: 'smooth',
-          lineCap: 'butt',
+          curve: "smooth",
+          lineCap: "butt",
           colors: undefined,
           width: 1,
-          dashArray: 0,
+          dashArray: 0
         },
         fill: {
           gradient: {
@@ -495,9 +494,9 @@ export class Dashcoinchart extends React.Component<{}, spark3> {
         xaxis: {
           axisBorder: {
             show: false
-          },
+          }
         },
-        colors: ['rgb(237, 78, 131)'],
+        colors: ["rgb(237, 78, 131)"]
       }
     };
   }
@@ -505,7 +504,6 @@ export class Dashcoinchart extends React.Component<{}, spark3> {
   render() {
     return (
       <ReactApexChart options={this.state.options} series={this.state.series} type="area" height={40} width={150} />
-
     );
   }
 }

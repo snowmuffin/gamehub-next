@@ -25,7 +25,6 @@
 
         .slide.has-sub.open {
           .slide-menu {
-
             &.child1,
             &.child2,
             &.child3 {
@@ -111,7 +110,6 @@
         }
 
         .side-menu__item {
-
           &.active,
           &:hover {
             background-color: $primary;
@@ -344,7 +342,6 @@
   }
 
   @media (max-width: 991.98px) {
-
     .app-sidebar .side-menu__item.active,
     .app-sidebar .side-menu__item:hover {
       background-color: transparent;
@@ -400,7 +397,12 @@
     position: relative;
     width: 100%;
     inset-block-start: 0;
-    background: radial-gradient(circle, rgba(var(--primary-rgb), 0.18) 0%, rgba(var(--primary-rgb), 0.08) 40%, rgba(0, 0, 0, 0.08) 100%);
+    background: radial-gradient(
+      circle,
+      rgba(var(--primary-rgb), 0.18) 0%,
+      rgba(var(--primary-rgb), 0.08) 40%,
+      rgba(0, 0, 0, 0.08) 100%
+    );
     z-index: 1;
 
     &:before {
@@ -444,7 +446,6 @@
 
       .landing-footer-list {
         li {
-
           &:last-child {
             margin-bottom: 0;
           }
@@ -455,7 +456,6 @@
 
   @media (max-width: 1115.98px) {
     .landing-main-image {
-
       &::before,
       &::after {
         display: none;
@@ -709,7 +709,6 @@
 
 @media (max-width: 420px) {
   .landing-body .landing-banner {
-
     .main-banner-container {
       padding: 1rem;
     }
@@ -722,7 +721,6 @@
 
 @media (max-width: 992px) {
   .landing-body {
-
     .app-sidebar .slide-menu.child1 li,
     .app-sidebar .slide-menu.child2 li,
     .app-sidebar .slide-menu.child3 li {
@@ -736,7 +734,6 @@
 
 [dir="rtl"] {
   .landing-body {
-
     .testimonial-card,
     .featured-card-1 {
       direction: rtl;
@@ -771,7 +768,7 @@
   line-height: 2.25;
 }
 
-.custom-form-group .form-control-lg~.custom-form-btn {
+.custom-form-group .form-control-lg ~ .custom-form-btn {
   inset-inline-end: 0.7rem;
 }
 
@@ -1028,7 +1025,7 @@
 @media (min-width: 992px) and (max-width: 1024px) {
   [data-nav-layout="horizontal"] {
     .landing-body {
-      .app-sidebar .main-menu>.slide {
+      .app-sidebar .main-menu > .slide {
         margin: 0;
       }
 
@@ -1042,7 +1039,6 @@
       padding-inline-start: 1rem;
     }
   }
-
 }
 
 /*------ landing end ------*/

@@ -1,6 +1,24 @@
 "use client";
-import { Civilianpopulation, Civilianpopulationsupport, Completedissues, DangerZone, Energyblock, NewEvent, PendingEvents, Player1, Player2, Player3, Player4, Player5, SafeZone, Skillachieved, TimeSpent, UnsolvedEvents, Usersreport } from "@/shared/data/dashboard/gamingdata";
-const WorldMapCom = dynamic(() => import('@/shared/data/dashboard/mapdata'), { ssr: false });
+import {
+  Civilianpopulation,
+  Civilianpopulationsupport,
+  Completedissues,
+  DangerZone,
+  Energyblock,
+  NewEvent,
+  PendingEvents,
+  Player1,
+  Player2,
+  Player3,
+  Player4,
+  Player5,
+  SafeZone,
+  Skillachieved,
+  TimeSpent,
+  UnsolvedEvents,
+  Usersreport
+} from "@/shared/data/dashboard/gamingdata";
+const WorldMapCom = dynamic(() => import("@/shared/data/dashboard/mapdata"), { ssr: false });
 import Seo from "@/shared/layout-components/seo";
 import dynamic from "next/dynamic";
 import Link from "next/link";
@@ -18,46 +36,41 @@ import DistanceCoveredCard from "./components/DistanceCoveredCard";
 import PlayerStatisticsCard from "./components/PlayerStatisticsCard";
 import TopCountriesCard from "./components/TopCountriesCard";
 
-type Ranking = any; 
+type Ranking = any;
 
 const Gaming = () => {
-    const [rankings, setRankings] = useState<Ranking[]>([]);
-    const [error, setError] = useState<string | null>(null);
+  const [rankings, setRankings] = useState<Ranking[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
-    useEffect(() => {
-        const fetchRankings = async () => {
-            try {
-                const response = await apiRequest.get('/user/rankings');
-                setRankings(response.data as Ranking[]);
-            } catch (error) {
-                console.error("Failed to fetch rankings:", error);
-                setError("Failed to load rankings. Please try again later.");
-            }
-        };
+  useEffect(() => {
+    const fetchRankings = async () => {
+      try {
+        const response = await apiRequest.get("/user/rankings");
+        setRankings(response.data as Ranking[]);
+      } catch (error) {
+        console.error("Failed to fetch rankings:", error);
+        setError("Failed to load rankings. Please try again later.");
+      }
+    };
 
-        fetchRankings();
-    }, []);
+    fetchRankings();
+  }, []);
 
-    return (
-        <Fragment>
-            <Seo title={"Gaming"} />
+  return (
+    <Fragment>
+      <Seo title={"Gaming"} />
 
-            <Row>
-                <Col xl={5} lg={6} md={6} sm={12} className="">
-                    {error ? (
-                        <div className="text-danger text-center">{error}</div>
-                    ) : (
-                        <PlayerStatisticsCard rankings={rankings} />
-                    )}
-                </Col>
-
-
-
-
-            </Row>
-        </Fragment>
-    );
-
+      <Row>
+        <Col xl={5} lg={6} md={6} sm={12} className="">
+          {error ? (
+            <div className="text-danger text-center">{error}</div>
+          ) : (
+            <PlayerStatisticsCard rankings={rankings} />
+          )}
+        </Col>
+      </Row>
+    </Fragment>
+  );
 };
 
 export default Gaming;

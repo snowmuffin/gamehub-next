@@ -1,4 +1,4 @@
-export const input1=`<div className="row gy-4">
+export const input1 = `<div className="row gy-4">
 <Col xl={4} lg={6}  md ={6} sm={12}>
     <p className="mb-2 text-muted">Basic Input:</p>
     <Form.Control type="text" id="input"/>
@@ -134,9 +134,9 @@ export const input1=`<div className="row gy-4">
         </option>
     </datalist>
 </Col>
-</div>`
+</div>`;
 
-export const input2=`<div className="row gy-3">
+export const input2 = `<div className="row gy-3">
 <Col xl={12}>
     <Form.Label htmlFor="input-noradius">Input With No Radius</Form.Label>
     <Form.Control type="text" className="form-control rounded-0" id="input-noradius" placeholder="No Radius"/>
@@ -149,9 +149,9 @@ export const input2=`<div className="row gy-3">
     <Form.Label htmlFor="input-rounded-pill">Rounded Input</Form.Label>
     <Form.Control type="text" className="form-control rounded-pill" id="input-rounded-pill" placeholder="Rounded"/>
 </Col>
-</div>`
+</div>`;
 
-export const input3=`<div className="row gy-3">
+export const input3 = `<div className="row gy-3">
 <Col xl={12}>
     <Form.Label htmlFor="input-rounded1">Default</Form.Label>
     <Form.Control type="text" id="input-rounded1" placeholder="Default"/>
@@ -164,16 +164,16 @@ export const input3=`<div className="row gy-3">
     <Form.Label htmlFor="input-rounded3">Dashed Input</Form.Label>
     <Form.Control type="text" className="form-control border-dashed" id="input-rounded3" placeholder="Dashed"/>
 </Col>
-</div>`
+</div>`;
 
-export const input4=`<Form.Control className="form-control-sm mb-3" type="text"
+export const input4 = `<Form.Control className="form-control-sm mb-3" type="text"
 placeholder=".form-control-sm" aria-label=".form-control-sm example"/>
 <Form.Control className="mb-3" type="text" placeholder="Default input/"
     aria-label="default input example"/>
 <Form.Control className="form-control-lg" type="text"
-placeholder=".form-control-lg" aria-label=".form-control-lg example"/>`
+placeholder=".form-control-lg" aria-label=".form-control-lg example"/>`;
 
-export const input5=` <Form>
+export const input5 = ` <Form>
 <div className="mb-3">
     <Form.Label htmlFor="exampleInputEmail1">Email
         address</Form.Label>
@@ -192,9 +192,9 @@ export const input5=` <Form>
     <Form.Check type="checkbox" label="Check me out" className="" id="exampleCheck1"/>
 </div>
 <Button variant='primary' type="submit" className="">Submit</Button>
-</Form>`
+</Form>`;
 
-export const input6=` <Form.Label htmlFor="inputPassword5">Password</Form.Label>
+export const input6 = ` <Form.Label htmlFor="inputPassword5">Password</Form.Label>
 <Form.Control type="password" id="inputPassword5" className="form-control/"
     aria-describedby="passwordHelpBlock"/>
 <div id="passwordHelpBlock" className="form-text">
@@ -202,9 +202,9 @@ export const input6=` <Form.Label htmlFor="inputPassword5">Password</Form.Label>
     numbers,
     and
     must not contain spaces, special characters, or emoji.
-</div>`
+</div>`;
 
-export const input7=` <div className="row g-3 align-items-center">
+export const input7 = ` <div className="row g-3 align-items-center">
 <div className="col-auto">
     <Form.Label htmlFor="inputPassword6" className="col-form-label">Password</Form.Label>
 </div>
@@ -217,9 +217,9 @@ export const input7=` <div className="row g-3 align-items-center">
         Must be 8-20 characters long.
     </span>
 </div>
-</div>`
+</div>`;
 
-export const input8=`<Form>
+export const input8 = `<Form>
 <fieldset disabled>
     <legend>Disabled fieldset example</legend>
     <div className="mb-3">
@@ -242,36 +242,35 @@ export const input8=`<Form>
     </div>
     <Button variant='' type="submit" className="btn btn-primary">Submit</Button>
 </fieldset>
-</Form>`
+</Form>`;
 //checks & radios
-export const radio1=` <Form.Check  label="Default checkbox"/>
+export const radio1 = ` <Form.Check  label="Default checkbox"/>
 <Form.Check defaultChecked     
- label="Checked checkbox"/>`
-  
-export const radio2=` <Form.Check disabled  label="Disabled checkbox"/>
+ label="Checked checkbox"/>`;
+
+export const radio2 = ` <Form.Check disabled  label="Disabled checkbox"/>
 <Form.Check disabled defaultChecked
- label="Disabled checked checkbox"/>`
+ label="Disabled checked checkbox"/>`;
 
-export const radio3=`<Form.Check type="radio"  label="Default radio"/>
+export const radio3 = `<Form.Check type="radio"  label="Default radio"/>
 <Form.Check type="radio" defaultChecked  
-label="Default checked radio"/>`
+label="Default checked radio"/>`;
 
-export const radio4=`<Form.Check type="radio" disabled  label="Default radio"/>
+export const radio4 = `<Form.Check type="radio" disabled  label="Default radio"/>
 <Form.Check type="radio" disabled defaultChecked 
- label="Default checked radio"/>`
+ label="Default checked radio"/>`;
 
-export const radio5=`<Form.Check  label="Default checkbox"/>
+export const radio5 = `<Form.Check  label="Default checkbox"/>
 <Form.Check disabled  label="Disabled checkbox"/>
 <Form.Check type="radio"defaultChecked  label="Default checkbox"/>
-<Form.Check type="radio" disabled  label="Disabled checkbox"/>`
+<Form.Check type="radio" disabled  label="Disabled checkbox"/>`;
 
-
-export const radio6=`<Form.Check type="switch"  label="Default switch checkbox input"/>
+export const radio6 = `<Form.Check type="switch"  label="Default switch checkbox input"/>
 <Form.Check type="switch" defaultChecked  label="Default switch checkbox input"/>
 <Form.Check type="switch" disabled  label="Default switch checkbox input"/>
-<Form.Check type="switch" disabled defaultChecked  label="Default checked switch checkbox input"/>`
+<Form.Check type="switch" disabled defaultChecked  label="Default checked switch checkbox input"/>`;
 
-export const radio7=`<Form.Check type="radio" className="btn-check" name="options"
+export const radio7 = `<Form.Check type="radio" className="btn-check" name="options"
 id="option1" defaultChecked/>
 <Button className="btn btn-primary m-1">Checked</Button>
 <Form.Check type="radio" className="btn-check" name="options" 
@@ -282,29 +281,29 @@ id="option3" disabled/>
 <Button disabled className="btn btn-primary m-1">Disabled</Button>
 <Form.Check type="radio" className="btn-check" name="options" 
 id="option4"/>
-<Button className="btn btn-primary m-1">Radio</Button>`
+<Button className="btn btn-primary m-1">Radio</Button>`;
 
-export const radio8=`<Form.Check type="checkbox" className="btn-check" id="btn-check"/>
+export const radio8 = `<Form.Check type="checkbox" className="btn-check" id="btn-check"/>
 <Button className="btn btn-primary m-1">Single toggle</Button>
 <Form.Check type="checkbox" className="btn-check" id="btn-check-2" defaultChecked />
 <Button className="btn btn-primary m-1">Checked</Button>
 <Form.Check type="checkbox" className="btn-check" id="btn-check-3"disabled/>
-<Button disabled className="btn btn-primary m-1">Disabled</Button>`
+<Button disabled className="btn btn-primary m-1">Disabled</Button>`;
 
-export const radio9=` <Form.Check className="form-check-inline" type="checkbox" label="1"/>
+export const radio9 = ` <Form.Check className="form-check-inline" type="checkbox" label="1"/>
 <Form.Check className="form-check-inline" type="checkbox" label="2"/>
 <Form.Check className="form-check-inline" disabled type="checkbox"
  label="3 (disabled)"/>
 <Form.Check className="form-check-inline" type="radio" label="1"/>
 <Form.Check className="form-check-inline" type="radio" label="2"/>
 <Form.Check className="form-check-inline" disabled type="radio"
- label="3 (disabled)"/>`
+ label="3 (disabled)"/>`;
 
-export const radio10=`<span className="me-3">
+export const radio10 = `<span className="me-3">
 <Form.Check className="" type="checkbox" /></span>
-<span><Form.Check className="" type="radio" /></span>`
+<span><Form.Check className="" type="radio" /></span>`;
 
-export const radio11=` <Form.Check 
+export const radio11 = ` <Form.Check 
 className="form-check-reverse mb-3"
  type="checkbox" 
  label="Reverse checkbox" />
@@ -315,9 +314,9 @@ label="Disabled reverse checkbox" />
 <Form.Check 
 className="form-check-reverse mb-3" 
 type="switch" 
-label="Reverse switch checkbox input" />`
+label="Reverse switch checkbox input" />`;
 
-export const radio12=`<Form.Control type="checkbox" 
+export const radio12 = `<Form.Control type="checkbox" 
 className="btn-check"id="btn-check-outlined"/>
 <Button variant='outline-primary' 
 className="mb-3">Single toggle</Button><br/>
@@ -335,25 +334,25 @@ radio</Button>
  name="options-outlined" id="danger-outlined"
 />
 <Button variant='outline-danger'className="m-1"
- >Danger radio</Button>`
+ >Danger radio</Button>`;
 
-export const radio13=`<Form.Check type="checkbox" defaultChecked  label="Default"/>
+export const radio13 = `<Form.Check type="checkbox" defaultChecked  label="Default"/>
 <Form.Check className="form-check-md d-flex align-items-center"
  type="checkbox" defaultChecked id="checkebox-md"  label="Medium"/>
 <Form.Check className="form-check-lg d-flex align-items-center" 
-type="checkbox" defaultChecked id="checkebox-lg"  label="Large"/>`
+type="checkbox" defaultChecked id="checkebox-lg"  label="Large"/>`;
 
-export const radio14=` <Form.Check type="radio" label="Default"/>
+export const radio14 = ` <Form.Check type="radio" label="Default"/>
 <Form.Check type="radio" className="form-check-md" id="Radio-md"  label="Medium"/>
 <Form.Check type="radio" className="form-check-lg" 
- defaultChecked id="Radio-lg"  label="Large"/>`
+ defaultChecked id="Radio-lg"  label="Large"/>`;
 
-export const radio15=`<Form.Check type="switch" label="Default"/>
+export const radio15 = `<Form.Check type="switch" label="Default"/>
 <Form.Check type="switch" className="form-check-md form-switch" id="switch-md"  label="Medium"/>
 <Form.Check type="switch" className="form-check-lg form-switch" 
-  id="switch-lg"  label="Large"/>`
+  id="switch-lg"  label="Large"/>`;
 
-export const radio16=`export default function BasicModal () {   
+export const radio16 = `export default function BasicModal () {   
     const [secondary1, setsecondary1] = useState("on");
     const [success1, setsuccess1] = useState("on");
     const [dark1, setdark1] = useState("on");
@@ -382,9 +381,9 @@ return(
         </div>
     </Col>
 </Row>
-)}`
+)}`;
 
-export const radio17=` <div className="form-check form-switch mb-2">
+export const radio17 = ` <div className="form-check form-switch mb-2">
 <input type="radio" className="form-check-input  form-checked"
   id="primaryChecked"  role="switch"defaultChecked/>
   <label className="form-check-label" htmlFor="primaryChecked">
@@ -414,9 +413,9 @@ id="infoChecked"  role="switch"defaultChecked/>
 <label className="form-check-label" htmlFor="primaryChecked">
    info
 </label>
-</div>`
+</div>`;
 
-export const radio18=` <div className="d-flex align-items-center flex-wrap mb-3">
+export const radio18 = ` <div className="d-flex align-items-center flex-wrap mb-3">
 <div className=""> <p className="text-muted m-0">Small size toggle switch <code>toggle-sm</code></p></div>
 <div className="toggle toggle-sm on mb-0">
     <span></span>
@@ -433,9 +432,9 @@ export const radio18=` <div className="d-flex align-items-center flex-wrap mb-3"
 <div className="toggle toggle-lg toggle-success on mb-0">
     <span></span>
 </div>
-</div>`
+</div>`;
 
-export const radio19=`<div className="d-flex align-items-center flex-wrap mb-4">
+export const radio19 = `<div className="d-flex align-items-center flex-wrap mb-4">
 <div className=""><p className="text-muted m-0">Small size toggle switch <code>toggle-sm</code></p></div>
 <div className="custom-toggle-switch toggle-sm ms-2">
     <Form.Control id="size-sm" name="toggleswitchsize" type="checkbox" defaultChecked/>
@@ -455,9 +454,9 @@ export const radio19=`<div className="d-flex align-items-center flex-wrap mb-4">
     <Form.Control id="size-lg" name="toggleswitchsize" type="checkbox" defaultChecked/>
     <Form.Label htmlFor="size-lg" className="label-success mb-2"></Form.Label>
 </div>
-</div>`
+</div>`;
 
-export const radio20=` <div className="form-check mb-2">
+export const radio20 = ` <div className="form-check mb-2">
 <input type="checkbox" value=""  className="form-check-input form-checked"
   id="primaryChecked" defaultChecked/>
   <label className="form-check-label" htmlFor="primaryChecked">
@@ -487,9 +486,9 @@ id="primaryChecked" defaultChecked/>
 <label className="form-check-label" htmlFor="primaryChecked">
    info
 </label>
-</div>`
+</div>`;
 
-export const radio21=`<div className="form-check mb-2">
+export const radio21 = `<div className="form-check mb-2">
 <input type="checkbox" className="form-check-input form-checked-outline"
   id="primaryChecked" defaultChecked/>
   <label className="form-check-label" htmlFor="primaryChecked">
@@ -519,9 +518,9 @@ id="primaryChecked" defaultChecked/>
 <label className="form-check-label" htmlFor="primaryChecked">
    info
 </label>
-</div>`
+</div>`;
 
-export const radio22=` <div className="form-check mb-2">
+export const radio22 = ` <div className="form-check mb-2">
 <input type="radio" className="form-check-input form-checked"
   id="primaryChecked" defaultChecked/>
   <label className="form-check-label" htmlFor="primaryChecked">
@@ -551,9 +550,9 @@ id="primaryChecked" defaultChecked/>
 <label className="form-check-label" htmlFor="primaryChecked">
    info
 </label>
-</div>`
+</div>`;
 
-export const radio23=` <div className="form-check mb-2">
+export const radio23 = ` <div className="form-check mb-2">
 <input type="radio" className="form-check-input form-checked-outline form-checked"
   id="primaryChecked" defaultChecked/>
   <label className="form-check-label" htmlFor="primaryChecked">
@@ -583,9 +582,9 @@ id="primaryChecked" defaultChecked/>
 <label className="form-check-label" htmlFor="primaryChecked">
    info
 </label>
-</div>`
+</div>`;
 
-export const radio24=` <div className="form-check form-switch mb-2">
+export const radio24 = ` <div className="form-check form-switch mb-2">
 <input type="radio" className="form-check-input  form-checked"
   id="primaryChecked"  role="switch"defaultChecked/>
   <label className="form-check-label" htmlFor="primaryChecked">
@@ -615,12 +614,12 @@ id="infoChecked"  role="switch"defaultChecked/>
 <label className="form-check-label" htmlFor="primaryChecked">
    info
 </label>
-</div>`
+</div>`;
 //checks & radios
 
 // inputgroup
 
-export const inputgroup1=` <InputGroup className="mb-3">
+export const inputgroup1 = ` <InputGroup className="mb-3">
 <InputGroup.Text className="" id="basic-addon1">@</InputGroup.Text>
 <Form.Control type="text" className="" placeholder="Username"
     aria-label="Username" aria-describedby="basic-addon1"/>
@@ -653,9 +652,9 @@ export const inputgroup1=` <InputGroup className="mb-3">
 <InputGroup>
 <InputGroup.Text className="">With textarea</InputGroup.Text>
 <Form.Control as="textarea" className="" aria-label="With textarea"/>
-</InputGroup>`
+</InputGroup>`;
 
-export const inputgroup2=`<InputGroup className="input-group-sm mb-3">
+export const inputgroup2 = `<InputGroup className="input-group-sm mb-3">
 <InputGroup.Text className="" id="inputGroup-sizing-sm">Small</InputGroup.Text>
 <Form.Control type="text" className="form-control"
     aria-label="Sizing example input"            
@@ -673,9 +672,9 @@ export const inputgroup2=`<InputGroup className="input-group-sm mb-3">
 <Form.Control type="text" className="form-control"
     aria-label="Sizing example input"            
     aria-describedby="inputGroup-sizing-lg"/>
-</InputGroup>`
+</InputGroup>`;
 
-export const inputgroup3=`<InputGroup className="mb-3">
+export const inputgroup3 = `<InputGroup className="mb-3">
 <Button variant='primary' className="" type="button"
     id="button-addon1">Button</Button>
 <Form.Control type="text" className="" placeholder=""
@@ -699,9 +698,9 @@ export const inputgroup3=`<InputGroup className="mb-3">
     aria-label="Recipient's username with two button addons"/>
 <Button variant='primary' className="" type="button">Button</Button>
 <Button variant='primary' className="" type="button">Button</Button>
-</InputGroup>`
+</InputGroup>`;
 
-export const inputgroup4=`<InputGroup className="mb-3">
+export const inputgroup4 = `<InputGroup className="mb-3">
 <Dropdown>
 <Dropdown.Toggle variant='' className="btn btn-primary dropdown-toggle" type="button"
      data-bs-toggle="dropdown" aria-expanded="false">Dropdown</Dropdown.Toggle>
@@ -760,9 +759,9 @@ export const inputgroup4=`<InputGroup className="mb-3">
      <Dropdown.Item href="#">Separated link</Dropdown.Item>
  </Dropdown.Menu>
 </Dropdown>
-</InputGroup>`
+</InputGroup>`;
 
-export const inputgroup5=` <InputGroup className="mb-3">
+export const inputgroup5 = ` <InputGroup className="mb-3">
 <label className="input-group-text" htmlFor="inputGroupFile01">Upload</label>
 <Form.Control type="file" className="form-control" id="inputGroupFile01"/>
 </InputGroup>
@@ -784,15 +783,15 @@ export const inputgroup5=` <InputGroup className="mb-3">
     aria-describedby="inputGroupFileAddon04" aria-label="Upload"/>
 <Button variant='' className="btn btn-primary" type="button"
     id="inputGroupFileAddon04">Button</Button>
-</InputGroup>`
+</InputGroup>`;
 
-export const inputgroup6=`  <InputGroup>
+export const inputgroup6 = `  <InputGroup>
 <InputGroup.Text className="">First and last name</InputGroup.Text>
 <Form.Control type="text" aria-label="First name" className=""/>
 <Form.Control type="text" aria-label="Last name" className=""/>
-</InputGroup>`
+</InputGroup>`;
 
-export const inputgroup7=` <InputGroup className="mb-3">
+export const inputgroup7 = ` <InputGroup className="mb-3">
 <InputGroup.Text className="">
     <Form.Check  className=" mt-0" type="checkbox" value=""
         aria-label="Checkbox for following text input"/>
@@ -807,9 +806,9 @@ export const inputgroup7=` <InputGroup className="mb-3">
 </InputGroup.Text>
 <Form.Control type="text" className=""
     aria-label="Text input with radio button"/>
-</InputGroup>`
+</InputGroup>`;
 
-export const inputgroup8=`<InputGroup className="mb-3">
+export const inputgroup8 = `<InputGroup className="mb-3">
 <InputGroup.Text className="">
     <Form.Check className="mt-0" type="checkbox" value=""
         aria-label="Checkbox for following text input"/>
@@ -824,10 +823,9 @@ export const inputgroup8=`<InputGroup className="mb-3">
 </InputGroup.Text>
 <Form.Control type="text" className=""
     aria-label="Text input with radio button"/>
-</InputGroup>`
+</InputGroup>`;
 
-
-export const inputgroup9=` <InputGroup className="mb-3">
+export const inputgroup9 = ` <InputGroup className="mb-3">
 <Button variant='primary' type="button" className="">Action</Button>
 <Dropdown>
 <Dropdown.Toggle type="button"
@@ -864,9 +862,9 @@ export const inputgroup9=` <InputGroup className="mb-3">
     <Dropdown.Item href="#">Separated link</Dropdown.Item>
 </Dropdown.Menu>
 </Dropdown>
-</InputGroup>`
+</InputGroup>`;
 
-export const inputgroup10=`<InputGroup className="mb-3">
+export const inputgroup10 = `<InputGroup className="mb-3">
 <label className="input-group-text" htmlFor="inputGroupSelect01">Options</label>
 <Select  name="colors" options={Selectdata1} className="basic-multi-select flex-grow-1"
 menuPlacement='auto' classNamePrefix="Select2" defaultValue={[Selectdata1[0]]}/>
@@ -885,40 +883,38 @@ menuPlacement='auto' classNamePrefix="Select2" defaultValue={[Selectdata1[0]]} /
 <Select  name="colors" options={Selectdata1} className="basic-multi-select flex-grow-1"
 menuPlacement='auto' classNamePrefix="Select2" defaultValue={[Selectdata1[0]]} />
 <Button variant='' className="btn btn-primary" type="button">Button</Button>
-</InputGroup>`
+</InputGroup>`;
 
-export const inputgroup11=` <InputGroup className="flex-nowrap">
+export const inputgroup11 = ` <InputGroup className="flex-nowrap">
 <InputGroup.Text className="" id="addon-wrapping">@</InputGroup.Text>
 <Form.Control type="text" className="" placeholder="Username"
     aria-label="Username" aria-describedby="addon-wrapping"/>
-</InputGroup>`
+</InputGroup>`;
 // end input groups
 
 //formselect
-export const formselect1=`<Form.Select aria-label="Default select example">
+export const formselect1 = `<Form.Select aria-label="Default select example">
 <option>Open this select menu</option>
 <option value="1">One</option>
 <option value="2">Two</option>
 <option value="3">Three</option>
-</Form.Select>`
+</Form.Select>`;
 
-export const formselect2=`<Form.Select aria-label="Default select example" disabled={true}>
+export const formselect2 = `<Form.Select aria-label="Default select example" disabled={true}>
 <option>Open this select menu</option>
 <option value="1">One</option>
 <option value="2">Two</option>
 <option value="3">Three</option>
-</Form.Select>`
+</Form.Select>`;
 
-
-export const formselect3=`<Form.Select className="form-select rounded-pill" aria-label="Default select example">
+export const formselect3 = `<Form.Select className="form-select rounded-pill" aria-label="Default select example">
 <option>Open this select menu</option>
 <option value="1">One</option>
 <option value="2">Two</option>
 <option value="3">Three</option>
-</Form.Select>`
+</Form.Select>`;
 
-
-export const formselect4=`<Form.Select size="sm" className="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
+export const formselect4 = `<Form.Select size="sm" className="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
 <option>Open this select menu</option>
 <option defaultValue="1">One</option>
 <option defaultValue="2">Two</option>
@@ -937,45 +933,43 @@ aria-label=".form-select-lg example">
 <option defaultValue="1">One</option>
 <option defaultValue="2">Two</option>
 <option defaultValue="3">Three</option>
-</Form.Select>`
+</Form.Select>`;
 
-
-export const formselect5=`<Form.Select multiple className="form-select"  aria-label="multiple select example">
+export const formselect5 = `<Form.Select multiple className="form-select"  aria-label="multiple select example">
 <option className='selected'>Open this select menu</option>
 <option defaultValue="1">One</option>
 <option defaultValue="2">Two</option>
 <option defaultValue="3">Three</option>
-</Form.Select>`
+</Form.Select>`;
 
-
-export const formselect6=`<Form.Select className="form-select" htmlSize={4} aria-label="size 3 select example">
+export const formselect6 = `<Form.Select className="form-select" htmlSize={4} aria-label="size 3 select example">
 <option className='selected'>Open this select menu</option>
 <option defaultValue="1">One</option>
 <option defaultValue="2">Two</option>
 <option defaultValue="3">Three</option>
 <option defaultValue="4">Four</option>
 <option defaultValue="5">Five</option>
-</Form.Select>`
+</Form.Select>`;
 //
 
 //rangeslider
 
-export const rangeslider1=`<Form.Range  className="" id="customRange1"/>`
+export const rangeslider1 = `<Form.Range  className="" id="customRange1"/>`;
 
-export const rangeslider2=` <Form.Range  className="" 
-id="disabledRange" disabled/>`
+export const rangeslider2 = ` <Form.Range  className="" 
+id="disabledRange" disabled/>`;
 
-export const rangeslider3=`<Form.Range  className="" min="0" max="5"
-id="customRange2"/>`
+export const rangeslider3 = `<Form.Range  className="" min="0" max="5"
+id="customRange2"/>`;
 
-export const rangeslider4=`<Form.Range  className="" min="0" max="5"
-step="0.5" id="customRange3"/>`
+export const rangeslider4 = `<Form.Range  className="" min="0" max="5"
+step="0.5" id="customRange3"/>`;
 
 //
 
 // fileuploads
 
-export const fileupload1=`<Form.Group controlId="formFile" className="mb-3">
+export const fileupload1 = `<Form.Group controlId="formFile" className="mb-3">
 <Form.Label>Default file input example</Form.Label>
 <Form.Control type="file" />
 </Form.Group>
@@ -994,13 +988,12 @@ export const fileupload1=`<Form.Group controlId="formFile" className="mb-3">
 <Form.Group controlId="formFileLg" className="mb-3">
 <Form.Label>Large file input example</Form.Label>
 <Form.Control type="file" size="lg" />
-</Form.Group>`
+</Form.Group>`;
 //
-
 
 //floating lables
 
-export const floating1=` <FloatingLabel
+export const floating1 = ` <FloatingLabel
 controlId="floatingInput"
 label="Email address"
 className="mb-3">
@@ -1008,9 +1001,9 @@ className="mb-3">
 </FloatingLabel>
 <FloatingLabel controlId="floatingPassword" label="Password">
 <Form.Control type="password" placeholder="Password" />
-</FloatingLabel>`
+</FloatingLabel>`;
 
-export const floating2=` <Form.Floating className="mb-3">
+export const floating2 = ` <Form.Floating className="mb-3">
 <Form.Control type="email" readOnly
 className="form-control-plaintext"
     id="floatingEmptyPlaintextInput" placeholder="name@example.com"/>
@@ -1022,10 +1015,9 @@ className="form-control-plaintext"
     id="floatingPlaintextInput" placeholder="name@example.com"
     defaultValue="name@example.com"/>
 <Form.Label htmlFor="floatingPlaintextInput">Input with value</Form.Label>
-</Form.Floating>`
+</Form.Floating>`;
 
-
-export const floating3=`<Form.Floating className="my-3">
+export const floating3 = `<Form.Floating className="my-3">
 <Form.Control type="email" className="form-control" id="floatingInputValue"
     placeholder="name@example.com" defaultValue="test@example.com"/>
 <Form.Label htmlFor="floatingInputValue">Input with value</Form.Label>
@@ -1035,10 +1027,9 @@ export const floating3=`<Form.Floating className="my-3">
     id="floatingInputInvalid" placeholder="name@example.com"
     defaultValue="test@example.com"/>
 <Form.Label htmlFor="floatingInputInvalid">Invalid input</Form.Label>
-</form>`
+</form>`;
 
-
-export const floating4=` <FloatingLabel
+export const floating4 = ` <FloatingLabel
 controlId="floatingInput"
 label="Email address"
 className="mb-3">
@@ -1046,20 +1037,18 @@ className="mb-3">
 </FloatingLabel>
 <FloatingLabel controlId="floatingPassword" label="Password">
 <Form.Control type="password" placeholder="Password" />
-</FloatingLabel>`
+</FloatingLabel>`;
 
-
-export const floating5=` <FloatingLabel controlId="floatingSelect" label="Works with selects">
+export const floating5 = ` <FloatingLabel controlId="floatingSelect" label="Works with selects">
 <Form.Select aria-label="Floating label select example">
     <option>Open this select menu</option>
     <option value="1">One</option>
     <option value="2">Two</option>
     <option value="3">Three</option>
 </Form.Select>
-</FloatingLabel>`
+</FloatingLabel>`;
 
-
-export const floating6=`  <div className="row g-2">
+export const floating6 = `  <div className="row g-2">
 <div className="col-md">
     <Form.Floating className="">
         <Form.Control type="email" className="form-control" id="floatingInputGrid"
@@ -1077,9 +1066,9 @@ export const floating6=`  <div className="row g-2">
     </Form.Select>
     </FloatingLabel>
 </div>
-</div>`
+</div>`;
 
-export const floating7=`<Row className="gy-4">
+export const floating7 = `<Row className="gy-4">
 <Col xl={4} className="">
     <Form.Floating className="mb-4 floating-primary">
         <Form.Control type="email" className="" id="floatingInputprimary" placeholder="name@example.com"/>
@@ -1116,12 +1105,12 @@ export const floating7=`<Row className="gy-4">
         <Form.Label htmlFor="floatingInputdanger">danger</Form.Label>
     </Form.Floating>
 </Col>
-</Row>`
+</Row>`;
 //
 
 //form layouts
 
-export const layout1=` <div className="mb-3">
+export const layout1 = ` <div className="mb-3">
 <Form.Label htmlFor="form-text" className=" fs-14 text-dark">Enter name</Form.Label>
 <Form.Control type="text" className="" id="form-text" placeholder=""/>
 </div>
@@ -1132,9 +1121,9 @@ export const layout1=` <div className="mb-3">
 </div>
 <Form.Check className="" type="checkbox" value="" id="invalidCheck" label="Accept Policy"
     required/>
-<Button variant='primary' className="" type="submit">Submit</Button>`
+<Button variant='primary' className="" type="submit">Submit</Button>`;
 
-export const layout2=` <div className="mb-3">
+export const layout2 = ` <div className="mb-3">
 <Form.Label htmlFor="form-text" className=" fs-14 text-dark">Enter name</Form.Label>
 <Form.Control type="text" className="" id="form-text" placeholder=""/>
 </div>
@@ -1145,9 +1134,9 @@ export const layout2=` <div className="mb-3">
 </div>
 <Form.Check className="" type="checkbox" value="" id="invalidCheck" label="Accept Policy"
     required/>
-<Button variant='primary' className="" type="submit">Submit</Button>`
+<Button variant='primary' className="" type="submit">Submit</Button>`;
 
-export const layout3=`<Form className="row row-cols-lg-auto g-3 align-items-center">
+export const layout3 = `<Form className="row row-cols-lg-auto g-3 align-items-center">
 <div className="col-12">
     <label className="visually-hidden"
         htmlFor="inlineFormInputGroupUsername">Username</label>
@@ -1174,9 +1163,9 @@ export const layout3=`<Form className="row row-cols-lg-auto g-3 align-items-cent
 <div className="col-12">
     <Button type="submit" variant='primary' className="">Submit</Button>
 </div>
-</Form>`
+</Form>`;
 
-export const layout4=`<Row className="g-3">
+export const layout4 = `<Row className="g-3">
 <Col sm={7} className="">
     <Form.Control type="text" className="" placeholder="City"
         aria-label="City"/>
@@ -1189,10 +1178,9 @@ export const layout4=`<Row className="g-3">
     <Form.Control type="text" className="" placeholder="Zip"
         aria-label="Zip"/>
 </div>
-</Row>`
+</Row>`;
 
-
-export const layout5=` <div className="mb-3">
+export const layout5 = ` <div className="mb-3">
 <Form.Label htmlFor="formGroupExampleInput" className="">Example label</Form.Label>
 <Form.Control type="text" className="" id="formGroupExampleInput"
     placeholder="Example input placeholder"/>
@@ -1201,10 +1189,9 @@ export const layout5=` <div className="mb-3">
 <Form.Label htmlFor="formGroupExampleInput2" className="">Another label</Form.Label>
 <Form.Control type="text" className="" id="formGroupExampleInput2"
     placeholder="Another input placeholder"/>
-</div>`
+</div>`;
 
-
-export const layout6=`<Row className="mb-3">
+export const layout6 = `<Row className="mb-3">
 <Form.Label htmlFor="colFormLabelSm" column="sm" sm={2}
     className="col-sm-2 col-form-label col-form-label-sm">Email</Form.Label>
 <Col sm={10}>
@@ -1226,9 +1213,9 @@ export const layout6=`<Row className="mb-3">
     <Form.Control type="email" className="form-control-lg" size="lg"
         id="colFormLabelLg" placeholder="col-form-label-lg"/>
 </Col>
-</Row>`
+</Row>`;
 
-export const layout7=`<div className="mb-3">
+export const layout7 = `<div className="mb-3">
 <Form.Label htmlFor="form-text1" className=" fs-14 text-dark">Enter name</Form.Label>
 <InputGroup>
     <InputGroup.Text className=""><i className="ri-user-line"></i></InputGroup.Text>
@@ -1242,10 +1229,9 @@ export const layout7=`<div className="mb-3">
     <InputGroup.Text className=""><i className="ri-lock-line"></i></InputGroup.Text>
     <Form.Control type="password" className="" id="form-password1" placeholder=""/>
 </InputGroup>
-</div>`
+</div>`;
 
-
-export const layout8=`<Form>
+export const layout8 = `<Form>
 <Row className="mb-3">
     <label htmlFor="inputEmail1"
         className="col-sm-2 col-form-label">Email</label>
@@ -1279,10 +1265,9 @@ export const layout8=`<Form>
     </Col>
 </fieldset>
 <Button variant='' type="submit" className="btn btn-primary">Sign in</Button>
-</Form>`
+</Form>`;
 
-
-export const layout9=` <Form>
+export const layout9 = ` <Form>
 <Row className="align-items-center">
     <Col xs="auto">
     <Form.Label htmlFor="inlineFormInput" visuallyHidden>
@@ -1367,10 +1352,9 @@ export const layout9=` <Form>
     <div className="col-auto">
         <Button type="submit" className="btn btn-primary">Submit</Button>
     </div>
-</Form>`
+</Form>`;
 
-
-export const layout10=`<Row>
+export const layout10 = `<Row>
 <Col md={6} className="mb-3">
     <Form.Label className="">First Name</Form.Label>
     <Form.Control type="text" className="form-control" placeholder="First name"
@@ -1458,10 +1442,9 @@ export const layout10=`<Row>
 <Col md={12}>
     <Button type="submit" variant='primary' className="">Sign in</Button>
 </Col>
-</Row>`
+</Row>`;
 
-
-export const layout11=`<Form className="row g-3 mt-0">
+export const layout11 = `<Form className="row g-3 mt-0">
 <Col md={6}>
     <Form.Label className="">First Name</Form.Label>
     <Form.Control type="text" className="" placeholder="First name"
@@ -1511,10 +1494,9 @@ export const layout11=`<Form className="row g-3 mt-0">
 <div className="col-12">
     <Button variant='primary' type="submit" className="">Sign in</Button>
 </div>
-</Form>`
+</Form>`;
 
-
-export const layout12=`<Form className="row g-3 mt-0">
+export const layout12 = `<Form className="row g-3 mt-0">
 <Col md={6}>
     <Form.Label className="">First Name</Form.Label>
     <Form.Control type="text" className="" placeholder="First name"
@@ -1564,12 +1546,12 @@ export const layout12=`<Form className="row g-3 mt-0">
 <div className="col-12">
     <Button variant='primary' type="submit" className="">Sign in</Button>
 </div>
-</Form>`
+</Form>`;
 
 //
 
 //validation
-export const validation1=`function FormExample() {
+export const validation1 = `function FormExample() {
     const [validated, setValidated] = useState(false);
   
     const handleSubmit = (event) => {
@@ -1657,9 +1639,9 @@ export const validation1=`function FormExample() {
     );
   }
   
-  export default FormExample;`
+  export default FormExample;`;
 
-export const validation2=`<Form className="row g-3">
+export const validation2 = `<Form className="row g-3">
 <Col md={4}>
     <Form.Label htmlFor="validationDefault01">First name</Form.Label>
     <Form.Control type="text" id="validationDefault01"
@@ -1699,10 +1681,9 @@ export const validation2=`<Form className="row g-3">
 <div className="col-12">
     <Button variant='primary' className="btn " type="submit">Submit form</Button>
 </div>
-</Form>`
+</Form>`;
 
-
-export const validation3=`<Form className="row g-3">
+export const validation3 = `<Form className="row g-3">
 <Col md={4}>
     <Form.Label htmlFor="validationServer01">First
         name</Form.Label>
@@ -1773,9 +1754,9 @@ export const validation3=`<Form className="row g-3">
     <Button className="btn btn-primary" type="submit">Submit
         form</Button>
 </div>
-</Form>`
+</Form>`;
 
-export const validation4=` function FormExample() {
+export const validation4 = ` function FormExample() {
     const { Formik } = formik;
   
     const schema = yup.object().shape({
@@ -1926,9 +1907,9 @@ export const validation4=` function FormExample() {
     );
   }
   
-  export default FormExample;`
+  export default FormExample;`;
 
-export const validation5=`<Form className="was-validated">
+export const validation5 = `<Form className="was-validated">
 <div className="mb-3">
     <Form.Label htmlFor="validationTextarea">Textarea</Form.Label>
     <Form.Control  as="textarea" isInvalid className="" id="validationTextarea"
@@ -1965,7 +1946,7 @@ feedback="More example invalid feedback textt" feedbackType='invalid' />
     <Button variant='primary' className="btn " type="submit" disabled>Submit
         form</Button>
 </div>
-</Form>`
+</Form>`;
 
 //Color Picker
 export const Colorpicker = `   <Form.Control
@@ -1973,6 +1954,4 @@ type="color"
 id="exampleColorInput"
 defaultValue="#563d7c"
 title="Choose your color"
-/>`
-
-    
+/>`;

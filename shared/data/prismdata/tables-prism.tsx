@@ -1,5 +1,4 @@
-export const table1=
-` <div className="table-responsive">
+export const table1 = ` <div className="table-responsive">
 <Table className="table text-nowrap">
     <thead>
         <tr>
@@ -49,8 +48,7 @@ Successful</Badge></td>
 </Table>
 </div>`;
 
-export const table2=
-` <Table className="table text-nowrap table-bordered">
+export const table2 = ` <Table className="table text-nowrap table-bordered">
 <thead>
  <tr>
      <th scope="col">User</th>
@@ -101,8 +99,7 @@ export const table2=
 </tbody>
 </Table>`;
 
-export const table3=
-`<Table striped className="table text-nowrap table-striped">
+export const table3 = `<Table striped className="table text-nowrap table-striped">
 <thead>
     <tr>
      <th scope="col">ID</th>
@@ -128,8 +125,7 @@ export const table3=
 </tbody>
 </Table>`;
 
-export const table4=
-` <Table className="table text-nowrap table-striped-columns">
+export const table4 = ` <Table className="table text-nowrap table-striped-columns">
 <thead>
     <tr>
         <th scope="col">ID</th>
@@ -157,8 +153,7 @@ export const table4=
 </tbody>
 </Table>`;
 
-export const table5=
-`<Table className="table text-nowrap table-primary overflow-hidden rounded-3">
+export const table5 = `<Table className="table text-nowrap table-primary overflow-hidden rounded-3">
 <thead>
     <tr>
         <th scope="col">#</th>
@@ -179,8 +174,7 @@ export const table5=
 </tbody>
 </Table>`;
 
-export const table6=
-`<Table className="table text-nowrap table-primary overflow-hidden rounded-3">
+export const table6 = `<Table className="table text-nowrap table-primary overflow-hidden rounded-3">
 <thead>
     <tr>
         <th scope="col">#</th>
@@ -201,8 +195,7 @@ export const table6=
 </tbody>
 </Table>`;
 
-export const table7=
-`<Table className="table text-nowrap table-primary overflow-hidden rounded-3">
+export const table7 = `<Table className="table text-nowrap table-primary overflow-hidden rounded-3">
 <thead>
     <tr>
         <th scope="col">#</th>
@@ -223,8 +216,7 @@ export const table7=
 </tbody>
 </Table>`;
 
-export const table8=
-` <Table className="table text-nowrap table-primary overflow-hidden rounded-3">
+export const table8 = ` <Table className="table text-nowrap table-primary overflow-hidden rounded-3">
 <thead>
     <tr>
         <th scope="col">#</th>
@@ -245,8 +237,7 @@ export const table8=
 </tbody>
 </Table>`;
 
-export const table9=
-`<Table className="table text-nowrap table-primary overflow-hidden rounded-3">
+export const table9 = `<Table className="table text-nowrap table-primary overflow-hidden rounded-3">
 <thead>
     <tr>
         <th scope="col">#</th>
@@ -267,8 +258,7 @@ export const table9=
 </tbody>
 </Table>`;
 
-export const table10=
-`<Table className="table text-nowrap table-primary overflow-hidden rounded-3">
+export const table10 = `<Table className="table text-nowrap table-primary overflow-hidden rounded-3">
 <thead>
     <tr>
         <th scope="col">#</th>
@@ -289,8 +279,7 @@ export const table10=
 </tbody>
 </Table>`;
 
-export const table11=
-`<Table className="text-nowrap table-bordered border-primary">
+export const table11 = `<Table className="text-nowrap table-bordered border-primary">
 <thead>
     <tr>
         <th scope="col">Order</th>
@@ -322,8 +311,7 @@ export const table11=
 </tbody>
 </Table>`;
 
-export const table12=
-`<Table className="text-nowrap table-bordered border-success">
+export const table12 = `<Table className="text-nowrap table-bordered border-success">
 <thead>
     <tr>
         <th scope="col">Order</th>
@@ -354,8 +342,7 @@ export const table12=
 </tbody>
 </Table>`;
 
-export const table13=
-`<Table className="table text-nowrap table-bordered border-warning">
+export const table13 = `<Table className="table text-nowrap table-bordered border-warning">
 <thead>
     <tr>
         <th scope="col">Order</th>
@@ -386,8 +373,7 @@ export const table13=
 </tbody>
 </Table>`;
 
-export const table14=
-`<Table className="table text-nowrap table-borderless">
+export const table14 = `<Table className="table text-nowrap table-borderless">
 <thead>
     <tr>
         <th scope="col">User Name</th>
@@ -424,8 +410,7 @@ export const table14=
 </tbody>
 </Table>`;
 
-export const table15=
-`<Table className="table text-nowrap">
+export const table15 = `<Table className="table text-nowrap">
 <thead>
     <tr>
         <th scope="col">Product</th>
@@ -466,8 +451,7 @@ export const table15=
 </tbody>
 </Table>`;
 
-export const table16=
-`<Table className="table text-nowrap">
+export const table16 = `<Table className="table text-nowrap">
 <thead className="table-primary">
     <tr>
         <th scope="col">User Name</th>
@@ -500,8 +484,7 @@ className="ri-delete-bin-line"></i></a>
 </tbody>
 </Table>`;
 
-export const table17=
-`<Table className="table text-nowrap">
+export const table17 = `<Table className="table text-nowrap">
 <thead className="table-warning">
     <tr>
         <th scope="col">User Name</th>
@@ -524,8 +507,7 @@ export const table17=
 </tbody>
 </Table>`;
 
-export const table18=
-`<Table className="table text-nowrap">
+export const table18 = `<Table className="table text-nowrap">
 <thead className="table-success">
     <tr>
         <th scope="col">User Name</th>
@@ -548,8 +530,7 @@ export const table18=
 </tbody>
 </Table>`;
 
-export const table19=
-`<Table className="table text-nowrap">
+export const table19 = `<Table className="table text-nowrap">
 <thead className="table-info">
     <tr>
         <th scope="col">User Name</th>
@@ -572,8 +553,7 @@ export const table19=
 </tbody>
 </Table>`;
 
-export const table20=
-`<Table className="table text-nowrap">
+export const table20 = `<Table className="table text-nowrap">
 <thead className="table-secondary">
     <tr>
         <th scope="col">User Name</th>
@@ -596,8 +576,7 @@ export const table20=
 </tbody>
 </Table>`;
 
-export const table21=
-` <Table className="table text-nowrap">
+export const table21 = ` <Table className="table text-nowrap">
 <thead className="table-danger">
     <tr>
         <th scope="col">User Name</th>
@@ -620,8 +599,7 @@ export const table21=
 </tbody>
 </Table>`;
 
-export const table22=
-`<Table className="table text-nowrap table-hover">
+export const table22 = `<Table className="table text-nowrap table-hover">
 <thead>
     <tr>
         <th scope="col">Product Manager</th>
@@ -678,8 +656,7 @@ export const table22=
 </tbody>
 </Table>`;
 
-export const table23=
-`<Table className="text-nowrap table-striped table-hover">
+export const table23 = `<Table className="text-nowrap table-striped table-hover">
 <thead>
     <tr>
         <th scope="col">Invoice</th>
@@ -717,8 +694,7 @@ export const table23=
 </tbody>
 </Table>`;
 
-export const table24=
-` <Table className="table text-nowrap">
+export const table24 = ` <Table className="table text-nowrap">
 <thead>
     <tr>
         <th scope="col">Name</th>
@@ -755,8 +731,7 @@ export const table24=
 </tbody>
  </Table>`;
 
-export const table25=
-`<Table className="table text-nowrap table-sm">
+export const table25 = `<Table className="table text-nowrap table-sm">
 <thead>
     <tr>
         <th scope="col">Invoice</th>
@@ -792,8 +767,7 @@ export const table25=
 </tbody>
 </Table>`;
 
-export const table26=
-`<Table className="table text-nowrap table-sm">
+export const table26 = `<Table className="table text-nowrap table-sm">
 <thead>
     <tr>
         <th scope="col">Invoice</th>
@@ -829,8 +803,7 @@ export const table26=
 </tbody>
 </Table>`;
 
-export const table27=
-`<Table className="table text-nowrap">
+export const table27 = `<Table className="table text-nowrap">
 <caption className="px-3">Top 3 Countries</caption>
 <thead>
     <tr>
@@ -862,8 +835,7 @@ export const table27=
 </tbody>
 </Table>`;
 
-export const table28=
-`<Table className="table text-nowrap caption-top">
+export const table28 = `<Table className="table text-nowrap caption-top">
 <caption className="px-2">Top IT Companies</caption>
 <thead>
     <tr>
@@ -895,8 +867,7 @@ export const table28=
 </tbody>
 </Table>`;
 
-export const table29=
-`<Table className="table text-nowrap">
+export const table29 = `<Table className="table text-nowrap">
 <thead>
     <tr>
         <th scope="col">Color</th>
@@ -920,8 +891,7 @@ export const table29=
 </tbody>
 </Table>`;
 
-export const table30=
-`<Table className="table text-nowrap table-striped table-bordered">
+export const table30 = `<Table className="table text-nowrap table-striped table-bordered">
 <thead>
     <tr>
         <th scope="col">#</th>
@@ -988,8 +958,7 @@ export const table30=
 </tbody>
 </Table>`;
 
-export const table31=
-` <Table className="table text-nowrap">
+export const table31 = ` <Table className="table text-nowrap">
 <thead>
     <tr>
         <th scope="col"><input className="form-check-input" 
@@ -1051,8 +1020,7 @@ export const table31=
 </tbody>
 </Table>`;
 
-export const table32=
-` <Table className="table align-middle">
+export const table32 = ` <Table className="table align-middle">
 <thead>
     <tr>
         <th scope="col" className="w-25">Heading 1</th>
@@ -1076,4 +1044,3 @@ export const table32=
 ))}
 </tbody>
 </Table>`;
-

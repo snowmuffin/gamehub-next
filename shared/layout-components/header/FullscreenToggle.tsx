@@ -1,6 +1,6 @@
-"use client"
-import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
+"use client";
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
 
 const FullscreenToggle = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -23,10 +23,10 @@ const FullscreenToggle = () => {
       setIsFullscreen(!!document.fullscreenElement);
     };
 
-    document.addEventListener('fullscreenchange', fullscreenChangeHandler);
+    document.addEventListener("fullscreenchange", fullscreenChangeHandler);
 
     return () => {
-      document.removeEventListener('fullscreenchange', fullscreenChangeHandler);
+      document.removeEventListener("fullscreenchange", fullscreenChangeHandler);
     };
   }, []);
 

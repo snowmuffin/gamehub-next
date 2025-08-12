@@ -20,17 +20,14 @@ export const filterMenuItems = (menuItems: any[], inputValue: string) => {
     }
   });
 
-  const results = filteredItems.filter((item) =>
-    item.title.toLowerCase().includes(searchValue)
-  );
+  const results = filteredItems.filter(item => item.title.toLowerCase().includes(searchValue));
 
   const uniqueResults = results.filter(
-    (item, index, self) =>
-      item.path && self.findIndex((el) => el.title === item.title) === index
+    (item, index, self) => item.path && self.findIndex(el => el.title === item.title) === index
   );
 
   return {
     filteredItems: uniqueResults,
-    hasResults: uniqueResults.length > 0,
+    hasResults: uniqueResults.length > 0
   };
 };

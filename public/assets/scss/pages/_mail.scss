@@ -6,7 +6,8 @@
   margin: 0 -1.25rem;
 }
 .mail-navigation,
-.total-mails, .mails-information,
+.total-mails,
+.mails-information,
 .mail-recepients {
   background-color: $default-background;
   height: calc(100vh - 6rem);
@@ -136,7 +137,7 @@
       padding: 0.5rem;
       border-radius: $default-border;
       border-radius: $default-radius;
-      font-weight: 500;                                           
+      font-weight: 500;
       div {
         color: $text-muted;
       }
@@ -206,7 +207,7 @@
 }
 #mail-compose-editor {
   .ql-editor {
-    min-height: 12.62rem!important;
+    min-height: 12.62rem !important;
   }
 }
 .mail-compose {
@@ -226,13 +227,14 @@
 /* End:: mail-app */
 
 /* Start:: mail-settings */
-.mail-notification-settings,.mail-security-settings {
+.mail-notification-settings,
+.mail-security-settings {
   width: 60%;
 }
 @media (max-width: 575.98px) {
   #account-settings {
     .btn-group label {
-      font-size: .625rem;
+      font-size: 0.625rem;
     }
   }
 }
