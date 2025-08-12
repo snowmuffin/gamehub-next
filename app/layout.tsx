@@ -4,6 +4,7 @@ import "./globals.scss";
 import { Provider, useSelector } from "react-redux";
 import store, { RootState } from "@/shared/redux/store";
 import { useRouter } from "next/navigation";
+import { logEnvironmentInfo } from "@/shared/utils/environment";
 
 const isTokenExpired = (token: string): boolean => {
   try {
@@ -31,6 +32,9 @@ const AuthHandler = ({ children }: { children: React.ReactNode }) => {
   const token = useSelector((state: RootState) => state.auth.token);
 
   useEffect(() => {
+    // 환경 정보 로깅 (개발 모드에서만)
+    logEnvironmentInfo();
+    
     if (token && !isTokenExpired(token)) {
       router.push("/dashboard/gaming");
     } else {

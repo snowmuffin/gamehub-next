@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -H 0.0.0.0",
+    "dev:https": "next dev -H 0.0.0.0 --experimental-https",
     "build": "npm run clean:macos && next build",
     "start": "next start",
     "lint": "next lint",
@@ -23,14 +24,16 @@
     "pm2:setup": "./ec2-setup.sh",
     "pm2:start": "pm2 start ecosystem.config.js --env production",
     "pm2:stop": "pm2 stop gamehub-next",
+    "env:set": "./set-env.sh",
+    "env:example": "cp .env.example .env.local",
+    "nginx:setup": "./setup-nginx.sh",
     "pm2:delete": "pm2 delete gamehub-next",
     "pm2:status": "pm2 status",
     "pm2:logs": "pm2 logs gamehub-next",
     "yarn:install": "yarn install",
     "yarn:build": "yarn build",
     "yarn:start": "yarn start",
-    "yarn:clean": "./yarn-clean.sh",
-    "env:set": "./set-env.sh"
+    "yarn:clean": "./yarn-clean.sh"
   },
   "dependencies": {
     "@mui/icons-material": "7.3.1",
@@ -58,6 +61,7 @@
     "react-range-slider-input": "3.2.1",
     "react-redux": "9.2.0",
     "redux-persist": "^6.0.0",
+    "sass": "^1.90.0",
     "simplebar-react": "3.3.2",
     "suneditor": "2.47.6",
     "swiper": "11.2.10",

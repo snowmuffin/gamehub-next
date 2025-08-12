@@ -28,6 +28,7 @@ echo -e "${BLUE}📂 Project directory: $PROJECT_DIR${NC}"
 if [ -f ".env.production" ]; then
     echo -e "${BLUE}📝 Loading .env.production file${NC}"
     export $(grep -v '^#' .env.production | xargs)
+    echo "NEXT_PUBLIC_FRONTEND_URL: $NEXT_PUBLIC_FRONTEND_URL"
     echo "NEXT_PUBLIC_API_URL: $NEXT_PUBLIC_API_URL"
     echo "NODE_ENV: $NODE_ENV"
     echo "PORT: $PORT"
@@ -38,21 +39,36 @@ else
     echo -e "${YELLOW}⚠️ No environment variable file found. Using default values.${NC}"
     export NODE_ENV=production
     export PORT=3000
-    export NEXT_PUBLIC_API_URL=https://REDACTED_API
+    export NEXT_PUBLIC_FRONTEND_URL=https://domain.com
+    export NEXT_PUBLIC_API_URL=https://api.domain.com
 fi
 
-# Check Node.js and yarn versions
+# Check Node.js and npm versions
 echo -e "${BLUE}🔍 Environment information:${NC}"
 echo "Node.js version: $(node --version)"
-echo "yarn version: $(yarn --version)"
+echo "npm version: $(npm --version)"
+
+# Validate environment variables
+echo -e "${BLUE}🔍 Environment validation:${NC}"
+if [ -z "$NEXT_PUBLIC_FRONTEND_URL" ]; then
+    echo -e "${YELLOW}⚠️ NEXT_PUBLIC_FRONTEND_URL is not set${NC}"
+fi
+if [ -z "$NEXT_PUBLIC_API_URL" ]; then
+    echo -e "${YELLOW}⚠️ NEXT_PUBLIC_API_URL is not set${NC}"
+fi
+echo -e "${GREEN}✅ Environment variables loaded${NC}"
 
 # Install/update node modules
 echo -e "${YELLOW}📦 Installing/updating dependencies...${NC}"
-yarn install
+npm install --production=false
+
+# Clean macOS hidden files before build
+echo -e "${YELLOW}🧹 Cleaning macOS hidden files...${NC}"
+npm run clean:macos
 
 # Build
 echo -e "${YELLOW}🔨 Building project...${NC}"
-yarn build
+npm run build
 
 # Create log directory
 mkdir -p logs
@@ -78,8 +94,13 @@ echo -e "${GREEN}✅ PM2 process status:${NC}"
 pm2 status
 
 # Log check (optional)
-echo -e "${BLUE}📋 To view real-time logs, use the following command:${NC}"
-echo -e "${BLUE}pm2 logs gamehub-next${NC}"
+echo -e "${BLUE}📋 Useful PM2 commands:${NC}"
+echo -e "${BLUE}  View logs: pm2 logs gamehub-next${NC}"
+echo -e "${BLUE}  Monitor: pm2 monit${NC}"
+echo -e "${BLUE}  Restart: pm2 restart gamehub-next${NC}"
+echo -e "${BLUE}  Stop: pm2 stop gamehub-next${NC}"
+echo -e "${BLUE}  Delete: pm2 delete gamehub-next${NC}"
 
 echo -e "${GREEN}🎉 Redeployment complete!${NC}"
-echo -e "${GREEN}Application is running at http://localhost:3000${NC}"
+echo -e "${GREEN}Application is running at ${NEXT_PUBLIC_FRONTEND_URL:-http://localhost:3000}${NC}"
+echo -e "${BLUE}API endpoint: ${NEXT_PUBLIC_API_URL:-https://api.domain.com}${NC}"

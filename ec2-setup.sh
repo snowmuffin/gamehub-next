@@ -58,7 +58,7 @@ echo -e "${YELLOW}📝 .env.production 파일 생성...${NC}"
 cat > .env.production << 'EOF'
 NODE_ENV=production
 PORT=3000
-NEXT_PUBLIC_API_URL=https://REDACTED_API
+NEXT_PUBLIC_API_URL=https://api.domain.com
 NEXT_PUBLIC_STEAM_AUTH_URL=https://REDACTED_API/auth/steam
 EOF
 

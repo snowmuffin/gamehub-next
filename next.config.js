@@ -9,6 +9,38 @@ const nextConfig = {
   basePath: "",
   assetPrefix: "",
 
+  // 외부 호스트에서 접근 허용 (HTTPS 지원)
+  experimental: {
+    allowedRevalidateHeaderKeys: ['host', 'x-forwarded-host']
+  },
+
+  // HTTPS 환경에서의 보안 헤더
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+        ],
+      },
+    ];
+  },
+
   images: {
     unoptimized: true,
     loader: "default",
@@ -39,12 +71,13 @@ const nextConfig = {
   async rewrites() {
     // 개발 환경과 프로덕션 환경 구분
     const isProd = process.env.NODE_ENV === "production";
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://REDACTED_API";
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://api.yourdomain.com";
 
     console.log("🔧 Rewrite 설정:", {
       environment: process.env.NODE_ENV,
       isProd,
       apiUrl,
+      frontendUrl: process.env.NEXT_PUBLIC_FRONTEND_URL,
       timestamp: new Date().toISOString()
     });
 
