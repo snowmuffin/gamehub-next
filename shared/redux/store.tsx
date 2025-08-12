@@ -5,6 +5,8 @@ import storage from "redux-persist/lib/storage"; // Default storage
 import reducer from "./reducer";
 import authReducer from "./authSlice"; // Import authSlice
 import languageReducer from "./languageSlice"; // languageSlice import
+import inventoryReducer from "./inventory"; // Import inventory slice
+import snackbarReducer from "./snackbar"; // Import snackbar slice
 
 const persistConfig = {
   key: "root",
@@ -17,7 +19,9 @@ const store = configureStore({
   reducer: {
     local_variable: reducer,
     auth: persistedAuthReducer, // Use persisted reducer
-    language: languageReducer // language 리듀서 추가
+    language: languageReducer, // language 리듀서 추가
+    inventory: inventoryReducer, // inventory 리듀서 추가
+    snackbar: snackbarReducer, // snackbar 리듀서 추가
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
