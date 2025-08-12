@@ -14,14 +14,11 @@ import { DeferredComponent } from "@/shared/components";
 const InventoryEntity = () => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
-  const { items, isOpen, isLoading, isSuccess, blankItem } =
-    useAppSelector(selectInventory);
+  const { items, isOpen, isLoading, isSuccess, blankItem } = useAppSelector(selectInventory);
 
-  const handleClose = () =>
-    dispatch(inventoryActions.INVENTORY_CHANGE_MODAL({ isOpen: false }));
+  const handleClose = () => dispatch(inventoryActions.INVENTORY_CHANGE_MODAL({ isOpen: false }));
 
-  const handleSubmit = () =>
-    dispatch(inventoryActions.INVENTORY_SUBMIT_MODE(true));
+  const handleSubmit = () => dispatch(inventoryActions.INVENTORY_SUBMIT_MODE(true));
 
   const InventorySkeleton = () => {
     if (blankItem) {
@@ -34,11 +31,7 @@ const InventoryEntity = () => {
   };
 
   return (
-    <Stack
-      id="inventory_wrap"
-      direction="column"
-      sx={{ justifyContent: "flex-start", alignItems: "center", gap: 1 }}
-    >
+    <Stack id="inventory_wrap" direction="column" sx={{ justifyContent: "flex-start", alignItems: "center", gap: 1 }}>
       <Typography fontWeight="bold" variant="h4">
         {t("my_inventory")}
       </Typography>
@@ -50,12 +43,12 @@ const InventoryEntity = () => {
           height: { xs: 700, sm: "100%" },
           width: "100%",
           overflow: "auto",
-          p: 0.5,
+          p: 0.5
         }}
       >
         {isSuccess ? (
           items &&
-          items.map((item) => {
+          items.map(item => {
             return (
               <ItemSlot
                 key={item.indexName}
@@ -63,7 +56,7 @@ const InventoryEntity = () => {
                   dispatch(
                     inventoryActions.INVENTORY_CHANGE_MODAL({
                       isOpen: true,
-                      indexName: item?.indexName,
+                      indexName: item?.indexName
                     })
                   )
                 }
@@ -76,10 +69,7 @@ const InventoryEntity = () => {
             <InventorySkeleton />
           </DeferredComponent>
         ) : (
-          <EmptyContents
-            empty_msg1="inventory_is_empty_msg_1"
-            empty_msg2="inventory_is_empty_msg_2"
-          />
+          <EmptyContents empty_msg1="inventory_is_empty_msg_1" empty_msg2="inventory_is_empty_msg_2" />
         )}
       </Grid2>
       <Dialog open={isOpen ? isOpen : false} onClose={handleClose}>

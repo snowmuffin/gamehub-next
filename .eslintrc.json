@@ -1,16 +1,31 @@
 {
-  "extends": [
-    "next/core-web-vitals",
-    "eslint:recommended"
-  ],
+  "extends": ["next/core-web-vitals"],
   "rules": {
+    // General code quality
     "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": "off",
+    "no-console": "warn",
+    "no-debugger": "error",
+    "no-alert": "warn",
+    "no-duplicate-imports": "error",
+    "no-var": "error",
+    "prefer-const": "error",
+    "eqeqeq": ["error", "always"],
+
+    // React rules
     "react/no-unescaped-entities": "off",
     "react/no-unknown-property": "off",
-    "@next/next/no-img-element": "off",
-    "no-console": "off",
-    "react-hooks/exhaustive-deps": "warn"
+    "react/jsx-key": "error",
+    "react-hooks/exhaustive-deps": "warn",
+
+    // Next.js rules
+    "@next/next/no-img-element": "warn",
+
+    // Code style
+    "semi": ["error", "always"],
+    "quotes": ["error", "double", { "allowTemplateLiterals": true }],
+    "comma-dangle": ["error", "never"],
+    "object-curly-spacing": ["error", "always"],
+    "array-bracket-spacing": ["error", "never"]
   },
   "env": {
     "browser": true,
@@ -18,4 +33,3 @@
     "node": true
   }
 }
-  

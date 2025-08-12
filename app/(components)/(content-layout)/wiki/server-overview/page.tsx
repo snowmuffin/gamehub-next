@@ -7,15 +7,13 @@ import ServerOverviewKo from "./ServerOverviewKo";
 import ServerOverviewEn from "./ServerOverviewEn";
 import Link from "next/link";
 
-
-
 const ServerOverview = () => {
-    const language = useSelector((state: any) => state.language.code);
+  const language = useSelector((state: any) => state.language.code);
 
-    if (language === "ko") {
-        return <ServerOverviewKo />;
-    }
-    return <ServerOverviewEn />;
+  if (language === "ko") {
+    return <ServerOverviewKo />;
+  }
+  return <ServerOverviewEn />;
 };
 
 export default ServerOverview;

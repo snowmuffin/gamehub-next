@@ -288,12 +288,12 @@
 /* Start::links */
 a {
   text-decoration: none;
-  color: rgba(var(--default-text-color-rgb),var(--bs-link-opacity,1));
+  color: rgba(var(--default-text-color-rgb), var(--bs-link-opacity, 1));
 
   &:hover {
     --bs-text-opacity: 1;
     opacity: 1;
-    color: rgba(var(--default-text-color-rgb),var(--bs-link-opacity,1));
+    color: rgba(var(--default-text-color-rgb), var(--bs-link-opacity, 1));
   }
   &.link-underline {
     text-decoration-color: rgba(var(--default-text-color-rgb), var(--bs-link-underline-opacity)) !important;
@@ -330,91 +330,91 @@ a {
 /* Start::Colored Links */
 .link-primary {
   color: $primary !important;
-  text-decoration-color: rgba(var(--primary-rgb),var(--bs-link-underline-opacity, 1))!important;
+  text-decoration-color: rgba(var(--primary-rgb), var(--bs-link-underline-opacity, 1)) !important;
   &:hover,
   &:focus,
   &:active {
-    text-decoration-color: rgba(var(--primary-rgb),var(--bs-link-underline-opacity, 1))!important;
+    text-decoration-color: rgba(var(--primary-rgb), var(--bs-link-underline-opacity, 1)) !important;
     color: $primary !important;
   }
 }
 .link-secondary {
   color: $secondary !important;
-  text-decoration-color: rgba(var(--secondary-rgb),var(--bs-link-underline-opacity, 1))!important;
+  text-decoration-color: rgba(var(--secondary-rgb), var(--bs-link-underline-opacity, 1)) !important;
   &:hover,
   &:focus,
   &:active {
-    text-decoration-color: rgba(var(--secondary-rgb),var(--bs-link-underline-opacity, 1))!important;
+    text-decoration-color: rgba(var(--secondary-rgb), var(--bs-link-underline-opacity, 1)) !important;
     color: $secondary !important;
   }
 }
 .link-success {
   color: $success !important;
-  text-decoration-color: rgba(var(--success-rgb),var(--bs-link-underline-opacity, 1))!important;
+  text-decoration-color: rgba(var(--success-rgb), var(--bs-link-underline-opacity, 1)) !important;
   &:hover,
   &:focus,
   &:active {
-    text-decoration-color: rgba(var(--success-rgb),var(--bs-link-underline-opacity, 1))!important;
+    text-decoration-color: rgba(var(--success-rgb), var(--bs-link-underline-opacity, 1)) !important;
     color: $success !important;
   }
 }
 .link-danger {
   color: $danger !important;
-  text-decoration-color: rgba(var(--danger-rgb),var(--bs-link-underline-opacity, 1))!important;
+  text-decoration-color: rgba(var(--danger-rgb), var(--bs-link-underline-opacity, 1)) !important;
   &:hover,
   &:focus,
   &:active {
-    text-decoration-color: rgba(var(--danger-rgb),var(--bs-link-underline-opacity, 1))!important;
+    text-decoration-color: rgba(var(--danger-rgb), var(--bs-link-underline-opacity, 1)) !important;
     color: $danger !important;
   }
 }
 .link-warning {
   color: $warning !important;
-  text-decoration-color: rgba(var(--warning-rgb),var(--bs-link-underline-opacity, 1))!important;
+  text-decoration-color: rgba(var(--warning-rgb), var(--bs-link-underline-opacity, 1)) !important;
   &:hover,
   &:focus,
   &:active {
-    text-decoration-color: rgba(var(--warning-rgb),var(--bs-link-underline-opacity, 1))!important;
+    text-decoration-color: rgba(var(--warning-rgb), var(--bs-link-underline-opacity, 1)) !important;
     color: $warning !important;
   }
 }
 .link-info {
   color: $info !important;
-  text-decoration-color: rgba(var(--info-rgb),var(--bs-link-underline-opacity, 1))!important;
+  text-decoration-color: rgba(var(--info-rgb), var(--bs-link-underline-opacity, 1)) !important;
   &:hover,
   &:focus,
   &:active {
-    text-decoration-color: rgba(var(--info-rgb),var(--bs-link-underline-opacity, 1))!important;
+    text-decoration-color: rgba(var(--info-rgb), var(--bs-link-underline-opacity, 1)) !important;
     color: $info !important;
   }
 }
 .link-light {
   color: $black-3 !important;
-  text-decoration-color: rgba($black-3,var(--bs-link-underline-opacity, 1))!important;
+  text-decoration-color: rgba($black-3, var(--bs-link-underline-opacity, 1)) !important;
   &:hover,
   &:focus,
   &:active {
-    text-decoration-color: rgba($black-3,var(--bs-link-underline-opacity, 1))!important;
+    text-decoration-color: rgba($black-3, var(--bs-link-underline-opacity, 1)) !important;
     color: $black-3 !important;
   }
 }
 .link-dark {
   color: $dark !important;
-  text-decoration-color: rgba(var(--dark-rgb),var(--bs-link-underline-opacity, 1))!important;
+  text-decoration-color: rgba(var(--dark-rgb), var(--bs-link-underline-opacity, 1)) !important;
   &:hover,
   &:focus,
   &:active {
-    text-decoration-color: rgba(var(--dark-rgb),var(--bs-link-underline-opacity, 1))!important;
+    text-decoration-color: rgba(var(--dark-rgb), var(--bs-link-underline-opacity, 1)) !important;
     color: $dark !important;
   }
 }
 .link-body-emphasis {
   color: $custom-black !important;
-  text-decoration-color: rgba($custom-black,var(--bs-link-underline-opacity, 1))!important;
+  text-decoration-color: rgba($custom-black, var(--bs-link-underline-opacity, 1)) !important;
   &:hover,
   &:focus,
   &:active {
-    text-decoration-color: rgba($custom-black,var(--bs-link-underline-opacity, 1))!important;
+    text-decoration-color: rgba($custom-black, var(--bs-link-underline-opacity, 1)) !important;
     color: $custom-black !important;
   }
 }
@@ -573,7 +573,7 @@ a {
   }
 }
 .w-auto {
-    width: auto;
+  width: auto;
 }
 .w-10 {
   width: 10%;
@@ -605,7 +605,18 @@ a {
 /* End::Text gradient */
 
 /* Start::Heading tags */
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 400;
 }
 /* End::Heading tags */

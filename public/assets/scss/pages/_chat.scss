@@ -27,7 +27,8 @@
       }
     }
   }
-  .responsive-chat-close,button.responsive-userinfo-open {
+  .responsive-chat-close,
+  button.responsive-userinfo-open {
     display: none;
   }
   .chat-info {
@@ -172,7 +173,7 @@
       }
       .chat-item-start {
         .main-chat-msg div {
-          background-color: rgba(var(--primary-rgb),0.1);
+          background-color: rgba(var(--primary-rgb), 0.1);
           color: $primary;
           border-start-start-radius: 0rem;
           border-start-end-radius: 0.85rem;
@@ -311,7 +312,7 @@
     }
   }
 }
-@media (max-width:1400px) {
+@media (max-width: 1400px) {
   .chat-user-details {
     display: none;
     z-index: 2;
@@ -331,7 +332,7 @@
     display: block;
   }
 }
-@media (max-width:991.98px) {
+@media (max-width: 991.98px) {
   .main-chart-wrapper {
     &.responsive-chat-open {
       .chat-info {
@@ -350,12 +351,14 @@
   }
 }
 @media (max-width: 354px) {
-  .main-chart-wrapper .chat-calls-tab, .main-chart-wrapper .chat-groups-tab, .main-chart-wrapper .chat-users-tab {
+  .main-chart-wrapper .chat-calls-tab,
+  .main-chart-wrapper .chat-groups-tab,
+  .main-chart-wrapper .chat-users-tab {
     max-height: calc(100vh - 22rem);
   }
 }
 [data-page-style="modern"] {
-.main-chat-area {
+  .main-chat-area {
     .rightIcons .btn-outline-light {
       border-color: $default-border;
     }
@@ -373,7 +376,7 @@
         filter: invert(1);
       }
     }
-  } 
+  }
 }
 .main-chart-wrapper .chat-user-details {
   min-width: 21.875rem;
@@ -382,8 +385,8 @@
 
 @media (max-width: 575.98px) {
   .main-chart-wrapper .chat-user-details {
-      min-width: 17.875rem;
-      max-width: 17.875rem;
+    min-width: 17.875rem;
+    max-width: 17.875rem;
   }
 }
 /*------ chat end ------*/

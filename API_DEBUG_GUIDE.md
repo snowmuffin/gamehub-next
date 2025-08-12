@@ -1,14 +1,17 @@
 # API 요청 문제 해결 가이드
 
 ## 🔍 문제 상황
+
 브라우저에서 API 요청이 `https://se.snowmuffingame.com/api/user/rankings`로 가고 있지만, 이는 `https://api.snowmuffingame.com/api/user/rankings`로 가야 합니다.
 
 ## 🚀 해결 방법
 
 ### 1. 디버그 페이지 확인
+
 브라우저에서 `/debug/api` 페이지로 이동하여 API 요청이 어떻게 처리되는지 확인하세요.
 
 ### 2. 환경 변수 확인
+
 프로덕션 환경에서 다음 환경 변수가 올바르게 설정되어 있는지 확인하세요:
 
 ```bash
@@ -18,18 +21,22 @@ echo $NODE_ENV
 ```
 
 ### 3. Next.js rewrite 로그 확인
+
 콘솔 로그에서 다음 메시지를 확인하세요:
+
 ```
 🔄 Next.js rewrites 설정 적용됨
 ```
 
 ### 4. 브라우저 개발자 도구 확인
+
 - Network 탭에서 실제 요청 URL 확인
 - Console 탭에서 API 요청 로그 확인:
   - `📤 API 요청`
   - `✅ API 응답 성공` 또는 `❌ API 응답 실패`
 
 ### 5. 서버 재시작
+
 rewrite 설정이 적용되지 않았을 경우:
 
 ```bash
@@ -41,6 +48,7 @@ rewrite 설정이 적용되지 않았을 경우:
 ```
 
 ### 6. 캐시 정리
+
 브라우저 및 Next.js 캐시 문제일 경우:
 
 ```bash
@@ -55,12 +63,15 @@ rewrite 설정이 적용되지 않았을 경우:
 만약 rewrite가 계속 작동하지 않는다면, 다음 방법을 사용할 수 있습니다:
 
 ### 1. 환경 변수로 직접 API URL 사용
+
 `.env.production` 파일에서:
+
 ```
 NEXT_PUBLIC_API_URL=https://api.snowmuffingame.com
 ```
 
 ### 2. Nginx 리버스 프록시 사용
+
 EC2 서버에서 Nginx를 사용하여 `/api` 요청을 백엔드로 프록시:
 
 ```nginx

@@ -8,17 +8,18 @@
     border: 1px solid $default-border;
     overflow: auto;
   }
-  .file-manager-navigation{
+  .file-manager-navigation {
     border: 1px solid $default-border;
   }
   .files-main-nav {
     overflow: auto;
   }
-  
+
   .files-main-nav {
     max-height: calc(100vh - 17.5rem);
   }
-  .file-folders-container,.filemanager-file-details {
+  .file-folders-container,
+  .filemanager-file-details {
     max-height: calc(100vh - 11.9rem);
   }
   @media (min-width: 576px) {
@@ -58,7 +59,7 @@
           color: $primary;
         }
       }
-      &.active { 
+      &.active {
         background-color: $primary-01;
         div {
           color: $primary;
@@ -110,7 +111,7 @@
       display: block;
       inset-inline-end: 0;
       inset-block-start: 0.5rem;
-      box-shadow: 0 0.125rem 0 rgba(10,10,10,.04);
+      box-shadow: 0 0.125rem 0 rgba(10, 10, 10, 0.04);
       border-inline-start: 1px solid var(--default-border);
     }
   }

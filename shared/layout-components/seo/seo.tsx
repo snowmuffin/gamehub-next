@@ -1,17 +1,13 @@
-"use client"
-import React, { useEffect } from 'react';
+"use client";
+import React, { useEffect } from "react";
 
-const Seo = ({ title }:any) => {
+const Seo = ({ title }: any) => {
+  useEffect(() => {
+    document.title = `Snow Muffin - ${title}`;
+  }, []);
 
-    useEffect(() => {
-        document.title = `Snow Muffin - ${title}`
-      }, [])
+  return <></>;
+};
 
-  return (
-    <>
-    </>
-  )
-}
-
-export default Seo
-export { Seo }
+export default Seo;
+export { Seo };

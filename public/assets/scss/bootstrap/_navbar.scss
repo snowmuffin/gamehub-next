@@ -21,7 +21,7 @@
       position: relative;
       background-image: none;
       &:before {
-        content: '\F479';
+        content: "\F479";
         font-family: bootstrap-icons !important;
         position: absolute;
         font-size: 1rem;
@@ -34,7 +34,8 @@
     box-shadow: none;
   }
 }
-.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
   color: $custom-black;
 }
 .navbar-brand {
@@ -43,7 +44,8 @@
     height: 1.5rem;
     line-height: 1.5rem;
   }
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     color: $default-text-color;
   }
 }
@@ -187,10 +189,10 @@
     color: $black;
   }
   .navbar-toggler {
-      border: 1px solid rgba(255,255,255,0.2);
-      .navbar-toggler-icon:before {
-          color: $white;
-      }
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    .navbar-toggler-icon:before {
+      color: $white;
+    }
   }
 }
 .navbar-secondary {
@@ -217,10 +219,10 @@
     color: $black;
   }
   .navbar-toggler {
-      border: 1px solid rgba(255,255,255,0.2);
-      .navbar-toggler-icon:before {
-          color: $white;
-      }
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    .navbar-toggler-icon:before {
+      color: $white;
+    }
   }
 }
 .navbar-warning {
@@ -247,10 +249,10 @@
     color: $black;
   }
   .navbar-toggler {
-      border: 1px solid rgba(255,255,255,0.2);
-      .navbar-toggler-icon:before {
-          color: $white;
-      }
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    .navbar-toggler-icon:before {
+      color: $white;
+    }
   }
 }
 .navbar-info {
@@ -277,10 +279,10 @@
     color: $black;
   }
   .navbar-toggler {
-      border: 1px solid rgba(255,255,255,0.2);
-      .navbar-toggler-icon:before {
-          color: $white;
-      }
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    .navbar-toggler-icon:before {
+      color: $white;
+    }
   }
 }
 .navbar-success {
@@ -307,10 +309,10 @@
     color: $black;
   }
   .navbar-toggler {
-      border: 1px solid rgba(255,255,255,0.2);
-      .navbar-toggler-icon:before {
-          color: $white;
-      }
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    .navbar-toggler-icon:before {
+      color: $white;
+    }
   }
 }
 .navbar-danger {
@@ -337,10 +339,10 @@
     color: $black;
   }
   .navbar-toggler {
-      border: 1px solid rgba(255,255,255,0.2);
-      .navbar-toggler-icon:before {
-          color: $white;
-      }
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    .navbar-toggler-icon:before {
+      color: $white;
+    }
   }
 }
 .navbar-dark {
@@ -367,10 +369,10 @@
     color: $black;
   }
   .navbar-toggler {
-      border: 1px solid $white-1;
-      .navbar-toggler-icon:before {
-          color: $custom-white;
-      }
+    border: 1px solid $white-1;
+    .navbar-toggler-icon:before {
+      color: $custom-white;
+    }
   }
 }
 /* End:: navbar solid color schemes */

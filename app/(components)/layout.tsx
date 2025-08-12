@@ -11,24 +11,22 @@ function Layout({ children, local_variable, ThemeChanger }: any) {
   const pathname = usePathname(); // Use usePathname to get the current path
   const customstyles: any = {
     ...(local_variable.colorPrimaryRgb !== "" && {
-      "--primary-rgb": local_variable.colorPrimaryRgb,
+      "--primary-rgb": local_variable.colorPrimaryRgb
     }),
     ...(local_variable.colorPrimary !== "" && {
-      "--primary": local_variable.colorPrimary,
+      "--primary": local_variable.colorPrimary
     }),
     ...(local_variable.bgGradient !== "" && {
-      "--gradient": local_variable.bgGradient,
+      "--gradient": local_variable.bgGradient
     }),
     ...(local_variable.bgLight !== "" && {
-      "--light": local_variable.bgLight,
-    }),
+      "--light": local_variable.bgLight
+    })
   };
 
   useEffect(() => {
     switcherdata.LocalStorageBackup(ThemeChanger);
   }, [ThemeChanger]);
-
-
 
   return (
     <>
@@ -56,17 +54,11 @@ function Layout({ children, local_variable, ThemeChanger }: any) {
         style={customstyles}
       >
         <head>
-          <link
-            href="https://cdn.jsdelivr.net/npm/dragula@3.7.3/dist/dragula.min.css"
-            rel="stylesheet"
-          />
+          <link href="https://cdn.jsdelivr.net/npm/dragula@3.7.3/dist/dragula.min.css" rel="stylesheet" />
         </head>
         <body className={`${local_variable.body ? local_variable.body : ""}`}>
           {children}
-          <Script 
-            src="https://cdn.jsdelivr.net/npm/dragula@3.7.3/dist/dragula.min.js"
-            strategy="afterInteractive"
-          />
+          <Script src="https://cdn.jsdelivr.net/npm/dragula@3.7.3/dist/dragula.min.js" strategy="afterInteractive" />
         </body>
       </html>
     </>
@@ -74,7 +66,7 @@ function Layout({ children, local_variable, ThemeChanger }: any) {
 }
 
 const mapStateToProps = (state: any) => ({
-  local_variable: state.local_variable,
+  local_variable: state.local_variable
 });
 
 export default connect(mapStateToProps, { ThemeChanger })(Layout);

@@ -10,7 +10,7 @@ interface AuthState {
 const initialState: AuthState = {
   token: null,
   loading: false,
-  error: null,
+  error: null
 };
 
 // Async thunk for Steam login
@@ -18,29 +18,26 @@ interface SteamLoginResponse {
   token: string;
 }
 
-export const steamLogin = createAsyncThunk(
-  "auth/steamLogin",
-  async (_, { rejectWithValue }) => {
-    try {
-      const response = await axios.get<SteamLoginResponse>("/api/auth/steam"); 
-      return response.data.token; 
-    } catch (error: any) {
-      return rejectWithValue(error.response?.data?.message || "Login failed");
-    }
+export const steamLogin = createAsyncThunk("auth/steamLogin", async (_, { rejectWithValue }) => {
+  try {
+    const response = await axios.get<SteamLoginResponse>("/api/auth/steam");
+    return response.data.token;
+  } catch (error: any) {
+    return rejectWithValue(error.response?.data?.message || "Login failed");
   }
-);
+});
 
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    logout: (state) => {
+    logout: state => {
       state.token = null;
-    },
+    }
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(steamLogin.pending, (state) => {
+      .addCase(steamLogin.pending, state => {
         state.loading = true;
         state.error = null;
       })
@@ -52,7 +49,7 @@ const authSlice = createSlice({
         state.loading = false;
         state.error = action.payload as string;
       });
-  },
+  }
 });
 
 export const { logout } = authSlice.actions;

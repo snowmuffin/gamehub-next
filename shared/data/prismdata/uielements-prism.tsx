@@ -1,4 +1,4 @@
-export const alert1=` 
+export const alert1 = ` 
 <Button type="button" className='mt-2' onClick={handleShowAlert}>
 								Show live alert
 							</Button>
@@ -8,7 +8,7 @@ below.
 <Button variant='' type="button" className="btn-close" data-bs-dismiss="alert"
 aria-label="Close"><i className="bi bi-x"></i></Button>
 </Alert>`;
-export const alert2=`{outlinealert.map((idx) => (
+export const alert2 = `{outlinealert.map((idx) => (
     <Alert variant={idx.class} className="alert-dismissible fade show" key={Math.random()}>
         A simple outline primary alert—check it out!
         <Button variant='' type="button" className="btn-close"
@@ -16,14 +16,14 @@ export const alert2=`{outlinealert.map((idx) => (
         aria-label="Close"><i className="bi bi-x"></i></Button>
     </Alert>
     ))}`;
-    export const alert3=` {solidalert.map((idx) => (
+export const alert3 = ` {solidalert.map((idx) => (
         <Alert variant={idx.class} className="alert-dismissible fade show" key={Math.random()}>
             {idx.text}
             <Button variant='' type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"
             onClick={() => handleRemove(idx.id)}><i className="bi bi-x"></i></Button>
         </Alert>
     ))}`;
-    export const alert4=`<Alert variant='solid-primary' className="alert shadow alert-dismissible fade show">
+export const alert4 = `<Alert variant='solid-primary' className="alert shadow alert-dismissible fade show">
     A simple solid primary alert with normal shadow—check it out!
     <Button variant='' type="button" className="btn-close" data-bs-dismiss="alert" 
     aria-label="Close"><i className="bi bi-x"></i></Button>
@@ -33,24 +33,24 @@ export const alert2=`{outlinealert.map((idx) => (
     <Button variant='' type="button" className="btn-close" data-bs-dismiss="alert" 
     aria-label="Close"><i className="bi bi-x"></i></Button>
     </Alert>`;
-    export const alert5=`<Alert variant='primary' className="alert shadow">A simple primary alert with normal shadow—check it out!</Alert>
+export const alert5 = `<Alert variant='primary' className="alert shadow">A simple primary alert with normal shadow—check it out!</Alert>
 <Alert variant='primary' className="alert shadow-lg">A simple primary alert with large shadow—check it out!</Alert>
 <Alert variant='secondary' className="alert shadow-sm">A simple secondary alert with small shadow—check it out!</Alert>
 <Alert variant='secondary' className="alert shadow">A simple secondary alert with normal shadow—check it out!</Alert>
 <Alert variant='secondary' className="alert shadow-lg">A simple secondary alert with large shadow—check it out!</Alert>`;
-export const alert6=`{Defaultalerts.map((idx)=>(
+export const alert6 = `{Defaultalerts.map((idx)=>(
     <Alert variant={idx.class} role="alert" key={Math.random()}>
        {idx.text}
     </Alert>
     ))}`;
- 
-export const alert7=`{Linkalerts.map((idx)=>(
+
+export const alert7 = `{Linkalerts.map((idx)=>(
     <Alert variant={idx.class} role="alert">
        {idx.text1} <Link href="#!" scroll={false}
    className="alert-link">{idx.text2}</Link>{idx.text3}
     </Alert>
     ))}`;
-    export const alert8=`{roundedsolidalert.map((idx:any,alt7:any)=>(
+export const alert8 = `{roundedsolidalert.map((idx:any,alt7:any)=>(
         <Alert variant={idx.class} className="alert  rounded-pill alert-dismissible fade show" key={alt7}>
            {idx.text}
             <Button variant='' type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"
@@ -59,14 +59,14 @@ export const alert7=`{Linkalerts.map((idx)=>(
         </Alert>
         ))}`;
 
-        export const alert9=`{roundedoutlinealert.map((idx) => (
+export const alert9 = `{roundedoutlinealert.map((idx) => (
             <Alert variant={idx.class} className="alert rounded-pill alert-dismissible fade show" key={Math.random()}>
                 {idx.text}
                 <Button variant='' type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"
                     onClick={() => handleRemove4(idx.id)}><i className="bi bi-x"></i></Button>
             </Alert>
             ))}`;
-        export const alert10=`{roundeddefaultalert.map((idx) => (
+export const alert10 = `{roundeddefaultalert.map((idx) => (
             <Alert variant={idx.class} className="alert rounded-pill alert-dismissible fade show" key={Math.random()}>
                 {idx.text}
                 <Button variant='' type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"
@@ -74,8 +74,8 @@ export const alert7=`{Linkalerts.map((idx)=>(
                 ><i className="bi bi-x"></i></Button>
             </Alert>
             ))}`;
-        
-        export const alert11=`{roundedwithbtnalert.map((idx) => (
+
+export const alert11 = `{roundedwithbtnalert.map((idx) => (
             <Alert variant={idx.class} className="alert rounded-pill alert-dismissible 
             custom-rounded-alerts fade show" key={Math.random()}>
                 {idx.text}
@@ -85,20 +85,20 @@ export const alert7=`{Linkalerts.map((idx)=>(
                     <i className="bi bi-x"></i></Button>
             </Alert>
             ))}`;
-            export const alert12=`<Alert variant='primary' className="alert d-flex align-items-center" role="alert">
+export const alert12 = `<Alert variant='primary' className="alert d-flex align-items-center" role="alert">
             <svg className="flex-shrink-0 me-2 svg-primary" xmlns="http://www.w3.org/2000/svg" height="1.5rem" viewBox="0 0 24 24" width="1.5rem" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
             <div>
                 An example alert with an icon
             </div>
             </Alert>`;
-            
-            export const alert13=`<Alert variant='primary' className="alert alert-dismissible fade show custom-alert-icon shadow-sm" role="alert">
+
+export const alert13 = `<Alert variant='primary' className="alert alert-dismissible fade show custom-alert-icon shadow-sm" role="alert">
             <svg className="me-2 svg-primary" xmlns="http://www.w3.org/2000/svg" height="1.5rem" viewBox="0 0 24 24" width="1.5rem" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
             A customized primary alert with an icon
             <Button variant='' type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"><i className="bi bi-x"></i></Button>
             </Alert>`;
-            
-            export const alert14=`{imagesalert.map((idx:any)=>(
+
+export const alert14 = `{imagesalert.map((idx:any)=>(
                 <Alert variant={idx.color} className="alert alert-img alert-dismissible fase show rounded-pill flex-wrap" role="alert" key={Math.random()}>
                     <div className="avatar avatar-sm me-3 avatar-rounded">
                         <img src={idx.src1} alt="img"/>
@@ -108,16 +108,16 @@ export const alert7=`{Linkalerts.map((idx)=>(
                     ><i className="bi bi-x"></i></Button>
                 </Alert>
                 ))}`;
-            
-            export const alert15=`<Alert variant='primary' className="alert alert-img alert-dismissible fase show flex-wrap" role="alert">
+
+export const alert15 = `<Alert variant='primary' className="alert alert-img alert-dismissible fase show flex-wrap" role="alert">
             <div className="avatar avatar-xs me-3">
                 <img src={face1} alt="img"/>
             </div>
             <div>A simple primary alert with image—check it out!</div>
             <Button variant='' type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"><i className="bi bi-x"></i></Button>
             </Alert>`;
-            
-            export const alert16=`<Col xl={6}>
+
+export const alert16 = `<Col xl={6}>
             <Alert variant='secondary' className="alert  overflow-hidden p-0" role="alert">
                 <div className="p-3 bg-secondary text-fixed-white d-flex justify-content-between">
                     <h6 className="aletr-heading mb-0 text-fixed-white">Thank you for reporting this.</h6>
@@ -136,7 +136,7 @@ export const alert17 = `
       <i className="bi bi-x"></i></Button>
 </div>`;
 
-export const badge1=`<Badge bg="primary">Primary</Badge>
+export const badge1 = `<Badge bg="primary">Primary</Badge>
 <Badge bg="secondary">Secondary</Badge>
 <Badge bg="success">Success</Badge>
 <Badge bg="danger">Danger</Badge>
@@ -145,7 +145,7 @@ export const badge1=`<Badge bg="primary">Primary</Badge>
 <Badge bg="light">Light</Badge>
 <Badge bg="dark">Dark</Badge>`;
 
-export const badge2=`<Badge bg="primary" className="rounded-pill">Primary</Badge>
+export const badge2 = `<Badge bg="primary" className="rounded-pill">Primary</Badge>
 <Badge bg="secondary" className="rounded-pill">Secondary</Badge>
 <Badge bg="success" className="rounded-pill">Success</Badge>
 <Badge bg="danger" className="rounded-pill">Danger</Badge>
@@ -154,7 +154,7 @@ export const badge2=`<Badge bg="primary" className="rounded-pill">Primary</Badge
 <Badge bg="light" className="rounded-pill">Light</Badge>
 <Badge bg="dark" className="rounded-pill">Dark</Badge>`;
 
-export const badge3=`<Badge bg="primary-transparent">Primary</Badge>
+export const badge3 = `<Badge bg="primary-transparent">Primary</Badge>
 <Badge bg="secondary-transparent">Secondary</Badge>
 <Badge bg="success-transparent">Success</Badge>
 <Badge bg="danger-transparent">Danger</Badge>
@@ -163,7 +163,7 @@ export const badge3=`<Badge bg="primary-transparent">Primary</Badge>
 <Badge bg="light-transparent">Light</Badge>
 <Badge bg="dark-transparent">Dark</Badge>`;
 
-export const badge4=`<Badge bg="primary-transparent" className="rounded-pill">Primary</Badge>
+export const badge4 = `<Badge bg="primary-transparent" className="rounded-pill">Primary</Badge>
 <Badge bg="secondary-transparent" className="rounded-pill">Secondary</Badge>
 <Badge bg="success-transparent" className="rounded-pill">Success</Badge>
 <Badge bg="danger-transparent" className="rounded-pill">Danger</Badge>
@@ -172,7 +172,7 @@ export const badge4=`<Badge bg="primary-transparent" className="rounded-pill">Pr
 <Badge bg="light-transparent" className="rounded-pill">Light</Badge>
 <Badge bg="dark-transparent" className="rounded-pill">Dark</Badge>`;
 
-export const badge5=`<Badge bg="outline-primary">Primary</Badge>
+export const badge5 = `<Badge bg="outline-primary">Primary</Badge>
 <Badge bg="outline-secondary">Secondary</Badge>
 <Badge bg="outline-success">Success</Badge>
 <Badge bg="outline-danger">Danger</Badge>
@@ -181,7 +181,7 @@ export const badge5=`<Badge bg="outline-primary">Primary</Badge>
 <Badge bg="outline-light" className="text-dark">Light</Badge>
 <Badge bg="outline-dark">Dark</Badge>`;
 
-export const badge6=`<Badge className="rounded-pill" bg="outline-primary">Primary</Badge>
+export const badge6 = `<Badge className="rounded-pill" bg="outline-primary">Primary</Badge>
 <Badge className="rounded-pill" bg="outline-secondary">Secondary</Badge>
 <Badge className="rounded-pill" bg="outline-success">Success</Badge>
 <Badge className="rounded-pill" bg="outline-danger">Danger</Badge>
@@ -190,7 +190,7 @@ export const badge6=`<Badge className="rounded-pill" bg="outline-primary">Primar
 <Badge className="rounded-pill" bg="outline-light" className="text-dark">Light</Badge>
 <Badge className="rounded-pill"  bg="outline-dark">Dark</Badge>`;
 
-export const badge7=`<Badge bg="primary-gradient">Primary</Badge>
+export const badge7 = `<Badge bg="primary-gradient">Primary</Badge>
 <Badge bg="secondary-gradient">Secondary</Badge>
 <Badge bg="success-gradient">Success</Badge>
 <Badge bg="danger-gradient">Danger</Badge>
@@ -199,7 +199,7 @@ export const badge7=`<Badge bg="primary-gradient">Primary</Badge>
 <Badge bg="orange-gradient">Light</Badge>
 <Badge bg="purple-gradient">Dark</Badge>`;
 
-export const badge8=`<Badge bg="primary-gradient" className="rounded-pill">Primary</Badge>
+export const badge8 = `<Badge bg="primary-gradient" className="rounded-pill">Primary</Badge>
 <Badge bg="secondary-gradient" className="rounded-pill">Secondary</Badge>
 <Badge bg="success-gradient" className="rounded-pill">Success</Badge>
 <Badge bg="danger-gradient" className="rounded-pill">Danger</Badge>
@@ -208,7 +208,7 @@ export const badge8=`<Badge bg="primary-gradient" className="rounded-pill">Prima
 <Badge bg="orange-gradient" className="rounded-pill">Light</Badge>
 <Badge bg="purple-gradient" className="rounded-pill">Dark</Badge>`;
 
-export const badge9=`<Button  variant='danger' type="button" className="my-1 me-2">
+export const badge9 = `<Button  variant='danger' type="button" className="my-1 me-2">
 Notifications <Badge bg="white" className=" ms-2 text-danger">777</Badge>
 </Button>
 <Button  variant='primary' type="button" className="my-1 me-2">
@@ -227,7 +227,7 @@ Notifications <Badge bg="white" className=" ms-2 text-success">12</Badge>
 Notifications <Badge bg="white" className=" ms-2 text-secondary">7</Badge>
 </Button>`;
 
-export const badge10=` <Button variant='primary' type="button" className=" my-1 me-2">
+export const badge10 = ` <Button variant='primary' type="button" className=" my-1 me-2">
 Notifications <Badge bg="secondary" className="ms-2 ">4</Badge>
 </Button>
 <Button variant='secondary' type="button" className=" my-1 me-2">
@@ -240,7 +240,7 @@ Notifications <Badge bg="danger" className="ms-2 ">12</Badge>
 Notifications <Badge bg="warning" className="ms-2 ">32</Badge>
 </Button>`;
 
-export const badge11=`<Button variant='outline-primary' type="button" className="btn  my-1 me-2">
+export const badge11 = `<Button variant='outline-primary' type="button" className="btn  my-1 me-2">
 Notifications <Badge bg="" className="badge ms-2">4</Badge>
 </Button>
 <Button variant='outline-secondary' type="button" className="btn  my-1 me-2">
@@ -253,14 +253,14 @@ Notifications <Badge bg="" className="badge ms-2">12</Badge>
 Notifications <Badge bg="" className="badge ms-2">32</Badge>
 </Button>`;
 
-export const badge12=`<h1>Example heading <Badge bg="primary" className="badge">New</Badge></h1>
+export const badge12 = `<h1>Example heading <Badge bg="primary" className="badge">New</Badge></h1>
 <h2>Example heading <Badge bg="primary" className="badge">New</Badge></h2>
 <h3>Example heading <Badge bg="primary" className="badge">New</Badge></h3>
 <h4>Example heading <Badge bg="primary" className="badge">New</Badge></h4>
 <h5>Example heading <Badge bg="primary" className="badge">New</Badge></h5>
 <h6>Example heading <Badge bg="primary" className="badge">New</Badge></h6>`;
 
-export const badge13=`<Button variant='primary' type="button" className="btn  position-relative">
+export const badge13 = `<Button variant='primary' type="button" className="btn  position-relative">
 Inbox
 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
     99+
@@ -292,7 +292,7 @@ Profile
 </span>
 </span>`;
 
-export const badge14=`<p className="mb-xxl-0 badge bg-outline-info custom-badge fs-15 me-5">
+export const badge14 = `<p className="mb-xxl-0 badge bg-outline-info custom-badge fs-15 me-5">
 <i className="ti ti-home me-1 d-inline-flex"></i>Home</p>
 <p className="mb-xxl-0 badge bg-success custom-badge fs-15 me-5">
 <i className="ti ti-home me-1 d-inline-flex"></i>Home</p>
@@ -310,7 +310,7 @@ export const badge14=`<p className="mb-xxl-0 badge bg-outline-info custom-badge 
 </p>`;
 
 // Breadcrumb
- export const breadcrumb1= `<nav aria-label="breadcrumb">
+export const breadcrumb1 = `<nav aria-label="breadcrumb">
 <Breadcrumb>
     <Breadcrumb.Item active aria-current="page">Home</Breadcrumb.Item>
 </Breadcrumb>
@@ -327,7 +327,7 @@ export const badge14=`<p className="mb-xxl-0 badge bg-outline-info custom-badge 
     <Breadcrumb.Item active aria-current="page">Data</Breadcrumb.Item>
 </Breadcrumb>
 </nav>`;
- export const breadcrumb2=`<nav aria-label="breadcrumb">
+export const breadcrumb2 = `<nav aria-label="breadcrumb">
  <Breadcrumb className="breadcrumb-example1">
      <Breadcrumb.Item active aria-current="page">Home</Breadcrumb.Item>
  </Breadcrumb>
@@ -347,7 +347,7 @@ export const badge14=`<p className="mb-xxl-0 badge bg-outline-info custom-badge 
      <Breadcrumb.Item active aria-current="page">Data</Breadcrumb.Item>
  </Breadcrumb>
  </nav>`;
-export const breadcrumb3=` <nav 
+export const breadcrumb3 = ` <nav 
   aria-label="breadcrumb">
      <Breadcrumb className="mb-0">
          <Breadcrumb.Item><a href="#!" scroll={false}>Home</a></Breadcrumb.Item>
@@ -355,7 +355,7 @@ export const breadcrumb3=` <nav
      </Breadcrumb>
  </nav>`;
 
- export const breadcrumb4=` <nav
+export const breadcrumb4 = ` <nav
  aria-label="breadcrumb" className='svg-breadcrumb'>
  <Breadcrumb className=" mb-0">
      <Breadcrumb.Item href="#!" scroll={false}>Home</Breadcrumb.Item>
@@ -363,7 +363,7 @@ export const breadcrumb3=` <nav
  </Breadcrumb>
 </nav>`;
 
-export const breadcrumb5=` <nav aria-label="breadcrumb">
+export const breadcrumb5 = ` <nav aria-label="breadcrumb">
 <Breadcrumb className="breadcrumb breadcrumb-style1 mb-0">
     <Breadcrumb.Item href="#!" scroll={false}>Home</Breadcrumb.Item>
     <Breadcrumb.Item href="#!" scroll={false}>Library</Breadcrumb.Item>
@@ -371,7 +371,7 @@ export const breadcrumb5=` <nav aria-label="breadcrumb">
 </Breadcrumb>
 </nav>`;
 
-export const breadcrumb6=`<nav aria-label="breadcrumb">
+export const breadcrumb6 = `<nav aria-label="breadcrumb">
 <Breadcrumb className="breadcrumb breadcrumb-style2 mb-0">
     <Breadcrumb.Item href="#!" scroll={false}><i className="ti ti-home-2 me-1 fs-15 d-inline-block"></i>Home</Breadcrumb.Item>
     <Breadcrumb.Item href="#!" scroll={false}><i className="ti ti-apps me-1 fs-15 d-inline-block"></i>About</Breadcrumb.Item>
@@ -379,7 +379,7 @@ export const breadcrumb6=`<nav aria-label="breadcrumb">
 </Breadcrumb>
 </nav>`;
 
-export const breadcrumb7=`<nav aria-label="breadcrumb" className="bg-bredcrumb">
+export const breadcrumb7 = `<nav aria-label="breadcrumb" className="bg-bredcrumb">
 <Breadcrumb className="breadcrumb mb-0">
     <Breadcrumb.Item href="#!" scroll={false}>Home</Breadcrumb.Item>
     <Breadcrumb.Item active className="active" aria-current="page">Library</Breadcrumb.Item>
@@ -388,32 +388,32 @@ export const breadcrumb7=`<nav aria-label="breadcrumb" className="bg-bredcrumb">
 // end Breadcrumb
 
 //Buttongroup
-export const btngroup1=`<ButtonGroup className="btn-group" role="group" aria-label="Basic example">
+export const btngroup1 = `<ButtonGroup className="btn-group" role="group" aria-label="Basic example">
 <Button variant="info" type="button" className="btn btn-wave"><i className="bi bi-skip-backward"></i></Button>
 <Button variant="info" type="button" className="btn btn-wave"><i className="bi bi-pause"></i></Button>
 <Button variant="info" type="button" className="btn btn-wave"><i className="bi bi-skip-forward"></i></Button>
 </ButtonGroup>`;
 
-export const btngroup2=`<ButtonGroup className="btn-group">
+export const btngroup2 = `<ButtonGroup className="btn-group">
 <Button variant='primary' active href="#" className="btn  active btn-wave" aria-current="page">Active
     link</Button>
 <Button variant='primary' href="#" className="btn">Link</Button>
 <Button variant='primary' href="#" className="btn ">Link</Button>
 </ButtonGroup>`;
 
-export const btngroup3=` <ButtonGroup className="btn-group" role="group" aria-label="Basic mixed styles example">
+export const btngroup3 = ` <ButtonGroup className="btn-group" role="group" aria-label="Basic mixed styles example">
 <Button variant="danger" type="button" className="btn btn-wave">Left</Button>
 <Button variant="warning" type="button" className="btn btn-wave">Middle</Button>
 <Button variant="success" type="button" className="btn btn-wave">Right</Button>
 </ButtonGroup>`;
 
-export const btngroup4=` <ButtonGroup className="btn-group1" role="group" aria-label="Basic outlined example">
+export const btngroup4 = ` <ButtonGroup className="btn-group1" role="group" aria-label="Basic outlined example">
 <Button variant="outline-primary" type="button" className="btn btn-wave">Left</Button>
 <Button variant="outline-primary" type="button" className="btn btn-wave">Middle</Button>
 <Button variant="outline-primary" type="button" className="btn btn-wave">Right</Button>
 </ButtonGroup>`;
 
-export const btngroup5=`<ButtonGroup className="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+export const btngroup5 = `<ButtonGroup className="btn-group" role="group" aria-label="Basic checkbox toggle button group">
 <input type="checkbox" className="btn-check" id="btncheck1" />
 <label className="btn btn-outline-primary" htmlFor="btncheck1">Checkbox 1</label>
 
@@ -424,7 +424,7 @@ export const btngroup5=`<ButtonGroup className="btn-group" role="group" aria-lab
 <label className="btn btn-outline-primary" htmlFor="btncheck3">Checkbox 3</label>
 </ButtonGroup>`;
 
-export const btngroup6=` <ButtonGroup className="btn-group" role="group" aria-label="Basic radio toggle button group">
+export const btngroup6 = ` <ButtonGroup className="btn-group" role="group" aria-label="Basic radio toggle button group">
 <input type="radio" className="btn-check" name="btnradio" id="btnradio1"
     defaultChecked />
 <label className="btn btn-outline-primary" htmlFor="btnradio1">Radio 1</label>
@@ -438,7 +438,7 @@ export const btngroup6=` <ButtonGroup className="btn-group" role="group" aria-la
 <label className="btn btn-outline-primary" htmlFor="btnradio3">Radio 3</label>
 </ButtonGroup>`;
 
-export const btngroup7=` <ButtonGroup className="btn-group btn-group-lg my-1 me-1" role="group" aria-label="Large button group">
+export const btngroup7 = ` <ButtonGroup className="btn-group btn-group-lg my-1 me-1" role="group" aria-label="Large button group">
 <Button variant="outline-success" type="button" className="btn">Left</Button>
 <Button variant="outline-success" type="button" className="btn">Middle</Button>
 <Button variant="outline-success" type="button" className="btn">Right</Button>
@@ -454,7 +454,7 @@ export const btngroup7=` <ButtonGroup className="btn-group btn-group-lg my-1 me-
 <Button variant="outline-success" type="button" className="btn">Right</Button>
 </ButtonGroup>`;
 
-export const btngroup8=` <ButtonToolbar className="mb-4" role="toolbar"
+export const btngroup8 = ` <ButtonToolbar className="mb-4" role="toolbar"
 aria-label="Toolbar with button groups">
 <ButtonGroup className="btn-group me-2 my-1" role="group" aria-label="First group">
     <Button variant="primary" type="button" className="btn">1</Button>
@@ -504,7 +504,7 @@ aria-label="Toolbar with button groups">
 </InputGroup>
 </ButtonToolbar>`;
 
-export const btngroup9=`<ButtonGroup className="btn-group" role="group"
+export const btngroup9 = `<ButtonGroup className="btn-group" role="group"
 aria-label="Button group with nested dropdown">
 <Button variant="" type="button" className="btn btn-primary">1</Button>
 <Button variant="" type="button" className="btn btn-primary">2</Button>
@@ -515,7 +515,7 @@ aria-label="Button group with nested dropdown">
 </DropdownButton>
 </ButtonGroup>`;
 
-export const btngroup10=`<ButtonGroup vertical role="group" aria-label="Vertical button group">
+export const btngroup10 = `<ButtonGroup vertical role="group" aria-label="Vertical button group">
 <Button variant="primary" type="button" className="btn ">Button</Button>
 <Button variant="primary" type="button" className="btn ">Button</Button>
 <DropdownButton as={ButtonGroup} title="Dropdown" id="bg-vertical-dropdown-1">
@@ -563,7 +563,7 @@ export const btngroup10=`<ButtonGroup vertical role="group" aria-label="Vertical
 </ButtonGroup>
 </Col>`;
 
-export const btngroup11=`<ButtonGroup className="btn-group" role="group" aria-label="Basic example"> 
+export const btngroup11 = `<ButtonGroup className="btn-group" role="group" aria-label="Basic example"> 
 <Button variant="" className="btn btn-icon btn-facebook btn-wave">
 <i className="ri-facebook-line"></i>
 </Button>
@@ -588,46 +588,46 @@ export const btngroup11=`<ButtonGroup className="btn-group" role="group" aria-la
 
 //Buttons
 
-export const button1=`{DefaultButtons.map((idx) => (
+export const button1 = `{DefaultButtons.map((idx) => (
     <Button variant={idx.class} type="button" className="btn-wave waves-effect waves-light me-2"
      key={Math.random()}>{idx.text}</Button>
 ))}`;
 
-export const button2=`{DefaultButtons.map((idx) => (
+export const button2 = `{DefaultButtons.map((idx) => (
     <Button variant={idx.class} type="button" className="rounded-pill btn-wave me-2" key={Math.random()}>{idx.text}</Button>
 ))}`;
 
-export const button3=`{LightButtons.map((idx) => (
+export const button3 = `{LightButtons.map((idx) => (
     <Button type="button" variant={idx.class} className="btn btn-wave me-2" 
     key={Math.random()}>{idx.text}</Button>
 ))}`;
 
-export const button4=` {LightButtons.map((idx) => (
+export const button4 = ` {LightButtons.map((idx) => (
     <Button type="button" variant={idx.class} className="btn rounded-pill btn-wave me-2" 
     key={Math.random()}>{idx.text}</Button>
 ))}`;
 
-export const button5=`  {OutlineButtons.map((idx) => (
+export const button5 = `  {OutlineButtons.map((idx) => (
     <Button type="button" variant={idx.class} className="btn btn-wave me-2" 
     key={Math.random()}>{idx.text}</Button>
 ))}`;
 
-export const button6=` {OutlineButtons.map((idx) => (
+export const button6 = ` {OutlineButtons.map((idx) => (
     <Button type="button" variant={idx.class} className="btn rounded-pill btn-wave me-2"
      key={Math.random()}>{idx.text}</Button>
 ))}`;
 
-export const button7=`  {GradientButtons.map((idx) => (
+export const button7 = `  {GradientButtons.map((idx) => (
     <Button type="button" variant={idx.class} className="btn btn-wave me-2" 
     key={Math.random()}>{idx.text}</Button>
 ))}`;
 
-export const button8=`{GradientButtons.map((idx) => (
+export const button8 = `{GradientButtons.map((idx) => (
     <Button type="button" variant={idx.class} className="btn rounded-pill btn-wave me-2"
      key={Math.random()}>{idx.text}</Button>
 ))}`;
 
-export const button9=`<div className="btn-list">
+export const button9 = `<div className="btn-list">
 <div className="mb-4">
     <Button type="button" variant='primary' className="btn" disabled>Primary
         button</Button>
@@ -644,7 +644,7 @@ export const button9=`<div className="btn-list">
 </div>
 </div>`;
 
-export const button10=` <div className="btn-list">
+export const button10 = ` <div className="btn-list">
 <div className="mb-4">
     <Button type="button" variant='primary' className="btn btn-wave"
     >Toggle button</Button>
@@ -662,7 +662,7 @@ export const button10=` <div className="btn-list">
 </div>
 </div>`;
 
-export const button11=` <div className="btn-list d-md-flex flex-wrap">
+export const button11 = ` <div className="btn-list d-md-flex flex-wrap">
 <Button variant='primary' className="btn  btn-loader">
     <span className="me-2">Loading</span>
     <span className="loading"><i className="ri-loader-2-fill fs-16"></i></span>
@@ -685,7 +685,7 @@ export const button11=` <div className="btn-list d-md-flex flex-wrap">
 </Button>
 </div>`;
 
-export const button12=`<div className="btn-list d-md-flex d-block">
+export const button12 = `<div className="btn-list d-md-flex d-block">
 <div className="mb-md-0 mb-2">
     <Button variant="primary" className="btn btn-icon  btn-wave">
         <i className="ri-bank-fill"></i>
@@ -730,12 +730,12 @@ export const button12=`<div className="btn-list d-md-flex d-block">
 </div>
 </div>`;
 
-export const button13=`{GhostButtons.map((idx) => (
+export const button13 = `{GhostButtons.map((idx) => (
     <Button type="button" variant={idx.class} className="btn btn-wave me-2" 
     key={Math.random()}>{idx.text}</Button>
 ))}`;
 
-export const button14=`<div className="btn-list">
+export const button14 = `<div className="btn-list">
 <Button variant='primary' className="btn  btn-wave" href="#!" scroll={false} role="button">Link</Button>
 <Button variant='secondary' className="btn  btn-wave" type="submit">Button</Button>
 <Button variant='info' as="input" className="btn " type="button" value="Input" />
@@ -743,12 +743,12 @@ export const button14=`<div className="btn-list">
 <Button variant='success' as="input" className="btn " type="reset" value="Reset" />
 </div>`;
 
-export const button15=` <div className="btn-list">
+export const button15 = ` <div className="btn-list">
 <Button variant='primary' disabled className="btn" tabIndex={-1} role="button">Primary link</Button>
 <Button variant='secondary' disabled className="btn" tabIndex={-1} role="button">Link</Button>
 </div>`;
 
-export const button16=`<Button className="btn btn-icon btn-facebook btn-wave waves-effect waves-light">
+export const button16 = `<Button className="btn btn-icon btn-facebook btn-wave waves-effect waves-light">
 <i className="ri-facebook-line"></i>
 </Button>
 <Button className="btn btn-icon btn-twitter btn-wave waves-effect waves-light">
@@ -767,7 +767,7 @@ export const button16=`<Button className="btn btn-icon btn-facebook btn-wave wav
      <i className="ri-google-line"></i>
  </Button>`;
 
-export const button17=` <div className="btn-list">
+export const button17 = ` <div className="btn-list">
 <Button type="button" variant='primary' className="btn  btn-sm btn-wave">Small
     button</Button>
 <Button type="button" variant='secondary' className="btn  btn-wave">Default
@@ -776,14 +776,14 @@ export const button17=` <div className="btn-list">
     button</Button>
 </div>`;
 
-export const button18=`<div className="btn-list">
+export const button18 = `<div className="btn-list">
 <Button type="button" variant='primary' className="btn btn-w-xs btn-wave">XS</Button>
 <Button type="button" variant='secondary' className="btn btn-w-sm btn-wave">SM</Button>
 <Button type="button" variant='warning' className="btn btn-w-md btn-wave">MD</Button>
 <Button type="button" variant='info' className="btn btn-w-lg btn-wave">LG</Button>
 </div>`;
 
-export const button19=`<div className="btn-list d-flex">
+export const button19 = `<div className="btn-list d-flex">
 <div className="me-5">
     <Button variant='primary' className="btn  shadow-sm btn-wave">Button</Button>
     <Button variant='primary' className="btn btn-primary shadow btn-wave">Button</Button>
@@ -796,7 +796,7 @@ export const button19=`<div className="btn-list d-flex">
 </div>
 </div>`;
 
-export const button20=` <Button variant='primary' className="btn shadow-primary btn-wave">Button</Button>
+export const button20 = ` <Button variant='primary' className="btn shadow-primary btn-wave">Button</Button>
 <Button variant='secondary' className="btn shadow-secondary btn-wave">Button</Button>
 <Button variant='success' className="btn shadow-success btn-wave">Button</Button>
 <Button variant='info' className="btn shadow-info btn-wave">Button</Button>
@@ -805,12 +805,12 @@ export const button20=` <Button variant='primary' className="btn shadow-primary 
 <Button variant='purple' className="btn shadow-purple btn-wave">Button</Button>
 <Button variant='orange' className="btn shadow-orange btn-wave">Button</Button>`;
 
-export const button21=` {ColoredButtons.map((idx) => (
+export const button21 = ` {ColoredButtons.map((idx) => (
     <Button variant={idx.class} className="btn  btn-raised-shadow btn-wave" 
     key={Math.random()}>Button</Button>
 ))}`;
 
-export const button22=`<div className="btn-list">
+export const button22 = `<div className="btn-list">
 <Button className="btn btn-primary label-btn">
     <i className="ri-chat-smile-line label-btn-icon me-2"></i>
     Primary
@@ -837,7 +837,7 @@ export const button22=`<div className="btn-list">
 </Button>
 </div>`;
 
-export const button23=`<div className="btn-list">
+export const button23 = `<div className="btn-list">
 <Button variant='info' className="btn  custom-button rounded-pill">
     <span className="custom-btn-icons"><i className="ri-twitter-x-line text-info"></i></span>
     Twitter
@@ -852,7 +852,7 @@ export const button23=`<div className="btn-list">
 <Button variant='orange' className="btn  btn-custom-border">Hover</Button>
 </div>`;
 
-export const button24=`<div className="btn-list">
+export const button24 = `<div className="btn-list">
 <div className="d-grid gap-2 mb-4">
     <Button variant='primary' className="btn  btn-wave" type="button">Button</Button>
     <Button variant='secondary' className="btn  btn-wave" type="button">Button</Button>
@@ -905,11 +905,11 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
         <i className="ri-live-line"></i>
     </button>
 </div>
-</div>`
+</div>`;
 // end Buttons
 
 //Dropdowns
- export const dropdown1=`<Dropdown className="dropdown">
+export const dropdown1 = `<Dropdown className="dropdown">
  <Dropdown.Toggle variant='' className="btn btn-primary dropdown-toggle" type="button"
      id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
      Dropdown button
@@ -932,7 +932,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
  </Dropdown.Menu>
 </Dropdown>`;
 
- export const dropdown2=`{SingleButtons.map((idx) => (
+export const dropdown2 = `{SingleButtons.map((idx) => (
     <div className="btn-group" key={Math.random()}>
         <Dropdown>
             <Dropdown.Toggle type="button" variant={idx.class} className="btn"
@@ -952,7 +952,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
     </div>
 ))}`;
 
- export const dropdown3=`{SingleButtons.map((idx) => (
+export const dropdown3 = `{SingleButtons.map((idx) => (
     <div className="btn-group" key={Math.random()}>
         <Dropdown>
             <Dropdown.Toggle variant={idx.class} type="button" className="btn dropdown-toggle rounded-pill"
@@ -972,7 +972,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
     </div>
 ))}`;
 
- export const dropdown4=`{OutlineButtons.map((idx) => (
+export const dropdown4 = `{OutlineButtons.map((idx) => (
     <div className="btn-group" key={Math.random()}>
         <Dropdown>
             <Dropdown.Toggle variant={idx.class} type="button" className="btn  dropdown-toggle"
@@ -992,7 +992,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
     </div>
 ))}`;
 
- export const dropdown5=` {OutlineButtons.map((idx) => (
+export const dropdown5 = ` {OutlineButtons.map((idx) => (
     <div className="btn-group" key={Math.random()}>
         <Dropdown>
             <Dropdown.Toggle variant={idx.class} type="button" className="btn dropdown-toggle rounded-pill"
@@ -1010,7 +1010,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
     </div>
 ))}`;
 
- export const dropdown6=` {SplitButtonsdata.map((idx) => (
+export const dropdown6 = ` {SplitButtonsdata.map((idx) => (
     <SplitButton key={Math.random()} className='me-2 my-1'
         variant={idx.class}
         title="Action"
@@ -1025,7 +1025,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
     </SplitButton>
 ))}`;
 
- export const dropdown7=`<div className="btn-group my-1 me-2">
+export const dropdown7 = `<div className="btn-group my-1 me-2">
  <Dropdown>
      <Dropdown.Toggle variant='' className="btn btn-primary btn-lg dropdown-toggle" type="button"
          data-bs-toggle="dropdown" aria-expanded="false">
@@ -1082,7 +1082,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
  </Dropdown>
 </div>`;
 
- export const dropdown8=` <Dropdown drop="up" className="btn-group dropup my-1 me-2">
+export const dropdown8 = ` <Dropdown drop="up" className="btn-group dropup my-1 me-2">
  <Dropdown.Toggle variant='' type="button" className="btn btn-primary dropdown-toggle"
      data-bs-toggle="dropdown" aria-expanded="false">
      Dropup
@@ -1113,7 +1113,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
  </Dropdown.Menu>
 </Dropdown>`;
 
- export const dropdown9=` <Dropdown className="btn-group dropend my-1 me-2" drop="end">
+export const dropdown9 = ` <Dropdown className="btn-group dropend my-1 me-2" drop="end">
  <Dropdown.Toggle variant='' type="button" className="btn btn-primary dropdown-toggle"
      data-bs-toggle="dropdown" aria-expanded="false">
      Dropright
@@ -1144,7 +1144,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
  </Dropdown.Menu>
 </Dropdown>`;
 
- export const dropdown10=`<Dropdown className="btn-group dropstart my-1 me-2" drop="start">
+export const dropdown10 = `<Dropdown className="btn-group dropstart my-1 me-2" drop="start">
  <Dropdown.Toggle variant='' type="button" className="btn btn-primary dropdown-toggle"
      data-bs-toggle="dropdown" aria-expanded="false">
      Dropstart
@@ -1177,7 +1177,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
  </Button>
  </div>`;
 
- export const dropdown11=`<Dropdown>
+export const dropdown11 = `<Dropdown>
  <Dropdown.Toggle variant='' type="button" className="btn btn-primary dropdown-toggle"
      data-bs-toggle="dropdown" aria-expanded="false">
      Dropstart
@@ -1191,7 +1191,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
  </Dropdown.Menu>
 </Dropdown>`;
 
- export const dropdown12=`  <Dropdown>
+export const dropdown12 = `  <Dropdown>
  <Dropdown.Toggle variant='' type="button" className="btn btn-primary dropdown-toggle"
      data-bs-toggle="dropdown" aria-expanded="false">
      Dropstart
@@ -1204,7 +1204,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
  </Dropdown.Menu>
 </Dropdown>`;
 
- export const dropdown13=`{AutocloseButtons.map((idx) => (
+export const dropdown13 = `{AutocloseButtons.map((idx) => (
     <div className="btn-group" key={Math.random()}>
         <Dropdown>
             <Dropdown.Toggle variant={idx.class} className="btn btn-primary dropdown-toggle" type="button"
@@ -1221,7 +1221,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
     </div>
 ))}`;
 
- export const dropdown14=`  <Dropdown>
+export const dropdown14 = `  <Dropdown>
  <Dropdown.Toggle variant='' className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
      data-bs-toggle="dropdown" aria-expanded="false">
      Dropdown
@@ -1256,7 +1256,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
  </Dropdown.Menu>
 </Dropdown>`;
 
- export const dropdown15=`<p className="card-title mb-3">Use <code>.dropdown-center</code> on the parent element.
+export const dropdown15 = `<p className="card-title mb-3">Use <code>.dropdown-center</code> on the parent element.
  </p>
  <Dropdown className="dropdown-center">
      <Dropdown.Toggle variant='' className="btn btn-primary dropdown-toggle" type="button"
@@ -1270,7 +1270,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
      </Dropdown.Menu>
  </Dropdown>`;
 
- export const dropdown16=`<p className="card-title mb-3">Use <code>.dropup-center</code>
+export const dropdown16 = `<p className="card-title mb-3">Use <code>.dropup-center</code>
  on the parent element.
 </p>
 <Dropdown className="dropup-center dropup" drop="up">
@@ -1285,7 +1285,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
  </Dropdown.Menu>
 </Dropdown>`;
 
- export const dropdown17=`<p className="card-title mb-3">You can use <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code> as
+export const dropdown17 = `<p className="card-title mb-3">You can use <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code> as
  dropdown items.</p>
 <Dropdown className="dropdown">
  <Dropdown.Toggle variant='' className="btn btn-info dropdown-toggle" type="button"
@@ -1302,7 +1302,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
  </Dropdown.Menu>
 </Dropdown>`;
 
- export const dropdown18=`<p className="card-title mb-3">Use <code>data-bs-offset</code> or <code>data-bs-reference</code> to change
+export const dropdown18 = `<p className="card-title mb-3">Use <code>data-bs-offset</code> or <code>data-bs-reference</code> to change
  the location of the dropdown.</p>
  <div className="d-flex align-items-center flex-wrap">
  <Dropdown className="dropdown me-1 mt-1">
@@ -1337,7 +1337,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
  </ButtonGroup>
  </div>`;
 
- export const dropdown19=`<div className="btn-list">
+export const dropdown19 = `<div className="btn-list">
  {AlignmentButtons.map((idx) => (
      <div className="btn-group" key={Math.random()}>
          <Dropdown drop={idx.dir}>
@@ -1356,7 +1356,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
  ))}
  </div>`;
 
- export const dropdown20=` <Dropdown>
+export const dropdown20 = ` <Dropdown>
  <Dropdown.Toggle variant='' className="btn btn-dark dropdown-toggle" type="button"
      id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
      Dropdown button
@@ -1368,7 +1368,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
  </Dropdown.Menu>
 </Dropdown>`;
 
- export const dropdown21=` <Dropdown>
+export const dropdown21 = ` <Dropdown>
  <Dropdown.Toggle variant='' type="button" className="btn btn-primary dropdown-toggle"
      data-bs-toggle="dropdown" aria-expanded="false">
      Right-aligned menu example
@@ -1384,21 +1384,21 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
  </Dropdown.Menu>
 </Dropdown>`;
 
- export const dropdown22=`<div className="btn-group text-wrap">
+export const dropdown22 = `<div className="btn-group text-wrap">
  <DropdownButton as={ButtonGroup} align={{ lg: 'end' }} title="Left-aligned but right aligned when large screen" id="dropdown-menu-align-responsive-1" className="text-wrap">
      <Dropdown.Item eventKey="1">Action 1</Dropdown.Item>
      <Dropdown.Item eventKey="2">Action 2</Dropdown.Item>
  </DropdownButton>
  </div>`;
 
- export const dropdown23=` <div className="btn-group text-wrap">
+export const dropdown23 = ` <div className="btn-group text-wrap">
  <DropdownButton as={ButtonGroup} align={{ lg: 'start' }} title="Left-aligned but right aligned when large screen" className="text-wrap" id="dropdown-menu-align-responsive-1">
      <Dropdown.Item eventKey="1">Action 1</Dropdown.Item>
      <Dropdown.Item eventKey="2">Action 2</Dropdown.Item>
  </DropdownButton>
 </div>`;
 
- export const dropdown24=` <Dropdown>
+export const dropdown24 = ` <Dropdown>
  <Dropdown.Toggle variant={idx.class} className="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
      {idx.text}
  </Dropdown.Toggle>
@@ -1409,7 +1409,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
  </Dropdown.Menu>
 </Dropdown>`;
 
- export const dropdown25=` <div className="btn-list">
+export const dropdown25 = ` <div className="btn-list">
  {GhostButtons.map((idx) => (
      <div className="btn-group" key={Math.random()}>
          <Dropdown>
@@ -1429,7 +1429,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
  ))}
 </div>`;
 
- export const dropdown26=`<p className="card-title mb-3">Use <code>.dropdown-item-text.</code> to create non-interactive dropdown items.</p>
+export const dropdown26 = `<p className="card-title mb-3">Use <code>.dropdown-item-text.</code> to create non-interactive dropdown items.</p>
  <div className="bd-example">
      <Dropdown.Menu className="dropdown-menu" show>
          <Dropdown.Item as="li"><span className="dropdown-item-text">Dropdown item text</span>
@@ -1441,7 +1441,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
      </Dropdown.Menu>
  </div>`;
 
- export const dropdown27=`<p className="card-titlte mb-3">Add a <code>.dropdown-header</code> to label sections of actions in any dropdown menu.</p>
+export const dropdown27 = `<p className="card-titlte mb-3">Add a <code>.dropdown-header</code> to label sections of actions in any dropdown menu.</p>
  <div className="bd-example">
      <Dropdown.Menu show>
          <Dropdown.Header>
@@ -1453,7 +1453,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
      </Dropdown.Menu>
  </div>`;
 
- export const dropdown28=` <div className="bd-example">
+export const dropdown28 = ` <div className="bd-example">
  <Dropdown.Menu className="dropdown-menu" show>
      <Dropdown.Header>Heading</Dropdown.Header>
      <Dropdown.Item className="dropdown-item" href="#!" scroll={false}>Action</Dropdown.Item>
@@ -1464,7 +1464,7 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
  </Dropdown.Menu>
 </div>`;
 
- export const dropdown29=` <div className="bd-example">
+export const dropdown29 = ` <div className="bd-example">
  <Dropdown.Menu show className="dropdown-menu p-4 text-muted" style={{ maxWidth: 200 }}>
      <p>
          Some example text that's free-flowing within the dropdown menu.
@@ -1476,36 +1476,29 @@ export const button25 = ` <div className="btn-list d-md-flex d-block gap-5">
 </div>`;
 //end Dropdowns
 
-//Images &figures 
-export const image1=
-` <div className="text-center">
+//Images &figures
+export const image1 = ` <div className="text-center">
 <img src="../../../assets/images/media/media-48.jpg" className="img-fluid" alt="..."/>
 </div>`;
 
-export const image2=
-`<div className="text-center">
+export const image2 = `<div className="text-center">
 <img src="../../../assets/images/media/media-49.jpg"  className="img-fluid rounded" alt="..."/>
 </div>`;
 
-export const image3=
-` <div className="text-center">
+export const image3 = ` <div className="text-center">
 <img src="../../../assets/images/media/media-50.jpg" className="img-fluid rounded-pill" alt="..."/>
 </div>`;
 
-export const image4=
-` <div className="text-center">
+export const image4 = ` <div className="text-center">
 <img className="rounded float-start" src="../../../assets/images/media/media-53.jpg" alt="..."/>
 </div>`;
 
-export const image5=
-` <img className="rounded mx-auto d-block" 
+export const image5 = ` <img className="rounded mx-auto d-block" 
 src="../../../assets/images/media/media-55.jpg" alt="..."/>`;
 
-export const image6=
-` <img className="rounded float-end" src="../../../assets/images/media/media-54.jpg" alt="..."/>`;
+export const image6 = ` <img className="rounded float-end" src="../../../assets/images/media/media-54.jpg" alt="..."/>`;
 
-export const image7=
-` <figure className="figure">
+export const image7 = ` <figure className="figure">
 <img className="bd-placeholder-img figure-img img-fluid rounded card-img"
  src="../../../assets/images/media/media-56.jpg" alt="..."/>
 <figcaption className="figure-caption">A caption for the above image.
@@ -1518,21 +1511,19 @@ src="../../../assets/images/media/media-57.jpg" alt="..."/>
 </figcaption>
 </figure>`;
 
-export const image8=
-` <p className="card-title mb-3">Use <code> .img-thumbnail 
+export const image8 = ` <p className="card-title mb-3">Use <code> .img-thumbnail 
 </code>to give an image a rounded 1px border.</p>
  <div className="text-center">
      <img src="../../../assets/images/media/media-51.jpg"
       className="img-thumbnail" alt="..."/>
  </div>`;
 
-export const image9=
-` <div className="text-center">
+export const image9 = ` <div className="text-center">
 <img src="../../../assets/images/media/media-52.jpg"
  className="img-thumbnail rounded-pill" alt="..."/>
 </div>`;
 
-export const image10= ` <div className="card-body d-flex justify-content-between gap-2">
+export const image10 = ` <div className="card-body d-flex justify-content-between gap-2">
 <figure className="figure">
     <img className="bd-placeholder-img figure-img img-fluid rounded card-img" src="../../../assets/images/media/media-56.jpg" alt="..."/>
     <figcaption className="figure-caption mt-2">A caption for the above image.
@@ -1543,10 +1534,9 @@ export const image10= ` <div className="card-body d-flex justify-content-between
     <figcaption className="figure-caption text-end mt-2">A caption for the above image.
     </figcaption>
 </figure>
-</div>`
+</div>`;
 // ListGroup
-export const Listgroup1=
-` {BasicButtons.map((idx)=>(
+export const Listgroup1 = ` {BasicButtons.map((idx)=>(
     <ListGroup.Item as="li" key={Math.random()}>
         <div className="d-flex align-items-center">
             <span className="avatar avatar-sm">
@@ -1559,8 +1549,7 @@ export const Listgroup1=
     </ListGroup.Item>
     ))}`;
 
-export const Listgroup2=
-`  <ListGroup as="ul"><ListGroup.Item as="li">
+export const Listgroup2 = `  <ListGroup as="ul"><ListGroup.Item as="li">
 <div className="d-flex align-items-center">
     <div>
         <span className="avatar avatar-sm bg-white text-default avatar-rounded">
@@ -1574,8 +1563,7 @@ export const Listgroup2=
 </ListGroup.Item>
 </ListGroup>`;
 
-export const Listgroup3=
-` <ListGroup as="ul">
+export const Listgroup3 = ` <ListGroup as="ul">
 <ListGroup.Item as="li"className="list-group-item disabled" aria-disabled="true">A disabled item meant to be disabled
 </ListGroup.Item>
 <ListGroup.Item as="li">Simply dummy text of the printing</ListGroup.Item>
@@ -1584,8 +1572,7 @@ export const Listgroup3=
 <ListGroup.Item as="li">Written in 45 BC. This book is a treatise on the theory</ListGroup.Item>
  </ListGroup>`;
 
-export const Listgroup4=
-` <ListGroup variant='flush' className="">
+export const Listgroup4 = ` <ListGroup variant='flush' className="">
 <ListGroup.Item className="fw-semibold"><i className="bi bi-envelope align-middle me-2 text-muted"></i>Asish Trivedhi<span className="ms-1 text-muted fw-normal d-inline-block">(+1023-84534)</span></ListGroup.Item>
 <ListGroup.Item className="fw-semibold"><i className="bi bi-tiktok align-middle me-2 text-muted"></i>Alezander Russo<span className="ms-1 text-muted fw-normal d-inline-block">(+7546-12342)</span></ListGroup.Item>
 <ListGroup.Item className="fw-semibold"><i className="bi bi-whatsapp align-middle me-2 text-muted"></i>Karem Smith<span className="ms-1 text-muted fw-normal d-inline-block">(+9944-56632)</span></ListGroup.Item>
@@ -1593,8 +1580,7 @@ export const Listgroup4=
 <ListGroup.Item className="fw-semibold"><i className="bi bi-instagram align-middle me-2 text-muted"></i>Kamala Harris<span className="ms-1 text-muted fw-normal d-inline-block">(+91-63421)</span></ListGroup.Item>
 </ListGroup>`;
 
-export const Listgroup5=
-`<ListGroup>
+export const Listgroup5 = `<ListGroup>
 <Link to="#" className="list-group-item list-group-item-action">
 <div className="d-flex align-items-center">
     <div>
@@ -1606,8 +1592,7 @@ export const Listgroup5=
 </div>
 </Link>`;
 
-export const Listgroup6=
-` <ListGroup className="list-group">
+export const Listgroup6 = ` <ListGroup className="list-group">
 <ListGroup.Item type="button" className="list-group-item-action active" aria-current="true">Simply dummy text of the printing<span className="badge float-end bg-primary">243</span></ListGroup.Item>
 <ListGroup.Item type="button" className="list-group-item-action">There are many variations of passages<span className="badge float-end bg-secondary-transparent">35</span></ListGroup.Item>
 <ListGroup.Item type="button" className="list-group-item-action">All the Lorem Ipsum generators<span className="badge float-end bg-info-transparent">132</span></ListGroup.Item>
@@ -1615,20 +1600,17 @@ export const Listgroup6=
 <ListGroup.Item type="button" className="list-group-item-action" disabled>A disabled item meant to be disabled<span className="badge float-end bg-danger-transparent">21</span></ListGroup.Item>
 </ListGroup>`;
 
-export const Listgroup7=
-` <ListGroup as="ul">
+export const Listgroup7 = ` <ListGroup as="ul">
 {ContextualButtons.map((idx)=>(
 <ListGroup.Item as="li" variant={idx.class} key={Math.random()}>{idx.text}</ListGroup.Item>
 ))}</ListGroup>`;
 
-export const Listgroup8=
-`<ListGroup as="ul">
+export const Listgroup8 = `<ListGroup as="ul">
 {ContextualButtons.map((idx)=>(
     <ListGroup.Item variant={idx.class} action className=" list-group-item-action">{idx.text}</ListGroup.Item>
 ))}</ListGroup>`;
 
-export const Listgroup9=
-` <ListGroup as="ul">
+export const Listgroup9 = ` <ListGroup as="ul">
 <ListGroup.Item className="list-item-solid-primary">A simple primary list
 group
 item</ListGroup.Item>
@@ -1654,8 +1636,7 @@ item
 item
 </ListGroup.Item> </ListGroup>`;
 
-export const Listgroup10=
-` <ListGroup as="ul">
+export const Listgroup10 = ` <ListGroup as="ul">
 <ListGroup.Item  to="#" className=" list-group-item-action">
 <div className="d-flex w-100 justify-content-between">
     <h6 className="mb-1 fw-semibold">Richard McClintock, a Latin professor?</h6>
@@ -1666,8 +1647,7 @@ export const Listgroup10=
 <small className="text-muted">30,Nov 2022.</small>
 </ListGroup.Item> </ListGroup>`;
 
-export const Listgroup11=
-` <ListGroup as="ol" numbered>
+export const Listgroup11 = ` <ListGroup as="ol" numbered>
 {SubheadingsButtons.map((idx)=>(
 <ListGroup.Item as="li" className="list-group-item d-flex justify-content-between align-items-start" key={Math.random()}>
     <div className="ms-2 me-auto text-muted">
@@ -1678,8 +1658,7 @@ export const Listgroup11=
 </ListGroup.Item>
 ))}</ListGroup>`;
 
-export const Listgroup12=
-` <ListGroup as="ol" numbered>
+export const Listgroup12 = ` <ListGroup as="ol" numbered>
 <ListGroup.Item as="li">Simply dummy text of the printing.</ListGroup.Item>
 <ListGroup.Item as="li">There are many variations of passages.</ListGroup.Item>
 <ListGroup.Item as="li">All the Lorem Ipsum generators.</ListGroup.Item>
@@ -1688,8 +1667,7 @@ export const Listgroup12=
 <ListGroup.Item as="li">Always free from repetition, injected humour.</ListGroup.Item>
  </ListGroup>`;
 
-export const Listgroup13=
-` <ListGroup as="ul">
+export const Listgroup13 = ` <ListGroup as="ul">
 <ListGroup.Item as="li">
     <input className="form-check-input me-2 fw-semibold" type="checkbox" value=""
         aria-label="..." defaultChecked/>
@@ -1722,8 +1700,7 @@ export const Listgroup13=
 </ListGroup.Item>
 </ListGroup>`;
 
-export const Listgroup14=
-`<ListGroup className="list-group">
+export const Listgroup14 = `<ListGroup className="list-group">
 <ListGroup.Item className="list-group-item">
     <input className="form-check-input me-1" type="radio" value=""
         name="list-radio" defaultChecked/>
@@ -1756,8 +1733,7 @@ export const Listgroup14=
 </ListGroup.Item>
 </ListGroup>`;
 
-export const Listgroup15=
-` {ListbadgesButtons.map((idx) => (
+export const Listgroup15 = ` {ListbadgesButtons.map((idx) => (
     <ListGroup.Item key={Math.random()}
         className="list-group-item d-flex justify-content-between align-items-center fw-semibold">
         {idx.text1}
@@ -1765,8 +1741,7 @@ export const Listgroup15=
     </ListGroup.Item>
     ))}`;
 
-export const Listgroup16=
-` <ListGroup as="ul" className="list-group list-group-horizontal-md">
+export const Listgroup16 = ` <ListGroup as="ul" className="list-group list-group-horizontal-md">
 <ListGroup.Item as="li">An item</ListGroup.Item>
 <ListGroup.Item as="li">A second item</ListGroup.Item>
 <ListGroup.Item as="li">A third item</ListGroup.Item>
@@ -1774,73 +1749,58 @@ export const Listgroup16=
 // end Listgroup
 
 // objectfit
-export const objectfit1=
-` <img src="../../../assets/images/media/media-28.jpg" 
+export const objectfit1 = ` <img src="../../../assets/images/media/media-28.jpg" 
 className="object-fit-contain border rounded" alt="..."/>`;
 
-export const objectfit2=
-`<img src="../../../assets/images/media/media-28.jpg" 
+export const objectfit2 = `<img src="../../../assets/images/media/media-28.jpg" 
 className="object-fit-cover border rounded" alt="..."/>`;
 
-export const objectfit3=
-`<img src="../../../assets/images/media/media-28.jpg"
+export const objectfit3 = `<img src="../../../assets/images/media/media-28.jpg"
 className="object-fit-fill border rounded" alt="..."/>`;
 
-export const objectfit4=
-` <img src="../../../assets/images/media/media-28.jpg"
+export const objectfit4 = ` <img src="../../../assets/images/media/media-28.jpg"
 className="object-fit-scale border rounded" alt="..."/>`;
 
-export const objectfit5=
-` <img src="../../../assets/images/media/media-28.jpg" 
+export const objectfit5 = ` <img src="../../../assets/images/media/media-28.jpg" 
 className="object-fit-none border rounded" alt="..."/>`;
 
-export const objectfit6=
-` <img src="../../../assets/images/media/media-28.jpg" 
+export const objectfit6 = ` <img src="../../../assets/images/media/media-28.jpg" 
 className="object-fit-sm-contain border
  rounded" alt="..."/>`;
 
-export const objectfit7=
-` <img src="../../../assets/images/media/media-28.jpg" 
+export const objectfit7 = ` <img src="../../../assets/images/media/media-28.jpg" 
 className="object-fit-md-contain border 
 rounded" alt="..."/>`;
 
-export const objectfit8=
-` <img src="../../../assets/images/media/media-28.jpg" 
+export const objectfit8 = ` <img src="../../../assets/images/media/media-28.jpg" 
 className="object-fit-lg-contain border 
 rounded" alt="..."/>`;
 
-export const objectfit9=
-`<img src="../../../assets/images/media/media-28.jpg" 
+export const objectfit9 = `<img src="../../../assets/images/media/media-28.jpg" 
 className="object-fit-xl-contain border 
 rounded" alt="..."/>`;
 
-export const objectfit10=
-` <img src="../../../assets/images/media/media-28.jpg" 
+export const objectfit10 = ` <img src="../../../assets/images/media/media-28.jpg" 
 className="object-fit-xxl-contain border
  rounded" alt="..."/>`;
 
-export const objectfit11=
-` <video src="../../../assets/video/1.mp4" 
+export const objectfit11 = ` <video src="../../../assets/video/1.mp4" 
 className="object-fit-contain rounded border" autoPlay>
 </video>`;
 
-export const objectfit12=
-` <video src="../../../assets/video/1.mp4"
+export const objectfit12 = ` <video src="../../../assets/video/1.mp4"
 className="object-fit-cover rounded border" autoPlay>
 </video>`;
 
-export const objectfit13=
-`<video src="../../../assets/video/1.mp4"
+export const objectfit13 = `<video src="../../../assets/video/1.mp4"
 className="object-fit-fill rounded border" autoPlay>
 </video>`;
 
-export const objectfit14=
-`<video src="../../../assets/video/1.mp4" 
+export const objectfit14 = `<video src="../../../assets/video/1.mp4" 
 className="object-fit-scale rounded border" autoPlay>
 </video>`;
 
-export const objectfit15=
-` <video src="../../../assets/video/1.mp4"
+export const objectfit15 = ` <video src="../../../assets/video/1.mp4"
 className="object-fit-none 
 rounded border" autoPlay></video>`;
 
@@ -1848,8 +1808,7 @@ rounded border" autoPlay></video>`;
 
 // Pagination
 
-export const pagination1=
-`<nav aria-label="Page navigation">
+export const pagination1 = `<nav aria-label="Page navigation">
 <Pagination as="ul" className="pagination mb-0">
 <Pagination.Item as="li" disabled href="#!" scroll={false}>Previous
 </Pagination.Item>
@@ -1859,8 +1818,7 @@ export const pagination1=
 </Pagination>
 </nav>`;
 
-export const pagination2=
-` <Pagination className="pagination mb-0">
+export const pagination2 = ` <Pagination className="pagination mb-0">
 <Pagination.Item className="page-item" as="li" href="#!" scroll={false} aria-label="Previous">
         <span aria-hidden="true"><i className="bi bi-caret-left"></i></span></Pagination.Item>
 <Pagination.Item as="li" href="#!" scroll={false}>1</Pagination.Item>
@@ -1870,8 +1828,7 @@ export const pagination2=
  <span aria-hidden="true"><i className="bi bi-caret-right"></i></span></Pagination.Item> 
 </Pagination>`;
 
-export const pagination3=
-`<nav aria-label="...">
+export const pagination3 = `<nav aria-label="...">
 <Pagination as="ul" className="pagination pagination-sm mb-0">
 	<Pagination.Item as="li" active aria-current="page">
 		1
@@ -1899,8 +1856,7 @@ export const pagination3=
 </Pagination>
 </nav>`;
 
-export const pagination4=
-`<nav aria-label="Page navigation">
+export const pagination4 = `<nav aria-label="Page navigation">
 <Pagination className="justify-content-center">
     <Pagination.Item disabled>Previous
     </Pagination.Item>
@@ -1923,8 +1879,7 @@ export const pagination4=
 </Pagination>
 </nav>`;
 
-export const pagination5=
-`<nav aria-label="..." className="me-3">
+export const pagination5 = `<nav aria-label="..." className="me-3">
 <Pagination className="pagination">
     <Pagination.Item disabled>Previous
     </Pagination.Item>
@@ -1947,8 +1902,7 @@ export const pagination5=
 </Pagination>
 </nav>`;
 
-export const pagination6=
-`<nav aria-label="Page navigation" className="pagination-style-1">
+export const pagination6 = `<nav aria-label="Page navigation" className="pagination-style-1">
 <Pagination className="pagination mb-0">
 <Pagination.Item disabled href="#!" scroll={false}>
 <i className="ri-arrow-left-s-line align-middle"></i>       
@@ -1965,8 +1919,7 @@ export const pagination6=
 </Pagination>
 </nav>`;
 
-export const pagination7=
-`<nav aria-label="Page navigation" className="pagination-style-1">
+export const pagination7 = `<nav aria-label="Page navigation" className="pagination-style-1">
 <Pagination className="pagination mb-0">
 <Pagination.Item disabled href="#!" scroll={false}>
 <i className="ri-arrow-left-s-line align-middle"></i>       
@@ -1983,8 +1936,7 @@ export const pagination7=
 </Pagination>
 </nav>`;
 
-export const pagination8=
-`<nav aria-label="Page navigation" className="pagination-style-3">
+export const pagination8 = `<nav aria-label="Page navigation" className="pagination-style-3">
 <Pagination className=" mb-0 flex-wrap">
 <Pagination.Item as="li" disabled>Prev
 </Pagination.Item>
@@ -2000,8 +1952,7 @@ href="#!" scroll={false}>next
 </Pagination>
 </nav>`;
 
-export const pagination9=
-`<nav aria-label="Page navigation"className="pagination-style-4">
+export const pagination9 = `<nav aria-label="Page navigation"className="pagination-style-4">
 <Pagination className="mb-0 flex-wrap">
 <Pagination.Item as="li"  disabled href="#!" scroll={false}>
  Prev
@@ -2019,8 +1970,7 @@ export const pagination9=
 </Pagination></nav>`;
 
 //Popovers
-export const popovers1=
-`{Defaultalerts.map((idx)=>(
+export const popovers1 = `{Defaultalerts.map((idx)=>(
     <OverlayTrigger trigger="click" placement={idx.class}  key={Math.random()}
     overlay={<Popover>
     <Popover.Header as="h3"> Popover {idx.text}</Popover.Header>
@@ -2031,8 +1981,7 @@ export const popovers1=
     <Button variant='' href="#!" scroll={false} className="btn btn-outline-primary btn-wave">Popover {idx.text}</Button>
     </OverlayTrigger>))}`;
 
-export const popovers2=
-`<OverlayTrigger trigger="click" placement={idx.class}  key={Math.random()}
+export const popovers2 = `<OverlayTrigger trigger="click" placement={idx.class}  key={Math.random()}
 overlay={<Popover>
 <Popover.Header as="h3" data-bs-custom-classname="header-primary"> Color Header</Popover.Header>
    <Popover.Body>
@@ -2042,24 +1991,21 @@ overlay={<Popover>
 <Button variant={idx.color} href="#!" scroll={false}  className="btn btn-wave">Header {idx.text}</Button>
 </OverlayTrigger> ))}`;
 
-export const popovers3=
-`<OverlayTrigger placement="top trigger="click" overlay={<Popover className="popover-primary">
+export const popovers3 = `<OverlayTrigger placement="top trigger="click" overlay={<Popover className="popover-primary">
 <Popover.Header as="h3">Color Background</Popover.Header>
 <Popover.Body>Popover with primary background.</Popover.Body>
 </Popover>}>
 <Button variant="primary">Primary </Button>
 </OverlayTrigger>`;
 
-export const popovers4=
-`<OverlayTrigger placement="top trigger="click" overlay={<Popover className="popover-primary-light">
+export const popovers4 = `<OverlayTrigger placement="top trigger="click" overlay={<Popover className="popover-primary-light">
 <Popover.Header as="h3">Light Background</Popover.Header>
 <Popover.Body>Popover with light primary background.</Popover.Body>
 </Popover>}>
 <Button variant="primary-light">Primary </Button>
 </OverlayTrigger>`;
 
-export const popovers5=
-`{Dismissiblealerts.map((idx) => (
+export const popovers5 = `{Dismissiblealerts.map((idx) => (
 	<OverlayTrigger rootClose={true} trigger="click" placement={idx.class} key={Math.random()}
 		overlay={<Popover>
 			<Popover.Header as="h3"> Dismissible Popover</Popover.Header>
@@ -2071,8 +2017,7 @@ export const popovers5=
 	</OverlayTrigger>
 ))}`;
 
-export const popovers6=
-`<OverlayTrigger placement='right' overlay={<Popover id="tooltip-disabled">
+export const popovers6 = `<OverlayTrigger placement='right' overlay={<Popover id="tooltip-disabled">
 <Popover.Body>Disabled Popover!</Popover.Body>
 </Popover>}>
 <span className="d-inline-block mb-3 mb-sm-1 me-2">
@@ -2083,8 +2028,7 @@ export const popovers6=
 </OverlayTrigger>
 `;
 
-export const popovers7=
-`<OverlayTrigger placement='top' trigger="click" overlay={<Popover className='popover-primary only-body' id="tooltip-disabled">
+export const popovers7 = `<OverlayTrigger placement='top' trigger="click" overlay={<Popover className='popover-primary only-body' id="tooltip-disabled">
 <Popover.Body>This popover is used to provide details about this icon.</Popover.Body>
 </Popover>}>
 <Link className="me-4" href="#!" scroll={false}>
@@ -2126,8 +2070,7 @@ export const popovers7=
 </Link>
 </OverlayTrigger>`;
 
-export const popovers8=
-`<OverlayTrigger placement='top' trigger="click" overlay={<Popover className='popover-secondary only-body' id="tooltip-disabled">
+export const popovers8 = `<OverlayTrigger placement='top' trigger="click" overlay={<Popover className='popover-secondary only-body' id="tooltip-disabled">
  <Popover.Body>This popover is used to provide details about this icon.</Popover.Body>
   </Popover>}>
  <Link className="me-4 avatar avatar-md br-5" href="#!" scroll={false} >
@@ -2145,71 +2088,61 @@ export const popovers8=
 
 // Progress
 
-export const progress1=
-`<ProgressBar variant="" now={0} className="progress mb-3" />
+export const progress1 = `<ProgressBar variant="" now={0} className="progress mb-3" />
 <ProgressBar variant="" now={25} className="progress mb-3" />
 <ProgressBar variant="" now={50} className="progress mb-3" />
 <ProgressBar variant="" now={75} className="progress mb-3" />
 <ProgressBar variant="" now={100} className="progress mb-0" />`;
 
-  export const progress2=
-`<ProgressBar  variant='secondary' now={20} className="progress mb-3" />
+export const progress2 = `<ProgressBar  variant='secondary' now={20} className="progress mb-3" />
 <ProgressBar  variant='warning' now={40} className="progress mb-3" />
 <ProgressBar  variant='info' now={60} className="progress mb-3" />
 <ProgressBar  variant='success' now={80} className="progress mb-3" />
 <ProgressBar  variant='danger' now={100} className="progress mb-0" />`;
 
-  export const progress3=
-`<ProgressBar striped variant='primary' now={10} className="progress mb-3" />
+export const progress3 = `<ProgressBar striped variant='primary' now={10} className="progress mb-3" />
 <ProgressBar striped variant='secondary' now={25} className="progress mb-3" />
 <ProgressBar striped variant='success' now={50} className="progress mb-3" />
 <ProgressBar striped variant='info' now={75} className="progress mb-3" />
 <ProgressBar striped variant='warning' now={100} className="progress mb-0" />`;
 
-  export const progress4=
-`<ProgressBar  variant='primary' now={10} className="progress progress-xs mb-3" />
+export const progress4 = `<ProgressBar  variant='primary' now={10} className="progress progress-xs mb-3" />
 <ProgressBar  variant='primary' now={25} className="progress progress-sm mb-3" />
 <ProgressBar  variant='primary' now={50} className="progress  mb-3" />
 <ProgressBar  variant='primary' now={75} className="progress progress-lg mb-3" />
 <ProgressBar  variant='primary' now={100}className="progress progress-xl mb-0" />`;
 
-  export const progress5=
-`<ProgressBar  variant='primary' className="progress mb-3" animated now={10} />
+export const progress5 = `<ProgressBar  variant='primary' className="progress mb-3" animated now={10} />
 <ProgressBar  variant='secondary' className="progress mb-3" animated now={20} />
 <ProgressBar  variant='success' className="progress mb-3" animated now={40} />
 <ProgressBar  variant='info' className="progress mb-3" animated now={60} />
 <ProgressBar  variant='warning' className="progress" animated now={80} />`;
 
-  export const progress6=
-`<ProgressBar  variant='primary-gradient' className="progress mb-3" animated now={10} />
+export const progress6 = `<ProgressBar  variant='primary-gradient' className="progress mb-3" animated now={10} />
 <ProgressBar  variant='secondary-gradient' className="progress mb-3" animated now={20} />
 <ProgressBar  variant='success-gradient' className="progress mb-3" animated now={40} />
 <ProgressBar  variant='info-gradient' className="progress mb-3" animated now={60} />
 <ProgressBar  variant='warning-gradient' className="progress" animated now={80} />`;
-  
-export const progress7=
-`<ProgressBar variant='primary' now={10} label={10} className="progress mb-3" />
+
+export const progress7 = `<ProgressBar variant='primary' now={10} label={10} className="progress mb-3" />
 <ProgressBar variant='secondary' now={20} label={20} className="progress mb-3" />
 <ProgressBar variant='success' now={40} label={40%} className="progress mb-3" />
 <ProgressBar variant='info' now={60} label={60}% className="progress mb-3" />
 <ProgressBar variant='warning' now={80} label={80%} className="progress mb-0" />`;
 
-export const progress8=
-`<ProgressBar className="progress-stacked progress-sm mb-3" >
+export const progress8 = `<ProgressBar className="progress-stacked progress-sm mb-3" >
 <ProgressBar striped variant="warning" now={15} key={1} />
 <ProgressBar variant="info" now={20} key={2} />
 <ProgressBar striped variant="danger" now={25} key={3} />    
 </ProgressBar>`;
 
-export const progress9=
-`<ProgressBar  variant='primary-gradient' className="progress mb-3 progress-animate" animated now={10} />
+export const progress9 = `<ProgressBar  variant='primary-gradient' className="progress mb-3 progress-animate" animated now={10} />
 <ProgressBar  variant='secondary-gradient' className="progress mb-3 progress-animate" animated now={20} />
 <ProgressBar  variant='success-gradient' className="progress mb-3 progress-animate" animated now={40} />
 <ProgressBar  variant='info-gradient' className="progress mb-3 progress-animate" animated now={60} />
 <ProgressBar  variant='warning-gradient' className="progress  progress-animate" animated now={80} />`;
 
-export const progress10=
-`<div className="progress progress-sm progress-custom mb-5 progress-animate">
+export const progress10 = `<div className="progress progress-sm progress-custom mb-5 progress-animate">
 <h6 className="progress-bar-title">Mobiles</h6>
 <div className='progress-bar bg-primary custom-height1' style={{width: "50%"}}>
     <div className='progress-bar-value bg-primary'>50%</div>
@@ -2228,16 +2161,14 @@ export const progress10=
 </div>
 </div>`;
 
-export const progress11=
-`<ProgressBar className="progress progress-sm mb-4">
+export const progress11 = `<ProgressBar className="progress progress-sm mb-4">
 <div className="progress-item-1 bg-secondary"></div>
 <div className="progress-item-2 bg-secondary"></div>
 <div className="progress-item-3"></div>
 <ProgressBar variant="secondary" now={60} />
 </ProgressBar>`;
 
-export const progress12=
-`<ProgressBar className="progress progress-lg mb-5 custom-progress-3 progress-animate">
+export const progress12 = `<ProgressBar className="progress progress-lg mb-5 custom-progress-3 progress-animate">
 
 <ProgressBar variant="" now={50} />
 <div className="progress-bar-value">50%</div>
@@ -2252,14 +2183,12 @@ export const progress12=
 <div className="progress-bar-value success">70%</div>
 </ProgressBar>`;
 
-export const progress13=
-`<ProgressBar className="progress progress-xl mb-3 progress-animate custom-progress-4">
+export const progress13 = `<ProgressBar className="progress progress-xl mb-3 progress-animate custom-progress-4">
 <ProgressBar variant='secondary-gradient' now={20} />
 <div className="progress-bar-label">20%</div>
 </ProgressBar>`;
 
-export const progress14=
-`<h6 className="fw-semibold mb-2">Project Dependencies</h6>
+export const progress14 = `<h6 className="fw-semibold mb-2">Project Dependencies</h6>
 <ProgressBar className="progress-stacked progress-xl mb-5" >
    <ProgressBar  variant="primary" now={25} label={25%} key={1} />
    <ProgressBar  variant="secondary" now={35} label={35%} key={2} />
@@ -2283,13 +2212,11 @@ export const progress14=
 
 //spinners
 
-export const spinner1=
-`  <div className="spinner-border  text-primary" role="status">
+export const spinner1 = `  <div className="spinner-border  text-primary" role="status">
 <span className="visually-hidden">Loading...</span>
 </div>`;
 
-export const spinner2=
-` <div className="spinner-border text-secondary" role="status">
+export const spinner2 = ` <div className="spinner-border text-secondary" role="status">
 <span className="visually-hidden">Loading...</span>
 </div>
 <div className="spinner-border text-success" role="status">
@@ -2311,13 +2238,11 @@ export const spinner2=
 <span className="visually-hidden">Loading...</span>
 </div>`;
 
-export const spinner3=
-`<div className="spinner-grow text-primary" role="status">
+export const spinner3 = `<div className="spinner-grow text-primary" role="status">
 <span className="visually-hidden">Loading...</span>
 </div>`;
 
-export const spinner4=
-`<div className="spinner-grow text-secondary" role="status">
+export const spinner4 = `<div className="spinner-grow text-secondary" role="status">
 <span className="visually-hidden">Loading...</span>
 </div>
 <div className="spinner-grow text-success" role="status">
@@ -2339,8 +2264,7 @@ export const spinner4=
 <span className="visually-hidden">Loading...</span>
 </div>`;
 
-export const spinner5=
-`<div className="d-flex justify-content-center mb-4">
+export const spinner5 = `<div className="d-flex justify-content-center mb-4">
 <div className="spinner-border text-primary" role="status">
     <span className="visually-hidden">Loading...</span>
 </div>
@@ -2350,8 +2274,7 @@ export const spinner5=
 <div className="spinner-border text-primary ms-auto" role="status" aria-hidden="true"></div>
 </div>`;
 
-export const spinner6=
-` <div className="clearfix mb-4">
+export const spinner6 = ` <div className="clearfix mb-4">
 <div className="spinner-border text-primary float-end" role="status">
     <span className="visually-hidden">Loading...</span>
 </div>
@@ -2362,15 +2285,13 @@ export const spinner6=
 </div>
 </div>`;
 
-export const spinner7=
-` <div className="text-center">
+export const spinner7 = ` <div className="text-center">
 <div className="spinner-border text-primary" role="status">
     <span className="visually-hidden">Loading...</span>
 </div>
 </div>`;
 
-export const spinner8=
-`<div className="spinner-border text-primary spinner-border-sm me-4" role="status">
+export const spinner8 = `<div className="spinner-border text-primary spinner-border-sm me-4" role="status">
 <span className="visually-hidden">Loading...</span>
 </div>
 <div className="spinner-grow text-primary spinner-grow-sm me-4" role="status">
@@ -2384,13 +2305,11 @@ role="status">
 <span className="visually-hidden">Loading...</span>
 </div>`;
 
-export const spinner9=
-` <div className="spinner-border text-primary m-5" role="status">
+export const spinner9 = ` <div className="spinner-border text-primary m-5" role="status">
 <span className="visually-hidden">Loading...</span>
 </div>`;
 
-export const spinner10=
-` <div className="btn-list">
+export const spinner10 = ` <div className="btn-list">
 <Button variant='primary-light' className="btn" type="button" disabled>
     <span className="spinner-border spinner-border-sm align-middle" role="status"
         aria-hidden="true"></span>
@@ -2418,8 +2337,7 @@ export const spinner10=
 
 // Toasts
 
-export const toast1=
-`<ToastContainer  className="toast-container position-fixed top-0 start-0 p-3">
+export const toast1 = `<ToastContainer  className="toast-container position-fixed top-0 start-0 p-3">
 <Toast id="topleft-Toast" className="toast colored-toast bg-primary-transparent text-primary"
  onClose={() => setShow13(false)} show={show13} delay={3000} autohide>
     <Toast.Header className="toast-header bg-primary text-fixed-white">
@@ -2529,8 +2447,7 @@ onClose={() => setShow19(false)} show={show19} delay={3000} autohide>
 </Toast>
 </ToastContainer>`;
 
-export const toast2=
-`<Toast id="primaryToast" bg="primary-transparent" className="toast colored-toast" 
+export const toast2 = `<Toast id="primaryToast" bg="primary-transparent" className="toast colored-toast" 
 onClose={() => setShow1(false)} show={show1} delay={3000} autohide
     aria-atomic="true">
     <Toast.Header className="toast-header bg-primary text-fixed-white">
@@ -2607,8 +2524,7 @@ role="alert" aria-live="assertive"
     </Toast.Body>
 </Toast>`;
 
-export const toast3=
-`<ToastContainer className="toast-container position-fixed top-0 end-0 p-3">
+export const toast3 = `<ToastContainer className="toast-container position-fixed top-0 end-0 p-3">
 <Toast id="solid-primaryToast" className="toast colored-toast bg-primary text-fixed-white"
   onClose={() => setShow7(false)} show={show7} delay={3000} autohide>
     <Toast.Header className="toast-header bg-primary text-fixed-white">
@@ -2678,8 +2594,7 @@ onClose={() => setShow11(false)} show={show11} delay={3000} autohide>
 </Toast>
 </ToastContainer>`;
 
-export const toast4=
-`  <Button type="button" className="btn btn-primary btn-wave" id="liveToastBtn" onClick={() => setShow(true)}>Show live
+export const toast4 = `  <Button type="button" className="btn btn-primary btn-wave" id="liveToastBtn" onClick={() => setShow(true)}>Show live
 toast</Button>
 <Toast className="toast-container position-fixed top-0 end-0 p-3" onClose={() => setShow(false)} show={show} delay={3000} autohide>
     <Toast.Header className="toast-header text-default">
@@ -2692,8 +2607,7 @@ toast</Button>
     </Toast.Body>
 </Toast>`;
 
-export const toast5=
-`<Toast className="toast align-items-center text-bg-primary border-0 fade show mb-4"  show={showC}>
+export const toast5 = `<Toast className="toast align-items-center text-bg-primary border-0 fade show mb-4"  show={showC}>
 <div className="d-flex">
 <Toast.Body className=" text-fixed-white" >
 Hello, world! This is a toast message.</Toast.Body>
@@ -2729,8 +2643,7 @@ className="btn-close btn-close-white me-2 m-auto"
  onClick={toggleShowC}></CloseButton>
  </div></Toast>`;
 
-export const toast6=
-`<Toast show={showA} onClose={toggleShowA} className="toast show"
+export const toast6 = `<Toast show={showA} onClose={toggleShowA} className="toast show"
 role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
  <Toast.Header>
             <img src="../../../assets/images/brand-logos/fav.ico" alt="" className="me-2" height="18" />
@@ -2740,8 +2653,7 @@ role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
  <Toast.Body> Hello, world! This is a toast message.</Toast.Body>
 </Toast>`;
 
-export const toast7=
-`<ToastContainer className="toast-container position-static">
+export const toast7 = `<ToastContainer className="toast-container position-static">
 <Toast show={showG} onClose={toggleShowG} className="toast fade show">
     <Toast.Header className="toast-header text-default">
         <img src="../../../assets/images/brand-logos/fav.ico" alt="" className="me-2" height="18" />
@@ -2760,8 +2672,7 @@ export const toast7=
 </Toast>
 </ToastContainer>`;
 
-export const toast8=
-`<Toast show={showA} onClose={toggleShowA} className="toast show"
+export const toast8 = `<Toast show={showA} onClose={toggleShowA} className="toast show"
 role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
  <Toast.Header>
             <img src="../../../assets/images/brand-logos/fav.ico" alt="" className="me-2" height="18" />
@@ -2771,8 +2682,7 @@ role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
  <Toast.Body> Hello, world! This is a toast message.</Toast.Body>
 </Toast>`;
 
-export const toast9=
-`<Toast role="alert" 
+export const toast9 = `<Toast role="alert" 
 className="toast align-items-center fade show mb-3" show={showI}>
 <div className="d-flex">
 <Toast.Body className="text-dark">Hello, world! This is a toast message.
@@ -2800,8 +2710,7 @@ className="toast align-items-center fade show mb-3" show={showI}>
 </Toast.Body>
 </Toast>`;
 
-export const toast10=
-`<div className="bd-example bg-light bd-example-toasts d-flex p-0 px-3">
+export const toast10 = `<div className="bd-example bg-light bd-example-toasts d-flex p-0 px-3">
 <div aria-live="polite" aria-atomic="true"
     className="d-flex justify-content-center align-items-center w-100">
     <Toast show={showK} onClose={toggleShowK} className="toast fade show shadow-lg">
@@ -2817,8 +2726,7 @@ export const toast10=
 // end toasts
 
 // tooltips
-export const tooltip1=
-`  {Tooltipdirtooltip.map((idx)=>(
+export const tooltip1 = `  {Tooltipdirtooltip.map((idx)=>(
     <OverlayTrigger placement={idx.text} overlay={<Tooltip>Tooltip on {idx.text} </Tooltip>} key={Math.random()}>
     <Button type="button" className="btn btn-primary btn-wave">
     Tooltip on {idx.text}
@@ -2826,8 +2734,7 @@ export const tooltip1=
     </OverlayTrigger>
     ))}`;
 
-export const tooltip2=
-`  {Tooltipdirtooltip.map((idx)=>(
+export const tooltip2 = `  {Tooltipdirtooltip.map((idx)=>(
     <OverlayTrigger placement={idx.text} overlay={<Tooltip>Tooltip on {idx.text} </Tooltip>} key={Math.random()}>
     <Button type="button" className="btn btn-primary btn-wave">
     Tooltip on {idx.text}
@@ -2835,8 +2742,7 @@ export const tooltip2=
     </OverlayTrigger>
     ))}`;
 
-export const tooltip3=
-`  <p className="text-muted mb-0">
+export const tooltip3 = `  <p className="text-muted mb-0">
 Hover on the link to view the
 <OverlayTrigger placement="top" overlay={<Tooltip className='tooltip-primary'>
 Link Tooltip </Tooltip>}>
@@ -2844,8 +2750,7 @@ Link Tooltip </Tooltip>}>
      </OverlayTrigger> 
 </p>`;
 
-export const tooltip4=
-`<OverlayTrigger placement="top" overlay={
+export const tooltip4 = `<OverlayTrigger placement="top" overlay={
     <Tooltip className="tooltip-secondary">Message </Tooltip>}>
     <Link href="#!" scroll={false}  className="me-3">
         <svg xmlns="http://www.w3.org/2000/svg" className="svg-secondary" 
@@ -2857,8 +2762,7 @@ export const tooltip4=
     </Link>
     </OverlayTrigger>`;
 
-export const tooltip5=
-`  <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Disabled tooltip!</Tooltip>}>
+export const tooltip5 = `  <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Disabled tooltip!</Tooltip>}>
 <span className="d-inline-block">
  <Button disabled style={{ pointerEvents: 'none' }}>
             Disabled button
@@ -2866,8 +2770,7 @@ export const tooltip5=
    </span>
 </OverlayTrigger>`;
 
-export const tooltip6=
-`<OverlayTrigger placement="top" overlay={<Tooltip className="tooltip-primary">Alex Carey</Tooltip>}>
+export const tooltip6 = `<OverlayTrigger placement="top" overlay={<Tooltip className="tooltip-primary">Alex Carey</Tooltip>}>
 <Link href="#!" scroll={false}
     className="avatar avatar-md me-2 online avatar-rounded">
     <img src="../../../assets/images/faces/12.jpg" alt="img" />
@@ -2890,38 +2793,33 @@ export const tooltip6=
 // end toltips
 
 // typography
-export const typography1=
-`<h1 className="mb-3">h1. Bootstrap heading</h1>
+export const typography1 = `<h1 className="mb-3">h1. Bootstrap heading</h1>
 <h2 className="mb-3">h2. Bootstrap heading</h2>
 <h3 className="mb-3">h3. Bootstrap heading</h3>
 <h4 className="mb-3">h4. Bootstrap heading</h4>
 <h5 className="mb-3">h5. Bootstrap heading</h5>
 <h6 className="mb-0">h6. Bootstrap heading</h6>`;
 
-export const typography2=
-`<p className="h1 mb-3">h1. Bootstrap heading</p>
+export const typography2 = `<p className="h1 mb-3">h1. Bootstrap heading</p>
 <p className="h2 mb-3">h2. Bootstrap heading</p>
 <p className="h3 mb-3">h3. Bootstrap heading</p>
 <p className="h4 mb-3">h4. Bootstrap heading</p>
 <p className="h5 mb-3">h5. Bootstrap heading</p>
 <p className="h6 mb-0">h6. Bootstrap heading</p>`;
 
-export const typography3=
-`<h1 className="display-1">Display 1</h1>
+export const typography3 = `<h1 className="display-1">Display 1</h1>
 <h1 className="display-2">Display 2</h1>
 <h1 className="display-3">Display 3</h1>
 <h1 className="display-4">Display 4</h1>
 <h1 className="display-5">Display 5</h1>
 <h1 className="display-6">Display 6</h1>`;
 
-export const typography4=
-`<h3>
+export const typography4 = `<h3>
 Fancy display heading
 <small className="text-muted">With faded secondary text</small>
  </h3>`;
 
-export const typography5=
-`<p>You can use the mark tag to <mark>highlight</mark> text.</p>
+export const typography5 = `<p>You can use the mark tag to <mark>highlight</mark> text.</p>
 <p><del>This line of text is meant to be treated as deleted text.</del>
 </p>
 <p><s>This line of text is meant to be treated as no longer
@@ -2936,23 +2834,20 @@ export const typography5=
 <p><strong>This line rendered as bold text.</strong></p>
 <p className="mb-0"><em>This line rendered as italicized text.</em></p>`;
 
-export const typography6=
-`<p className="fs-1 mb-2">.fs-1 text</p>
+export const typography6 = `<p className="fs-1 mb-2">.fs-1 text</p>
 <p className="fs-2 mb-2">.fs-2 text</p>
 <p className="fs-3 mb-2">.fs-3 text</p>
 <p className="fs-4 mb-2">.fs-4 text</p>
 <p className="fs-5 mb-2">.fs-5 text</p>
 <p className="fs-6 mb-0">.fs-6 text</p>`;
 
-export const typography7=
-`<p className="lead mb-0">
+export const typography7 = `<p className="lead mb-0">
 <b>This is a lead paragraph. It stands out from regular paragraphs</b>.There are many variations of passages of Lorem Ipsum available,
  but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
   If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
 </p>`;
 
-export const typography8=
-`<dl className="row mb-0">
+export const typography8 = `<dl className="row mb-0">
 <dt className="col-sm-3">Description lists</dt>
 <dd className="col-sm-9">A description list is perfect for defining terms.</dd>
 
@@ -2980,8 +2875,7 @@ export const typography8=
     </dl>
 </dd></dl>`;
 
-export const typography9=
-`<ul className="list-unstyled">
+export const typography9 = `<ul className="list-unstyled">
 <li>This is a list.</li>
 <li>It appears completely unstyled.</li>
 <li>Structurally, it's still a list.</li>
@@ -2996,75 +2890,64 @@ export const typography9=
 <li>This may still come in handy in some situations.</li>
 </ul>`;
 
-export const typography10=
-`<figure className="blockquote-container">
+export const typography10 = `<figure className="blockquote-container">
 <blockquote className="blockquote mb-2">
     <h6>The greatest glory in living lies not in never falling, but in rising every time we fall.</h6>
 </blockquote>
 <figcaption className="blockquote-footer mt-0 mb-0 text-muted op-7"><cite title="Source Title">Nelson Mandela</cite>
 </figcaption> </figure>`;
 
-export const typography11=
-`<figure className="blockquote-container text-end">
+export const typography11 = `<figure className="blockquote-container text-end">
 <blockquote className="blockquote mb-2">
     <h6>The greatest glory in living lies not in never falling, but in rising every time we fall.</h6>
 </blockquote>
 <figcaption className="blockquote-footer mt-0 mb-0 text-muted op-7"><cite title="Source Title">Nelson Mandela</cite>
 </figcaption></figure>`;
 
-export const typography12=
-`<blockquote className="blockquote custom-blockquote primary mb-0 text-center">
+export const typography12 = `<blockquote className="blockquote custom-blockquote primary mb-0 text-center">
 <h6>The future belongs to those who believe in the beauty of their dreams..</h6>
 <footer className="blockquote-footer mt-3 fs-14 text-muted op-7 mb-0">Someone famous as <cite title="Source Title">-Eleanor Roosevelt</cite></footer>
 <span className="quote-icon"><i className="ri-information-line"></i></span></blockquote>`;
 
-export const typography13=
-`<blockquote className="blockquote custom-blockquote secondary mb-0 text-center">
+export const typography13 = `<blockquote className="blockquote custom-blockquote secondary mb-0 text-center">
 <h6>The future belongs to those who believe in the beauty of their dreams..</h6>
 <footer className="blockquote-footer mt-3 fs-14 text-muted op-7 mb-0">Someone famous as <cite title="Source Title">-Eleanor Roosevelt</cite></footer>
 <span className="quote-icon"><i className="ri-information-line"></i></span>
 </blockquote>`;
 
-export const typography14=
-`<blockquote className="blockquote custom-blockquote warning mb-0 text-center">
+export const typography14 = `<blockquote className="blockquote custom-blockquote warning mb-0 text-center">
 <h6>The future belongs to those who believe in the beauty of their dreams..</h6>
 <footer className="blockquote-footer mt-3 fs-14 text-muted op-7 mb-0">Someone famous as <cite title="Source Title">-Eleanor Roosevelt</cite></footer>
 <span className="quote-icon"><i className="ri-information-line"></i></span>`;
 
-export const typography15=
-`<blockquote className="blockquote custom-blockquote success mb-0 text-center">
+export const typography15 = `<blockquote className="blockquote custom-blockquote success mb-0 text-center">
 <h6>The future belongs to those who believe in the beauty of their dreams..</h6>
 <footer className="blockquote-footer mt-3 fs-14 text-muted op-7 mb-0">Someone famous as <cite title="Source Title">-Eleanor Roosevelt</cite></footer>
 <span className="quote-icon"><i className="ri-information-line"></i></span>
 </blockquote>`;
 
-export const typography16=
-`<blockquote className="blockquote custom-blockquote info mb-0 text-center">
+export const typography16 = `<blockquote className="blockquote custom-blockquote info mb-0 text-center">
 <h6>The future belongs to those who believe in the beauty of their dreams..</h6>
 <footer className="blockquote-footer mt-3 fs-14 text-muted op-7 mb-0">Someone famous as <cite title="Source Title">-Eleanor Roosevelt</cite></footer>
 <span className="quote-icon"><i className="ri-information-line"></i></span>
 </blockquote>`;
 
-export const typography17=
-`<blockquote className="blockquote custom-blockquote danger mb-0 text-center">
+export const typography17 = `<blockquote className="blockquote custom-blockquote danger mb-0 text-center">
 <h6>The future belongs to those who believe in the beauty of their dreams..</h6>
 <footer className="blockquote-footer mt-3 fs-14 text-muted op-7 mb-0">Someone famous as <cite title="Source Title">-Eleanor Roosevelt</cite></footer>
 <span className="quote-icon"><i className="ri-information-line"></i></span>
 </blockquote>`;
 
-export const typography18=
-`<p><abbr title="attribute">attr</abbr></p>
+export const typography18 = `<p><abbr title="attribute">attr</abbr></p>
 <p className="mb-0"><abbr title="HyperText Markup Language" className="initialism">HTML</abbr></p>`;
 
-export const typography19=
-`<ul className="list-inline mb-0">
+export const typography19 = `<ul className="list-inline mb-0">
 <li className="list-inline-item">This is a list item.</li>
 <li className="list-inline-item">And another one.</li>
 <li className="list-inline-item">But they're displayed inline.</li>
 </ul>`;
 
-export const typography20=
-`<p className="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+export const typography20 = `<p className="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
 Rerum dolorem fuga iste obcaecati natus eos officiis adipisci voluptatibus ipsum, 
 architecto veniam delectus vel dolor magni a vero sunt ut harum.</p>
 <div className="text-success">
@@ -3077,27 +2960,21 @@ magni numquam quos perferendis nulla magnam odit amet excepturi quisquam provide
  aut doloremque assumenda voluptatem, id qui vero adipisci! Nostrum ipsam praesentium!</p>
 <hr className="border-primary border-3 opacity-75"/>`;
 
-export const typography21=
-`<p className="font-monospace mb-0">This is in monospace</p>`;
+export const typography21 = `<p className="font-monospace mb-0">This is in monospace</p>`;
 
-export const typography22=
-`<p className="text-muted mb-0">
+export const typography22 = `<p className="text-muted mb-0">
 Muted text with a <a href="#!" scroll={false} className="text-reset text-decoration-underline text-dark">reset link</a>.
 </p>`;
 
-export const typography23=
-`<p className="visible mb-0">This is visible text</p>`;
+export const typography23 = `<p className="visible mb-0">This is visible text</p>`;
 
-export const typography24=
-`<p className="invisible mb-0">This is invisible text</p>`;
+export const typography24 = `<p className="invisible mb-0">This is invisible text</p>`;
 
-export const typography25=
-`<p className="text-lowercase">Lowercased text.</p>
+export const typography25 = `<p className="text-lowercase">Lowercased text.</p>
 <p className="text-uppercase">Uppercased text.</p>
 <p className="text-capitalize mb-0">CapiTaliZed text.</p>`;
 
-export const typography26=
-`<p className="text-decoration-underline">This text has a line underneath it.
+export const typography26 = `<p className="text-decoration-underline">This text has a line underneath it.
 </p>
 <p className="text-decoration-line-through">This text has a line going
     through
@@ -3108,8 +2985,7 @@ export const typography26=
     removed
 </Link>`;
 
-export const typography27=
-`<p className="fw-bold">Bold text.</p>
+export const typography27 = `<p className="fw-bold">Bold text.</p>
 <p className="fw-bolder">Bolder weight text (relative to the parent element).</p>
 <p className="fw-semibold">Semibold weight text.</p>
 <p className="fw-normal">Normal weight text.</p>
@@ -3118,8 +2994,7 @@ export const typography27=
 <p className="fst-italic">Italic text.</p>
 <p className="fst-normal mb-0">Text with normal font style</p>`;
 
-export const typography28=
-`<p className="lh-1">This is a long paragraph written to show how the line-height of
+export const typography28 = `<p className="lh-1">This is a long paragraph written to show how the line-height of
 an
 element is affected by our utilities. Classes are applied to the element
 itself
@@ -3151,8 +3026,7 @@ with
 our utility API.
 </p>`;
 
-export const typography29=
-`<p className="text-start">Start aligned text on all viewport sizes.</p>
+export const typography29 = `<p className="text-start">Start aligned text on all viewport sizes.</p>
 <p className="text-center">Center aligned text on all viewport sizes.</p>
 <p className="text-end">End aligned text on all viewport sizes.</p>
 
@@ -3169,8 +3043,7 @@ export const typography29=
     or
     wider.</p>`;
 
-export const typography30=
-`<div className="badge bg-primary text-wrap mb-3" style={{width: "6rem"}}>
+export const typography30 = `<div className="badge bg-primary text-wrap mb-3" style={{width: "6rem"}}>
 This text should wrap.
 </div>
 <p className="text-muted mb-2"> use class <code>.text-nowrap</code> to prevent text from wrapping</p>
@@ -3178,8 +3051,7 @@ This text should wrap.
 This text should overflow the parent.
 </div>`;
 
-export const typography31=
-`<p className="text-break mb-0">
+export const typography31 = `<p className="text-break mb-0">
 mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
  </p>`;
 

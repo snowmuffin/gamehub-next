@@ -1,9 +1,9 @@
-"use client"
-import React, { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
-import { ListGroup } from 'react-bootstrap';
-import MENUITEMS from '../sidebar/nav';
-import { filterMenuItems } from './utils/filterMenuItems'; // Import the new utility function
+"use client";
+import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { ListGroup } from "react-bootstrap";
+import MENUITEMS from "../sidebar/nav";
+import { filterMenuItems } from "./utils/filterMenuItems"; // Import the new utility function
 
 const SearchBar = () => {
   const searchRef = useRef(null);
@@ -29,7 +29,7 @@ const SearchBar = () => {
     }
   };
 
-  const handleClick = (event: { target: any; }) => {
+  const handleClick = (event: { target: any }) => {
     const searchInput: any = searchRef.current;
 
     if (searchInput && (searchInput === event.target || searchInput.contains(event.target))) {
@@ -56,7 +56,7 @@ const SearchBar = () => {
         autoComplete="off"
         ref={searchRef}
         defaultValue={InputValue}
-        onChange={(ele) => {
+        onChange={ele => {
           myfunction(ele.target.value);
           setInputValue(ele.target.value);
         }}

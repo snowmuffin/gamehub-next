@@ -1,47 +1,47 @@
 /** @type {import('next').NextConfig} */
-const path = require('path');
-const isProd = process.env.NODE_ENV === 'production';
+const path = require("path");
+const isProd = process.env.NODE_ENV === "production";
 
 const nextConfig = {
   reactStrictMode: true,
   trailingSlash: false,
 
-  basePath: '',
-  assetPrefix: '',
+  basePath: "",
+  assetPrefix: "",
 
   images: {
     unoptimized: true,
-    loader: 'default',
-    path: '/',
+    loader: "default",
+    path: "/"
   },
 
   typescript: {
-    ignoreBuildErrors: isProd,
+    ignoreBuildErrors: isProd
   },
 
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@': path.resolve(__dirname),
-      '@/shared': path.resolve(__dirname, 'shared'),
+      "@": path.resolve(__dirname),
+      "@/shared": path.resolve(__dirname, "shared")
     };
-    
+
     // macOS 숨김 파일들 무시
     config.plugins.push(
       new webpack.IgnorePlugin({
-        resourceRegExp: /^\._/,
+        resourceRegExp: /^\._/
       })
     );
-    
+
     return config;
   },
 
   async rewrites() {
     // 개발 환경과 프로덕션 환경 구분
-    const isProd = process.env.NODE_ENV === 'production';
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://api.snowmuffingame.com';
-    
-    console.log('🔧 Rewrite 설정:', {
+    const isProd = process.env.NODE_ENV === "production";
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://api.snowmuffingame.com";
+
+    console.log("🔧 Rewrite 설정:", {
       environment: process.env.NODE_ENV,
       isProd,
       apiUrl,
@@ -50,11 +50,11 @@ const nextConfig = {
 
     return [
       {
-        source: '/api/:path*',
-        destination: `${apiUrl}/:path*`,
-      },
+        source: "/api/:path*",
+        destination: `${apiUrl}/:path*`
+      }
     ];
-  },
+  }
 };
 
 module.exports = nextConfig;

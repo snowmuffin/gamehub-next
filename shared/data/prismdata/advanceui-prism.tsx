@@ -1,6 +1,6 @@
-      /*------ accordion(prism-code for showcode purpose) start ------*/
+/*------ accordion(prism-code for showcode purpose) start ------*/
 
-export const accordion1=`<Accordion.Item eventKey="0">
+export const accordion1 = `<Accordion.Item eventKey="0">
 <Accordion.Header>Accordion Item #1</Accordion.Header>
 <Accordion.Body> <strong>This is the first item's accordion body.</strong> It is shown by
      default, until the collapse plugin adds the appropriate classes that we
@@ -35,7 +35,7 @@ export const accordion1=`<Accordion.Item eventKey="0">
 </Accordion.Item>
 </Accordion>`;
 
-export const accordion2=`<Accordion defaultActiveKey={['0']} alwaysOpen>
+export const accordion2 = `<Accordion defaultActiveKey={['0']} alwaysOpen>
 <Accordion.Item eventKey="0">
 <Accordion.Header>Accordion Item #1</Accordion.Header>
   <Accordion.Body> <strong>This is the first item's accordion body.</strong> It is shown by
@@ -71,7 +71,7 @@ export const accordion2=`<Accordion defaultActiveKey={['0']} alwaysOpen>
   </Accordion.Item>
 </Accordion>`;
 
-export const accordion3=`<Accordion defaultActiveKey="0" flush>
+export const accordion3 = `<Accordion defaultActiveKey="0" flush>
 <Accordion.Item eventKey="0">
   <Accordion.Header>Accordion Item #1</Accordion.Header>
   <Accordion.Body>Placeholder content for this accordion,
@@ -98,7 +98,7 @@ export const accordion3=`<Accordion defaultActiveKey="0" flush>
 </Accordion.Item>
 </Accordion> `;
 
-export const accordion4=`<Accordion defaultActiveKey="0" className="accordion accordion-solid-primary">
+export const accordion4 = `<Accordion defaultActiveKey="0" className="accordion accordion-solid-primary">
 <Accordion.Item eventKey="0">
   <Accordion.Header>Accordion Item #1</Accordion.Header>
     <Accordion.Body> <strong>This is the first item's accordion body.</strong> It is shown by
@@ -134,7 +134,7 @@ export const accordion4=`<Accordion defaultActiveKey="0" className="accordion ac
 </Accordion.Item>
 </Accordion>`;
 
-export const accordion5=`<Accordion defaultActiveKey="0" className="accordion accordion-solid-secondary">
+export const accordion5 = `<Accordion defaultActiveKey="0" className="accordion accordion-solid-secondary">
 <Accordion.Item eventKey="0">
   <Accordion.Header>Accordion Item #1</Accordion.Header>
   <Accordion.Body> <strong>This is the first item's accordion body.</strong> It is shown by
@@ -170,7 +170,7 @@ export const accordion5=`<Accordion defaultActiveKey="0" className="accordion ac
 </Accordion.Item>
 </Accordion>`;
 
-export const accordion6=`<Accordion defaultActiveKey="0" className="accordion accordion-primary">
+export const accordion6 = `<Accordion defaultActiveKey="0" className="accordion accordion-primary">
 <Accordion.Item eventKey="0">
   <Accordion.Header>Accordion Item #1</Accordion.Header>
   <Accordion.Body> <strong>This is the first item's accordion body.</strong> It is shown by
@@ -206,7 +206,7 @@ export const accordion6=`<Accordion defaultActiveKey="0" className="accordion ac
 </Accordion.Item>
 </Accordion>`;
 
-export const accordion7=`<Accordion defaultActiveKey="0" className="accordion accordion-secondary">
+export const accordion7 = `<Accordion defaultActiveKey="0" className="accordion accordion-secondary">
 <Accordion.Item eventKey="0">
   <Accordion.Header>Accordion Item #1</Accordion.Header>
     <Accordion.Body> <strong>This is the first item's accordion body.</strong> It is shown by
@@ -242,7 +242,7 @@ export const accordion7=`<Accordion defaultActiveKey="0" className="accordion ac
 </Accordion.Item>
 </Accordion>`;
 
-export const accordion8=`<Accordion defaultActiveKey="0" 
+export const accordion8 = `<Accordion defaultActiveKey="0" 
 className="accordion accordion-customicon1 accordions-items-seperate">
 <Accordion.Item eventKey="0">
   <Accordion.Header>Accordion Item #1</Accordion.Header>
@@ -279,7 +279,7 @@ className="accordion accordion-customicon1 accordions-items-seperate">
 </Accordion.Item>
 </Accordion>`;
 
-export const accordion9=`<Accordion defaultActiveKey="0" className="accordion customized-accordion accordions-items-seperate">
+export const accordion9 = `<Accordion defaultActiveKey="0" className="accordion customized-accordion accordions-items-seperate">
 <Accordion.Item eventKey="0" className="custom-accordion-primary">
 <Accordion.Header>Accordion Item #1</Accordion.Header>
 <Accordion.Body> <strong>This is the first item's accordion body.</strong> It is shown by
@@ -315,7 +315,7 @@ transition does limit overflow.
 </Accordion.Item>
 </Accordion>`;
 
-export const accordion10=`<Accordion defaultActiveKey="0" className="accordion accordion-border-primary accordions-items-seperate">
+export const accordion10 = `<Accordion defaultActiveKey="0" className="accordion accordion-border-primary accordions-items-seperate">
 <Accordion.Item eventKey="0">
   <Accordion.Header>Accordion Item #1</Accordion.Header>
     <Accordion.Body> <strong>This is the first item's accordion body.</strong> It is shown by
@@ -351,7 +351,7 @@ export const accordion10=`<Accordion defaultActiveKey="0" className="accordion a
 </Accordion.Item>
 </Accordion>`;
 
-export const accordion11=`<Accordion defaultActiveKey="0" className="accordion accordion-border-success accordions-items-seperate">
+export const accordion11 = `<Accordion defaultActiveKey="0" className="accordion accordion-border-success accordions-items-seperate">
 <Accordion.Item eventKey="0">
   <Accordion.Header>Accordion Item #1</Accordion.Header>
     <Accordion.Body> <strong>This is the first item's accordion body.</strong> It is shown by
@@ -387,7 +387,7 @@ export const accordion11=`<Accordion defaultActiveKey="0" className="accordion a
 </Accordion.Item>
 </Accordion>`;
 
-export const accordion12=`<Accordion defaultActiveKey="0" className="accordion accordionicon-left accordions-items-seperate">
+export const accordion12 = `<Accordion defaultActiveKey="0" className="accordion accordionicon-left accordions-items-seperate">
 <Accordion.Item eventKey="0">
   <Accordion.Header>Accordion Item #1</Accordion.Header>
     <Accordion.Body> <strong>This is the first item's accordion body.</strong> It is shown by
@@ -423,7 +423,7 @@ export const accordion12=`<Accordion defaultActiveKey="0" className="accordion a
 </Accordion.Item>
 </Accordion>`;
 
-export const accordion13=`<Accordion defaultActiveKey="0" 
+export const accordion13 = `<Accordion defaultActiveKey="0" 
 className="accordion accordionicon-none accordions-items-seperate">
 <Accordion.Item eventKey="0">
   <Accordion.Header>Accordion Item #1</Accordion.Header>
@@ -460,7 +460,7 @@ className="accordion accordionicon-none accordions-items-seperate">
 </Accordion.Item>
 </Accordion>`;
 
-export const accordion14=`<p className="mb-0">
+export const accordion14 = `<p className="mb-0">
 <Button onClick={() => setOpenb(!openb)} aria-controls="example-collapse-text" aria-expanded={open}
   href="#collapseExample" className="btn btn-primary collapsed mb-2 me-1" role="button">
     Link with href</Button>
@@ -478,7 +478,7 @@ export const accordion14=`<p className="mb-0">
 </div>
 </Collapse>`;
 
-export const accordion15=`<p className="mb-0">
+export const accordion15 = `<p className="mb-0">
 <Button className="btn btn-primary mb-2 me-1"  onClick={() => { first() }}>Toggle first element</Button>
 <Button variant='' className="btn btn-success mb-2 me-1" type="button" onClick={() => { second() }}>Toggle second element</Button>
 <Button variant='' className="btn btn-danger mb-2" type="button"  onClick={() => { both() }}>Toggle both elements</Button>
@@ -514,7 +514,7 @@ export const accordion15=`<p className="mb-0">
     </div>
 </Row>`;
 
-export const accordion16=`<p><Button onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
+export const accordion16 = `<p><Button onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
 Toggle width collapse</Button>                   
 </p><div style={{ minHeight: '120px' }}>
 <Collapse in={open} dimension="width">
@@ -526,7 +526,7 @@ Toggle width collapse</Button>
 </Collapse>
 </div>`;
 
-export const accordion17=`<Accordion.Item eventKey="0">
+export const accordion17 = `<Accordion.Item eventKey="0">
 <Accordion.Header>Accordion Item #1</Accordion.Header>
 <Accordion.Body> <strong>This is the first item's accordion body.</strong> It is shown by
      default, until the collapse plugin adds the appropriate classes that we
@@ -563,7 +563,7 @@ export const accordion17=`<Accordion.Item eventKey="0">
 
 // carousel
 
-export const carousel1=`<Carousel id="carouselExampleSlidesOnly" 
+export const carousel1 = `<Carousel id="carouselExampleSlidesOnly" 
 className="carousel slide carousel-icons" indicators={false}>
 <Carousel.Item className="active">
     <img src="../../../assets/images/media/media-26.jpg"
@@ -580,7 +580,7 @@ className="carousel slide carousel-icons" indicators={false}>
 </Carousel>
 `;
 
-export const carousel2=`<Carousel id="carouselExampleControls" 
+export const carousel2 = `<Carousel id="carouselExampleControls" 
 className="carousel slide" data-bs-ride="carousel" indicators={false}>
 <Carousel.Item className="active">
 <img src="../../../assets/images/media/media-28.jpg" 
@@ -596,7 +596,7 @@ className="d-block w-100" alt="..." />
 </Carousel.Item>
 </Carousel>
 `;
-export const carousel3=`<Carousel id="carouselExampleIndicators" 
+export const carousel3 = `<Carousel id="carouselExampleIndicators" 
 className="carousel slide" data-bs-ride="carousel">
 <Carousel.Item className="active">
 <img src="../../../assets/images/media/media-25.jpg" 
@@ -612,7 +612,7 @@ className="d-block w-100" alt="..." />
 </Carousel.Item>
 </Carousel>
 `;
-export const carousel4=`<Carousel id="carouselExampleCaptions" 
+export const carousel4 = `<Carousel id="carouselExampleCaptions" 
 className="carousel slide" data-bs-ride="carousel">
 <Carousel.Item className="active">
 <img src="../../../assets/images/media/media-59.jpg" 
@@ -640,7 +640,7 @@ className="d-block w-100" alt="..." />
 </Carousel.Item>
 </Carousel>
 `;
-export const carousel5=`Carousel fade id="carouselExampleFade" 
+export const carousel5 = `Carousel fade id="carouselExampleFade" 
 className="carousel slide carousel-fade" indicators={false}>
 <Carousel.Item className="active">
    <img src="../../../assets/images/media/media-43.jpg" 
@@ -656,7 +656,7 @@ className="carousel slide carousel-fade" indicators={false}>
 </Carousel.Item>
 </Carousel>
 `;
-export const carousel6=`<Carousel id="carouselExampleInterval" 
+export const carousel6 = `<Carousel id="carouselExampleInterval" 
 className="carousel slide" data-bs-ride="carousel" indicators={false}>
 <Carousel.Item interval={1000} className="active" >
     <img src="../../../assets/images/media/media-40.jpg" 
@@ -672,7 +672,7 @@ className="carousel slide" data-bs-ride="carousel" indicators={false}>
 </Carousel.Item>
 </Carousel>
 `;
-export const carousel7=`<Carousel touch={false} id="carouselExampleControlsNoTouching" 
+export const carousel7 = `<Carousel touch={false} id="carouselExampleControlsNoTouching" 
 className="carousel slide" data-bs-touch="false" indicators={false}
 data-bs-interval="false">
 <Carousel.Item className="carousel-item active">
@@ -689,7 +689,7 @@ data-bs-interval="false">
 </Carousel.Item>
 </Carousel>
 `;
-export const carousel8=`<Carousel id="carouselExampleDark"
+export const carousel8 = `<Carousel id="carouselExampleDark"
 className="carousel slide">
 <Carousel.Item className="active" data-bs-interval="10000">
 <img src="../../../assets/images/media/media-13.jpg"
@@ -726,7 +726,7 @@ content for the third slide.</p>
 //
 
 //Modals & closes
-export const modal1=`export default function BasicModal () {   
+export const modal1 = `export default function BasicModal () {   
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -750,7 +750,7 @@ export const modal1=`export default function BasicModal () {
 </Modal>
 )}`;
 
-export const modal2=`export default function BasicModal () {   
+export const modal2 = `export default function BasicModal () {   
     const [show1, setShow1] = useState(false)
     
     const handleClose1 = () => setShow1(false)
@@ -775,7 +775,7 @@ export const modal2=`export default function BasicModal () {
     </Modal>
     )}`;
 
-export const modal3=`export default function BasicModal () {   
+export const modal3 = `export default function BasicModal () {   
     const [show1, setShow1] = useState(false)
     
     const handleClose1 = () => setShow1(false)
@@ -855,7 +855,7 @@ export const modal3=`export default function BasicModal () {
         </Modal>
     )}`;
 
-export const modal4=`export default function BasicModal () {   
+export const modal4 = `export default function BasicModal () {   
     const [modalShow, setModalShow] = useState(false);
     return(
     <Button type="button" className="btn btn-primary" 
@@ -881,7 +881,7 @@ export const modal4=`export default function BasicModal () {
     </Modal>
     )}`;
 
-export const modal5=`export default function BasicModal () {   
+export const modal5 = `export default function BasicModal () {   
     const [modalShow, setModalShow] = useState(false);
     return(
     <Button type="button" className="btn btn-primary" 
@@ -907,7 +907,7 @@ export const modal5=`export default function BasicModal () {
     </Modal>
     )}`;
 
-export const modal6=`export default function BasicModal () {   
+export const modal6 = `export default function BasicModal () {   
     const [show3, setShow3] = useState(false);
     const handleClose3 = () => setShow3(false);
     const handleShow3 = () => setShow3(true);
@@ -947,7 +947,7 @@ export const modal6=`export default function BasicModal () {
     </Modal>
     )}`;
 
-export const modal7=`export default function BasicModal () {   
+export const modal7 = `export default function BasicModal () {   
     const [modalShow2, setModalShow2] = useState(false)
     return(
     <Button variant='primary' type="button" className="" onClick={handleShow3}>
@@ -999,7 +999,7 @@ export const modal7=`export default function BasicModal () {
     </Modal>
     )}`;
 
-export const modal8=`export default function BasicModal () {   
+export const modal8 = `export default function BasicModal () {   
     const [show3, setShow3] = useState(false);
     const handleClose3 = () => setShow3(false);
     const handleShow3 = () => setShow3(true);  //  Twomodals
@@ -1055,7 +1055,7 @@ export const modal8=`export default function BasicModal () {
         </Modal>
     )}`;
 
-export const modal9=`export default function BasicModal () {   
+export const modal9 = `export default function BasicModal () {   
     // small modal
     const [smShow, setSmShow] = useState(false);
     
@@ -1094,7 +1094,7 @@ export const modal9=`export default function BasicModal () {
     </Modal>
     )}`;
 
-export const modal10=`export default function BasicModal () {   
+export const modal10 = `export default function BasicModal () {   
     //fullscreen modals
     const values =  [true, 'sm-down', 'md-down', 'lg-down', 'xl-down', 'xxl-down',];
     const colors = ['primary', 'secondary', 'warning', 'info', 'success', 'danger'];
@@ -1121,7 +1121,7 @@ export const modal10=`export default function BasicModal () {
       </Modal>
   )}`;
 
-export const modal11=`export default function BasicModal () {   
+export const modal11 = `export default function BasicModal () {   
     const [show6, setShow6] = useState(false);
     
     const handleClose6 = () => setShow6(false);
@@ -1161,13 +1161,13 @@ export const modal11=`export default function BasicModal () {
     </Modal>
     )}`;
 
-export const modal12=`<Button variant='' type="button" className="btn-close" 
+export const modal12 = `<Button variant='' type="button" className="btn-close" 
 aria-label="Close"></Button>`;
 
-export const modal13=`<Button variant='' type="button" className="btn-close"
+export const modal13 = `<Button variant='' type="button" className="btn-close"
 disabled aria-label="Close"></Button>`;
 
-export const modal14=`<CloseButton type="button" className="btn-close btn-close-white" aria-label="Close"></CloseButton>
+export const modal14 = `<CloseButton type="button" className="btn-close btn-close-white" aria-label="Close"></CloseButton>
 <CloseButton type="button" className="btn-close btn-close-white" disabled
 aria-label="Close"></CloseButton>`;
 
@@ -1202,25 +1202,25 @@ export const modal15 = `export const Modal = ()= {
     </Rodal>
   </Col>
    )
-  };`
+  };`;
 //
 
 //placeholders
 
-export const placeholder1=`<p className="placeholder-glow mb-0">
+export const placeholder1 = `<p className="placeholder-glow mb-0">
 <span className="placeholder col-12"></span>
  </p>
 <p className="placeholder-wave mb-0">
 <span className="placeholder col-12"></span>
  </p>`;
 
-export const placeholder2=`<span className="placeholder col-12 placeholder-xl mb-1"></span>
+export const placeholder2 = `<span className="placeholder col-12 placeholder-xl mb-1"></span>
 <span className="placeholder col-12 placeholder-lg"></span>
 <span className="placeholder col-12"></span>
 <span className="placeholder col-12 placeholder-sm"></span>
 <span className="placeholder col-12 placeholder-xs"></span>`;
 
-export const placeholder3=`<span className="placeholder col-12"></span>
+export const placeholder3 = `<span className="placeholder col-12"></span>
 <span className="placeholder col-12 bg-primary"></span>
 <span className="placeholder col-12 bg-secondary"></span>
 <span className="placeholder col-12 bg-success"></span>
@@ -1230,14 +1230,14 @@ export const placeholder3=`<span className="placeholder col-12"></span>
 <span className="placeholder col-12 bg-light"></span>
 <span className="placeholder col-12 bg-dark"></span>`;
 
-export const placeholder4=`<span className="placeholder bg-primary col-6"></span>
+export const placeholder4 = `<span className="placeholder bg-primary col-6"></span>
 <span className="placeholder bg-primary w-75"></span>
 <span className="placeholder bg-primary" style={{width: 25}}></span>`;
 //
 
 //offcanvas
 
-export const offcanvas1=`export function Defaultlink() {
+export const offcanvas1 = `export function Defaultlink() {
     const [show, setShow] = useState(false);
   
     const handleClose = () => setShow(false);
@@ -1267,7 +1267,7 @@ export const offcanvas1=`export function Defaultlink() {
     );
   }`;
 
-export const offcanvas2=`export function Defaultlink() {
+export const offcanvas2 = `export function Defaultlink() {
     const [show1, setShow1] = useState(false);
   
     const handleClose1 = () => setShow1(false);
@@ -1294,7 +1294,7 @@ export const offcanvas2=`export function Defaultlink() {
     );
   }`;
 
-export const offcanvas3=`export function Defaultlink() {
+export const offcanvas3 = `export function Defaultlink() {
     //static
     const [show2, setShow2] = useState(false);
     
@@ -1320,7 +1320,7 @@ export const offcanvas3=`export function Defaultlink() {
       );
     }`;
 
-export const offcanvas4=`export function Defaultlink() {
+export const offcanvas4 = `export function Defaultlink() {
     const [show3, setShow3] = useState(false);
   
     const handleClose3 = () => setShow3(false);
@@ -1347,7 +1347,7 @@ export const offcanvas4=`export function Defaultlink() {
     );
   }`;
 
-export const offcanvas5=`export function Defaultlink() {
+export const offcanvas5 = `export function Defaultlink() {
     const [showb, setShowb] = useState(false);
     
     const handleCloseb = () => setShowb(false);
@@ -1371,4 +1371,3 @@ export const offcanvas5=`export function Defaultlink() {
         </>
       );
     }`;
-

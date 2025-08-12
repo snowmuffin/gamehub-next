@@ -9,7 +9,7 @@
   inset-inline: 0;
   background: transparent;
   transition: all 0.1s ease;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(30px);
 }
 
@@ -74,7 +74,7 @@
       .header-link {
         margin-inline-end: 0;
       }
-    } 
+    }
   }
 
   .header-link {
@@ -102,7 +102,7 @@
     fill: $header-prime-color;
     transition: all ease 0.05s;
     position: relative;
-    padding: .5rem 9px;
+    padding: 0.5rem 9px;
     background-color: $primary-005;
   }
 
@@ -141,7 +141,7 @@
 
   .main-header-dropdown {
     box-shadow: $box-shadow;
-    inset-block-start: .15rem !important;
+    inset-block-start: 0.15rem !important;
     .dropdown-item {
       padding: 0.75rem 1rem;
       &:last-child {
@@ -261,15 +261,14 @@
 .header-search-bar {
   position: relative;
   margin-block: 13px;
-  margin-inline-start: .5625rem;
-  margin-inline-end: .5rem;
+  margin-inline-start: 0.5625rem;
+  margin-inline-end: 0.5rem;
   width: 14rem;
   border-radius: 0;
   padding-block-start: 0.25rem;
   padding-inline-end: 2rem;
   padding-block-end: 0.25rem;
   padding-inline-start: 0.75rem;
-
 }
 
 .header-search-icon {
@@ -338,7 +337,7 @@
 
   .dropdown-menu {
     img {
-      width: 1rem;  
+      width: 1rem;
       height: 1rem;
     }
   }
@@ -562,7 +561,8 @@
 /* End::header dashboards dropdown */
 
 @media (max-width: 1199.98px) {
-  .btn.header-dashboards-button,.dashboard-dropdown {
+  .btn.header-dashboards-button,
+  .dashboard-dropdown {
     min-width: 12rem;
   }
   .header-search-bar {
@@ -575,7 +575,7 @@
     inset-block-start: -0.0625rem !important;
     border-radius: 0 0 $default-radius $default-radius;
   }
-  
+
   .main-header-container .header-element {
     position: initial;
   }

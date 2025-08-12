@@ -345,7 +345,7 @@
 /* End:Apex Charts */
 
 /* Start:Full Calendar */
-.fc-v-event .fc-event-main { 
+.fc-v-event .fc-event-main {
   color: $default-text-color;
 }
 .fc-event-selected,
@@ -536,24 +536,24 @@
 
 @media (max-width: 420px) {
   .flatpickr-calendar.animate.open {
-      width: 276px !important;
-      .flatpickr-weekdays {
-        width: 90%;
-      }
+    width: 276px !important;
+    .flatpickr-weekdays {
+      width: 90%;
+    }
   }
   // #inlinecalendar {
-    .flatpickr-calendar.inline {
-        .flatpickr-weekdays {
-            width: 90% !important;
-        }
+  .flatpickr-calendar.inline {
+    .flatpickr-weekdays {
+      width: 90% !important;
     }
+  }
   // }
   .flatpickr-day {
-      max-width: 33px !important;
-      height: 33px !important;
-      line-height: 33px !important;
+    max-width: 33px !important;
+    height: 33px !important;
+    line-height: 33px !important;
   }
-  .flatpickr-calendar.inline:not(.hasTime ) {
+  .flatpickr-calendar.inline:not(.hasTime) {
     width: 278.875px !important;
   }
   .dayContainer {
@@ -586,9 +586,7 @@
   padding: 0.25rem !important;
 }
 
-.flatpickr-current-month
-  .flatpickr-monthDropdown-months
-  .flatpickr-monthDropdown-month {
+.flatpickr-current-month .flatpickr-monthDropdown-months .flatpickr-monthDropdown-month {
   background-color: $custom-white !important;
   font-size: 0.813rem;
 }
@@ -1278,7 +1276,8 @@ span.flatpickr-weekday {
 }
 
 #donut-update {
-  .apexcharts-svg, .apexcharts-canvas {
+  .apexcharts-svg,
+  .apexcharts-canvas {
     width: inherit !important;
     text-align: center;
   }
@@ -1619,9 +1618,7 @@ canvas {
   width: 100% !important;
 }
 
-.select2-container--default
-  .select2-selection--single
-  .select2-selection__rendered {
+.select2-container--default .select2-selection--single .select2-selection__rendered {
   padding-inline-start: 12px !important;
   padding-inline-end: 20px !important;
   color: $default-text-color !important;
@@ -1639,9 +1636,7 @@ canvas {
   outline: none !important;
 }
 .select2-container .select2-selection--single,
-.select2-container--default
-  .select2-selection--single
-  .select2-selection__arrow {
+.select2-container--default .select2-selection--single .select2-selection__arrow {
   height: 2.37rem !important;
 }
 
@@ -1656,8 +1651,7 @@ canvas {
   border-radius: $default-radius !important;
 }
 
-.select2-container--default
-  .select2-results__option--highlighted.select2-results__option--selectable {
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
   background-color: $default-background !important;
   color: $default-text-color !important;
 }
@@ -1695,9 +1689,7 @@ canvas {
   min-height: 2.25rem !important;
 }
 
-.select2-container--default
-  .select2-selection--multiple
-  .select2-selection__choice {
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
   background-color: $primary !important;
   color: $black !important;
   border: 1px solid $primary !important;
@@ -1710,9 +1702,7 @@ canvas {
   background-color: transparent !important;
 }
 
-.select2-container--default
-  .select2-selection--multiple
-  .select2-selection__choice__remove {
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
   border-inline-end: 1px solid rgba(255, 255, 255, 0.1) !important;
   color: $black !important;
   inset-block-start: -0.15rem !important;
@@ -1724,12 +1714,8 @@ canvas {
   font-size: 0.75rem !important;
 }
 
-.select2-container--default
-  .select2-selection--multiple
-  .select2-selection__choice__remove:hover,
-.select2-container--default
-  .select2-selection--multiple
-  .select2-selection__choice__remove:focus {
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover,
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:focus {
   background-color: $primary !important;
 }
 
@@ -1747,17 +1733,13 @@ canvas {
 }
 
 .select2-container--disabled {
-  &.select2-container--default
-    .select2-selection--single
-    .select2-selection__rendered,
+  &.select2-container--default .select2-selection--single .select2-selection__rendered,
   .select2-selection.select2-selection--multiple {
     background-color: $default-background !important;
   }
 }
 
-.select2-container--default
-  .select2-selection--single
-  .select2-selection__clear {
+.select2-container--default .select2-selection--single .select2-selection__clear {
   font-weight: 400 !important;
   height: 1.25rem !important;
   font-size: 1.5625rem !important;
@@ -1773,21 +1755,15 @@ canvas {
   z-index: 10 !important;
 }
 [dir="rtl"] {
-  .select2-container--default
-    .select2-selection--single
-    .select2-selection__clear {
+  .select2-container--default .select2-selection--single .select2-selection__clear {
     margin-left: 20px !important;
     padding-left: 0px !important;
   }
 }
-.select2-container--default
-  .select2-selection--single
-  .select2-selection__arrow {
+.select2-container--default .select2-selection--single .select2-selection__arrow {
   right: 10px !important;
 }
-.select2-container--default[dir="rtl"]
-  .select2-selection--single
-  .select2-selection__arrow {
+.select2-container--default[dir="rtl"] .select2-selection--single .select2-selection__arrow {
   left: 10px !important;
   right: auto !important;
 }
@@ -2161,14 +2137,8 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th.dtr-control:before {
   background-color: $primary !important;
 }
 
-table.dataTable.dtr-inline.collapsed
-  > tbody
-  > tr.parent
-  > td.dtr-control:before,
-table.dataTable.dtr-inline.collapsed
-  > tbody
-  > tr.parent
-  > th.dtr-control:before {
+table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td.dtr-control:before,
+table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th.dtr-control:before {
   content: "-";
   background-color: $success !important;
 }
@@ -2259,10 +2229,7 @@ div.dataTables_wrapper div.dataTables_filter#scroll-vertical_filter input {
     right: auto;
   }
 
-  div.table-responsive
-    > div.dataTables_wrapper
-    > div.row
-    > div[class^="col-"]:last-child {
+  div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:last-child {
     padding-left: 0;
     padding-right: initial;
   }
@@ -2292,17 +2259,11 @@ div.dataTables_wrapper div.dataTables_filter#scroll-vertical_filter input {
     border-inline-start-width: 1px;
   }
 
-  div.table-responsive
-    > div.dataTables_wrapper
-    > div.row
-    > div[class^="col-"]:first-child {
+  div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:first-child {
     padding-inline-end: 0;
   }
 
-  div.table-responsive
-    > div.dataTables_wrapper
-    > div.row
-    > div[class^="col-"]:last-child {
+  div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:last-child {
     padding-inline-start: 0;
   }
 
@@ -2500,15 +2461,14 @@ table.dataTable > tbody > tr.selected > * {
     box-shadow: none;
   }
 }
-div:where(.swal2-container) input:where(.swal2-input), div:where(.swal2-container) 
-input:where(.swal2-file), div:where(.swal2-container) textarea:where(.swal2-textarea) {
+div:where(.swal2-container) input:where(.swal2-input),
+div:where(.swal2-container) input:where(.swal2-file),
+div:where(.swal2-container) textarea:where(.swal2-textarea) {
   border-color: $default-border !important;
 }
 
 [dir="rtl"] {
-  .swal2-container
-    .swal2-icon.swal2-success
-    [class^="swal2-success-line"][class$="tip"] {
+  .swal2-container .swal2-icon.swal2-success [class^="swal2-success-line"][class$="tip"] {
     inset-inline-start: 1.9125em;
   }
 }

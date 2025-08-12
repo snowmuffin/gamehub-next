@@ -1,21 +1,21 @@
-"use client"
-import { basePath } from '@/next.config';
-import Link from 'next/link';
-import React, { Fragment, useEffect, useState } from 'react';
-import { Button, Dropdown, Form, InputGroup, ListGroup, Modal, Nav, Offcanvas, Tab } from 'react-bootstrap';
-import MENUITEMS from '../sidebar/nav';
-import store from '@/shared/redux/store';
-import { connect } from 'react-redux';
+"use client";
+import { basePath } from "@/next.config";
+import Link from "next/link";
+import React, { Fragment, useEffect, useState } from "react";
+import { Button, Dropdown, Form, InputGroup, ListGroup, Modal, Nav, Offcanvas, Tab } from "react-bootstrap";
+import MENUITEMS from "../sidebar/nav";
+import store from "@/shared/redux/store";
+import { connect } from "react-redux";
 import { ThemeChanger } from "../../redux/action";
-import SearchBar from './SearchBar'; // Import the new SearchBar component
-import NotificationDropdown from './NotificationDropdown'; // Import the new NotificationDropdown component
-import FullscreenToggle from './FullscreenToggle'; // Import the new FullscreenToggle component
-import SidebarToggle from './SidebarToggle'; // Import the new SidebarToggle component
-import SwitcherIcon from './SwitcherIcon'; // Import the new SwitcherIcon component
-import ResponsiveSearchModal from './ResponsiveSearchModal'; // Import the new ResponsiveSearchModal component
-import AppsOffcanvas from './AppsOffcanvas'; // Import the new AppsOffcanvas component
-import LanguageDropdown from './LanguageDropdown'; // Import the new LanguageDropdown component
-import ProfileDropdown from './ProfileDropdown'; // Import the new ProfileDropdown component
+import SearchBar from "./SearchBar"; // Import the new SearchBar component
+import NotificationDropdown from "./NotificationDropdown"; // Import the new NotificationDropdown component
+import FullscreenToggle from "./FullscreenToggle"; // Import the new FullscreenToggle component
+import SidebarToggle from "./SidebarToggle"; // Import the new SidebarToggle component
+import SwitcherIcon from "./SwitcherIcon"; // Import the new SwitcherIcon component
+import ResponsiveSearchModal from "./ResponsiveSearchModal"; // Import the new ResponsiveSearchModal component
+import AppsOffcanvas from "./AppsOffcanvas"; // Import the new AppsOffcanvas component
+import LanguageDropdown from "./LanguageDropdown"; // Import the new LanguageDropdown component
+import ProfileDropdown from "./ProfileDropdown"; // Import the new ProfileDropdown component
 
 const Header = ({ local_variable, ThemeChanger }: any) => {
   const [show, setShow] = useState(false);
@@ -30,11 +30,7 @@ const Header = ({ local_variable, ThemeChanger }: any) => {
 
   const toggleFullscreen = () => {
     const element = document.documentElement;
-    if (
-      !document.fullscreenElement &&
-      !document.fullscreenElement &&
-      !document.fullscreenElement
-    ) {
+    if (!document.fullscreenElement && !document.fullscreenElement && !document.fullscreenElement) {
       // Enter fullscreen mode
       if (element.requestFullscreen) {
         element.requestFullscreen();
@@ -59,13 +55,12 @@ const Header = ({ local_variable, ThemeChanger }: any) => {
       setIsFullscreen(!!document.fullscreenElement);
     };
 
-    document.addEventListener('fullscreenchange', fullscreenChangeHandler);
+    document.addEventListener("fullscreenchange", fullscreenChangeHandler);
 
     return () => {
-      document.removeEventListener('fullscreenchange', fullscreenChangeHandler);
+      document.removeEventListener("fullscreenchange", fullscreenChangeHandler);
     };
   }, []);
-
 
   function menuClose() {
     const theme = store.getState().local_variable;
@@ -73,12 +68,12 @@ const Header = ({ local_variable, ThemeChanger }: any) => {
       ThemeChanger({ ...theme, dataToggled: "close" });
     }
     if (window.innerWidth >= 992) {
-      ThemeChanger({ ...theme, dataToggled: local_variable.dataToggled ? local_variable.dataToggled : '' });
+      ThemeChanger({ ...theme, dataToggled: local_variable.dataToggled ? local_variable.dataToggled : "" });
       // local_variable.dataHeaderStyles == 'dark' ? 'light' : 'dark',
     }
   }
 
-  const ToggleSidebar = () => { 
+  const ToggleSidebar = () => {
     const theme = store.getState().local_variable;
     let sidemenuType = theme.dataNavLayout;
     if (window.innerWidth >= 992) {
@@ -88,109 +83,102 @@ const Header = ({ local_variable, ThemeChanger }: any) => {
         switch (verticalStyle) {
           // closed
           case "closed":
-            ThemeChanger({ ...theme, "dataNavStyle": "" });
+            ThemeChanger({ ...theme, dataNavStyle: "" });
             if (theme.dataToggled === "close-menu-close") {
-              ThemeChanger({ ...theme, "dataToggled": "" });
+              ThemeChanger({ ...theme, dataToggled: "" });
             } else {
-              ThemeChanger({ ...theme, "dataToggled": "close-menu-close" });
+              ThemeChanger({ ...theme, dataToggled: "close-menu-close" });
             }
             break;
           // icon-overlay
           case "overlay":
-            ThemeChanger({ ...theme, "dataNavStyle": "" });
+            ThemeChanger({ ...theme, dataNavStyle: "" });
             if (theme.dataToggled === "icon-overlay-close") {
-              ThemeChanger({ ...theme, "dataToggled": "","iconOverlay" :''});
+              ThemeChanger({ ...theme, dataToggled: "", iconOverlay: "" });
             } else {
               if (window.innerWidth >= 992) {
-                ThemeChanger({ ...theme, "dataToggled": "icon-overlay-close","iconOverlay" :'' });
+                ThemeChanger({ ...theme, dataToggled: "icon-overlay-close", iconOverlay: "" });
               }
             }
             break;
           // icon-text
           case "icontext":
-            ThemeChanger({ ...theme, "dataNavStyle": "" });
+            ThemeChanger({ ...theme, dataNavStyle: "" });
             if (theme.dataToggled === "icon-text-close") {
-              ThemeChanger({ ...theme, "dataToggled": "" });
+              ThemeChanger({ ...theme, dataToggled: "" });
             } else {
-              ThemeChanger({ ...theme, "dataToggled": "icon-text-close" });
+              ThemeChanger({ ...theme, dataToggled: "icon-text-close" });
             }
             break;
           // doublemenu
           case "doublemenu":
-            ThemeChanger({ ...theme, "dataNavStyle": "" });
-            ThemeChanger({ ...theme, "dataNavStyle": "" });
-              if (theme.dataToggled === "double-menu-open") {
-                ThemeChanger({ ...theme, "dataToggled": "double-menu-close" });
-              } else {
-                let sidemenu = document.querySelector(".side-menu__item.active");
-                if (sidemenu) {
-                  ThemeChanger({ ...theme, "dataToggled": "double-menu-open" });
-                  if (sidemenu.nextElementSibling) {
-                    sidemenu.nextElementSibling.classList.add("double-menu-active");
-                  } else {
-
-                    ThemeChanger({ ...theme, "dataToggled": "double-menu-close" });
-                    // ThemeChanger({ ...theme, "dataToggled": "" });
-                  }
+            ThemeChanger({ ...theme, dataNavStyle: "" });
+            ThemeChanger({ ...theme, dataNavStyle: "" });
+            if (theme.dataToggled === "double-menu-open") {
+              ThemeChanger({ ...theme, dataToggled: "double-menu-close" });
+            } else {
+              let sidemenu = document.querySelector(".side-menu__item.active");
+              if (sidemenu) {
+                ThemeChanger({ ...theme, dataToggled: "double-menu-open" });
+                if (sidemenu.nextElementSibling) {
+                  sidemenu.nextElementSibling.classList.add("double-menu-active");
+                } else {
+                  ThemeChanger({ ...theme, dataToggled: "double-menu-close" });
+                  // ThemeChanger({ ...theme, "dataToggled": "" });
                 }
               }
+            }
             // doublemenu(ThemeChanger);
             break;
           // detached
           case "detached":
             if (theme.dataToggled === "detached-close") {
-              ThemeChanger({ ...theme, "dataToggled": "","iconOverlay" :'' });
+              ThemeChanger({ ...theme, dataToggled: "", iconOverlay: "" });
             } else {
-              ThemeChanger({ ...theme, "dataToggled": "detached-close","iconOverlay" :'' });
+              ThemeChanger({ ...theme, dataToggled: "detached-close", iconOverlay: "" });
             }
-            
+
             break;
 
           // default
           case "default":
-            ThemeChanger({ ...theme, "dataToggled": "" });
+            ThemeChanger({ ...theme, dataToggled: "" });
         }
         switch (navStyle) {
           case "menu-click":
             if (theme.dataToggled === "menu-click-closed") {
-              ThemeChanger({ ...theme, "dataToggled": "" });
-            }
-            else {
-              ThemeChanger({ ...theme, "dataToggled": "menu-click-closed" });
+              ThemeChanger({ ...theme, dataToggled: "" });
+            } else {
+              ThemeChanger({ ...theme, dataToggled: "menu-click-closed" });
             }
             break;
           // icon-overlay
           case "menu-hover":
             if (theme.dataToggled === "menu-hover-closed") {
-              ThemeChanger({ ...theme, "dataToggled": "" });
+              ThemeChanger({ ...theme, dataToggled: "" });
             } else {
-              ThemeChanger({ ...theme, "dataToggled": "menu-hover-closed"});
-
+              ThemeChanger({ ...theme, dataToggled: "menu-hover-closed" });
             }
             break;
           case "icon-click":
             if (theme.dataToggled === "icon-click-closed") {
-              ThemeChanger({ ...theme, "dataToggled": "" });
+              ThemeChanger({ ...theme, dataToggled: "" });
             } else {
-              ThemeChanger({ ...theme, "dataToggled": "icon-click-closed" });
-
+              ThemeChanger({ ...theme, dataToggled: "icon-click-closed" });
             }
             break;
           case "icon-hover":
             if (theme.dataToggled === "icon-hover-closed") {
-              ThemeChanger({ ...theme, "dataToggled": "" });
+              ThemeChanger({ ...theme, dataToggled: "" });
             } else {
-              ThemeChanger({ ...theme, "dataToggled": "icon-hover-closed" });
-
+              ThemeChanger({ ...theme, dataToggled: "icon-hover-closed" });
             }
             break;
-
         }
       }
-    }
-    else {
+    } else {
       if (theme.dataToggled === "close") {
-        ThemeChanger({ ...theme, "dataToggled": "open" });
+        ThemeChanger({ ...theme, dataToggled: "open" });
 
         setTimeout(() => {
           if (theme.dataToggled == "open") {
@@ -220,16 +208,12 @@ const Header = ({ local_variable, ThemeChanger }: any) => {
           });
         }, 100);
       } else {
-        ThemeChanger({ ...theme, "dataToggled": "close" });
+        ThemeChanger({ ...theme, dataToggled: "close" });
       }
     }
-    
-   
-
   };
 
   // search Functionality
-
 
   const [show1, setShow1] = useState(false);
 
@@ -249,7 +233,7 @@ const Header = ({ local_variable, ThemeChanger }: any) => {
     const i: any[] = [];
     const allElement2: any = [];
 
-    MENUITEMS.forEach((mainLevel: { children: any[]; }) => {
+    MENUITEMS.forEach((mainLevel: { children: any[] }) => {
       if (mainLevel.children) {
         setShowa(true);
         mainLevel.children.forEach((subLevel: any) => {
@@ -273,7 +257,7 @@ const Header = ({ local_variable, ThemeChanger }: any) => {
           setShow2(true);
 
           // Check if the element has a path and doesn't already exist in allElement2 before pushing
-          if (allElement.path && !allElement2.some((el: { title: any; }) => el.title === allElement.title)) {
+          if (allElement.path && !allElement2.some((el: { title: any }) => el.title === allElement.title)) {
             allElement2.push(allElement);
           }
         }
@@ -293,7 +277,6 @@ const Header = ({ local_variable, ThemeChanger }: any) => {
       }
     }
     setNavData(allElement2);
-
   };
 
   //Switcher icon
@@ -313,17 +296,33 @@ const Header = ({ local_variable, ThemeChanger }: any) => {
             <div className="header-element">
               <div className="horizontal-logo">
                 <Link href="/dashboard/gaming" className="header-logo">
-                  <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/brand-logos/desktop-logo.png`} alt="logo" className="desktop-logo" />
-                  <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/brand-logos/toggle-logo.png`} alt="logo" className="toggle-logo" />
-                  <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/brand-logos/desktop-dark.png`} alt="logo" className="desktop-dark" />
-                  <img src={`${process.env.NODE_ENV === 'production' ? basePath : ''}/assets/images/brand-logos/toggle-dark.png`} alt="logo" className="toggle-dark" />
+                  <img
+                    src={`${process.env.NODE_ENV === "production" ? basePath : ""}/assets/images/brand-logos/desktop-logo.png`}
+                    alt="logo"
+                    className="desktop-logo"
+                  />
+                  <img
+                    src={`${process.env.NODE_ENV === "production" ? basePath : ""}/assets/images/brand-logos/toggle-logo.png`}
+                    alt="logo"
+                    className="toggle-logo"
+                  />
+                  <img
+                    src={`${process.env.NODE_ENV === "production" ? basePath : ""}/assets/images/brand-logos/desktop-dark.png`}
+                    alt="logo"
+                    className="desktop-dark"
+                  />
+                  <img
+                    src={`${process.env.NODE_ENV === "production" ? basePath : ""}/assets/images/brand-logos/toggle-dark.png`}
+                    alt="logo"
+                    className="toggle-dark"
+                  />
                 </Link>
               </div>
             </div>
             <SidebarToggle local_variable={local_variable} ThemeChanger={ThemeChanger} />
           </div>
           <ul className="header-content-right">
-                        <LanguageDropdown /> 
+            <LanguageDropdown />
             {/* <li className="header-element header-search d-md-block d-none">
               <SearchBar />
             </li>
@@ -352,6 +351,6 @@ const Header = ({ local_variable, ThemeChanger }: any) => {
 };
 
 const mapStateToProps = (state: any) => ({
-  local_variable: state.local_variable,
+  local_variable: state.local_variable
 });
 export default connect(mapStateToProps, { ThemeChanger })(Header);

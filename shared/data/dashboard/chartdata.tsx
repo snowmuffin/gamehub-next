@@ -1,8 +1,7 @@
-import dynamic from 'next/dynamic';
-import { useEffect, useState } from 'react';
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 const ReactApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
-
 
 //Analytics Website Traffic
 export const Analyticswebsite = () => {
@@ -11,14 +10,15 @@ export const Analyticswebsite = () => {
   const TICKINTERVAL = 86400000;
   const XAXISRANGE = 777600000;
 
-  function getDayWiseTimeSeries(baseval: number, count: number, yrange: { min: any; max: any; }) {
+  function getDayWiseTimeSeries(baseval: number, count: number, yrange: { min: any; max: any }) {
     var i = 0;
     const newData = [];
     while (i < count) {
       var x = baseval + i * TICKINTERVAL;
       var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
       newData.push({
-        x, y
+        x,
+        y
       });
       i++;
     }
@@ -30,7 +30,7 @@ export const Analyticswebsite = () => {
     return newData;
   }
 
-  function getNewSeries(baseval: number, yrange: { min: any; max: any; }) {
+  function getNewSeries(baseval: number, yrange: { min: any; max: any }) {
     var newDate = baseval + TICKINTERVAL;
     const newData = [...series[0].data];
     const updatedData = newData.map((item, index) => {
@@ -51,20 +51,22 @@ export const Analyticswebsite = () => {
   }
 
   useEffect(() => {
-    const initialDate = new Date('11 Feb 2023 GMT').getTime();
-    const initialData:any = getDayWiseTimeSeries(initialDate, 20, { min: 10, max: 90 });
+    const initialDate = new Date("11 Feb 2023 GMT").getTime();
+    const initialData: any = getDayWiseTimeSeries(initialDate, 20, { min: 10, max: 90 });
 
     const chartOptions = {
-      series: [{
-        data: initialData
-      }],
+      series: [
+        {
+          data: initialData
+        }
+      ],
       chart: {
-        id: 'realtime',
+        id: "realtime",
         height: 300,
-        type: 'bar',
+        type: "bar",
         animations: {
           enabled: true,
-          easing: 'linear',
+          easing: "linear",
           dynamicAnimation: {
             speed: 1000
           }
@@ -86,46 +88,46 @@ export const Analyticswebsite = () => {
         enabled: false
       },
       stroke: {
-        curve: 'smooth'
+        curve: "smooth"
       },
       colors: ["var(--primary-color)"],
       markers: {
         size: 0
       },
       xaxis: {
-        type: 'datetime',
+        type: "datetime",
         range: XAXISRANGE,
         labels: {
-          show: true,
+          show: true
         },
         axisBorder: {
-          show: false,
+          show: false
         },
         axisTicks: {
-          show: false,
+          show: false
         },
         crosshairs: {
-          show: false,
+          show: false
         }
       },
       yaxis: {
         max: 100,
         labels: {
-          show: false,
+          show: false
         },
         axisBorder: {
-          show: false,
+          show: false
         },
         axisTicks: {
-          show: false,
+          show: false
         },
         crosshairs: {
-          show: false,
+          show: false
         }
       },
       legend: {
         show: false
-      },
+      }
     };
 
     setOptions(chartOptions);
@@ -134,7 +136,7 @@ export const Analyticswebsite = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const newSeries:any = getNewSeries(series[0].data.slice(-1)[0].x, { min: 10, max: 90 });
+      const newSeries: any = getNewSeries(series[0].data.slice(-1)[0].x, { min: 10, max: 90 });
       setSeries([{ data: newSeries }]);
     }, 1000);
 
@@ -155,14 +157,15 @@ export const WebsiteTraffic = () => {
   const TICKINTERVAL = 86400000;
   const XAXISRANGE = 777600000;
 
-  function getDayWiseTimeSeries(baseval: number, count: number, yrange: { min: any; max: any; }) {
+  function getDayWiseTimeSeries(baseval: number, count: number, yrange: { min: any; max: any }) {
     var i = 0;
     const newData = [];
     while (i < count) {
       var x = baseval + i * TICKINTERVAL;
       var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
       newData.push({
-        x, y
+        x,
+        y
       });
       i++;
     }
@@ -174,7 +177,7 @@ export const WebsiteTraffic = () => {
     return newData;
   }
 
-  function getNewSeries(baseval: number, yrange: { min: any; max: any; }) {
+  function getNewSeries(baseval: number, yrange: { min: any; max: any }) {
     var newDate = baseval + TICKINTERVAL;
     const newData = [...series[0].data];
     const updatedData = newData.map((item, index) => {
@@ -195,20 +198,22 @@ export const WebsiteTraffic = () => {
   }
 
   useEffect(() => {
-    const initialDate = new Date('11 Feb 2023 GMT').getTime();
-    const initialData:any = getDayWiseTimeSeries(initialDate, 20, { min: 10, max: 90 });
+    const initialDate = new Date("11 Feb 2023 GMT").getTime();
+    const initialData: any = getDayWiseTimeSeries(initialDate, 20, { min: 10, max: 90 });
 
     const chartOptions = {
-      series: [{
-        data: initialData
-      }],
+      series: [
+        {
+          data: initialData
+        }
+      ],
       chart: {
-        id: 'realtime',
+        id: "realtime",
         height: 300,
-        type: 'bar',
+        type: "bar",
         animations: {
           enabled: true,
-          easing: 'linear',
+          easing: "linear",
           dynamicAnimation: {
             speed: 1000
           }
@@ -230,59 +235,59 @@ export const WebsiteTraffic = () => {
         enabled: false
       },
       stroke: {
-        curve: 'smooth'
+        curve: "smooth"
       },
       colors: ["var(--primary-color)"],
       markers: {
         size: 0
       },
       fill: {
-                type: "gradient",
-                gradient: {
-                  shade: "dark",
-                  type: "vertical",
-                  shadeIntensity: 0.5,
-                  inverseColors: false,
-                  gradientToColors: ["rgb(0, 227, 210)"],
-                  opacityFrom: 1,
-                  opacityTo: 0,
-                  stops: [0, 90, 100]
-                }
-              },
+        type: "gradient",
+        gradient: {
+          shade: "dark",
+          type: "vertical",
+          shadeIntensity: 0.5,
+          inverseColors: false,
+          gradientToColors: ["rgb(0, 227, 210)"],
+          opacityFrom: 1,
+          opacityTo: 0,
+          stops: [0, 90, 100]
+        }
+      },
       xaxis: {
-        type: 'datetime',
+        type: "datetime",
         range: XAXISRANGE,
         labels: {
-          show: true,
+          show: true
         },
         axisBorder: {
-          show: false,
+          show: false
         },
         axisTicks: {
-          show: false,
+          show: false
         },
         crosshairs: {
-          show: false,
+          show: false
         }
       },
       yaxis: {
         max: 100,
         labels: {
-          show: false,
+          show: false
         },
         axisBorder: {
-          show: false,
+          show: false
         },
         axisTicks: {
-          show: false,
+          show: false
         },
         crosshairs: {
-          show: false,
+          show: false
         }
       },
       legend: {
         show: false
-      },
+      }
     };
 
     setOptions(chartOptions);
@@ -291,7 +296,7 @@ export const WebsiteTraffic = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const newSeries:any = getNewSeries(series[0].data.slice(-1)[0].x, { min: 10, max: 90 });
+      const newSeries: any = getNewSeries(series[0].data.slice(-1)[0].x, { min: 10, max: 90 });
       setSeries([{ data: newSeries }]);
     }, 1000);
 
@@ -304,4 +309,3 @@ export const WebsiteTraffic = () => {
     </div>
   );
 };
-

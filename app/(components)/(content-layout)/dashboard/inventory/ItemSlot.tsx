@@ -29,7 +29,7 @@ const ItemSkeleton = () => {
         boxShadow: "0 0 6px rgba(0, 0, 0, 0.60)",
         //bgcolor: "#dddddd0",
         p: 1,
-        gap: 1,
+        gap: 1
       }}
     >
       <Skeleton variant="rounded" sx={{ height: 24, width: 164 }} />
@@ -62,25 +62,16 @@ const ItemSlot = ({ ...props }: ItemSlotProps) => {
         backgroundPosition: "center",
         backgroundSize: "60%",
         cursor: "pointer",
-        p: 1,
+        p: 1
       }}
     >
       <CopyLabel
         mainLabel={props.displayName ? props.displayName : "Unknown"}
         subLabel={props.category ? t(props.category) : "Unknown"}
-        copyValue={
-          props.indexName ? `!cmd downloaditem ${props.indexName} 1` : "Unknown"
-        }
+        copyValue={props.indexName ? `!cmd downloaditem ${props.indexName} 1` : "Unknown"}
       />
-      <Typography
-        width="100%"
-        textAlign="right"
-        fontWeight="bold"
-        variant="inherit"
-      >
-        {props.quantity
-          ? Number(props.quantity).toLocaleString("ko-KR")
-          : "Unknown"}
+      <Typography width="100%" textAlign="right" fontWeight="bold" variant="inherit">
+        {props.quantity ? Number(props.quantity).toLocaleString("ko-KR") : "Unknown"}
       </Typography>
     </Stack>
   ) : (

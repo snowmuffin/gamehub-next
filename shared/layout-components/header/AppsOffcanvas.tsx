@@ -1,14 +1,22 @@
-"use client"
-import React from 'react';
-import { Offcanvas, Tab, Nav } from 'react-bootstrap';
-import Link from 'next/link';
+"use client";
+import React from "react";
+import { Offcanvas, Tab, Nav } from "react-bootstrap";
+import Link from "next/link";
 
 const AppsOffcanvas = ({ show, handleClose }: { show: boolean; handleClose: () => void }) => {
   return (
     <Offcanvas placement="end" show={show} onHide={handleClose} className="offcanvas-end" id="apps-header-offcanvas">
       <Offcanvas.Header className="border-bottom">
-        <h6 className="offcanvas-title" id="offcanvasExampleLabel">Shortcuts</h6>
-        <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" onClick={handleClose}></button>
+        <h6 className="offcanvas-title" id="offcanvasExampleLabel">
+          Shortcuts
+        </h6>
+        <button
+          type="button"
+          className="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+          onClick={handleClose}
+        ></button>
       </Offcanvas.Header>
       <Offcanvas.Body>
         <div className="panel tabs-style2">
@@ -31,7 +39,9 @@ const AppsOffcanvas = ({ show, handleClose }: { show: boolean; handleClose: () =
               <Tab.Content>
                 <Tab.Pane eventKey="side1" className="p-0" id="side1">
                   <div className="text-end m-3">
-                    <Link href="/pages/email/mail-settings" className="text-primary">Mail Settings</Link>
+                    <Link href="/pages/email/mail-settings" className="text-primary">
+                      Mail Settings
+                    </Link>
                   </div>
                   {/* Add more content here as needed */}
                 </Tab.Pane>

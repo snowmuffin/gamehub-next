@@ -1,27 +1,23 @@
 // Borders
-export const border1=
-` <span className="border border-primary border-container"></span>
+export const border1 = ` <span className="border border-primary border-container"></span>
 <span className="border-top border-primary border-container"></span>
 <span className="border-end border-primary border-container"></span>
 <span className="border-bottom border-primary border-container"></span>
 <span className="border-start border-primary border-container"></span>`;
 
-export const border2=
-`<span className="border-0 border-primary border-container"></span>
+export const border2 = `<span className="border-0 border-primary border-container"></span>
 <span className="border border-primary border-top-0 border-container"></span>
 <span className="border border-primary border-end-0 border-container"></span>
 <span className="border border-primary border-bottom-0 border-container"></span>
 <span className="border border-primary border-start-0 border-container"></span>`;
 
-export const border3=
-` <span className="border border-primary border-container border-1"></span>
+export const border3 = ` <span className="border border-primary border-container border-1"></span>
 <span className="border border-primary border-container border-2"></span>
 <span className="border border-primary border-container border-3"></span>
 <span className="border border-primary border-container border-4"></span>
 <span className="border border-primary border-container border-5"></span>`;
 
-export const border4=
-`<span className="border border-container border-primary"></span>
+export const border4 = `<span className="border border-container border-primary"></span>
 <span className="border border-container border-secondary"></span>
 <span className="border border-container border-success"></span>
 <span className="border border-container border-danger"></span>
@@ -31,8 +27,7 @@ export const border4=
 <span className="border border-container border-dark"></span>
 <span className="border border-container border-white"></span>`;
 
-export const border5=
-` <div className="mb-4">
+export const border5 = ` <div className="mb-4">
 <label htmlFor="exampleFormControlInput1" className="form-label">Email
     address</label>
 <input type="email" className="form-control border-success"
@@ -46,8 +41,7 @@ className="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-e
 Customizing borders with backgrounud colors
 </div>`;
 
-export const border6=
-`  <div className="border border-success p-2 mb-2">This is default success border</div>
+export const border6 = `  <div className="border border-success p-2 mb-2">This is default success border</div>
 <div className="border border-success p-2 mb-2 border-opacity-75">This is 75%
     opacity
     success border
@@ -65,8 +59,7 @@ export const border6=
     border
 </div>`;
 
-export const border7=
-` <img src="../assets/images/media/media-58.jpg" className="bd-placeholder-img rounded" alt="..."/>
+export const border7 = ` <img src="../assets/images/media/media-58.jpg" className="bd-placeholder-img rounded" alt="..."/>
 <img src="../assets/images/media/media-58.jpg" className="bd-placeholder-img rounded-top" alt="..."/>
 <img src="../assets/images/media/media-58.jpg" className="bd-placeholder-img rounded-end" alt="..."/>
 <img src="../assets/images/media/media-58.jpg" className="bd-placeholder-img rounded-bottom" alt="..."/>
@@ -74,8 +67,7 @@ export const border7=
 <img src="../assets/images/media/media-58.jpg" className="bd-placeholder-img rounded-circle" alt="..."/>
 <img src="../assets/images/media/media-58.jpg" className="bd-placeholder-img rounded-pill" alt="..."/>`;
 
-export const border8=
-`<img src="../assets/images/media/media-58.jpg" className="bd-placeholder-img rounded-0" alt="..."/>
+export const border8 = `<img src="../assets/images/media/media-58.jpg" className="bd-placeholder-img rounded-0" alt="..."/>
 <img src="../assets/images/media/media-58.jpg" className="bd-placeholder-img rounded-1" alt="..."/>
 <img src="../assets/images/media/media-58.jpg" className="bd-placeholder-img rounded-2" alt="..."/>
 <img src="../assets/images/media/media-58.jpg" className="bd-placeholder-img rounded-3" alt="..."/>

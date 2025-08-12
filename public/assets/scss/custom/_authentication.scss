@@ -30,7 +30,7 @@
     span {
       position: relative;
       z-index: 2;
-      font-size: .75rem;
+      font-size: 0.75rem;
     }
     &:before {
       position: absolute;
@@ -74,7 +74,7 @@
         }
         .coming-soon-time,
         .under-maintenance-time {
-          border: 2px dashed rgba(var(--primary-rgb),0.2);
+          border: 2px dashed rgba(var(--primary-rgb), 0.2);
         }
         .authentication-brand {
           width: auto;
@@ -124,7 +124,7 @@
       inset-inline-end: 0;
       inset-block-start: 0;
       inset-block-end: 0;
-      background-color: rgba(0, 0, 0, .1);
+      background-color: rgba(0, 0, 0, 0.1);
       z-index: -1;
     }
     .aunthentication-cover-content {
@@ -215,7 +215,7 @@
 }
 .coming-soon {
   .aunthentication-cover-content {
-    background: rgba(0, 0, 0, .6);
+    background: rgba(0, 0, 0, 0.6);
   }
   .form-control {
     background-color: rgba(0, 0, 0, 0.3);
@@ -234,12 +234,17 @@
   background-color: rgba(255, 255, 255, 0.06);
   color: $white;
   border-color: rgba(255, 255, 255, 0.06);
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background-color: rgba(255, 255, 255, 0.1);
     color: $white;
     border-color: rgba(255, 255, 255, 0.1);
   }
-  &.btn-check:checked+.btn, &.btn.active, &.btn.show, &.btn:first-child:active, &:not(.btn-check)+.btn:active {
+  &.btn-check:checked + .btn,
+  &.btn.active,
+  &.btn.show,
+  &.btn:first-child:active,
+  &:not(.btn-check) + .btn:active {
     background-color: rgba(255, 255, 255, 0.2);
     color: $white;
     border-color: rgba(255, 255, 255, 0.1);
@@ -261,7 +266,7 @@
 
 .show-password-button {
   position: absolute;
-  padding: .55rem 0.75rem;
+  padding: 0.55rem 0.75rem;
   inset-block-start: 0;
   inset-inline-end: 0;
   opacity: 0.5;
@@ -269,7 +274,12 @@
 .authentication-background {
   position: relative;
   // background-image: url("../images/media/backgrounds/1.png");
-  background: radial-gradient(circle, rgba(var(--primary-rgb), 0.2) 0%, rgba(var(--primary-rgb), 0.15) 40%, rgba(0, 0, 0, .35) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(var(--primary-rgb), 0.2) 0%,
+    rgba(var(--primary-rgb), 0.15) 40%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -285,19 +295,21 @@
   backdrop-filter: blur(30px);
   padding: 2rem 3rem;
   margin: 0rem 1.85rem;
-  border: 1px solid rgba(0, 0, 0, .05);
-  background-color: rgba(0, 0, 0, .2);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.2);
   img {
     width: 25rem;
     height: 25rem;
   }
 }
 .authentication-cover-icon {
-  background-color: rgba(255,255,255,0.2) !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
   color: $white !important;
   border: 0 !important;
-  &:hover,&:active,&:focus {
-    background-color: rgba(255,255,255,0.2) !important;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.2) !important;
     color: $white !important;
     border: 0 !important;
   }
