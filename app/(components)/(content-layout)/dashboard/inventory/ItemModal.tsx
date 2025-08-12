@@ -1,5 +1,5 @@
 import { ChangeEvent } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "@/shared/hooks";
 
 import {
   Avatar,
@@ -15,10 +15,11 @@ import {
   Typography
 } from "@mui/material";
 
-import CloseIcon from "@mui/icons-material/Close";
-import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
-import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
-import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
+// Material-UI 아이콘을 간단한 텍스트 아이콘으로 대체
+const CloseIcon = () => <span>✕</span>;
+const ArrowForwardOutlinedIcon = () => <span>→</span>;
+const AddOutlinedIcon = () => <span>+</span>;
+const RemoveOutlinedIcon = () => <span>-</span>;
 
 import { useAppDispatch, useAppSelector } from "@/shared/hooks";
 import { inventoryActions, selectInventory } from "@/shared/redux/inventory";

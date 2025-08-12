@@ -36,8 +36,10 @@
     "yarn:clean": "./yarn-clean.sh"
   },
   "dependencies": {
-    "@mui/icons-material": "7.3.1",
-    "@mui/material": "7.3.1",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.1",
+    "@mui/material": "^7.3.1",
     "@reduxjs/toolkit": "^2.8.2",
     "@simonwep/pickr": "1.9.1",
     "apexcharts": "^5.3.3",
