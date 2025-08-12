@@ -68,72 +68,71 @@ typography
 /* Rajdhani */
 @import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
 
-@import "variables";
-@import "switcher";
-@import "bootstrap";
+@use "variables";
+@use "switcher";
+@use "bootstrap";
 
 /* BOOTSTRAP */
-@import "bootstrap/accordion";
-@import "bootstrap/alerts";
-@import "bootstrap/badge";
-@import "bootstrap/breadcrumb";
-@import "bootstrap/buttons";
-@import "bootstrap/cards";
-@import "bootstrap/dropdown";
-@import "bootstrap/forms";
-@import "bootstrap/input_group";
-@import "bootstrap/list_group";
-@import "bootstrap/modals";
-@import "bootstrap/navbar";
-@import "bootstrap/navs_tabs";
-@import "bootstrap/pagination";
-@import "bootstrap/popovers";
-@import "bootstrap/progress";
-@import "bootstrap/tables";
-@import "bootstrap/toast";
-@import "bootstrap/tooltips";
+@use "bootstrap/accordion";
+@use "bootstrap/alerts";
+@use "bootstrap/badge";
+@use "bootstrap/breadcrumb";
+@use "bootstrap/buttons";
+@use "bootstrap/cards";
+@use "bootstrap/dropdown";
+@use "bootstrap/forms";
+@use "bootstrap/input_group";
+@use "bootstrap/list_group";
+@use "bootstrap/modals";
+@use "bootstrap/navbar";
+@use "bootstrap/navs_tabs";
+@use "bootstrap/pagination";
+@use "bootstrap/popovers";
+@use "bootstrap/progress";
+@use "bootstrap/tables";
+@use "bootstrap/toast";
+@use "bootstrap/tooltips";
 
 /* CUSTOM */
-@import "custom/authentication";
-@import "custom/custom";
-@import "custom/dashboard_styles";
-@import "custom/error";
-@import "custom/header";
-@import "custom/plugins";
-@import "custom/widgets";
+@use "custom/authentication";
+@use "custom/custom";
+@use "custom/dashboard_styles";
+@use "custom/error";
+@use "custom/header";
+@use "custom/plugins";
+@use "custom/widgets";
 
 /* MENU-STYLES */
-@import "menu-styles/closed_menu";
-@import "menu-styles/detached_menu";
-@import "menu-styles/double_menu";
-@import "menu-styles/horizontal";
-@import "menu-styles/icon_click";
-@import "menu-styles/icon_hover";
-@import "menu-styles/icon_overlay";
-@import "menu-styles/icontext";
-@import "menu-styles/menu_click";
-@import "menu-styles/menu_hover";
-@import "menu-styles/vertical";
+@use "menu-styles/closed_menu";
+@use "menu-styles/detached_menu";
+@use "menu-styles/double_menu";
+@use "menu-styles/horizontal";
+@use "menu-styles/icon_click";
+@use "menu-styles/icon_hover";
+@use "menu-styles/icon_overlay";
+@use "menu-styles/icontext";
+@use "menu-styles/menu_click";
+@use "menu-styles/menu_hover";
+@use "menu-styles/vertical";
 
 /* PAGES */
-@import "pages/chat";
-@import "pages/ecommerce";
-@import "pages/file-manager";
-@import "pages/landing";
-@import "pages/mail";
-@import "pages/ribbons";
-@import "pages/task";
+@use "pages/chat";
+@use "pages/ecommerce";
+@use "pages/file-manager";
+@use "pages/landing";
+@use "pages/mail";
+@use "pages/ribbons";
+@use "pages/task";
 
 /* UTILITIES */
-@import "util/avatars";
-@import "util/background";
-@import "util/border";
-@import "util/opacity";
-@import "util/typography";
+@use "util/avatars";
+@use "util/background";
+@use "util/border";
+@use "util/opacity";
+@use "util/typography";
 
 /* GLOBAL */
-
-@import "global/select2";
-@import "global/date-picker";
-@import "global/tables";
-@import "global/custom-styles";
+@use "global/select2";
+@use "global/date-picker";
+@use "global/tables";
+@use "global/custom-styles";

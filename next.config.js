@@ -47,6 +47,13 @@ const nextConfig = {
     path: "/"
   },
 
+  // Sass configuration to suppress @import deprecation warnings
+  sassOptions: {
+    quietDeps: true,
+    charset: false,
+    silenceDeprecations: ['import'],
+  },
+
   typescript: {
     ignoreBuildErrors: isProd
   },
@@ -64,6 +71,35 @@ const nextConfig = {
         resourceRegExp: /^\._/
       })
     );
+
+    // Sass loader 설정 개선 - deprecation warnings 제거
+    const oneOfRule = config.module.rules.find(
+      (rule) => typeof rule.oneOf === 'object'
+    );
+
+    if (oneOfRule) {
+      const sassRule = oneOfRule.oneOf.find(
+        (rule) => rule.test && rule.test.toString().includes('scss|sass')
+      );
+
+      if (sassRule) {
+        const sassLoader = sassRule.use.find(
+          (loader) => loader.loader && loader.loader.includes('sass-loader')
+        );
+
+        if (sassLoader) {
+          sassLoader.options = {
+            ...sassLoader.options,
+            api: 'modern-compiler',
+            sassOptions: {
+              ...sassLoader.options?.sassOptions,
+              quietDeps: true,
+              silenceDeprecations: ['import', 'legacy-js-api'],
+            },
+          };
+        }
+      }
+    }
 
     return config;
   },
