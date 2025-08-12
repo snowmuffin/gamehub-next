@@ -20,12 +20,6 @@ const SigninBasic = () => {
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
-      console.log("🔍 Steam Login - 메시지 수신:", {
-        origin: event.origin,
-        data: event.data,
-        timestamp: new Date().toISOString()
-      });
-
       // 환경변수 기반 허용된 origin 목록
       const baseOrigins = [
         window.location.origin, // 현재 페이지 origin
@@ -36,8 +30,8 @@ const SigninBasic = () => {
       ];
 
       // 추가 허용 도메인들 (환경변수에서 읽기)
-      const additionalOrigins = process.env.NEXT_PUBLIC_ALLOWED_ORIGINS 
-        ? process.env.NEXT_PUBLIC_ALLOWED_ORIGINS.split(',').map(origin => origin.trim())
+      const additionalOrigins = process.env.NEXT_PUBLIC_ALLOWED_ORIGINS
+        ? process.env.NEXT_PUBLIC_ALLOWED_ORIGINS.split(",").map(origin => origin.trim())
         : [];
 
       const allowedOrigins = [...baseOrigins, ...additionalOrigins];
@@ -48,7 +42,6 @@ const SigninBasic = () => {
       try {
         eventUrl = new URL(event.origin);
       } catch (e) {
-        console.warn("🚨 Invalid origin URL:", event.origin);
         return;
       }
 
@@ -58,43 +51,26 @@ const SigninBasic = () => {
         eventUrl.hostname === (process.env.NEXT_PUBLIC_API_DOMAIN || "REDACTED_API") ||
         eventUrl.hostname === "REDACTED_IP";
 
-      console.log("🔒 Steam Login - Origin 검증:", {
-        eventOrigin: event.origin,
-        allowedOrigins,
-        isAllowedDomain,
-        currentHost,
-        eventHostname: eventUrl.hostname
-      });
-
       if (!allowedOrigins.includes(event.origin) && !isAllowedDomain) {
-        console.warn("🚨 Steam Login - 허용되지 않은 origin:", event.origin);
         return;
       }
 
       const { status, token, user, error } = event.data;
 
-      console.log("✅ Steam Login - 메시지 처리:", {
-        status,
-        hasToken: !!token,
-        hasUser: !!user,
-        error
-      });
-
       if (status === 200 && token) {
-        console.log("🎉 Steam Login 성공! 토큰 저장 및 리디렉션...");
         setIsLoginInProgress(false);
-        
+
         // Redux 상태 업데이트 (올바른 액션 사용)
         dispatch(loginSuccess(token));
 
         // 토큰을 로컬 스토리지에도 저장
         try {
-          localStorage.setItem('authToken', token);
+          localStorage.setItem("authToken", token);
           if (user) {
-            localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem("user", JSON.stringify(user));
           }
         } catch (e) {
-          console.warn("로컬 스토리지 저장 실패:", e);
+          // 로컬 스토리지 저장 실패 시 무시
         }
 
         // 약간의 지연 후 리디렉션 (Redux 상태 업데이트 완료 대기)
@@ -102,12 +78,10 @@ const SigninBasic = () => {
           router.push("/dashboard/gaming");
         }, 100);
       } else if (status === 401) {
-        console.error("🚨 Steam Login 실패:", error);
         setIsLoginInProgress(false);
         dispatch(loginFailure(error || "Steam authentication failed."));
         setClientError(error || "Steam authentication failed.");
       } else {
-        console.warn("🤔 Steam Login - 예상치 못한 응답:", { status, error });
         setIsLoginInProgress(false);
         const errorMsg = "Unexpected response from Steam authentication.";
         dispatch(loginFailure(errorMsg));
@@ -120,34 +94,23 @@ const SigninBasic = () => {
     return () => {
       window.removeEventListener("message", handleMessage);
     };
-  }, [dispatch]);
+  }, [dispatch, router]);
 
   const handleSteamLogin = () => {
-    console.log("🚀 Steam Login 시작...");
     setIsLoginInProgress(true);
     setClientError(null); // 이전 에러 초기화
     dispatch(loginStart()); // Redux 상태 업데이트
-    
+
     // 현재 origin을 백엔드에 전달하여 올바른 postMessage target을 설정할 수 있도록 함
     const currentOrigin = window.location.origin;
     const baseUrl = process.env.NEXT_PUBLIC_STEAM_AUTH_URL || "https://REDACTED_API_TEST/auth/steam";
 
-    console.log("🔧 Steam Login 설정:", {
-      currentOrigin,
-      baseUrl,
-      frontendUrl: process.env.NEXT_PUBLIC_FRONTEND_URL,
-      apiUrl: process.env.NEXT_PUBLIC_API_URL
-    });
-
     // URL에 현재 origin을 파라미터로 추가
     const steamAuthUrl = `${baseUrl}?origin=${encodeURIComponent(currentOrigin)}`;
-
-    console.log("🌐 팝업 열기:", steamAuthUrl);
 
     const popup = window.open(steamAuthUrl, "Steam Login", "width=600,height=700,scrollbars=yes,resizable=yes");
 
     if (!popup) {
-      console.error("🚨 팝업이 차단되었습니다!");
       setIsLoginInProgress(false);
       const errorMsg = "Popup was blocked. Please allow popups for this site.";
       dispatch(loginFailure(errorMsg));
@@ -158,13 +121,11 @@ const SigninBasic = () => {
     const interval = setInterval(() => {
       if (popup && popup.closed) {
         clearInterval(interval);
-        console.log("📱 팝업이 닫혔습니다");
-        
+
         // 팝업이 닫혔을 때 일정 시간 후에도 성공 메시지가 없으면 에러 처리
         setTimeout(() => {
           // 로그인이 진행 중이었지만 완료되지 않았다면 실패로 간주
           if (isLoginInProgress && !token) {
-            console.warn("🤔 팝업이 닫혔지만 로그인이 완료되지 않았습니다");
             const errorMsg = "Login was cancelled or failed. Please try again.";
             dispatch(loginFailure(errorMsg));
             setClientError(errorMsg);
@@ -177,7 +138,6 @@ const SigninBasic = () => {
     // 팝업이 30초 후에도 열려있으면 타임아웃
     setTimeout(() => {
       if (popup && !popup.closed) {
-        console.warn("⏰ Steam Login 타임아웃");
         popup.close();
         clearInterval(interval);
         const timeoutMsg = "Login timeout. Please try again.";

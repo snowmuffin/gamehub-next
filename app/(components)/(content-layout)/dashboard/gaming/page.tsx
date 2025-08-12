@@ -48,7 +48,6 @@ const Gaming = () => {
         const response = await apiRequest.get("/user/rankings");
         setRankings(response.data as Ranking[]);
       } catch (error) {
-        console.error("Failed to fetch rankings:", error);
         setError("Failed to load rankings. Please try again later.");
       }
     };
