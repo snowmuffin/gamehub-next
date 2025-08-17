@@ -40,11 +40,10 @@ elif [ -f ".env" ]; then
     echo "NODE_ENV: $NODE_ENV"
     echo "PORT: $PORT"
 else
-    echo -e "${YELLOW}⚠️ No environment variable file found. Using default values.${NC}"
-    export NODE_ENV=production
-    export PORT=3000
-    export NEXT_PUBLIC_FRONTEND_URL=https://domain.com
-    export NEXT_PUBLIC_API_URL=https://api.domain.com
+    echo -e "${RED}❌ Error: No environment variable file found!${NC}"
+    echo -e "${RED}Required: .env.production or .env file${NC}"
+    echo -e "${RED}Deployment aborted.${NC}"
+    exit 1
 fi
 
 # Check Node.js and npm versions
