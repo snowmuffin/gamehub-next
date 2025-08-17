@@ -35,6 +35,10 @@ if [ -f ".env.production" ]; then
 elif [ -f ".env" ]; then
     echo -e "${BLUE}📝 Loading .env file${NC}"
     export $(grep -v '^#' .env | xargs)
+    echo "NEXT_PUBLIC_FRONTEND_URL: $NEXT_PUBLIC_FRONTEND_URL"
+    echo "NEXT_PUBLIC_API_URL: $NEXT_PUBLIC_API_URL"
+    echo "NODE_ENV: $NODE_ENV"
+    echo "PORT: $PORT"
 else
     echo -e "${YELLOW}⚠️ No environment variable file found. Using default values.${NC}"
     export NODE_ENV=production
