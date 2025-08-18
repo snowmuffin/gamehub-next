@@ -18,7 +18,7 @@ const getApiBaseUrl = () => {
   }
 
   // 서버 사이드 fallback
-  const fallbackApiUrl = "https://REDACTED_API";
+  const fallbackApiUrl = process.env.NEXT_PUBLIC_API_URL || "";
   console.log("🖥️ 서버 사이드 API 요청 fallback - baseURL:", fallbackApiUrl);
   return fallbackApiUrl;
 };
