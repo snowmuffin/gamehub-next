@@ -59,7 +59,7 @@ cat > .env.production << 'EOF'
 NODE_ENV=production
 PORT=3000
 NEXT_PUBLIC_API_URL=https://api.domain.com
-NEXT_PUBLIC_STEAM_AUTH_URL=https://api.snowmuffingame.com/auth/steam
+NEXT_PUBLIC_STEAM_AUTH_URL=${NEXT_PUBLIC_STEAM_AUTH_URL:-}
 EOF
 
 echo -e "${GREEN}✅ .env.production 파일이 생성되었습니다${NC}"

@@ -18,7 +18,7 @@ export function middleware(request: NextRequest) {
 
   // 허용할 origin들 (환경변수 기반)
   const baseOrigins = [
-    "http://13.125.32.159:4000", // 백엔드 IP
+  process.env.NEXT_PUBLIC_BACKEND_URL || "",
     process.env.NEXT_PUBLIC_API_URL || "https://api.yourdomain.com", // 백엔드 도메인
     `http://${process.env.NEXT_PUBLIC_FRONTEND_DOMAIN || "se.yourdomain.com"}`, // 프론트 도메인 (HTTP)
     process.env.NEXT_PUBLIC_FRONTEND_URL || "https://se.yourdomain.com", // 프론트 도메인 (HTTPS)

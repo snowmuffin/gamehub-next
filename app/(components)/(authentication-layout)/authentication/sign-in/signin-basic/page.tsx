@@ -20,21 +20,24 @@ const SigninBasic = () => {
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
-      // 환경변수 기반 허용된 origin 목록
-      const baseOrigins = [
-        window.location.origin, // 현재 페이지 origin
-        "http://13.125.32.159:4000", // 백엔드 IP
-        process.env.NEXT_PUBLIC_API_URL || "https://api.snowmuffingame.com", // 백엔드 도메인
-        `http://${process.env.NEXT_PUBLIC_FRONTEND_DOMAIN || "se.snowmuffingame.com"}`, // 프론트 도메인 (HTTP)
-        process.env.NEXT_PUBLIC_FRONTEND_URL || "https://se.snowmuffingame.com" // 프론트 도메인 (HTTPS)
-      ];
+      // 환경변수 기반 허용된 origin 목록 (하드코딩된 호스트/IP 제거)
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || ""; // 예: https://api.example.com
+      const frontendUrl = process.env.NEXT_PUBLIC_FRONTEND_URL || ""; // 예: https://app.example.com
+      const frontendDomain = process.env.NEXT_PUBLIC_FRONTEND_DOMAIN || ""; // 예: app.example.com
 
-      // 추가 허용 도메인들 (환경변수에서 읽기)
+      const baseOrigins = [window.location.origin, apiUrl, frontendUrl];
+
       const additionalOrigins = process.env.NEXT_PUBLIC_ALLOWED_ORIGINS
-        ? process.env.NEXT_PUBLIC_ALLOWED_ORIGINS.split(",").map(origin => origin.trim())
+        ? process.env.NEXT_PUBLIC_ALLOWED_ORIGINS.split(",").map(origin => origin.trim()).filter(Boolean)
         : [];
 
-      const allowedOrigins = [...baseOrigins, ...additionalOrigins];
+      if (frontendDomain) {
+        // add both http and https forms if only domain provided
+        baseOrigins.push(`https://${frontendDomain}`);
+        baseOrigins.push(`http://${frontendDomain}`);
+      }
+
+      const allowedOrigins = Array.from(new Set([...baseOrigins.filter(Boolean), ...additionalOrigins]));
 
       // 추가적으로 도메인이 같으면 프로토콜 차이는 허용
       const currentHost = window.location.hostname;
@@ -45,11 +48,13 @@ const SigninBasic = () => {
         return;
       }
 
-      const isAllowedDomain =
-        eventUrl.hostname === currentHost ||
-        eventUrl.hostname === (process.env.NEXT_PUBLIC_FRONTEND_DOMAIN || "se.snowmuffingame.com") ||
-        eventUrl.hostname === (process.env.NEXT_PUBLIC_API_DOMAIN || "api.snowmuffingame.com") ||
-        eventUrl.hostname === "13.125.32.159";
+      const allowedHostnames = [
+        currentHost,
+        process.env.NEXT_PUBLIC_FRONTEND_DOMAIN,
+        process.env.NEXT_PUBLIC_API_DOMAIN
+      ].filter(Boolean);
+
+      const isAllowedDomain = allowedHostnames.includes(eventUrl.hostname);
 
       if (!allowedOrigins.includes(event.origin) && !isAllowedDomain) {
         return;
@@ -103,7 +108,7 @@ const SigninBasic = () => {
 
     // 현재 origin을 백엔드에 전달하여 올바른 postMessage target을 설정할 수 있도록 함
     const currentOrigin = window.location.origin;
-    const baseUrl = process.env.NEXT_PUBLIC_STEAM_AUTH_URL || "https://api-test.snowmuffingame.com/auth/steam";
+  const baseUrl = process.env.NEXT_PUBLIC_STEAM_AUTH_URL || `${window.location.origin}/auth/steam`;
 
     // URL에 현재 origin을 파라미터로 추가
     const steamAuthUrl = `${baseUrl}?origin=${encodeURIComponent(currentOrigin)}`;
