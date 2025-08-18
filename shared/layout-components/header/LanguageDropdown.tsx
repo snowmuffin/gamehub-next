@@ -4,12 +4,11 @@ import { Dropdown } from "react-bootstrap";
 import Link from "next/link";
 import { basePath } from "@/next.config";
 import { useDispatch, useSelector } from "react-redux";
-import { setLanguage } from "@/shared/redux/languageSlice"; // 실제 경로에 맞게 수정 필요
+import { setLanguage } from "@/shared/redux/languageSlice"; 
 
 const LANGUAGE_OPTIONS = [
-  { code: "en", label: "English", flag: "/assets/images/flags/us_flag.jpg" },
-  { code: "ko", label: "한국어", flag: "/assets/images/flags/kr_flag.jpg" }
-  // ...추가 언어 필요시 여기에...
+  { code: "en", label: "English", flag: "/assets/images/flags/us_flag.svg" },
+  { code: "ko", label: "한국어", flag: "/assets/images/flags/kr_flag.svg" }
 ];
 
 const LanguageDropdown = () => {

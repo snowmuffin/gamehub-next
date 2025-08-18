@@ -7,15 +7,11 @@ import MENUITEMS from "../sidebar/nav";
 import store from "@/shared/redux/store";
 import { connect } from "react-redux";
 import { ThemeChanger } from "../../redux/action";
-import SearchBar from "./SearchBar"; // Import the new SearchBar component
-import NotificationDropdown from "./NotificationDropdown"; // Import the new NotificationDropdown component
-import FullscreenToggle from "./FullscreenToggle"; // Import the new FullscreenToggle component
 import SidebarToggle from "./SidebarToggle"; // Import the new SidebarToggle component
 import SwitcherIcon from "./SwitcherIcon"; // Import the new SwitcherIcon component
 import ResponsiveSearchModal from "./ResponsiveSearchModal"; // Import the new ResponsiveSearchModal component
 import AppsOffcanvas from "./AppsOffcanvas"; // Import the new AppsOffcanvas component
 import LanguageDropdown from "./LanguageDropdown"; // Import the new LanguageDropdown component
-import ProfileDropdown from "./ProfileDropdown"; // Import the new ProfileDropdown component
 
 const Header = ({ local_variable, ThemeChanger }: any) => {
   const [show, setShow] = useState(false);
@@ -323,29 +319,13 @@ const Header = ({ local_variable, ThemeChanger }: any) => {
           </div>
           <ul className="header-content-right">
             <LanguageDropdown />
-            {/* <li className="header-element header-search d-md-block d-none">
-              <SearchBar />
-            </li>
-            <li className="header-element d-md-none d-block">
-              <Link href="#!" scroll={false} className="header-link" onClick={handleShow3} data-bs-toggle="modal" data-bs-target="#header-responsive-search">
-              <i className="bi bi-search header-link-icon"></i>
-              </Link>
-            </li>
 
-            <FullscreenToggle />
-            <li className="header-element">
-              <Link href="#!" scroll={false} className="header-link" data-bs-toggle="offcanvas" data-bs-target="#apps-header-offcanvas" onClick={handleShow}>
-              <i className="bi bi-grid header-link-icon"></i>
-              </Link>
-            </li>
-            <NotificationDropdown />
-            <ProfileDropdown /> */}
             <SwitcherIcon />
           </ul>
           <ResponsiveSearchModal show={show3} handleClose={handleClose3} />
         </div>
       </header>
-      <AppsOffcanvas show={show} handleClose={handleClose} /> {/* Use the new AppsOffcanvas component */}
+      <AppsOffcanvas show={show} handleClose={handleClose} />
     </Fragment>
   );
 };
