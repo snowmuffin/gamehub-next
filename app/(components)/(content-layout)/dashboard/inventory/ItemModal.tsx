@@ -15,7 +15,7 @@ import {
   Typography
 } from "@mui/material";
 
-// Material-UI 아이콘을 간단한 텍스트 아이콘으로 대체
+// Replace Material-UI icons with simple text icons
 const CloseIcon = () => <span>✕</span>;
 const ArrowForwardOutlinedIcon = () => <span>→</span>;
 const AddOutlinedIcon = () => <span>+</span>;

@@ -4,7 +4,7 @@ export interface SnackbarMessage {
   id: string;
   message: string;
   severity?: "success" | "error" | "warning" | "info";
-  type?: "success" | "error" | "warning" | "info"; // legacy 지원
+  type?: "success" | "error" | "warning" | "info"; // legacy support
   duration?: number;
   action?: React.ReactNode;
 }
@@ -70,7 +70,7 @@ const snackbarSlice = createSlice({
       state.open = false;
       state.currentMessage = null;
     },
-    // Legacy 액션 (기존 코드와의 호환성을 위해)
+    // Legacy action (for backward compatibility)
     SNACKBAR_PUSH: (state, action: PayloadAction<Omit<SnackbarMessage, "id">>) => {
       const id = Date.now().toString();
       const message: SnackbarMessage = {

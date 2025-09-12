@@ -1,23 +1,23 @@
 # Environment Variables Configuration
 
-이 프로젝트는 환경별로 다른 도메인과 URL을 사용할 수 있도록 환경변수로 구성되어 있습니다.
+This project uses environment variables to support different domains and URLs per environment.
 
-## 환경 변수 파일들
+## Environment variable files
 
-- `.env.example` - 환경변수 템플릿 (버전 관리에 포함)
-- `.env.local` - 개발 환경용 설정 (버전 관리에서 제외)
-- `.env.production` - 프로덕션 환경용 설정 (서버에서만 사용)
+- `.env.example` - Environment variable template (committed to VCS)
+- `.env.local` - Development environment settings (excluded from VCS)
+- `.env.production` - Production environment settings (used on the server)
 
-## 설정 방법
+## How to configure
 
-### 1. 개발 환경 설정
+### 1. Development configuration
 
 ```bash
-# .env.local 파일이 이미 생성되어 있습니다
+# .env.local file is already created
 cp .env.example .env.local
 ```
 
-`.env.local` 파일에서 개발 환경에 맞게 설정을 수정하세요:
+Edit the `.env.local` file to match your development environment:
 
 ```env
 # Development Environment Configuration
@@ -36,9 +36,9 @@ NEXT_PUBLIC_API_DOMAIN=api.yourdomain.com
 NEXT_PUBLIC_STEAM_AUTH_URL=https://api.yourdomain.com/auth/steam
 ```
 
-### 2. 프로덕션 환경 설정
+### 2. Production configuration
 
-서버에서 `.env.production` 파일을 생성하거나 환경변수를 직접 설정하세요:
+On the server, create a `.env.production` file or set environment variables directly:
 
 ```env
 # Production Environment Configuration
@@ -57,45 +57,45 @@ NEXT_PUBLIC_API_DOMAIN=api.yourdomain.com
 NEXT_PUBLIC_STEAM_AUTH_URL=https://api.yourdomain.com/auth/steam
 ```
 
-## 환경변수 설명
+## Environment variables explained
 
-| 변수명                        | 설명                | 개발환경 예시                           | 프로덕션 예시                           |
+| Variable                      | Description         | Development example                     | Production example                      |
 | ----------------------------- | ------------------- | --------------------------------------- | --------------------------------------- |
-| `NODE_ENV`                    | Node.js 환경        | `development`                           | `production`                            |
-| `PORT`                        | 서버 포트           | `3000`                                  | `3000`                                  |
-| `NEXT_PUBLIC_FRONTEND_URL`    | 프론트엔드 전체 URL | `http://localhost:3000`                 | `https://yourdomain.com`                |
-| `NEXT_PUBLIC_FRONTEND_DOMAIN` | 프론트엔드 도메인   | `localhost:3000`                        | `yourdomain.com`                        |
-| `NEXT_PUBLIC_API_URL`         | API 서버 전체 URL   | `https://api.yourdomain.com`            | `https://api.yourdomain.com`            |
-| `NEXT_PUBLIC_API_DOMAIN`      | API 서버 도메인     | `api.yourdomain.com`                    | `api.yourdomain.com`                    |
-| `NEXT_PUBLIC_STEAM_AUTH_URL`  | Steam 인증 URL      | `https://api.yourdomain.com/auth/steam` | `https://api.yourdomain.com/auth/steam` |
+| `NODE_ENV`                    | Node.js environment | `development`                           | `production`                            |
+| `PORT`                        | Server port         | `3000`                                  | `3000`                                  |
+| `NEXT_PUBLIC_FRONTEND_URL`    | Frontend full URL   | `http://localhost:3000`                 | `https://yourdomain.com`                |
+| `NEXT_PUBLIC_FRONTEND_DOMAIN` | Frontend domain     | `localhost:3000`                        | `yourdomain.com`                        |
+| `NEXT_PUBLIC_API_URL`         | API base URL        | `https://api.yourdomain.com`            | `https://api.yourdomain.com`            |
+| `NEXT_PUBLIC_API_DOMAIN`      | API domain          | `api.yourdomain.com`                    | `api.yourdomain.com`                    |
+| `NEXT_PUBLIC_STEAM_AUTH_URL`  | Steam auth URL      | `https://api.yourdomain.com/auth/steam` | `https://api.yourdomain.com/auth/steam` |
 
-## 사용법
+## Usage
 
-애플리케이션에서는 `shared/utils/environment.ts`의 유틸리티 함수들을 사용하여 환경변수에 접근합니다:
+In the application, use the utility functions in `shared/utils/environment.ts` to access environment variables:
 
 ```typescript
 import { getFrontendUrl, getApiUrl, getSteamAuthUrl, createUrl, createApiUrl } from "@/shared/utils/environment";
 
-// URL 생성 예시
+// Example of URL creation
 const homeUrl = createUrl("/dashboard");
 const apiEndpoint = createApiUrl("/auth/steam");
 ```
 
-## API 라우팅
+## API routing
 
-- **개발 환경**: API 요청은 환경변수에 설정된 API 서버로 직접 전송
-- **프로덕션 환경**: Next.js의 rewrite 기능을 통해 `/api` 경로로 프록시
+- Development: API requests are sent directly to the API server configured via environment variables
+- Production: Requests are proxied through the `/api` path using Next.js rewrites
 
-## 개발 서버 실행
+## Run dev server
 
 ```bash
 npm run dev
 ```
 
-서버가 시작되면 콘솔에서 환경 설정 정보를 확인할 수 있습니다:
+When the server starts, you'll see environment configuration details in the console:
 
 ```
-🔧 Rewrite 설정: {
+🔧 Rewrite config: {
   environment: 'development',
   isProd: false,
   apiUrl: 'https://api.yourdomain.com',
@@ -103,7 +103,7 @@ npm run dev
 }
 ```
 
-브라우저 개발자 도구에서도 환경 설정 정보를 확인할 수 있습니다:
+You can also inspect environment configuration in the browser DevTools:
 
 ```
 🌍 Environment Configuration: {

@@ -21,7 +21,7 @@ interface InventoryState {
     rarity?: string;
     type?: string;
   };
-  // Modal 관련 상태
+  // Modal-related state
   modalData: any | null;
   isSubmit: boolean;
   submitQuantity: number;
@@ -38,7 +38,7 @@ const initialState: InventoryState = {
     rarity: undefined,
     type: undefined
   },
-  // Modal 관련 초기 상태
+  // Modal-related initial state
   modalData: null,
   isSubmit: false,
   submitQuantity: 0,
@@ -89,7 +89,7 @@ const inventorySlice = createSlice({
     clearFilters: state => {
       state.filters = initialState.filters;
     },
-    // Modal 관련 액션들
+    // Modal-related actions
     INVENTORY_CHANGE_MODAL_ITEMS_PRICE: (state, action: PayloadAction<number>) => {
       state.submitPrice = action.payload;
     },

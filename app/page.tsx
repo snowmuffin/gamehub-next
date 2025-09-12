@@ -5,7 +5,7 @@ const Page = () => {
   return (
     <Fragment>
       <html>
-        <body>{/* 빈 페이지로 유지 */}</body>
+        <body>{/* Keep this page blank */}</body>
       </html>
     </Fragment>
   );

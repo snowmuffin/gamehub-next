@@ -56,8 +56,8 @@ export default function ServerHealthStatusCard({ code, refreshMs = 30000 }: { co
       setData(res.data as StatusResponse);
     } catch (e: any) {
       const status = e?.response?.status;
-      if (status === 404) setError("서버 코드를 찾을 수 없습니다 (404)");
-      else setError(e?.message || "상태 조회 실패");
+      if (status === 404) setError("Server code not found (404)");
+      else setError(e?.message || "Failed to fetch status");
       setData(null);
     } finally {
       setLoading(false);
@@ -87,7 +87,7 @@ export default function ServerHealthStatusCard({ code, refreshMs = 30000 }: { co
       <Card.Body>
         {loading ? (
           <div className="d-flex align-items-center gap-2">
-            <Spinner size="sm" /> <span>불러오는 중…</span>
+            <Spinner size="sm" /> <span>Loading…</span>
           </div>
         ) : error ? (
           <div className="text-danger">{error}</div>

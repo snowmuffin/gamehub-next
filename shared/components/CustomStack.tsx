@@ -3,7 +3,7 @@ import { Stack, StackProps } from "@mui/material";
 
 interface CustomStackProps extends StackProps {
   children: React.ReactNode;
-  // 추가 props
+  // Additional props
   fullHeight?: boolean;
   fullWidth?: boolean;
   row?: boolean;

@@ -3,8 +3,8 @@ import { IconButton, IconButtonProps, Tooltip } from "@mui/material";
 
 interface CustomIconButtonProps extends IconButtonProps {
   tooltip?: string;
-  children?: React.ReactNode; // 선택적으로 변경
-  // 추가 props
+  children?: React.ReactNode; // Optional override
+  // Additional props
   icon?: React.ReactNode;
 }
 

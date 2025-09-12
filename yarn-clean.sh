@@ -1,49 +1,49 @@
 #!/bin/bash
 
-# Yarn 캐시 정리 및 재설치 스크립트
-# 패키지 관련 문제가 발생했을 때 사용
+# Yarn cache clean and reinstall script
+# Use when package-related issues occur
 
 set -e
 
-echo "🧹 Yarn 캐시 정리 및 재설치..."
+echo "🧹 Cleaning Yarn cache and reinstalling..."
 
-# 색상 정의
+# Color definitions
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-# 현재 디렉토리 확인
+# Show current directory
 PROJECT_DIR=$(pwd)
-echo -e "${BLUE}📂 프로젝트 디렉토리: $PROJECT_DIR${NC}"
+echo -e "${BLUE}📂 Project directory: $PROJECT_DIR${NC}"
 
-# node_modules 삭제
-echo -e "${YELLOW}🗑️ node_modules 폴더 삭제...${NC}"
+# Remove node_modules
+echo -e "${YELLOW}🗑️ Removing node_modules folder...${NC}"
 rm -rf node_modules
 
-# yarn 캐시 정리
-echo -e "${YELLOW}🧹 yarn 캐시 정리...${NC}"
+# Clean yarn cache
+echo -e "${YELLOW}🧹 Cleaning yarn cache...${NC}"
 yarn cache clean
 
-# .next 빌드 폴더 삭제
-echo -e "${YELLOW}🗑️ .next 빌드 폴더 삭제...${NC}"
+# Remove .next build folder
+echo -e "${YELLOW}🗑️ Removing .next build folder...${NC}"
 rm -rf .next
 
-# yarn.lock 파일 확인
+# Check for yarn.lock
 if [ -f "yarn.lock" ]; then
-    echo -e "${GREEN}✅ yarn.lock 파일이 존재합니다${NC}"
+    echo -e "${GREEN}✅ yarn.lock file exists${NC}"
 else
-    echo -e "${YELLOW}⚠️ yarn.lock 파일이 없습니다. 새로 생성됩니다.${NC}"
+    echo -e "${YELLOW}⚠️ yarn.lock file missing. It will be created.${NC}"
 fi
 
-# 새로 설치
-echo -e "${YELLOW}📦 의존성 새로 설치...${NC}"
+# Fresh install
+echo -e "${YELLOW}📦 Installing dependencies fresh...${NC}"
 yarn install
 
-# 빌드
-echo -e "${YELLOW}🔨 프로젝트 빌드...${NC}"
+# Build
+echo -e "${YELLOW}🔨 Building project...${NC}"
 yarn build
 
-echo -e "${GREEN}✅ Yarn 캐시 정리 및 재설치 완료!${NC}"
-echo -e "${BLUE}💡 이제 다음 명령어로 애플리케이션을 시작할 수 있습니다:${NC}"
+echo -e "${GREEN}✅ Yarn cache clean and reinstall complete!${NC}"
+echo -e "${BLUE}💡 You can now start the application with:${NC}"
 echo -e "${BLUE}   ./deploy.sh${NC}"

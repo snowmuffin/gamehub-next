@@ -19,9 +19,9 @@ const store = configureStore({
   reducer: {
     local_variable: reducer,
     auth: persistedAuthReducer, // Use persisted reducer
-    language: languageReducer, // language 리듀서 추가
-    inventory: inventoryReducer, // inventory 리듀서 추가
-    snackbar: snackbarReducer // snackbar 리듀서 추가
+    language: languageReducer, // Add language reducer
+    inventory: inventoryReducer, // Add inventory reducer
+    snackbar: snackbarReducer // Add snackbar reducer
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

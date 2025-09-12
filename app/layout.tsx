@@ -28,7 +28,7 @@ const AuthHandler = ({ children }: { children: React.ReactNode }) => {
   const token = useSelector((state: RootState) => state.auth.token);
 
   useEffect(() => {
-    // 환경 정보 로깅 (개발 모드에서만)
+    // Log environment information (development mode only)
     logEnvironmentInfo();
 
     if (token && !isTokenExpired(token)) {

@@ -3,9 +3,9 @@ import { NextRequest, NextResponse } from "next/server";
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // API 요청에 대한 로깅 추가
+  // Log API requests
   if (pathname.startsWith("/api/")) {
-    console.log("🔄 Middleware - API 요청 감지:", {
+    console.log("🔄 Middleware - API request detected:", {
       method: request.method,
       pathname,
       url: request.url,
@@ -13,29 +13,29 @@ export function middleware(request: NextRequest) {
     });
   }
 
-  // CORS 설정
+  // CORS configuration
   const response = NextResponse.next();
 
-  // 허용할 origin들 (환경변수 기반)
+  // Allowed origins (from environment variables)
   const baseOrigins = [
     process.env.NEXT_PUBLIC_BACKEND_URL || "",
-    process.env.NEXT_PUBLIC_API_URL || "https://api.yourdomain.com", // 백엔드 도메인
-    `http://${process.env.NEXT_PUBLIC_FRONTEND_DOMAIN || "se.yourdomain.com"}`, // 프론트 도메인 (HTTP)
-    process.env.NEXT_PUBLIC_FRONTEND_URL || "https://se.yourdomain.com", // 프론트 도메인 (HTTPS)
-    "http://localhost:3000", // 로컬 개발
-    "https://localhost:3000" // 로컬 개발 (HTTPS)
+    process.env.NEXT_PUBLIC_API_URL || "https://api.yourdomain.com", // backend domain
+    `http://${process.env.NEXT_PUBLIC_FRONTEND_DOMAIN || "se.yourdomain.com"}`, // frontend domain (HTTP)
+    process.env.NEXT_PUBLIC_FRONTEND_URL || "https://se.yourdomain.com", // frontend domain (HTTPS)
+    "http://localhost:3000", // local development
+    "https://localhost:3000" // local development (HTTPS)
   ];
 
-  // 추가 허용 도메인들 (환경변수에서 읽기)
+  // Additional allowed origins (comma-separated in env var)
   const additionalOrigins = process.env.NEXT_PUBLIC_ALLOWED_ORIGINS
     ? process.env.NEXT_PUBLIC_ALLOWED_ORIGINS.split(",").map(origin => origin.trim())
     : [];
 
   const allowedOrigins = [...baseOrigins, ...additionalOrigins];
 
-  // 개발 환경에서 CORS 설정 로깅
+  // Log CORS config in development
   if (process.env.NODE_ENV === "development" && pathname.startsWith("/api/")) {
-    console.log("🔧 CORS 설정:", {
+    console.log("🔧 CORS config:", {
       allowedOrigins,
       requestOrigin: request.headers.get("origin"),
       timestamp: new Date().toISOString()
@@ -44,7 +44,7 @@ export function middleware(request: NextRequest) {
 
   const origin = request.headers.get("origin");
 
-  // Origin이 허용된 목록에 있는지 확인
+  // Apply Access-Control-Allow-Origin only for allowed origins
   if (origin && allowedOrigins.includes(origin)) {
     response.headers.set("Access-Control-Allow-Origin", origin);
   }
@@ -56,7 +56,7 @@ export function middleware(request: NextRequest) {
     "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization"
   );
 
-  // OPTIONS 요청 처리 (preflight)
+  // Handle OPTIONS preflight requests
   if (request.method === "OPTIONS") {
     return new Response(null, { status: 200, headers: response.headers });
   }

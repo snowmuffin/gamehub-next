@@ -73,7 +73,7 @@ const ApiDebugPage = () => {
   const testAllEndpoints = async () => {
     for (const endpoint of testEndpoints) {
       await testApi(endpoint);
-      await new Promise(resolve => setTimeout(resolve, 1000)); // 1초 대기
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Wait 1 second
     }
   };
 

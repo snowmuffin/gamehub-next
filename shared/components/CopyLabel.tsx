@@ -3,12 +3,12 @@ import { Box, IconButton, Tooltip, Typography } from "@mui/material";
 import { ContentCopy as CopyIcon, Check as CheckIcon } from "@mui/icons-material";
 
 interface CopyLabelProps {
-  text?: string; // 선택적으로 변경
+  text?: string; // Optional override
   label?: string;
   variant?: "body1" | "body2" | "caption" | "subtitle1" | "subtitle2";
   maxWidth?: number | string;
   showIcon?: boolean;
-  // 추가 props
+  // Additional props
   mainLabel?: any;
   subLabel?: string;
   copyValue?: string;
@@ -26,9 +26,9 @@ export const CopyLabel: React.FC<CopyLabelProps> = ({
 }) => {
   const [copied, setCopied] = useState(false);
 
-  // copyValue가 있으면 그것을 사용, 없으면 text 사용
+  // Use copyValue if provided, otherwise fall back to text
   const textToCopy = copyValue || text || "";
-  // mainLabel이 있으면 그것을 표시, 없으면 text 사용
+  // Display mainLabel if provided, otherwise fall back to text
   const displayText = mainLabel || text || "";
 
   const handleCopy = async () => {

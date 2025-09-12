@@ -7,13 +7,13 @@ import Seo from "@/shared/layout-components/seo";
 import { apiRequest } from "@/shared/api/request"; // Import API request utility
 
 const Inventory = () => {
-  const [products, setProducts] = useState<any[]>([]); // API 데이터를 저장할 상태
-  const [loading, setLoading] = useState<boolean>(true); // 로딩 상태 관리
+  const [products, setProducts] = useState<any[]>([]); // State to store API data
+  const [loading, setLoading] = useState<boolean>(true); // Loading state management
 
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      const response = await apiRequest.get("/space-engineers/item"); // NestJS 엔드포인트 호출
+      const response = await apiRequest.get("/space-engineers/item"); // Call NestJS endpoint
       setProducts(response.data as any[]);
     } catch (error) {
       // Error handling without console or alert
@@ -46,7 +46,7 @@ const Inventory = () => {
           <Col xxl={9} xl={8} lg={8} md={12}>
             <Row>
               {loading ? (
-                <p>Loading...</p> // 로딩 중일 때 표시
+                <p>Loading...</p> // Displayed while loading
               ) : products.length > 0 ? (
                 products.map(product => (
                   <Col xxl={3} xl={6} lg={6} md={6} sm={12} className="" key={product.indexName}>
@@ -85,7 +85,7 @@ const Inventory = () => {
                   </Col>
                 ))
               ) : (
-                <p>No products available.</p> // 데이터가 없을 때 표시
+                <p>No products available.</p> // Displayed when no data
               )}
             </Row>
           </Col>

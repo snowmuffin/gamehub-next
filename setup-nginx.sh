@@ -1,21 +1,21 @@
 #!/bin/bash
 
-echo "🔧 HTTPS 지원 도메인 접속을 위한 nginx 설정 중..."
+echo "🔧 Configuring nginx for HTTPS-enabled domain access..."
 
-# nginx 설정 파일 경로
+# Path to nginx configuration file
 NGINX_CONF="/opt/homebrew/etc/nginx/nginx.conf"
 PROJECT_DIR="/Volumes/X31/Documents/snowmuffin/gamehub-next"
 DOMAIN="yourdomain.com"
 
-# SSL 인증서 생성 함수
+# Function to create SSL certificate
 create_ssl_certificate() {
-    echo "🔐 SSL 인증서 생성 중..."
+    echo "🔐 Generating SSL certificate..."
     
-    # SSL 디렉토리 생성
+    # Create SSL directories
     sudo mkdir -p /etc/ssl/certs
     sudo mkdir -p /etc/ssl/private
     
-    # 임시 openssl 설정 파일 생성
+    # Create temporary openssl config file
     cat > /tmp/openssl.conf << EOF
 [req]
 distinguished_name = req_distinguished_name
@@ -38,36 +38,36 @@ DNS.1 = $DOMAIN
 DNS.2 = *.$DOMAIN
 EOF
 
-    # 자체 서명 SSL 인증서 생성
+    # Generate self-signed SSL certificate
     sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
         -keyout /etc/ssl/private/$DOMAIN.key \
         -out /etc/ssl/certs/$DOMAIN.crt \
         -config /tmp/openssl.conf \
         -extensions v3_req
     
-    # 임시 설정 파일 삭제
+    # Remove temporary config file
     rm /tmp/openssl.conf
     
-    # SSL 파일 권한 설정
+    # Set permissions for SSL files
     sudo chmod 600 /etc/ssl/private/$DOMAIN.key
     sudo chmod 644 /etc/ssl/certs/$DOMAIN.crt
     
-    echo "✅ SSL 인증서 생성 완료: /etc/ssl/certs/$DOMAIN.crt"
+    echo "✅ SSL certificate generated: /etc/ssl/certs/$DOMAIN.crt"
 }
 
-# 기존 nginx 중지
-echo "📛 기존 nginx 프로세스 중지 중..."
+# Stop existing nginx
+echo "📛 Stopping existing nginx process..."
 sudo nginx -s stop 2>/dev/null || true
 
-# nginx 설정 백업
-echo "💾 nginx 설정 백업 중..."
+# Backup nginx configuration
+echo "💾 Backing up nginx configuration..."
 sudo cp "$NGINX_CONF" "$NGINX_CONF.backup" 2>/dev/null || true
 
-# SSL 인증서 생성
+# Create SSL certificate
 create_ssl_certificate
 
-# nginx 설정 생성
-echo "📝 nginx HTTPS 설정 파일 생성 중..."
+# Create nginx configuration
+echo "📝 Creating nginx HTTPS configuration file..."
 sudo tee "$NGINX_CONF" > /dev/null << 'EOF'
 events {
     worker_connections 1024;
@@ -107,7 +107,7 @@ http {
         add_header X-Content-Type-Options nosniff;
         add_header X-XSS-Protection "1; mode=block";
 
-        # Next.js 개발 서버로 프록시
+    # Proxy to Next.js dev server
         location / {
             proxy_pass http://localhost:3000;
             proxy_http_version 1.1;
@@ -120,7 +120,7 @@ http {
             proxy_cache_bypass $http_upgrade;
         }
 
-        # Next.js Hot Reload를 위한 WebSocket 지원 (HTTPS)
+    # WebSocket support for Next.js hot reload (HTTPS)
         location /_next/webpack-hmr {
             proxy_pass http://localhost:3000/_next/webpack-hmr;
             proxy_http_version 1.1;
@@ -135,38 +135,38 @@ http {
 }
 EOF
 
-# nginx 설정 테스트
-echo "🧪 nginx 설정 테스트 중..."
+# Test nginx configuration
+echo "🧪 Testing nginx configuration..."
 if sudo nginx -t; then
-    echo "✅ nginx 설정 검증 완료"
+    echo "✅ nginx configuration validated"
 else
-    echo "❌ nginx 설정 오류 발생"
-    echo "🔄 백업 설정으로 복원 중..."
+    echo "❌ nginx configuration error"
+    echo "🔄 Restoring from backup configuration..."
     sudo cp "$NGINX_CONF.backup" "$NGINX_CONF"
     exit 1
 fi
 
-# nginx 시작
-echo "🚀 nginx 시작 중..."
+# Start nginx
+echo "🚀 Starting nginx..."
 sudo nginx
 
 echo ""
-echo "🎉 HTTPS 설정 완료!"
+echo "🎉 HTTPS setup complete!"
 echo ""
-echo "🌐 이제 다음 URL로 안전하게 접속할 수 있습니다:"
-echo "   https://REDACTED_TEST (HTTPS - 권장)"
-echo "   http://REDACTED_TEST (HTTP - 자동으로 HTTPS로 리다이렉트)"
+echo "🌐 You can now safely access via:"
+echo "   https://REDACTED_TEST (HTTPS - recommended)"
+echo "   http://REDACTED_TEST (HTTP - auto-redirects to HTTPS)"
 echo ""
-echo "📋 추가 정보:"
-echo "   - Next.js 개발 서버: http://localhost:3000"
-echo "   - nginx 설정 파일: $NGINX_CONF"
-echo "   - SSL 인증서: /etc/ssl/certs/$DOMAIN.crt"
-echo "   - SSL 개인키: /etc/ssl/private/$DOMAIN.key"
+echo "📋 Additional info:"
+echo "   - Next.js dev server: http://localhost:3000"
+echo "   - nginx config: $NGINX_CONF"
+echo "   - SSL cert: /etc/ssl/certs/$DOMAIN.crt"
+echo "   - SSL key: /etc/ssl/private/$DOMAIN.key"
 echo ""
-echo "🔧 nginx 관리 명령어:"
-echo "   - nginx 중지: sudo nginx -s stop"
-echo "   - nginx 재시작: sudo nginx -s reload"
-echo "   - 설정 복원: sudo cp $NGINX_CONF.backup $NGINX_CONF"
+echo "🔧 nginx management commands:"
+echo "   - Stop nginx: sudo nginx -s stop"
+echo "   - Restart nginx: sudo nginx -s reload"
+echo "   - Restore config: sudo cp $NGINX_CONF.backup $NGINX_CONF"
 echo ""
-echo "⚠️  브라우저에서 자체 서명 인증서 경고가 나타날 수 있습니다."
-echo "    개발 환경에서는 '고급' > '안전하지 않은 사이트로 이동'을 클릭하세요."
+echo "⚠️  Your browser may show a self-signed certificate warning."
+echo "    In development, proceed via 'Advanced' > 'Continue to unsafe site'."

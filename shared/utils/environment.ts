@@ -1,23 +1,23 @@
 /**
- * 환경변수 기반 URL 설정 유틸리티
+ * URL configuration utilities based on environment variables
  */
 
-// 프론트엔드 URL 가져오기
+// Get frontend URL
 export const getFrontendUrl = (): string => {
   return process.env.NEXT_PUBLIC_FRONTEND_URL || "http://localhost:3000";
 };
 
-// API URL 가져오기
+// Get API URL
 export const getApiUrl = (): string => {
   return process.env.NEXT_PUBLIC_API_URL || "";
 };
 
-// Steam 인증 URL 가져오기
+// Get Steam authentication URL
 export const getSteamAuthUrl = (): string => {
   return process.env.NEXT_PUBLIC_STEAM_AUTH_URL || `${getApiUrl()}/auth/steam`;
 };
 
-// 도메인 정보 가져오기
+// Get domain info
 export const getFrontendDomain = (): string => {
   return process.env.NEXT_PUBLIC_FRONTEND_DOMAIN || "localhost:3000";
 };
@@ -26,7 +26,7 @@ export const getApiDomain = (): string => {
   return process.env.NEXT_PUBLIC_API_DOMAIN || "";
 };
 
-// 환경별 설정 확인
+// Environment helpers
 export const isDevelopment = (): boolean => {
   return process.env.NODE_ENV === "development";
 };
@@ -35,7 +35,7 @@ export const isProduction = (): boolean => {
   return process.env.NODE_ENV === "production";
 };
 
-// URL 생성 헬퍼
+// URL builder helpers
 export const createUrl = (path: string, baseUrl?: string): string => {
   const base = baseUrl || getFrontendUrl();
   return `${base}${path.startsWith("/") ? path : `/${path}`}`;
@@ -46,7 +46,7 @@ export const createApiUrl = (path: string): string => {
   return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 };
 
-// 환경변수 상태 로깅 (개발 모드에서만)
+// Log environment info (development mode only)
 export const logEnvironmentInfo = (): void => {
   if (isDevelopment() && typeof window !== "undefined") {
     console.log("🌍 Environment Configuration:", {

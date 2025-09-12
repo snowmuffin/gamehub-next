@@ -1,48 +1,48 @@
 import axios from "axios";
-import store from "../redux/store"; // Redux 스토어 가져오기
+import store from "../redux/store"; // Import Redux store
 import { getApiUrl } from "../utils/environment";
 
-// 환경 변수를 통한 API URL 설정
+// Determine API base URL via environment variables
 const getApiBaseUrl = () => {
-  // 클라이언트 사이드에서는 항상 rewrite를 통한 상대 경로 사용 (CORS 우회)
+  // On the client, always use the proxied relative path via rewrites (bypasses CORS)
   if (typeof window !== "undefined") {
-    console.log("� 클라이언트 사이드 API 요청 - baseURL: /api (rewrite 사용, CORS 우회)");
+    console.log("� Client-side API request - baseURL: /api (using rewrite, bypassing CORS)");
     return "/api";
   }
 
-  // 서버 사이드에서는 환경 변수 사용
+  // On the server, use environment variable
   const envApiUrl = getApiUrl();
   if (envApiUrl) {
-    console.log("🖥️ 서버 사이드 API 요청 - baseURL:", envApiUrl);
+    console.log("🖥️ Server-side API request - baseURL:", envApiUrl);
     return envApiUrl;
   }
 
-  // 서버 사이드 fallback
+  // Server-side fallback
   const fallbackApiUrl = process.env.NEXT_PUBLIC_API_URL || "";
-  console.log("🖥️ 서버 사이드 API 요청 fallback - baseURL:", fallbackApiUrl);
+  console.log("🖥️ Server-side API request fallback - baseURL:", fallbackApiUrl);
   return fallbackApiUrl;
 };
 
 const AxiosInstance = axios.create({
   baseURL: getApiBaseUrl(),
   timeout: 5000,
-  withCredentials: false // 기본적으로 credentials 사용하지 않음
+  withCredentials: false // Don't use credentials by default
 });
 
-// 인증이 필요한 요청을 위한 별도 인스턴스
+// Separate instance for requests requiring authentication
 const AuthAxiosInstance = axios.create({
   baseURL: getApiBaseUrl(),
   timeout: 5000,
-  withCredentials: true // 인증이 필요한 요청에만 credentials 사용
+  withCredentials: true // Use credentials only for authenticated requests
 });
 
-// 공통 요청 인터셉터 함수
+// Shared request interceptor
 const setupRequestInterceptor = (instance: any, instanceName: string) => {
   instance.interceptors.request.use((config: any) => {
     const state = store.getState();
     const token = state.auth?.token;
 
-    console.log(`📤 ${instanceName} API 요청:`, {
+    console.log(`📤 ${instanceName} API request:`, {
       method: config.method?.toUpperCase(),
       url: config.url,
       baseURL: config.baseURL,
@@ -61,11 +61,11 @@ const setupRequestInterceptor = (instance: any, instanceName: string) => {
   });
 };
 
-// 공통 응답 인터셉터 함수
+// Shared response interceptor
 const setupResponseInterceptor = (instance: any, instanceName: string) => {
   instance.interceptors.response.use(
     (response: any) => {
-      console.log(`✅ ${instanceName} API 응답 성공:`, {
+      console.log(`✅ ${instanceName} API response success:`, {
         status: response.status,
         url: response.config.url,
         timestamp: new Date().toISOString()
@@ -73,7 +73,7 @@ const setupResponseInterceptor = (instance: any, instanceName: string) => {
       return response;
     },
     (error: any) => {
-      console.error(`❌ ${instanceName} API 응답 실패:`, {
+      console.error(`❌ ${instanceName} API response error:`, {
         status: error.response?.status,
         url: error.config?.url,
         baseURL: error.config?.baseURL,
@@ -87,14 +87,14 @@ const setupResponseInterceptor = (instance: any, instanceName: string) => {
   );
 };
 
-// 인터셉터 설정
+// Setup interceptors
 setupRequestInterceptor(AxiosInstance, "Public");
 setupResponseInterceptor(AxiosInstance, "Public");
 setupRequestInterceptor(AuthAxiosInstance, "Auth");
 setupResponseInterceptor(AuthAxiosInstance, "Auth");
 
 export const apiRequest = {
-  // 공개 API 요청 (credentials 없음)
+  // Public API requests (no credentials)
   get: async (url: string, params?: any) => {
     return AxiosInstance.get(url, { params });
   },
@@ -102,7 +102,7 @@ export const apiRequest = {
     return AxiosInstance.post(url, data);
   },
 
-  // 인증이 필요한 API 요청 (credentials 포함)
+  // Authenticated API requests (with credentials)
   auth: {
     get: async (url: string, params?: any) => {
       return AuthAxiosInstance.get(url, { params });
