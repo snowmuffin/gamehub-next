@@ -166,7 +166,13 @@ const Joblanding = ({ ThemeChanger }: any) => {
             <div className="header-element">
               <div className="horizontal-logo">
                 <Link href="/dashboard/gaming" className="header-logo">
-                  <Image src="/assets/images/brand-logos/toggle-dark.png" alt="logo" className="toggle-dark" width={120} height={40} />
+                  <Image
+                    src="/assets/images/brand-logos/toggle-dark.png"
+                    alt="logo"
+                    className="toggle-dark"
+                    width={120}
+                    height={40}
+                  />
                 </Link>
               </div>
             </div>
@@ -210,8 +216,20 @@ const Joblanding = ({ ThemeChanger }: any) => {
               <div className="landing-logo-container">
                 <div className="horizontal-logo">
                   <Link href="/dashboard/gaming" className="header-logo">
-                    <Image src="/assets/images/brand-logos/desktop-logo.png" alt="logo" className="desktop-logo" width={150} height={50} />
-                    <Image src="/assets/images/brand-logos/desktop-dark.png" alt="logo" className="desktop-dark" width={150} height={50} />
+                    <Image
+                      src="/assets/images/brand-logos/desktop-logo.png"
+                      alt="logo"
+                      className="desktop-logo"
+                      width={150}
+                      height={50}
+                    />
+                    <Image
+                      src="/assets/images/brand-logos/desktop-dark.png"
+                      alt="logo"
+                      className="desktop-dark"
+                      width={150}
+                      height={50}
+                    />
                   </Link>
                 </div>
               </div>
@@ -690,7 +708,13 @@ const Joblanding = ({ ThemeChanger }: any) => {
                   <div className="bottom-left"></div>
                   <div className="bottom-right"></div>
                   <Link href="#!" scroll={false}>
-                    <Image src="/assets/images/media/jobs-landing/blog/1.jpg" className="card-img-top" alt="..." width={300} height={200} />
+                    <Image
+                      src="/assets/images/media/jobs-landing/blog/1.jpg"
+                      className="card-img-top"
+                      alt="..."
+                      width={300}
+                      height={200}
+                    />
                   </Link>
                   <Card.Body className="">
                     <span className="badge bg-secondary mb-2">Career</span>
@@ -723,7 +747,13 @@ const Joblanding = ({ ThemeChanger }: any) => {
                   <div className="bottom-left"></div>
                   <div className="bottom-right"></div>
                   <Link href="#!" scroll={false}>
-                    <Image src="/assets/images/media/jobs-landing/blog/2.jpg" className="card-img-top" alt="..." width={300} height={200} />
+                    <Image
+                      src="/assets/images/media/jobs-landing/blog/2.jpg"
+                      className="card-img-top"
+                      alt="..."
+                      width={300}
+                      height={200}
+                    />
                   </Link>
                   <Card.Body className="">
                     <span className="badge bg-danger mb-2">Employment</span>
@@ -757,7 +787,13 @@ const Joblanding = ({ ThemeChanger }: any) => {
                   <div className="bottom-left"></div>
                   <div className="bottom-right"></div>
                   <Link href="#!" scroll={false}>
-                    <Image src="/assets/images/media/jobs-landing/blog/3.jpg" className="card-img-top" alt="..." width={300} height={200} />
+                    <Image
+                      src="/assets/images/media/jobs-landing/blog/3.jpg"
+                      className="card-img-top"
+                      alt="..."
+                      width={300}
+                      height={200}
+                    />
                   </Link>
                   <Card.Body className="">
                     <span className="badge bg-warning mb-2">Skill Development</span>
@@ -1240,7 +1276,13 @@ const Joblanding = ({ ThemeChanger }: any) => {
             <div className="text-center gap-2 align-items-center justify-content">
               <p className="fw-medium mb-3">
                 <Link href="/dashboard/gaming">
-                  <Image src="/assets/images/brand-logos/desktop-dark.png" alt="" className="landing-footer-logo" width={150} height={50} />
+                  <Image
+                    src="/assets/images/brand-logos/desktop-dark.png"
+                    alt=""
+                    className="landing-footer-logo"
+                    width={150}
+                    height={50}
+                  />
                 </Link>
               </p>
               <div className="mb-4">

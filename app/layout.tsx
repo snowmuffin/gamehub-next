@@ -30,7 +30,7 @@ const AuthHandler = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     // 환경 정보 로깅 (개발 모드에서만)
     logEnvironmentInfo();
-    
+
     if (token && !isTokenExpired(token)) {
       router.push("/dashboard/gaming");
     } else {

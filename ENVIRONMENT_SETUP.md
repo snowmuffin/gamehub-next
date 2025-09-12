@@ -49,7 +49,7 @@ PORT=3000
 NEXT_PUBLIC_FRONTEND_URL=https://yourdomain.com
 NEXT_PUBLIC_FRONTEND_DOMAIN=yourdomain.com
 
-# API Configuration  
+# API Configuration
 NEXT_PUBLIC_API_URL=https://api.yourdomain.com
 NEXT_PUBLIC_API_DOMAIN=api.yourdomain.com
 
@@ -59,32 +59,26 @@ NEXT_PUBLIC_STEAM_AUTH_URL=https://api.yourdomain.com/auth/steam
 
 ## 환경변수 설명
 
-| 변수명 | 설명 | 개발환경 예시 | 프로덕션 예시 |
-|--------|------|---------------|---------------|
-| `NODE_ENV` | Node.js 환경 | `development` | `production` |
-| `PORT` | 서버 포트 | `3000` | `3000` |
-| `NEXT_PUBLIC_FRONTEND_URL` | 프론트엔드 전체 URL | `http://localhost:3000` | `https://yourdomain.com` |
-| `NEXT_PUBLIC_FRONTEND_DOMAIN` | 프론트엔드 도메인 | `localhost:3000` | `yourdomain.com` |
-| `NEXT_PUBLIC_API_URL` | API 서버 전체 URL | `https://api.yourdomain.com` | `https://api.yourdomain.com` |
-| `NEXT_PUBLIC_API_DOMAIN` | API 서버 도메인 | `api.yourdomain.com` | `api.yourdomain.com` |
-| `NEXT_PUBLIC_STEAM_AUTH_URL` | Steam 인증 URL | `https://api.yourdomain.com/auth/steam` | `https://api.yourdomain.com/auth/steam` |
+| 변수명                        | 설명                | 개발환경 예시                           | 프로덕션 예시                           |
+| ----------------------------- | ------------------- | --------------------------------------- | --------------------------------------- |
+| `NODE_ENV`                    | Node.js 환경        | `development`                           | `production`                            |
+| `PORT`                        | 서버 포트           | `3000`                                  | `3000`                                  |
+| `NEXT_PUBLIC_FRONTEND_URL`    | 프론트엔드 전체 URL | `http://localhost:3000`                 | `https://yourdomain.com`                |
+| `NEXT_PUBLIC_FRONTEND_DOMAIN` | 프론트엔드 도메인   | `localhost:3000`                        | `yourdomain.com`                        |
+| `NEXT_PUBLIC_API_URL`         | API 서버 전체 URL   | `https://api.yourdomain.com`            | `https://api.yourdomain.com`            |
+| `NEXT_PUBLIC_API_DOMAIN`      | API 서버 도메인     | `api.yourdomain.com`                    | `api.yourdomain.com`                    |
+| `NEXT_PUBLIC_STEAM_AUTH_URL`  | Steam 인증 URL      | `https://api.yourdomain.com/auth/steam` | `https://api.yourdomain.com/auth/steam` |
 
 ## 사용법
 
 애플리케이션에서는 `shared/utils/environment.ts`의 유틸리티 함수들을 사용하여 환경변수에 접근합니다:
 
 ```typescript
-import { 
-  getFrontendUrl, 
-  getApiUrl, 
-  getSteamAuthUrl,
-  createUrl,
-  createApiUrl 
-} from '@/shared/utils/environment';
+import { getFrontendUrl, getApiUrl, getSteamAuthUrl, createUrl, createApiUrl } from "@/shared/utils/environment";
 
 // URL 생성 예시
-const homeUrl = createUrl('/dashboard');
-const apiEndpoint = createApiUrl('/auth/steam');
+const homeUrl = createUrl("/dashboard");
+const apiEndpoint = createApiUrl("/auth/steam");
 ```
 
 ## API 라우팅

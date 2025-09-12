@@ -101,7 +101,7 @@ export const apiRequest = {
   post: async (url: string, data?: any) => {
     return AxiosInstance.post(url, data);
   },
-  
+
   // 인증이 필요한 API 요청 (credentials 포함)
   auth: {
     get: async (url: string, params?: any) => {

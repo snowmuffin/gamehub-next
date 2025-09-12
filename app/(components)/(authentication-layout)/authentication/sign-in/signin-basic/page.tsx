@@ -28,7 +28,9 @@ const SigninBasic = () => {
       const baseOrigins = [window.location.origin, apiUrl, frontendUrl];
 
       const additionalOrigins = process.env.NEXT_PUBLIC_ALLOWED_ORIGINS
-        ? process.env.NEXT_PUBLIC_ALLOWED_ORIGINS.split(",").map(origin => origin.trim()).filter(Boolean)
+        ? process.env.NEXT_PUBLIC_ALLOWED_ORIGINS.split(",")
+            .map(origin => origin.trim())
+            .filter(Boolean)
         : [];
 
       if (frontendDomain) {
@@ -108,7 +110,7 @@ const SigninBasic = () => {
 
     // 현재 origin을 백엔드에 전달하여 올바른 postMessage target을 설정할 수 있도록 함
     const currentOrigin = window.location.origin;
-  const baseUrl = process.env.NEXT_PUBLIC_STEAM_AUTH_URL || `${window.location.origin}/auth/steam`;
+    const baseUrl = process.env.NEXT_PUBLIC_STEAM_AUTH_URL || `${window.location.origin}/auth/steam`;
 
     // URL에 현재 origin을 파라미터로 추가
     const steamAuthUrl = `${baseUrl}?origin=${encodeURIComponent(currentOrigin)}`;
