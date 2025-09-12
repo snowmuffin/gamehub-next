@@ -14,46 +14,46 @@ interface WorldMapState {
 export default class WorldMapCom extends Component<WorldMapProps, WorldMapState> {
   constructor(props: WorldMapProps) {
     super(props);
-    
+
     this.state = {
-      // 게이밍 플레이어 분포 데이터 (예시)
+      // Example gaming player distribution data
       mapData: {
-        "US": 2500,  // 미국
-        "CN": 2200,  // 중국
-        "KR": 1800,  // 한국
-        "JP": 1500,  // 일본
-        "DE": 1200,  // 독일
-        "GB": 1100,  // 영국
-        "CA": 900,   // 캐나다
-        "AU": 800,   // 호주
-        "FR": 750,   // 프랑스
-        "BR": 700,   // 브라질
-        "IN": 650,   // 인도
-        "RU": 600,   // 러시아
-        "SE": 550,   // 스웨덴
-        "NL": 500,   // 네덜란드
-        "FI": 450,   // 핀란드
-        "NO": 400,   // 노르웨이
-        "DK": 350,   // 덴마크
-        "SG": 300,   // 싱가포르
-        "TW": 280,   // 대만
-        "HK": 250,   // 홍콩
+        US: 2500, // United States
+        CN: 2200, // China
+        KR: 1800, // South Korea
+        JP: 1500, // Japan
+        DE: 1200, // Germany
+        GB: 1100, // United Kingdom
+        CA: 900, // Canada
+        AU: 800, // Australia
+        FR: 750, // France
+        BR: 700, // Brazil
+        IN: 650, // India
+        RU: 600, // Russia
+        SE: 550, // Sweden
+        NL: 500, // Netherlands
+        FI: 450, // Finland
+        NO: 400, // Norway
+        DK: 350, // Denmark
+        SG: 300, // Singapore
+        TW: 280, // Taiwan
+        HK: 250 // Hong Kong
       }
     };
   }
 
   render() {
     const { width = "100%", height = 350 } = this.props;
-    
-    // react-jvectormap이 설치되지 않은 경우를 대비한 fallback
+
+    // Fallback for when react-jvectormap isn't installed
     if (typeof window === "undefined") {
       return (
-        <div 
-          style={{ 
-            width, 
-            height, 
-            display: "flex", 
-            alignItems: "center", 
+        <div
+          style={{
+            width,
+            height,
+            display: "flex",
+            alignItems: "center",
             justifyContent: "center",
             backgroundColor: "#f8f9fa",
             border: "1px solid #dee2e6",
@@ -67,10 +67,10 @@ export default class WorldMapCom extends Component<WorldMapProps, WorldMapState>
 
     return (
       <div style={{ width, height }}>
-        <div 
-          id="world-map-markers" 
-          style={{ 
-            width: "100%", 
+        <div
+          id="world-map-markers"
+          style={{
+            width: "100%",
             height: "100%",
             backgroundColor: "#f8f9fa",
             border: "1px solid #dee2e6",
@@ -110,9 +110,7 @@ export default class WorldMapCom extends Component<WorldMapProps, WorldMapState>
                 </div>
               </div>
             </div>
-            <div className="mt-3 text-muted small">
-              Install vector map library for interactive world map
-            </div>
+            <div className="mt-3 text-muted small">Install vector map library for interactive world map</div>
           </div>
         </div>
       </div>
@@ -120,7 +118,7 @@ export default class WorldMapCom extends Component<WorldMapProps, WorldMapState>
   }
 }
 
-// 추가적인 맵 관련 유틸리티들
+// Additional map-related utilities
 export const mapConfig = {
   backgroundColor: "transparent",
   borderColor: "#a4b7c1",
@@ -134,14 +132,14 @@ export const mapConfig = {
   selectedColor: "#465ac7",
   selectedRegions: [],
   showTooltip: true,
-  onRegionClick: function(element: any, code: string, region: string) {
+  onRegionClick: function (element: any, code: string, region: string) {
     console.log("Region clicked:", { code, region });
   }
 };
 
 export const getTopCountries = (mapData: { [key: string]: number }) => {
   return Object.entries(mapData)
-    .sort(([,a], [,b]) => b - a)
+    .sort(([, a], [, b]) => b - a)
     .slice(0, 10)
     .map(([country, players]) => ({ country, players }));
 };

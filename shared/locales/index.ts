@@ -4,7 +4,7 @@ import ko from "./ko";
 const resources: Record<string, Record<string, string>> = {
   en,
   ko
-  // ...추가 언어...
+  // ...additional languages...
 };
 
 export default resources;

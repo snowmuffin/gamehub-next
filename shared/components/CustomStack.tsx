@@ -1,33 +1,33 @@
-import React from 'react';
-import { Stack, StackProps } from '@mui/material';
+import React from "react";
+import { Stack, StackProps } from "@mui/material";
 
 interface CustomStackProps extends StackProps {
   children: React.ReactNode;
-  // 추가 props
+  // Additional props
   fullHeight?: boolean;
   fullWidth?: boolean;
   row?: boolean;
   gap?: number;
 }
 
-const CustomStack: React.FC<CustomStackProps> = ({ 
-  children, 
+const CustomStack: React.FC<CustomStackProps> = ({
+  children,
   spacing = 2,
-  direction = 'column',
+  direction = "column",
   fullHeight = false,
   fullWidth = false,
   row = false,
   gap,
-  ...props 
+  ...props
 }) => {
   return (
-    <Stack 
+    <Stack
       spacing={gap !== undefined ? gap : spacing}
-      direction={row ? 'row' : direction}
+      direction={row ? "row" : direction}
       sx={{
-        ...(fullHeight && { height: '100%' }),
-        ...(fullWidth && { width: '100%' }),
-        ...props.sx,
+        ...(fullHeight && { height: "100%" }),
+        ...(fullWidth && { width: "100%" }),
+        ...props.sx
       }}
       {...props}
     >

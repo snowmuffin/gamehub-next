@@ -1,23 +1,26 @@
 {
-  "extends": [
-    "next/core-web-vitals",
-    "@typescript-eslint/recommended"
-  ],
+  "extends": ["next/core-web-vitals", "@typescript-eslint/recommended"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "rules": {
     // TypeScript specific rules
-    "@typescript-eslint/no-unused-vars": ["error", { 
-      "argsIgnorePattern": "^_",
-      "varsIgnorePattern": "^_",
-      "destructuredArrayIgnorePattern": "^_"
-    }],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "destructuredArrayIgnorePattern": "^_"
+      }
+    ],
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/prefer-as-const": "error",
     "@typescript-eslint/no-non-null-assertion": "warn",
-    "@typescript-eslint/consistent-type-imports": ["error", { 
-      "prefer": "type-imports" 
-    }],
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      {
+        "prefer": "type-imports"
+      }
+    ],
     "@typescript-eslint/no-empty-interface": "error",
     "@typescript-eslint/ban-ts-comment": "warn",
 
@@ -46,11 +49,14 @@
     "react/jsx-curly-brace-presence": ["error", "never"],
     "react/jsx-fragments": ["error", "syntax"],
     "react/self-closing-comp": "error",
-    "react/jsx-sort-props": ["warn", {
-      "callbacksLast": true,
-      "shorthandFirst": true,
-      "ignoreCase": true
-    }],
+    "react/jsx-sort-props": [
+      "warn",
+      {
+        "callbacksLast": true,
+        "shorthandFirst": true,
+        "ignoreCase": true
+      }
+    ],
     "react-hooks/exhaustive-deps": "warn",
     "react-hooks/rules-of-hooks": "error",
 
@@ -59,51 +65,61 @@
     "@next/next/no-html-link-for-pages": "error",
 
     // Import/Export rules
-    "import/order": ["error", {
-      "groups": [
-        "builtin",
-        "external", 
-        "internal",
-        "parent",
-        "sibling",
-        "index"
-      ],
-      "newlines-between": "always",
-      "alphabetize": {
-        "order": "asc",
-        "caseInsensitive": true
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
       }
-    }],
+    ],
     "import/no-default-export": "off", // Next.js pages need default exports
     "import/prefer-default-export": "off",
 
     // Code style
     "semi": ["error", "always"],
-    "quotes": ["error", "double", { 
-      "allowTemplateLiterals": true,
-      "avoidEscape": true
-    }],
+    "quotes": [
+      "error",
+      "double",
+      {
+        "allowTemplateLiterals": true,
+        "avoidEscape": true
+      }
+    ],
     "comma-dangle": ["error", "never"],
     "object-curly-spacing": ["error", "always"],
     "array-bracket-spacing": ["error", "never"],
-    "indent": ["error", 2, { 
-      "SwitchCase": 1,
-      "VariableDeclarator": 1,
-      "outerIIFEBody": 1
-    }],
-    "max-len": ["warn", { 
-      "code": 120,
-      "ignoreUrls": true,
-      "ignoreStrings": true,
-      "ignoreTemplateLiterals": true
-    }],
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1,
+        "VariableDeclarator": 1,
+        "outerIIFEBody": 1
+      }
+    ],
+    "max-len": [
+      "warn",
+      {
+        "code": 120,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ],
     "no-trailing-spaces": "error",
     "no-multiple-empty-lines": ["error", { "max": 1 }],
     "object-shorthand": "error",
-    "prefer-destructuring": ["error", {
-      "array": false,
-      "object": true
-    }],
+    "prefer-destructuring": [
+      "error",
+      {
+        "array": false,
+        "object": true
+      }
+    ],
 
     // Performance & Best Practices
     "no-await-in-loop": "warn",

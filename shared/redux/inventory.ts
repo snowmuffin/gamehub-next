@@ -1,11 +1,11 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface InventoryItem {
   id: string;
   name: string;
   description?: string;
   quantity: number;
-  rarity?: 'common' | 'uncommon' | 'rare' | 'epic' | 'legendary';
+  rarity?: "common" | "uncommon" | "rare" | "epic" | "legendary";
   image?: string;
   type?: string;
   price?: number;
@@ -21,7 +21,7 @@ interface InventoryState {
     rarity?: string;
     type?: string;
   };
-  // Modal 관련 상태
+  // Modal-related state
   modalData: any | null;
   isSubmit: boolean;
   submitQuantity: number;
@@ -34,19 +34,19 @@ const initialState: InventoryState = {
   loading: false,
   error: null,
   filters: {
-    search: '',
+    search: "",
     rarity: undefined,
-    type: undefined,
+    type: undefined
   },
-  // Modal 관련 초기 상태
+  // Modal-related initial state
   modalData: null,
   isSubmit: false,
   submitQuantity: 0,
-  submitPrice: 0,
+  submitPrice: 0
 };
 
 const inventorySlice = createSlice({
-  name: 'inventory',
+  name: "inventory",
   initialState,
   reducers: {
     setItems: (state, action: PayloadAction<InventoryItem[]>) => {
@@ -83,13 +83,13 @@ const inventorySlice = createSlice({
       state.error = action.payload;
       state.loading = false;
     },
-    setFilters: (state, action: PayloadAction<Partial<InventoryState['filters']>>) => {
+    setFilters: (state, action: PayloadAction<Partial<InventoryState["filters"]>>) => {
       state.filters = { ...state.filters, ...action.payload };
     },
-    clearFilters: (state) => {
+    clearFilters: state => {
       state.filters = initialState.filters;
     },
-    // Modal 관련 액션들
+    // Modal-related actions
     INVENTORY_CHANGE_MODAL_ITEMS_PRICE: (state, action: PayloadAction<number>) => {
       state.submitPrice = action.payload;
     },
@@ -103,12 +103,12 @@ const inventorySlice = createSlice({
     setModalData: (state, action: PayloadAction<any>) => {
       state.modalData = action.payload;
     },
-    resetSubmitState: (state) => {
+    resetSubmitState: state => {
       state.isSubmit = false;
       state.submitQuantity = 0;
       state.submitPrice = 0;
-    },
-  },
+    }
+  }
 });
 
 export const inventoryActions = inventorySlice.actions;

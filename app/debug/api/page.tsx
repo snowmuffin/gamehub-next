@@ -9,7 +9,7 @@ const ApiDebugPage = () => {
   const testEndpoints = [
     { name: "로컬 API 테스트", url: "/api/test" },
     { name: "사용자 랭킹 (rewrite)", url: "/api/user/rankings" },
-  { name: "직접 API 호출", url: `${process.env.NEXT_PUBLIC_API_URL || ""}/user/rankings` }
+    { name: "직접 API 호출", url: `${process.env.NEXT_PUBLIC_API_URL || ""}/user/rankings` }
   ];
 
   const testApi = async (endpoint: { name: string; url: string }) => {
@@ -73,7 +73,7 @@ const ApiDebugPage = () => {
   const testAllEndpoints = async () => {
     for (const endpoint of testEndpoints) {
       await testApi(endpoint);
-      await new Promise(resolve => setTimeout(resolve, 1000)); // 1초 대기
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Wait 1 second
     }
   };
 

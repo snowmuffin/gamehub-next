@@ -5,7 +5,7 @@ interface LanguageState {
 }
 
 const initialState: LanguageState = {
-  code: "en" // 기본 언어코드
+  code: "en" // Default language code
 };
 
 const languageSlice = createSlice({

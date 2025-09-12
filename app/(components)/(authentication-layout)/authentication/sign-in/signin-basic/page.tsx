@@ -20,15 +20,17 @@ const SigninBasic = () => {
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
-      // 환경변수 기반 허용된 origin 목록 (하드코딩된 호스트/IP 제거)
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || ""; // 예: https://api.example.com
-      const frontendUrl = process.env.NEXT_PUBLIC_FRONTEND_URL || ""; // 예: https://app.example.com
-      const frontendDomain = process.env.NEXT_PUBLIC_FRONTEND_DOMAIN || ""; // 예: app.example.com
+      // Allowed origins based on environment variables (avoid hardcoded hosts/IPs)
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || ""; // e.g., https://api.example.com
+      const frontendUrl = process.env.NEXT_PUBLIC_FRONTEND_URL || ""; // e.g., https://app.example.com
+      const frontendDomain = process.env.NEXT_PUBLIC_FRONTEND_DOMAIN || ""; // e.g., app.example.com
 
       const baseOrigins = [window.location.origin, apiUrl, frontendUrl];
 
       const additionalOrigins = process.env.NEXT_PUBLIC_ALLOWED_ORIGINS
-        ? process.env.NEXT_PUBLIC_ALLOWED_ORIGINS.split(",").map(origin => origin.trim()).filter(Boolean)
+        ? process.env.NEXT_PUBLIC_ALLOWED_ORIGINS.split(",")
+            .map(origin => origin.trim())
+            .filter(Boolean)
         : [];
 
       if (frontendDomain) {
@@ -39,7 +41,7 @@ const SigninBasic = () => {
 
       const allowedOrigins = Array.from(new Set([...baseOrigins.filter(Boolean), ...additionalOrigins]));
 
-      // 추가적으로 도메인이 같으면 프로토콜 차이는 허용
+      // Additionally, allow protocol differences when the hostname matches
       const currentHost = window.location.hostname;
       let eventUrl: URL;
       try {
@@ -65,20 +67,20 @@ const SigninBasic = () => {
       if (status === 200 && token) {
         setIsLoginInProgress(false);
 
-        // Redux 상태 업데이트 (올바른 액션 사용)
+        // Update Redux state (use the correct action)
         dispatch(loginSuccess(token));
 
-        // 토큰을 로컬 스토리지에도 저장
+        // Also persist token in localStorage
         try {
           localStorage.setItem("authToken", token);
           if (user) {
             localStorage.setItem("user", JSON.stringify(user));
           }
         } catch (e) {
-          // 로컬 스토리지 저장 실패 시 무시
+          // Ignore if writing to localStorage fails
         }
 
-        // 약간의 지연 후 리디렉션 (Redux 상태 업데이트 완료 대기)
+        // Redirect after a short delay (wait for Redux state to settle)
         setTimeout(() => {
           router.push("/dashboard/gaming");
         }, 100);
@@ -103,14 +105,14 @@ const SigninBasic = () => {
 
   const handleSteamLogin = () => {
     setIsLoginInProgress(true);
-    setClientError(null); // 이전 에러 초기화
-    dispatch(loginStart()); // Redux 상태 업데이트
+    setClientError(null); // Clear previous error
+    dispatch(loginStart()); // Update Redux state
 
-    // 현재 origin을 백엔드에 전달하여 올바른 postMessage target을 설정할 수 있도록 함
+    // Pass current origin to the backend so it can target postMessage correctly
     const currentOrigin = window.location.origin;
-  const baseUrl = process.env.NEXT_PUBLIC_STEAM_AUTH_URL || `${window.location.origin}/auth/steam`;
+    const baseUrl = process.env.NEXT_PUBLIC_STEAM_AUTH_URL || `${window.location.origin}/auth/steam`;
 
-    // URL에 현재 origin을 파라미터로 추가
+    // Append the current origin as a query parameter
     const steamAuthUrl = `${baseUrl}?origin=${encodeURIComponent(currentOrigin)}`;
 
     const popup = window.open(steamAuthUrl, "Steam Login", "width=600,height=700,scrollbars=yes,resizable=yes");
@@ -127,9 +129,9 @@ const SigninBasic = () => {
       if (popup && popup.closed) {
         clearInterval(interval);
 
-        // 팝업이 닫혔을 때 일정 시간 후에도 성공 메시지가 없으면 에러 처리
+        // If the popup closes and no success message arrives within a short time, treat as error
         setTimeout(() => {
-          // 로그인이 진행 중이었지만 완료되지 않았다면 실패로 간주
+          // Consider it failed if login was in progress but did not complete
           if (isLoginInProgress && !token) {
             const errorMsg = "Login was cancelled or failed. Please try again.";
             dispatch(loginFailure(errorMsg));
@@ -140,7 +142,7 @@ const SigninBasic = () => {
       }
     }, 500);
 
-    // 팝업이 30초 후에도 열려있으면 타임아웃
+    // If the popup is still open after 30 seconds, time out
     setTimeout(() => {
       if (popup && !popup.closed) {
         popup.close();

@@ -1,27 +1,22 @@
-import React from 'react';
-import { IconButton, IconButtonProps, Tooltip } from '@mui/material';
+import React from "react";
+import { IconButton, IconButtonProps, Tooltip } from "@mui/material";
 
 interface CustomIconButtonProps extends IconButtonProps {
   tooltip?: string;
-  children?: React.ReactNode; // 선택적으로 변경
-  // 추가 props
+  children?: React.ReactNode; // Optional override
+  // Additional props
   icon?: React.ReactNode;
 }
 
-const CustomIconButton: React.FC<CustomIconButtonProps> = ({
-  tooltip,
-  children,
-  icon,
-  ...props
-}) => {
+const CustomIconButton: React.FC<CustomIconButtonProps> = ({ tooltip, children, icon, ...props }) => {
   const button = (
     <IconButton
       {...props}
       sx={{
-        '&:hover': {
-          backgroundColor: 'action.hover',
+        "&:hover": {
+          backgroundColor: "action.hover"
         },
-        ...props.sx,
+        ...props.sx
       }}
     >
       {icon || children}
@@ -29,11 +24,7 @@ const CustomIconButton: React.FC<CustomIconButtonProps> = ({
   );
 
   if (tooltip) {
-    return (
-      <Tooltip title={tooltip}>
-        {button}
-      </Tooltip>
-    );
+    return <Tooltip title={tooltip}>{button}</Tooltip>;
   }
 
   return button;

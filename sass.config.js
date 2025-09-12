@@ -4,6 +4,6 @@ module.exports = {
     // Suppress deprecation warnings for @import
     quietDeps: true,
     charset: false,
-    silenceDeprecations: ['import'],
-  },
+    silenceDeprecations: ["import"]
+  }
 };
