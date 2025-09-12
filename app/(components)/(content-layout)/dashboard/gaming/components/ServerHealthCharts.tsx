@@ -44,9 +44,23 @@ function defaultRange(hours = 1) {
   return { from: toISO(from), to: toISO(to) };
 }
 
-export default function ServerHealthCharts({ code }: { code: string }) {
+type ServerHealthChartsProps = {
+  code: string;
+  onCodeChange?: (code: string) => void;
+  serverCodes?: string[];
+  codesLoading?: boolean;
+  serverOptions?: Array<{ code: string; name?: string }>;
+};
+
+export default function ServerHealthCharts({
+  code,
+  onCodeChange,
+  serverCodes = [],
+  codesLoading = false,
+  serverOptions = []
+}: ServerHealthChartsProps) {
   const [{ from, to }, setRange] = useState(defaultRange(6));
-  const [metricName, setMetricName] = useState<string>("latency");
+  const [metricName, setMetricName] = useState<string>("");
   const [windowSize, setWindowSize] = useState<"1m" | "5m" | "1h">("1m");
   const [events, setEvents] = useState<EventItem[]>([]);
   const [snapshots, setSnapshots] = useState<SnapshotItem[]>([]);
@@ -75,8 +89,8 @@ export default function ServerHealthCharts({ code }: { code: string }) {
       setSnapshots(snRes.data as SnapshotItem[]);
     } catch (e: any) {
       const status = e?.response?.status;
-      if (status === 404) setError("서버 코드를 찾을 수 없습니다 (404)");
-      else setError(e?.message || "데이터 조회 실패");
+      if (status === 404) setError("Server code not found (404)");
+      else setError(e?.message || "Failed to load chart data");
       setEvents([]);
       setSnapshots([]);
     } finally {
@@ -89,17 +103,52 @@ export default function ServerHealthCharts({ code }: { code: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [code, from, to, metricName, windowSize]);
 
-  const latencySeries = useMemo(() => {
-    const points = events
-      .filter(e => e.metricValue !== null && e.observedAt)
-      .map(e => [new Date(e.observedAt).getTime(), e.metricValue as number])
-      .sort((a, b) => a[0] - b[0]);
-    return [
-      {
-        name: metricName || (events[0]?.metricName ?? "metric"),
-        data: points
-      }
-    ];
+  // Derive available metric names from returned data (events + snapshots)
+  const availableMetrics = useMemo(() => {
+    const set = new Set<string>();
+    for (const e of events) if (e.metricName) set.add(e.metricName);
+    for (const s of snapshots) if (s.metricName) set.add(s.metricName);
+    return Array.from(set).sort();
+  }, [events, snapshots]);
+
+  // Ensure selected metric exists; if not, auto-select first available
+  useEffect(() => {
+    if (metricName && availableMetrics.length > 0 && !availableMetrics.includes(metricName)) {
+      setMetricName(availableMetrics[0]);
+    }
+  }, [availableMetrics, metricName]);
+
+  // If exactly one metric is available and nothing selected, select it for better UX
+  useEffect(() => {
+    if (!metricName && availableMetrics.length === 1) {
+      setMetricName(availableMetrics[0]);
+    }
+  }, [availableMetrics, metricName]);
+
+  // Build raw events series: if a metric is selected, show that only; otherwise, group by available metrics
+  const rawEventSeries = useMemo(() => {
+    if (!events.length) return [] as any[];
+    const byMetric = new Map<string, Array<[number, number]>>();
+
+    const addPoint = (name: string, at: string, value: number) => {
+      const arr = byMetric.get(name) || [];
+      arr.push([new Date(at).getTime(), value]);
+      byMetric.set(name, arr);
+    };
+
+    for (const e of events) {
+      if (e.metricValue === null || !e.observedAt) continue;
+      const name = e.metricName || "metric";
+      if (metricName && name !== metricName) continue; // filter when a metric is chosen
+      addPoint(name, e.observedAt, e.metricValue);
+    }
+
+    // Sort each series by time and emit
+    const series = Array.from(byMetric.entries()).map(([name, pts]) => ({
+      name,
+      data: pts.sort((a, b) => a[0] - b[0])
+    }));
+    return series;
   }, [events, metricName]);
 
   const uptimeSeries = useMemo(() => {
@@ -114,7 +163,8 @@ export default function ServerHealthCharts({ code }: { code: string }) {
       .filter(s => s.metricAvg !== null)
       .map(s => [new Date(s.windowStart).getTime(), s.metricAvg as number])
       .sort((a, b) => a[0] - b[0]);
-    return [{ name: `${snapshots[0]?.metricName ?? metricName} avg`, data: points }];
+    const nameBase = snapshots.find(s => s.metricName)?.metricName ?? metricName ?? "metric";
+    return [{ name: `${nameBase} avg`, data: points }];
   }, [snapshots, metricName]);
 
   const commonOptions = useMemo(
@@ -138,17 +188,50 @@ export default function ServerHealthCharts({ code }: { code: string }) {
       <div className="bottom-left"></div>
       <div className="bottom-right"></div>
       <Card.Header className="justify-content-between">
-        <div className="card-title">Server Health Charts — {code}</div>
+        <div className="card-title">
+          {(() => {
+            const label = serverOptions.find(s => s.code === code)?.name || code;
+            return `Server Health Charts — ${label}`;
+          })()}
+        </div>
         <div className="d-flex gap-2 align-items-center flex-wrap">
+          <div className="d-flex align-items-center gap-2 me-2">
+            <div className="text-muted">Server</div>
+            <Form.Select
+              size="sm"
+              style={{ width: 220 }}
+              value={code}
+              onChange={e => onCodeChange?.(e.target.value)}
+              disabled={codesLoading || serverCodes.length === 0 || !onCodeChange}
+            >
+              {codesLoading && <option>Loading…</option>}
+              {!codesLoading && serverCodes.length === 0 && <option>No servers</option>}
+              {!codesLoading &&
+                (serverOptions.length > 0 ? serverOptions.map(s => (
+                  <option key={s.code} value={s.code}>
+                    {s.name || s.code}
+                  </option>
+                )) : serverCodes.map(c => (
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
+                )))}
+            </Form.Select>
+          </div>
           <Form.Select
             size="sm"
             value={metricName}
             onChange={e => setMetricName(e.target.value)}
-            style={{ width: 140 }}
+            style={{ width: 180 }}
+            disabled={availableMetrics.length === 0}
           >
-            <option value="">all metrics</option>
-            <option value="latency">latency</option>
-            <option value="sim_speed">sim_speed</option>
+            {availableMetrics.length > 1 && <option value="">all metrics</option>}
+            {availableMetrics.length === 0 && <option>No metrics</option>}
+            {availableMetrics.map(m => (
+              <option key={m} value={m}>
+                {m}
+              </option>
+            ))}
           </Form.Select>
           <Form.Select
             size="sm"
@@ -176,45 +259,41 @@ export default function ServerHealthCharts({ code }: { code: string }) {
       <Card.Body>
         {loading ? (
           <div className="d-flex align-items-center gap-2">
-            <Spinner size="sm" /> <span>차트 데이터 불러오는 중…</span>
+            <Spinner size="sm" /> <span>Loading chart data…</span>
           </div>
         ) : error ? (
           <div className="text-danger">{error}</div>
         ) : (
           <>
             <Row className="g-4">
-              <Col xs={12}>
-                <div className="mb-2 text-muted">Raw Events — {metricName || "metric"}</div>
-                <ReactApexChart
-                  options={{ ...commonOptions, yaxis: { labels: { formatter: (v: number) => `${v}` } } }}
-                  series={latencySeries as any}
-                  type="line"
-                  height={260}
-                />
-              </Col>
-              <Col md={6}>
-                <div className="mb-2 text-muted">Uptime Ratio (%)</div>
-                <ReactApexChart
-                  options={{
-                    ...commonOptions,
-                    yaxis: { max: 100, min: 0, labels: { formatter: (v: number) => `${v}%` } }
-                  }}
-                  series={uptimeSeries as any}
-                  type="line"
-                  height={220}
-                />
-              </Col>
-              <Col md={6}>
-                <div className="mb-2 text-muted">
-                  Metric Average {snapshots[0]?.metricUnit ? `(${snapshots[0]?.metricUnit})` : ""}
-                </div>
-                <ReactApexChart
-                  options={{ ...commonOptions }}
-                  series={metricAvgSeries as any}
-                  type="line"
-                  height={220}
-                />
-              </Col>
+              {rawEventSeries.length > 0 && (
+                <Col xs={12}>
+                  <div className="mb-2 text-muted">
+                    Raw Events {metricName ? `— ${metricName}` : availableMetrics.length > 1 ? "— all metrics" : ""}
+                  </div>
+                  <ReactApexChart
+                    options={{ ...commonOptions, yaxis: { labels: { formatter: (v: number) => `${v}` } } }}
+                    series={rawEventSeries as any}
+                    type="line"
+                    height={260}
+                  />
+                </Col>
+              )}
+
+              {snapshots.length > 0 && (
+                <Col>
+                  <div className="mb-2 text-muted">Uptime Ratio (%)</div>
+                  <ReactApexChart
+                    options={{
+                      ...commonOptions,
+                      yaxis: { max: 100, min: 0, labels: { formatter: (v: number) => `${v}%` } }
+                    }}
+                    series={uptimeSeries as any}
+                    type="line"
+                    height={220}
+                  />
+                </Col>
+              )}
             </Row>
           </>
         )}

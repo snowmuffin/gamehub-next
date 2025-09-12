@@ -41,12 +41,20 @@ function percent(v?: number | null) {
 }
 
 // Current status summary card for a Space Engineers server
-export default function ServerHealthStatusCard({ code, refreshMs = 30000 }: { code: string; refreshMs?: number }) {
+export default function ServerHealthStatusCard({
+  code,
+  displayName,
+  refreshMs = 30000
+}: {
+  code: string;
+  displayName?: string;
+  refreshMs?: number;
+}) {
   const [data, setData] = useState<StatusResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const title = useMemo(() => `Server Status — ${code}`, [code]);
+  const title = useMemo(() => `Server Status — ${displayName || code}`, [code, displayName]);
 
   const fetchStatus = async () => {
     setLoading(true);
