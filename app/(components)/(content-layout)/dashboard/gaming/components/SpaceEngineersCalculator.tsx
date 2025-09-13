@@ -29,7 +29,7 @@ const THRUSTERS_BY_GRID: Record<GridSize, ThrusterSpec[]> = {
     { id: "atmo_small", name: "Atmospheric Thruster", thrustN: 96_000, kind: "atmo", massKg: 699 }, // 96 kN, 699 kg
     // Flat Atmospheric (Flatmo)
     { id: "flatmo_small", name: "Flat Atmospheric Thruster", thrustN: 32_000, kind: "atmo", massKg: 303 }, // 32 kN, 303 kg
-    { id: "flatmo_large", name: "Large Flat Atmospheric Thruster", thrustN: 230_000, kind: "atmo" }, // 230 kN (mass TBD)
+  { id: "flatmo_large", name: "Large Flat Atmospheric Thruster", thrustN: 230_000, kind: "atmo", massKg: 1_060 }, // 230 kN, 1,060 kg
     // Prototech (treated as Ion-like for environment curve)
     { id: "prototech_small", name: "Prototech Thruster", thrustN: 561_600, kind: "ion", massKg: 1521 } // 561.6 kN
   ],
@@ -45,7 +45,7 @@ const THRUSTERS_BY_GRID: Record<GridSize, ThrusterSpec[]> = {
     { id: "atmo_small", name: "Atmospheric Thruster", thrustN: 648_000, kind: "atmo", massKg: 4_000 }, // 648 kN, 4,000 kg
     // Flat Atmospheric (Flatmo)
     { id: "flatmo_small", name: "Flat Atmospheric Thruster", thrustN: 200_000, kind: "atmo", massKg: 1_273 }, // 200 kN, 1,273 kg
-    { id: "flatmo_large", name: "Large Flat Atmospheric Thruster", thrustN: 2_600_000, kind: "atmo" }, // 2,600 kN (mass TBD)
+  { id: "flatmo_large", name: "Large Flat Atmospheric Thruster", thrustN: 2_600_000, kind: "atmo", massKg: 12_190 }, // 2,600 kN, 12,190 kg
     // Prototech (treated as Ion-like for environment curve)
     { id: "prototech_large", name: "Prototech Thruster", thrustN: 14_040_000, kind: "ion", massKg: 38_850 } // 14,040 kN
   ]
