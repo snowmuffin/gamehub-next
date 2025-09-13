@@ -108,7 +108,7 @@ const Gaming = () => {
           {error ? (
             <div className="text-danger text-center">{error}</div>
           ) : (
-            <PlayerStatisticsCard rankings={rankings} />
+            <PlayerStatisticsCard rankings={rankings.slice(0, 10)} />
           )}
         </Col>
         <Col xl={7} lg={6} md={6} sm={12}>
