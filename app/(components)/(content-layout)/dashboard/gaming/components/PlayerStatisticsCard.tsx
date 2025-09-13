@@ -12,7 +12,7 @@ type PlayerStatisticsCardProps = {
 };
 
 const PlayerStatisticsCard = ({ rankings }: PlayerStatisticsCardProps) => (
-  <Card className="custom-card h-100">
+  <Card className="custom-card">
     <div className="top-left"></div>
     <div className="top-right"></div>
     <div className="bottom-left"></div>
@@ -21,8 +21,8 @@ const PlayerStatisticsCard = ({ rankings }: PlayerStatisticsCardProps) => (
       <div className="card-title">Player Statistics</div>
       <Badge className="bg-primary-transparent border border-primary border-opacity-10 rounded-0">View All</Badge>
     </Card.Header>
-    <Card.Body className="player-statistics d-flex flex-column">
-      <div className="table-responsive flex-grow-1">
+    <Card.Body className="player-statistics">
+  <div className="table-responsive">
         {rankings.length > 0 ? (
           <table className="table text-nowrap table-borderless table-striped">
             <thead>

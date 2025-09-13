@@ -75,11 +75,15 @@
 	}
 }
 
-	// Ranking card: cap height and scroll inside
-	// Player statistics fills container and scrolls inside
+	// Ranking card body fills card and scrolls within available height
 	.player-statistics {
+		display: flex;
+		flex-direction: column;
 		min-height: 0; // allow flex child to shrink
+
 		.table-responsive {
+			flex: 1 1 auto;
+			min-height: 0;
 			overflow-y: auto;
 		}
 	}
