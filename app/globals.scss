@@ -76,17 +76,10 @@
 }
 
 	// Ranking card: cap height and scroll inside
-	.custom-card.no-stretch {
-		height: auto; // opt-out of equal height
-	}
-
+	// Player statistics fills container and scrolls inside
 	.player-statistics {
-		// set a reasonable max height and allow internal scrolling
-		max-height: 480px;
-		overflow: hidden; // hide outer overflow
-
+		min-height: 0; // allow flex child to shrink
 		.table-responsive {
 			overflow-y: auto;
-			max-height: 100%;
 		}
 	}
