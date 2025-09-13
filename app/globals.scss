@@ -56,6 +56,7 @@
 	> .col-xxl,
 	> [class^="col-"] {
 		display: flex;
+		min-width: 0; // allow shrinking
 	}
 
 	.card,

@@ -113,7 +113,7 @@ const Gaming = () => {
         </Col>
         <Col xl={7} lg={6} md={6} sm={12}>
           {serverCode ? (
-            <>
+            <Row className="g-4">
               <Col xs={12}>
                 <ServerHealthStatusCard
                   code={serverCode}
@@ -129,15 +129,17 @@ const Gaming = () => {
                   codesLoading={codesLoading}
                 />
               </Col>
-            </>
+            </Row>
           ) : (
-            <Col xs={12}>
-              <Card className="custom-card">
-                <Card.Body>
-                  <div className="text-muted">Select a server to view status and charts.</div>
-                </Card.Body>
-              </Card>
-            </Col>
+            <Row>
+              <Col xs={12}>
+                <Card className="custom-card">
+                  <Card.Body>
+                    <div className="text-muted">Select a server to view status and charts.</div>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
           )}
         </Col>
       </Row>

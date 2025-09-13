@@ -194,12 +194,12 @@ export default function ServerHealthCharts({
             return `Server Health Charts — ${label}`;
           })()}
         </div>
-        <div className="d-flex gap-2 align-items-center flex-wrap">
+  <div className="d-flex gap-2 align-items-center flex-wrap w-100">
           <div className="d-flex align-items-center gap-2 me-2">
             <div className="text-muted">Server</div>
             <Form.Select
               size="sm"
-              style={{ width: 220 }}
+              style={{ width: "min(220px, 100%)" }}
               value={code}
               onChange={e => onCodeChange?.(e.target.value)}
               disabled={codesLoading || serverCodes.length === 0 || !onCodeChange}
@@ -224,7 +224,7 @@ export default function ServerHealthCharts({
             size="sm"
             value={metricName}
             onChange={e => setMetricName(e.target.value)}
-            style={{ width: 180 }}
+            style={{ width: "min(180px, 100%)" }}
             disabled={availableMetrics.length === 0}
           >
             {availableMetrics.length > 1 && <option value="">all metrics</option>}
@@ -239,7 +239,7 @@ export default function ServerHealthCharts({
             size="sm"
             value={windowSize}
             onChange={e => setWindowSize(e.target.value as any)}
-            style={{ width: 100 }}
+            style={{ width: "min(100px, 100%)" }}
           >
             <option value="1m">1m</option>
             <option value="5m">5m</option>
