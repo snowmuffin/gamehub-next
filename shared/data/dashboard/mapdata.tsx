@@ -110,7 +110,9 @@ export default class WorldMapCom extends Component<WorldMapProps, WorldMapState>
                 </div>
               </div>
             </div>
-            <div className="mt-3 text-muted small">Install vector map library for interactive world map</div>
+            <div className="mt-3 text-muted small">
+              Install vector map library for interactive world map
+            </div>
           </div>
         </div>
       </div>

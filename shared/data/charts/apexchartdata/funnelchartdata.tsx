@@ -46,7 +46,16 @@ export class FunnelData extends Component<{}, FunnelDataState> {
         },
 
         xaxis: {
-          categories: ["Sourced", "Screened", "Assessed", "HR Interview", "Technical", "Verify", "Offered", "Hired"]
+          categories: [
+            "Sourced",
+            "Screened",
+            "Assessed",
+            "HR Interview",
+            "Technical",
+            "Verify",
+            "Offered",
+            "Hired"
+          ]
         },
         legend: {
           show: false

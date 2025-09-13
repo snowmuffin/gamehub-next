@@ -144,7 +144,8 @@ export const SubheadingsButtons: subheading[] = [
   {
     id: 4,
     text1: "majority have suffered.",
-    text2: " If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything.",
+    text2:
+      " If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything.",
     text3: "14 Views",
     class: "danger-transparent"
   }

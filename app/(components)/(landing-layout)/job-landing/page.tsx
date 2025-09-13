@@ -86,12 +86,12 @@ const Joblanding = ({ ThemeChanger }: any) => {
     if (typeof window !== "undefined") {
       if (window.scrollY > 30 && document.querySelector(".landing-body")) {
         const Scolls = document.querySelectorAll(".sticky");
-        Scolls.forEach(e => {
+        Scolls.forEach((e) => {
           e.classList.add("sticky-pin");
         });
       } else {
         const Scolls = document.querySelectorAll(".sticky");
-        Scolls.forEach(e => {
+        Scolls.forEach((e) => {
           e.classList.remove("sticky-pin");
         });
       }
@@ -110,9 +110,12 @@ const Joblanding = ({ ThemeChanger }: any) => {
   const onScroll = () => {
     const sections = document.querySelectorAll(".side-menu__item");
     const scrollPos =
-      window.scrollY || document.documentElement.scrollTop || document.querySelector("body")?.scrollTop || 0;
+      window.scrollY ||
+      document.documentElement.scrollTop ||
+      document.querySelector("body")?.scrollTop ||
+      0;
 
-    sections.forEach(elem => {
+    sections.forEach((elem) => {
       const value = elem.getAttribute("href") ?? "";
       const fragmentIndex = value.indexOf("#");
       const fragment = fragmentIndex !== -1 ? value.substring(fragmentIndex + 1) : "";
@@ -234,7 +237,13 @@ const Joblanding = ({ ThemeChanger }: any) => {
                 </div>
               </div>
               <div className="slide-left" id="slide-left">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#7b8191"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
                   {" "}
                   <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>{" "}
                 </svg>
@@ -267,14 +276,23 @@ const Joblanding = ({ ThemeChanger }: any) => {
                 </li>
               </ul>
               <div className="slide-right" id="slide-right">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#7b8191"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
                   {" "}
                   <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>{" "}
                 </svg>
               </div>
               <div className="d-lg-flex d-none">
                 <div className="btn-list mt-lg-2 mt-xl-0 mt-0">
-                  <Link href="/authentication/sign-in/signin-basic" className="btn btn-wave btn-primary">
+                  <Link
+                    href="/authentication/sign-in/signin-basic"
+                    className="btn btn-wave btn-primary"
+                  >
                     Sign Up
                   </Link>
                   <Link href="/apps/jobs/job-post" className="btn btn-wave btn-secondary">
@@ -308,8 +326,8 @@ const Joblanding = ({ ThemeChanger }: any) => {
                       <span className="text-warning">Job that Matches You </span> Perfectly !
                     </h5>
                     <p className="fs-16 mb-5 op-8 fw-normal text-fixed-white">
-                      Be part of our community and discover a world of opportunities customized for you, with over 3.25
-                      million active users!
+                      Be part of our community and discover a world of opportunities customized for
+                      you, with over 3.25 million active users!
                     </p>
                   </div>
                 </Col>
@@ -325,7 +343,11 @@ const Joblanding = ({ ThemeChanger }: any) => {
                       <Link href="#!" scroll={false} className="gps-location">
                         <i className="ti ti-current-location"></i>
                       </Link>
-                      <Button variant="" className="btn btn-primary border-0 fw-medium" type="button">
+                      <Button
+                        variant=""
+                        className="btn btn-primary border-0 fw-medium"
+                        type="button"
+                      >
                         <span>Find Job</span>
                         <i className="ri-search-2-line ms-sm-2 d-inline-block"></i>
                       </Button>
@@ -356,19 +378,22 @@ const Joblanding = ({ ThemeChanger }: any) => {
               </div>
             </div>
             <Row>
-              {JobCategory.map(idx => (
+              {JobCategory.map((idx) => (
                 <Col lg={2} md={6} className="col-12" key={Math.random()}>
                   <Card className="custom-card border shadow-none job-category-card">
                     <Card.Body>
                       <div className="p-2 border border-dashed d-inline-flex mb-3 job-category-icon">
                         <i className="ri-briefcase-fill fs-4 job-icon-shadow text-primary"></i>
                       </div>
-                      <h5 className="card-title fw-medium mb-1 text-nowarp text-truncate">{idx.heading}</h5>
+                      <h5 className="card-title fw-medium mb-1 text-nowarp text-truncate">
+                        {idx.heading}
+                      </h5>
                       <p className="fs-14 op-8">
                         <span className="text-default fw-medium">{idx.data} Jobs</span> available
                       </p>
                       <Link className="text-primary fw-medium fs-14" href="#!" scroll={false}>
-                        Find Jobs<i className="ri-arrow-right-s-line align-middle transform-arrow lh-1"></i>
+                        Find Jobs
+                        <i className="ri-arrow-right-s-line align-middle transform-arrow lh-1"></i>
                       </Link>
                     </Card.Body>
                   </Card>
@@ -398,7 +423,9 @@ const Joblanding = ({ ThemeChanger }: any) => {
             <Row>
               <Col md={4} className="col-12">
                 <div className="mb-4 landing-steps">
-                  <span className="avatar avatar-lg border border-dashed text-primary fw-medium">01</span>
+                  <span className="avatar avatar-lg border border-dashed text-primary fw-medium">
+                    01
+                  </span>
                 </div>
                 <Card className="custom-card landing-card text-center">
                   <div className="top-left"></div>
@@ -407,21 +434,25 @@ const Joblanding = ({ ThemeChanger }: any) => {
                   <div className="bottom-right"></div>
                   <Card.Body className=" rounded">
                     <h5 className="fw-medium">
-                      <i className="ri-login-circle-line me-2 d-inline-block text-primary align-middle fs-14"></i>Signup
-                      Your Account
+                      <i className="ri-login-circle-line me-2 d-inline-block text-primary align-middle fs-14"></i>
+                      Signup Your Account
                     </h5>
                     <p className="op-8 fs-14">
-                      Suspendisse tempor ultricies mi, vitae rhoncus nibh faucibus pretium. Duis maximus, elit
+                      Suspendisse tempor ultricies mi, vitae rhoncus nibh faucibus pretium. Duis
+                      maximus, elit
                     </p>
                     <Link className="mx-1 text-primary fw-medium" href="#!" scroll={false}>
-                      Register Now<i className="ri-arrow-right-s-line align-middle transform-arrow lh-1"></i>
+                      Register Now
+                      <i className="ri-arrow-right-s-line align-middle transform-arrow lh-1"></i>
                     </Link>
                   </Card.Body>
                 </Card>
               </Col>
               <Col md={4} className="col-12">
                 <div className="mb-4 landing-steps">
-                  <span className="avatar avatar-lg border border-dashed text-primary fw-medium">02</span>
+                  <span className="avatar avatar-lg border border-dashed text-primary fw-medium">
+                    02
+                  </span>
                 </div>
                 <Card className="custom-card landing-card text-center">
                   <div className="top-left"></div>
@@ -430,21 +461,25 @@ const Joblanding = ({ ThemeChanger }: any) => {
                   <div className="bottom-right"></div>
                   <Card.Body className=" rounded">
                     <h5 className="fw-medium">
-                      <i className="ri-edit-2-line me-2 d-inline-block text-primary align-middle fs-14"></i>Update
-                      Profile
+                      <i className="ri-edit-2-line me-2 d-inline-block text-primary align-middle fs-14"></i>
+                      Update Profile
                     </h5>
                     <p className="op-8 fs-14">
-                      Suspendisse tempor ultricies mi, vitae rhoncus nibh faucibus pretium. Duis maximus, elit
+                      Suspendisse tempor ultricies mi, vitae rhoncus nibh faucibus pretium. Duis
+                      maximus, elit
                     </p>
                     <Link className="mx-1 text-primary fw-medium" href="#!" scroll={false}>
-                      Update Profile<i className="ri-arrow-right-s-line align-middle transform-arrow lh-1"></i>
+                      Update Profile
+                      <i className="ri-arrow-right-s-line align-middle transform-arrow lh-1"></i>
                     </Link>
                   </Card.Body>
                 </Card>
               </Col>
               <Col md={4} className="col-12">
                 <div className="mb-4">
-                  <span className="avatar avatar-lg border border-dashed text-primary fw-medium">03</span>
+                  <span className="avatar avatar-lg border border-dashed text-primary fw-medium">
+                    03
+                  </span>
                 </div>
                 <Card className="custom-card landing-card text-center">
                   <div className="top-left"></div>
@@ -453,14 +488,16 @@ const Joblanding = ({ ThemeChanger }: any) => {
                   <div className="bottom-right"></div>
                   <Card.Body className=" rounded">
                     <h5 className="fw-medium">
-                      <i className="ri-file-list-3-line me-2 d-inline-block text-primary align-middle fs-14"></i>Apply
-                      Job
+                      <i className="ri-file-list-3-line me-2 d-inline-block text-primary align-middle fs-14"></i>
+                      Apply Job
                     </h5>
                     <p className="op-8 fs-14">
-                      Suspendisse tempor ultricies mi, vitae rhoncus nibh faucibus pretium. Duis maximus, elit
+                      Suspendisse tempor ultricies mi, vitae rhoncus nibh faucibus pretium. Duis
+                      maximus, elit
                     </p>
                     <Link className="mx-1 text-primary fw-medium" href="#!" scroll={false}>
-                      Apply Now<i className="ri-arrow-right-s-line align-middle transform-arrow lh-1"></i>
+                      Apply Now
+                      <i className="ri-arrow-right-s-line align-middle transform-arrow lh-1"></i>
                     </Link>
                   </Card.Body>
                 </Card>
@@ -482,11 +519,13 @@ const Joblanding = ({ ThemeChanger }: any) => {
                     Now.
                   </h2>
                   <p className="mb-4 fs-15 op-8 fw-normal">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse velit erat, eleifend nec turpis
-                    venenatis, molestie porta urna. Vivamus eu est vel justo eleifend pretium id
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse velit erat,
+                    eleifend nec turpis venenatis, molestie porta urna. Vivamus eu est vel justo
+                    eleifend pretium id
                   </p>
                   <Link href="#!" scroll={false} className="btn btn-warning btn-lg">
-                    <i className="ri-login-box-line me-2 align-middle d-inline-block"></i> Sign Up for free
+                    <i className="ri-login-box-line me-2 align-middle d-inline-block"></i> Sign Up
+                    for free
                   </Link>
                 </div>
               </div>
@@ -507,7 +546,7 @@ const Joblanding = ({ ThemeChanger }: any) => {
               </Col>
             </div>
             <Row className="mb-3">
-              {Featuredjobs.map(idx => (
+              {Featuredjobs.map((idx) => (
                 <Col lg={4} className="" key={Math.random()}>
                   <Card className="custom-card featured-jobs shadow-none">
                     <div className="top-left"></div>
@@ -544,12 +583,14 @@ const Joblanding = ({ ThemeChanger }: any) => {
                           <Dropdown.Menu as="ul" className="dropdown-menu">
                             <Dropdown.Item as="li">
                               <Link className="" href="#!" scroll={false}>
-                                <i className="ri-share-line me-2 align-middle d-inline-block"></i>Share
+                                <i className="ri-share-line me-2 align-middle d-inline-block"></i>
+                                Share
                               </Link>
                             </Dropdown.Item>
                             <Dropdown.Item as="li">
                               <Link className="" href="#!" scroll={false}>
-                                <i className="ri-file-list-line me-2 align-middle d-inline-block"></i>View Details
+                                <i className="ri-file-list-line me-2 align-middle d-inline-block"></i>
+                                View Details
                               </Link>
                             </Dropdown.Item>
                           </Dropdown.Menu>
@@ -567,7 +608,8 @@ const Joblanding = ({ ThemeChanger }: any) => {
                           </p>
                           <p className="fw-medium mb-0 d-flex align-items-center fs-11 op-5">
                             <span>
-                              <i className="ri-map-pin-line me-1 d-inline-block align-middle"></i>Hyderabad
+                              <i className="ri-map-pin-line me-1 d-inline-block align-middle"></i>
+                              Hyderabad
                             </span>
                             <span className="ps-2">
                               <i className="ri-briefcase-3-line me-1 d-inline-block align-middle"></i>
@@ -594,7 +636,11 @@ const Joblanding = ({ ThemeChanger }: any) => {
               ))}
             </Row>
             <div className="text-center">
-              <Link href="#!" scroll={false} className="btn btn-lg btn-wave btn-primary-light btn-w-lg">
+              <Link
+                href="#!"
+                scroll={false}
+                className="btn btn-lg btn-wave btn-primary-light btn-w-lg"
+              >
                 View All Jobs <i className="ri-arrow-right-circle-line"></i>
               </Link>
             </div>
@@ -604,7 +650,9 @@ const Joblanding = ({ ThemeChanger }: any) => {
           <div className="container">
             <div className="row justify-content-center text-center mb-5 text-fixed-white">
               <Col xl={6}>
-                <h3 className="fw-medium mb-2 text-fixed-white">Which type of job do you prefer?</h3>
+                <h3 className="fw-medium mb-2 text-fixed-white">
+                  Which type of job do you prefer?
+                </h3>
                 <span className="fs-15 fw-normal d-block op-8">
                   Nam posuere tellus ut consequat rutrum. Sed ac leo est. Proin quis arcu lorem
                 </span>
@@ -622,7 +670,8 @@ const Joblanding = ({ ThemeChanger }: any) => {
                       <div className="text-start">
                         <h5 className="mb-1 fw-medium text-default">Work From Home</h5>
                         <Link className="text-primary fs-14 fw-medium" href="#!" scroll={false}>
-                          Find Jobs Now<i className="ri-arrow-right-s-line align-middle transform-arrow lh-1"></i>
+                          Find Jobs Now
+                          <i className="ri-arrow-right-s-line align-middle transform-arrow lh-1"></i>
                         </Link>
                       </div>
                     </div>
@@ -659,7 +708,8 @@ const Joblanding = ({ ThemeChanger }: any) => {
                       <div className="text-start">
                         <h5 className="mb-1 fw-medium text-default">Part Time</h5>
                         <Link className="text-primary fs-14 fw-medium" href="#!" scroll={false}>
-                          Find Jobs Now<i className="ri-arrow-right-s-line align-middle transform-arrow lh-1"></i>
+                          Find Jobs Now
+                          <i className="ri-arrow-right-s-line align-middle transform-arrow lh-1"></i>
                         </Link>
                       </div>
                     </div>
@@ -677,7 +727,8 @@ const Joblanding = ({ ThemeChanger }: any) => {
                       <div className="text-start">
                         <h5 className="mb-1 fw-medium text-default">Full Time</h5>
                         <Link className="text-primary fs-14 fw-medium" href="#!" scroll={false}>
-                          Find Jobs Now<i className="ri-arrow-right-s-line align-middle transform-arrow lh-1"></i>
+                          Find Jobs Now
+                          <i className="ri-arrow-right-s-line align-middle transform-arrow lh-1"></i>
                         </Link>
                       </div>
                     </div>
@@ -720,11 +771,13 @@ const Joblanding = ({ ThemeChanger }: any) => {
                     <span className="badge bg-secondary mb-2">Career</span>
                     <h5 className="fw-medium mb-1">How to build your Career?</h5>
                     <p className="card-text mb-2">
-                      Start by understanding your interests, strengths, and values. What are you passionate about?
+                      Start by understanding your interests, strengths, and values. What are you
+                      passionate about?
                     </p>
                     <div className="fw-medium mb-3 d-flex align-items-center fs-11 op-5">
                       <span>
-                        <i className="ri-calendar-line me-1 d-inline-block align-middle"></i>12 January, 2023
+                        <i className="ri-calendar-line me-1 d-inline-block align-middle"></i>12
+                        January, 2023
                       </span>
                       <span className="ps-2">
                         <i className="ri-time-line me-1 d-inline-block align-middle"></i>1 Day ago
@@ -735,7 +788,8 @@ const Joblanding = ({ ThemeChanger }: any) => {
                       href="#!"
                       scroll={false}
                     >
-                      Read More<i className="ri-arrow-right-s-line align-middle transform-arrow lh-1"></i>
+                      Read More
+                      <i className="ri-arrow-right-s-line align-middle transform-arrow lh-1"></i>
                     </Link>
                   </Card.Body>
                 </Card>
@@ -759,12 +813,13 @@ const Joblanding = ({ ThemeChanger }: any) => {
                     <span className="badge bg-danger mb-2">Employment</span>
                     <h5 className="fw-medium mb-1">Exploring Avenues of Occupational Pursuit</h5>
                     <p className="card-text mb-2">
-                      Diverse realms of professional engagement. Discover pathways, strategies, and insights to
-                      navigate.{" "}
+                      Diverse realms of professional engagement. Discover pathways, strategies, and
+                      insights to navigate.{" "}
                     </p>
                     <div className="fw-medium mb-3 d-flex align-items-center fs-11 op-5">
                       <span>
-                        <i className="ri-calendar-line me-1 d-inline-block align-middle"></i>12 January, 2023
+                        <i className="ri-calendar-line me-1 d-inline-block align-middle"></i>12
+                        January, 2023
                       </span>
                       <span className="ps-2">
                         <i className="ri-time-line me-1 d-inline-block align-middle"></i>1 Day ago
@@ -775,7 +830,8 @@ const Joblanding = ({ ThemeChanger }: any) => {
                       href="#!"
                       scroll={false}
                     >
-                      Read More<i className="ri-arrow-right-s-line align-middle transform-arrow lh-1"></i>
+                      Read More
+                      <i className="ri-arrow-right-s-line align-middle transform-arrow lh-1"></i>
                     </Link>
                   </Card.Body>
                 </Card>
@@ -799,12 +855,13 @@ const Joblanding = ({ ThemeChanger }: any) => {
                     <span className="badge bg-warning mb-2">Skill Development</span>
                     <h5 className="fw-medium mb-1">Empower Your Journey</h5>
                     <p className="card-text mb-2">
-                      Transformative impact of honing your abilities, staying relevant in your field, and unlocking
-                      doors to new opportunities.
+                      Transformative impact of honing your abilities, staying relevant in your
+                      field, and unlocking doors to new opportunities.
                     </p>
                     <div className="fw-medium mb-3 d-flex align-items-center fs-11 op-5">
                       <span>
-                        <i className="ri-calendar-line me-1 d-inline-block align-middle"></i>12 January, 2023
+                        <i className="ri-calendar-line me-1 d-inline-block align-middle"></i>12
+                        January, 2023
                       </span>
                       <span className="ps-2">
                         <i className="ri-time-line me-1 d-inline-block align-middle"></i>1 Day ago
@@ -815,7 +872,8 @@ const Joblanding = ({ ThemeChanger }: any) => {
                       href="#!"
                       scroll={false}
                     >
-                      Read More<i className="ri-arrow-right-s-line align-middle transform-arrow lh-1"></i>
+                      Read More
+                      <i className="ri-arrow-right-s-line align-middle transform-arrow lh-1"></i>
                     </Link>
                   </Card.Body>
                 </Card>
@@ -829,8 +887,9 @@ const Joblanding = ({ ThemeChanger }: any) => {
               <Col lg={9}>
                 <h2 className="fw-medium text-fixed-white">Let's help you find the perfect job!</h2>
                 <span className="d-block fw-normal fs-15 op-8">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque quis leo ut convallis.
-                  Integer vulputate nunc quis diam luctus, eu rutrum odio placerat.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque quis
+                  leo ut convallis. Integer vulputate nunc quis diam luctus, eu rutrum odio
+                  placerat.
                 </span>
               </Col>
               <div className="col-lg-3 text-end my-auto">
@@ -875,11 +934,13 @@ const Joblanding = ({ ThemeChanger }: any) => {
                       data-bs-parent="#accordionFAQ1"
                     >
                       <Accordion.Body className="">
-                        Integration <strong>instructions </strong> are usually provided in the template's documentation.
-                        Follow the step-by-step guide to include the necessary <code>.css</code> files, scripts, and
-                        html files in your project.You can manually integrate the admin template by downloading the
-                        template files and adding them to your project directory. Follow the step-by-step instructions
-                        provided in the documentation for a seamless integration process.
+                        Integration <strong>instructions </strong> are usually provided in the
+                        template's documentation. Follow the step-by-step guide to include the
+                        necessary <code>.css</code> files, scripts, and html files in your
+                        project.You can manually integrate the admin template by downloading the
+                        template files and adding them to your project directory. Follow the
+                        step-by-step instructions provided in the documentation for a seamless
+                        integration process.
                       </Accordion.Body>
                     </div>
                   </Accordion.Item>
@@ -894,9 +955,9 @@ const Joblanding = ({ ThemeChanger }: any) => {
                       data-bs-parent="#accordionFAQ1"
                     >
                       <Accordion.Body>
-                        Yes, most admin templates are designed to be customizable. You can modify colors, fonts,
-                        layouts, and styles according to your project's branding guidelines. Refer to the documentation
-                        for customization options.
+                        Yes, most admin templates are designed to be customizable. You can modify
+                        colors, fonts, layouts, and styles according to your project's branding
+                        guidelines. Refer to the documentation for customization options.
                       </Accordion.Body>
                     </div>
                   </Accordion.Item>
@@ -911,8 +972,9 @@ const Joblanding = ({ ThemeChanger }: any) => {
                       data-bs-parent="#accordionFAQ1"
                     >
                       <Accordion.Body>
-                        Check the template provider's website or documentation for information on updates. Regular
-                        updates may include bug fixes, new features, or compatibility improvements.
+                        Check the template provider's website or documentation for information on
+                        updates. Regular updates may include bug fixes, new features, or
+                        compatibility improvements.
                       </Accordion.Body>
                     </div>
                   </Accordion.Item>
@@ -927,8 +989,9 @@ const Joblanding = ({ ThemeChanger }: any) => {
                       data-bs-parent="#accordionFAQ1"
                     >
                       <Accordion.Body>
-                        Yes, you can upgrade or downgrade your subscription plan at any time. Visit your account
-                        settings or contact our support team to make changes to your subscription level.
+                        Yes, you can upgrade or downgrade your subscription plan at any time. Visit
+                        your account settings or contact our support team to make changes to your
+                        subscription level.
                       </Accordion.Body>
                     </div>
                   </Accordion.Item>
@@ -946,7 +1009,8 @@ const Joblanding = ({ ThemeChanger }: any) => {
               <h3 className="fw-medium mb-2">What Our Clients Say About Us</h3>
               <Col xl={9}>
                 <span className="b-block fw-normal fs-15 text-muted">
-                  Here are reviews shared by our satisfied customers. Discover what they have to say.
+                  Here are reviews shared by our satisfied customers. Discover what they have to
+                  say.
                 </span>
               </Col>
             </div>
@@ -986,8 +1050,9 @@ const Joblanding = ({ ThemeChanger }: any) => {
                         </div>
                       </div>
                       <span className="fs-14">
-                        - Est amet sit vero sanctus labore no sed ipsum ipsum nonumy. Sit ipsum sanctus ea magna est.
-                        Aliquyam sed amet. Kasd diam rebum sit ipsum ipsum erat et kasd.Est amet sit vero sanctus labor
+                        - Est amet sit vero sanctus labore no sed ipsum ipsum nonumy. Sit ipsum
+                        sanctus ea magna est. Aliquyam sed amet. Kasd diam rebum sit ipsum ipsum
+                        erat et kasd.Est amet sit vero sanctus labor
                       </span>
                       <div className="text-end fs-13 op-6">-- 5 days ago</div>
                     </Card.Body>
@@ -1018,8 +1083,9 @@ const Joblanding = ({ ThemeChanger }: any) => {
                         </div>
                       </div>
                       <span className="fs-14">
-                        - Est amet sit vero sanctus labore no sed ipsum ipsum nonumy. Sit ipsum sanctus ea magna est.
-                        Aliquyam sed amet. Kasd diam rebum sit ipsum ipsum erat et kasd.Est amet sit vero sanctus labor
+                        - Est amet sit vero sanctus labore no sed ipsum ipsum nonumy. Sit ipsum
+                        sanctus ea magna est. Aliquyam sed amet. Kasd diam rebum sit ipsum ipsum
+                        erat et kasd.Est amet sit vero sanctus labor
                       </span>
                       <div className="text-end fs-13 op-6">-- 5 days ago</div>
                     </Card.Body>
@@ -1050,8 +1116,9 @@ const Joblanding = ({ ThemeChanger }: any) => {
                         </div>
                       </div>
                       <span className="fs-14">
-                        - Est amet sit vero sanctus labore no sed ipsum ipsum nonumy. Sit ipsum sanctus ea magna est.
-                        Aliquyam sed amet. Kasd diam rebum sit ipsum ipsum erat et kasd.Est amet sit vero sanctus labor
+                        - Est amet sit vero sanctus labore no sed ipsum ipsum nonumy. Sit ipsum
+                        sanctus ea magna est. Aliquyam sed amet. Kasd diam rebum sit ipsum ipsum
+                        erat et kasd.Est amet sit vero sanctus labor
                       </span>
                       <div className="text-end fs-13 op-6">-- 5 days ago</div>
                     </Card.Body>
@@ -1082,8 +1149,9 @@ const Joblanding = ({ ThemeChanger }: any) => {
                         </div>
                       </div>
                       <span className="fs-14">
-                        - Est amet sit vero sanctus labore no sed ipsum ipsum nonumy. Sit ipsum sanctus ea magna est.
-                        Aliquyam sed amet. Kasd diam rebum sit ipsum ipsum erat et kasd.Est amet sit vero sanctus labor
+                        - Est amet sit vero sanctus labore no sed ipsum ipsum nonumy. Sit ipsum
+                        sanctus ea magna est. Aliquyam sed amet. Kasd diam rebum sit ipsum ipsum
+                        erat et kasd.Est amet sit vero sanctus labor
                       </span>
                       <div className="text-end fs-13 op-6">-- 5 days ago</div>
                     </Card.Body>
@@ -1114,8 +1182,9 @@ const Joblanding = ({ ThemeChanger }: any) => {
                         </div>
                       </div>
                       <span className="fs-14">
-                        - Est amet sit vero sanctus labore no sed ipsum ipsum nonumy. Sit ipsum sanctus ea magna est.
-                        Aliquyam sed amet. Kasd diam rebum sit ipsum ipsum erat et kasd.Est amet sit vero sanctus labor
+                        - Est amet sit vero sanctus labore no sed ipsum ipsum nonumy. Sit ipsum
+                        sanctus ea magna est. Aliquyam sed amet. Kasd diam rebum sit ipsum ipsum
+                        erat et kasd.Est amet sit vero sanctus labor
                       </span>
                       <div className="text-end fs-13 op-6">-- 5 days ago</div>
                     </Card.Body>
@@ -1146,8 +1215,9 @@ const Joblanding = ({ ThemeChanger }: any) => {
                         </div>
                       </div>
                       <span className="fs-14">
-                        - Est amet sit vero sanctus labore no sed ipsum ipsum nonumy. Sit ipsum sanctus ea magna est.
-                        Aliquyam sed amet. Kasd diam rebum sit ipsum ipsum erat et kasd.Est amet sit vero sanctus labor
+                        - Est amet sit vero sanctus labore no sed ipsum ipsum nonumy. Sit ipsum
+                        sanctus ea magna est. Aliquyam sed amet. Kasd diam rebum sit ipsum ipsum
+                        erat et kasd.Est amet sit vero sanctus labor
                       </span>
                       <div className="text-end fs-13 op-6">-- 5 days ago</div>
                     </Card.Body>
@@ -1178,8 +1248,9 @@ const Joblanding = ({ ThemeChanger }: any) => {
                         </div>
                       </div>
                       <span className="fs-14">
-                        - Est amet sit vero sanctus labore no sed ipsum ipsum nonumy. Sit ipsum sanctus ea magna est.
-                        Aliquyam sed amet. Kasd diam rebum sit ipsum ipsum erat et kasd.Est amet sit vero sanctus labor
+                        - Est amet sit vero sanctus labore no sed ipsum ipsum nonumy. Sit ipsum
+                        sanctus ea magna est. Aliquyam sed amet. Kasd diam rebum sit ipsum ipsum
+                        erat et kasd.Est amet sit vero sanctus labor
                       </span>
                       <div className="text-end fs-13 op-6">-- 5 days ago</div>
                     </Card.Body>
@@ -1210,8 +1281,9 @@ const Joblanding = ({ ThemeChanger }: any) => {
                         </div>
                       </div>
                       <span className="fs-14">
-                        - Est amet sit vero sanctus labore no sed ipsum ipsum nonumy. Sit ipsum sanctus ea magna est.
-                        Aliquyam sed amet. Kasd diam rebum sit ipsum ipsum erat et kasd.Est amet sit vero sanctus labor
+                        - Est amet sit vero sanctus labore no sed ipsum ipsum nonumy. Sit ipsum
+                        sanctus ea magna est. Aliquyam sed amet. Kasd diam rebum sit ipsum ipsum
+                        erat et kasd.Est amet sit vero sanctus labor
                       </span>
                       <div className="text-end fs-13 op-6">-- 5 days ago</div>
                     </Card.Body>
@@ -1242,8 +1314,9 @@ const Joblanding = ({ ThemeChanger }: any) => {
                         </div>
                       </div>
                       <span className="fs-14">
-                        - Est amet sit vero sanctus labore no sed ipsum ipsum nonumy. Sit ipsum sanctus ea magna est.
-                        Aliquyam sed amet. Kasd diam rebum sit ipsum ipsum erat et kasd.Est amet sit vero sanctus labor
+                        - Est amet sit vero sanctus labore no sed ipsum ipsum nonumy. Sit ipsum
+                        sanctus ea magna est. Aliquyam sed amet. Kasd diam rebum sit ipsum ipsum
+                        erat et kasd.Est amet sit vero sanctus labor
                       </span>
                       <div className="text-end fs-13 op-6">-- 5 days ago</div>
                     </Card.Body>
@@ -1258,12 +1331,14 @@ const Joblanding = ({ ThemeChanger }: any) => {
           <div className="row justify-content-center">
             <div className="col-lg-6 text-center">
               <div className="mb-4">
-                <h4 className="fw-medium mb-2 text-fixed-white">&#128073; Hurry Up! Job is Waiting For You</h4>
+                <h4 className="fw-medium mb-2 text-fixed-white">
+                  &#128073; Hurry Up! Job is Waiting For You
+                </h4>
               </div>
               <span className="fs-14 fw-normal op-8 d-block mb-4 px-lg-0 px-3">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque quis leo ut convallis.
-                Integer vulputate.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque quis leo
-                ut convallis. Integer vulputate.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pellentesque quis leo
+                ut convallis. Integer vulputate.Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit. Donec pellentesque quis leo ut convallis. Integer vulputate.
               </span>
               <Link href="#!" scroll={false} className="btn btn-lg btn-warning btn-w-lg m-1">
                 <i className="bi bi-search me-1"></i> Search Jobs
@@ -1298,7 +1373,11 @@ const Joblanding = ({ ThemeChanger }: any) => {
               <div>
                 <ul className="list-unstyled fw-normal landing-footer-list mb-5">
                   <li>
-                    <Link href="#!" scroll={false} className="text-fixed-white op-6 text-decoration-underline">
+                    <Link
+                      href="#!"
+                      scroll={false}
+                      className="text-fixed-white op-6 text-decoration-underline"
+                    >
                       Terms Of Service
                     </Link>
                   </li>
@@ -1306,7 +1385,11 @@ const Joblanding = ({ ThemeChanger }: any) => {
                     <div className="vr"></div>
                   </li>
                   <li>
-                    <Link href="#!" scroll={false} className="text-fixed-white op-6 text-decoration-underline">
+                    <Link
+                      href="#!"
+                      scroll={false}
+                      className="text-fixed-white op-6 text-decoration-underline"
+                    >
                       Privacy Policy
                     </Link>
                   </li>
@@ -1314,7 +1397,11 @@ const Joblanding = ({ ThemeChanger }: any) => {
                     <div className="vr"></div>
                   </li>
                   <li>
-                    <Link href="#!" scroll={false} className="text-fixed-white op-6 text-decoration-underline">
+                    <Link
+                      href="#!"
+                      scroll={false}
+                      className="text-fixed-white op-6 text-decoration-underline"
+                    >
                       Legal
                     </Link>
                   </li>
@@ -1322,7 +1409,11 @@ const Joblanding = ({ ThemeChanger }: any) => {
                     <div className="vr"></div>
                   </li>
                   <li>
-                    <Link href="#!" scroll={false} className="text-fixed-white op-6 text-decoration-underline">
+                    <Link
+                      href="#!"
+                      scroll={false}
+                      className="text-fixed-white op-6 text-decoration-underline"
+                    >
                       Contact
                     </Link>
                   </li>
@@ -1330,7 +1421,11 @@ const Joblanding = ({ ThemeChanger }: any) => {
                     <div className="vr"></div>
                   </li>
                   <li>
-                    <Link href="#!" scroll={false} className="text-fixed-white op-6 text-decoration-underline">
+                    <Link
+                      href="#!"
+                      scroll={false}
+                      className="text-fixed-white op-6 text-decoration-underline"
+                    >
                       Report Abuse
                     </Link>
                   </li>

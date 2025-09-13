@@ -74,14 +74,18 @@ const nextConfig = {
 
     // Improve Sass loader config - reduce deprecation warnings
     const rules = config.module.rules;
-    const oneOfRule = rules.find(rule => typeof rule.oneOf === "object");
+    const oneOfRule = rules.find((rule) => typeof rule.oneOf === "object");
 
     if (oneOfRule) {
-      oneOfRule.oneOf.forEach(rule => {
+      oneOfRule.oneOf.forEach((rule) => {
         if (rule.test && rule.test.toString().includes("scss|sass")) {
           if (Array.isArray(rule.use)) {
-            rule.use.forEach(loader => {
-              if (typeof loader === "object" && loader.loader && loader.loader.includes("sass-loader")) {
+            rule.use.forEach((loader) => {
+              if (
+                typeof loader === "object" &&
+                loader.loader &&
+                loader.loader.includes("sass-loader")
+              ) {
                 loader.options = {
                   ...loader.options,
                   sassOptions: {
@@ -104,14 +108,16 @@ const nextConfig = {
     // Distinguish development vs production
     const isProd = process.env.NODE_ENV === "production";
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://api.yourdomain.com";
-
-    console.log("🔧 Rewrite config:", {
-      environment: process.env.NODE_ENV,
-      isProd,
-      apiUrl,
-      frontendUrl: process.env.NEXT_PUBLIC_FRONTEND_URL,
-      timestamp: new Date().toISOString()
-    });
+    if (!isProd) {
+      // eslint-disable-next-line no-console
+      console.log("🔧 Rewrite config:", {
+        environment: process.env.NODE_ENV,
+        isProd,
+        apiUrl,
+        frontendUrl: process.env.NEXT_PUBLIC_FRONTEND_URL,
+        timestamp: new Date().toISOString()
+      });
+    }
 
     return [
       {

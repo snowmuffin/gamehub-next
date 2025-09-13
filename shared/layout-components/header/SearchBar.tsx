@@ -56,7 +56,7 @@ const SearchBar = () => {
         autoComplete="off"
         ref={searchRef}
         defaultValue={InputValue}
-        onChange={ele => {
+        onChange={(ele) => {
           myfunction(ele.target.value);
           setInputValue(ele.target.value);
         }}

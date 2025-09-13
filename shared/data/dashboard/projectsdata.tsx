@@ -158,7 +158,13 @@ export class ProjectOverview extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={360} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={360}
+      />
     );
   }
 }

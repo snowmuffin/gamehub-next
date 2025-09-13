@@ -34,20 +34,38 @@ const NotificationDropdown = () => {
 
   const notifydata = [
     { id: 1, src1: img1, heading: "Jessica Lily", data: "Reminder to complete your weekly tasks" },
-    { id: 2, src1: img2, heading: "Payment Received", data: "You've been paid for freelance project." },
-    { id: 3, src1: img3, heading: "New Message", data: "You've received a new message from a friend." },
+    {
+      id: 2,
+      src1: img2,
+      heading: "Payment Received",
+      data: "You've been paid for freelance project."
+    },
+    {
+      id: 3,
+      src1: img3,
+      heading: "New Message",
+      data: "You've received a new message from a friend."
+    },
     {
       id: 4,
       src1: icon1,
       heading: "Appointment Confirmed",
       data: "Your appointment for next week has been confirmed."
     },
-    { id: 5, src1: icon2, heading: "Exclusive Offer", data: "Limited-time offer just for you! Check it out now." }
+    {
+      id: 5,
+      src1: icon2,
+      heading: "Exclusive Offer",
+      data: "Limited-time offer just for you! Check it out now."
+    }
   ];
 
   const [notifications, setNotifications] = useState([...notifydata]);
 
-  const handleNotificationClose = (index: number, event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  const handleNotificationClose = (
+    index: number,
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
     if (event) {
       event.stopPropagation();
     }
@@ -68,7 +86,10 @@ const NotificationDropdown = () => {
         <i className="bi bi-bell header-link-icon"></i>
         <span className="header-icon-pulse bg-warning rounded pulse"></span>
       </Dropdown.Toggle>
-      <Dropdown.Menu className="main-header-dropdown dropdown-menu dropdown-menu-end" data-popper-placement="none">
+      <Dropdown.Menu
+        className="main-header-dropdown dropdown-menu dropdown-menu-end"
+        data-popper-placement="none"
+      >
         <div className="p-3">
           <div className="d-flex align-items-center justify-content-between">
             <p className="mb-0 fs-16">Notifications</p>
@@ -88,12 +109,14 @@ const NotificationDropdown = () => {
                     <p className="mb-0 fw-medium">
                       <Link href="/pages/notifications">{idx.heading}</Link>
                     </p>
-                    <span className="text-muted fw-normal fs-12 header-notification-text">{idx.data}</span>
+                    <span className="text-muted fw-normal fs-12 header-notification-text">
+                      {idx.data}
+                    </span>
                   </div>
                   <div>
                     <Link
                       href="#!"
-                      onClick={event => handleNotificationClose(index, event)}
+                      onClick={(event) => handleNotificationClose(index, event)}
                       className="min-w-fit-content text-muted me-1 dropdown-item-close1"
                     >
                       <i className="bi bi-x fs-16"></i>
@@ -104,7 +127,9 @@ const NotificationDropdown = () => {
             </Dropdown.Item>
           ))}
         </ul>
-        <div className={`p-3 empty-header-item1 border-top ${notifications.length === 0 ? "d-none" : "block"}`}>
+        <div
+          className={`p-3 empty-header-item1 border-top ${notifications.length === 0 ? "d-none" : "block"}`}
+        >
           <div className="text-center">
             <Link href="/pages/notifications" className="link-primary text-decoration-underline">
               View All

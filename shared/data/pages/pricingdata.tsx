@@ -6,8 +6,26 @@ const pricebadge = (
 );
 
 export const Pricingdata = [
-  { id: 1, heading: "Intro", month: "0", users: "4", days: "28", color: "primary-light", data: "", badge: "" },
-  { id: 2, heading: "Basic", month: "29", users: "5", days: "52", color: "primary-light", data: "", badge: "" },
+  {
+    id: 1,
+    heading: "Intro",
+    month: "0",
+    users: "4",
+    days: "28",
+    color: "primary-light",
+    data: "",
+    badge: ""
+  },
+  {
+    id: 2,
+    heading: "Basic",
+    month: "29",
+    users: "5",
+    days: "52",
+    color: "primary-light",
+    data: "",
+    badge: ""
+  },
   {
     id: 3,
     heading: "Popular",
@@ -18,5 +36,14 @@ export const Pricingdata = [
     data: "border-primary",
     badge: pricebadge
   },
-  { id: 4, heading: "Advanced", month: "29", users: "10", days: "365", color: "primary-light", data: "", badge: "" }
+  {
+    id: 4,
+    heading: "Advanced",
+    month: "29",
+    users: "10",
+    days: "365",
+    color: "primary-light",
+    data: "",
+    badge: ""
+  }
 ];

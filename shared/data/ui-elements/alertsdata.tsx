@@ -52,14 +52,24 @@ export const Linkalerts: alert2[] = [
     text3: "Give it a click if you like",
     class: "warning"
   },
-  { text1: "A simple info alert with", text2: "an example link ", text3: "Give it a click if you like", class: "info" },
+  {
+    text1: "A simple info alert with",
+    text2: "an example link ",
+    text3: "Give it a click if you like",
+    class: "info"
+  },
   {
     text1: "A simple light alert with ",
     text2: "an example link ",
     text3: "Give it a click if you like",
     class: "light"
   },
-  { text1: "A simple dark alert with", text2: "an example link ", text3: "Give it a click if you like", class: "dark" }
+  {
+    text1: "A simple dark alert with",
+    text2: "an example link ",
+    text3: "Give it a click if you like",
+    class: "dark"
+  }
 ];
 interface alert3 {
   id: number;
@@ -69,35 +79,96 @@ interface alert3 {
 }
 export const Solidalerts: alert3[] = [
   { id: 1, text: "A simple solid primary alert-check it out! ", class: "solid-primary", color: "" },
-  { id: 2, text: "A simple solid secondary alert-check it out!", class: "solid-secondary", color: "" },
+  {
+    id: 2,
+    text: "A simple solid secondary alert-check it out!",
+    class: "solid-secondary",
+    color: ""
+  },
   { id: 3, text: "A simple solid info alert-check it out!", class: "solid-info", color: "" },
   { id: 4, text: "A simple solid warning alert-check it out! ", class: "solid-warning", color: "" },
   { id: 5, text: "A simple solid success alert-check it out!", class: "solid-success", color: "" },
   { id: 6, text: "A simple solid danger alert-check it out! ", class: "solid-danger", color: "" },
-  { id: 7, text: "A simple solid light alert-check it out! ", class: "solid-light", color: "text-default" },
-  { id: 8, text: "A simple solid dark alert-check it out!", class: "solid-dark", color: "text-white" }
+  {
+    id: 7,
+    text: "A simple solid light alert-check it out! ",
+    class: "solid-light",
+    color: "text-default"
+  },
+  {
+    id: 8,
+    text: "A simple solid dark alert-check it out!",
+    class: "solid-dark",
+    color: "text-white"
+  }
 ];
 
 export const Outlinealerts: alert3[] = [
-  { id: 1, text: "A simple outline primary alert-check it out! ", class: "outline-primary", color: "" },
-  { id: 2, text: "A simple outline secondary alert-check it out!", class: "outline-secondary", color: "" },
+  {
+    id: 1,
+    text: "A simple outline primary alert-check it out! ",
+    class: "outline-primary",
+    color: ""
+  },
+  {
+    id: 2,
+    text: "A simple outline secondary alert-check it out!",
+    class: "outline-secondary",
+    color: ""
+  },
   { id: 3, text: "A simple outline info alert-check it out!", class: "outline-info", color: "" },
-  { id: 4, text: "A simple outline warning alert-check it out! ", class: "outline-warning", color: "" },
-  { id: 5, text: "A simple outline success alert-check it out!", class: "outline-success", color: "" },
-  { id: 6, text: "A simple outline danger alert-check it out! ", class: "outline-danger", color: "" },
-  { id: 7, text: "A simple outline light alert-check it out! ", class: "outline-light", color: "text-default" },
+  {
+    id: 4,
+    text: "A simple outline warning alert-check it out! ",
+    class: "outline-warning",
+    color: ""
+  },
+  {
+    id: 5,
+    text: "A simple outline success alert-check it out!",
+    class: "outline-success",
+    color: ""
+  },
+  {
+    id: 6,
+    text: "A simple outline danger alert-check it out! ",
+    class: "outline-danger",
+    color: ""
+  },
+  {
+    id: 7,
+    text: "A simple outline light alert-check it out! ",
+    class: "outline-light",
+    color: "text-default"
+  },
   { id: 8, text: "A simple outline dark alert-check it out!", class: "outline-dark", color: "" }
 ];
 export const Roundedsolidalerts: alert1[] = [
   { id: 1, text: "A simple solid rounded primary alert—check it out! ", class: "solid-primary" },
-  { id: 2, text: "A simple solid rounded secondary alert—check it out! ", class: "solid-secondary" },
+  {
+    id: 2,
+    text: "A simple solid rounded secondary alert—check it out! ",
+    class: "solid-secondary"
+  },
   { id: 3, text: "A simple solid rounded warning alert—check it out! ", class: "solid-warning" },
   { id: 4, text: "A simple solid rounded danger alert—check it out!", class: "solid-danger" }
 ];
 export const Roundedoutlinealerts: alert1[] = [
-  { id: 1, text: "A simple outline rounded primary alert—check it out! ", class: "outline-primary" },
-  { id: 2, text: "A simple outline rounded secondary alert—check it out! ", class: "outline-secondary" },
-  { id: 3, text: "A simple outline rounded warning alert—check it out! ", class: "outline-warning" },
+  {
+    id: 1,
+    text: "A simple outline rounded primary alert—check it out! ",
+    class: "outline-primary"
+  },
+  {
+    id: 2,
+    text: "A simple outline rounded secondary alert—check it out! ",
+    class: "outline-secondary"
+  },
+  {
+    id: 3,
+    text: "A simple outline rounded warning alert—check it out! ",
+    class: "outline-warning"
+  },
   { id: 4, text: "A simple outline rounded danger alert—check it out!", class: "outline-danger" }
 ];
 interface alert4 {
@@ -107,9 +178,24 @@ interface alert4 {
   size: string;
 }
 export const Shadowsolidalerts: alert4[] = [
-  { id: 1, text: "A simple solid primary alert with small shadow—check it out! ", class: "solid-primary", size: "sm" },
-  { id: 2, text: "A simple solid primary alert with normal shadow—check it out! ", class: "solid-primary", size: "" },
-  { id: 3, text: "A simple solid primary alert with large shadow—check it out! ", class: "solid-primary", size: "lg" },
+  {
+    id: 1,
+    text: "A simple solid primary alert with small shadow—check it out! ",
+    class: "solid-primary",
+    size: "sm"
+  },
+  {
+    id: 2,
+    text: "A simple solid primary alert with normal shadow—check it out! ",
+    class: "solid-primary",
+    size: ""
+  },
+  {
+    id: 3,
+    text: "A simple solid primary alert with large shadow—check it out! ",
+    class: "solid-primary",
+    size: "lg"
+  },
   {
     id: 4,
     text: "A simple solid secondary alert with small shadow—check it out!",
@@ -135,12 +221,36 @@ interface alert5 {
   size: string;
 }
 export const Defaultsolidalerts: alert5[] = [
-  { text: "A simple solid primary alert with small shadow—check it out! ", class: "primary", size: "sm" },
-  { text: "A simple solid primary alert with normal shadow—check it out! ", class: "primary", size: "" },
-  { text: "A simple solid primary alert with large shadow—check it out! ", class: "primary", size: "lg" },
-  { text: "A simple solid secondary alert with small shadow—check it out!", class: "secondary", size: "sm" },
-  { text: "A simple solid secondary alert with normal shadow—check it out!", class: "secondary", size: "" },
-  { text: "A simple solid secondary alert with large shadow—check it out!", class: "secondary", size: "lg" }
+  {
+    text: "A simple solid primary alert with small shadow—check it out! ",
+    class: "primary",
+    size: "sm"
+  },
+  {
+    text: "A simple solid primary alert with normal shadow—check it out! ",
+    class: "primary",
+    size: ""
+  },
+  {
+    text: "A simple solid primary alert with large shadow—check it out! ",
+    class: "primary",
+    size: "lg"
+  },
+  {
+    text: "A simple solid secondary alert with small shadow—check it out!",
+    class: "secondary",
+    size: "sm"
+  },
+  {
+    text: "A simple solid secondary alert with normal shadow—check it out!",
+    class: "secondary",
+    size: ""
+  },
+  {
+    text: "A simple solid secondary alert with large shadow—check it out!",
+    class: "secondary",
+    size: "lg"
+  }
 ];
 export const Roundedefaultalerts: alert1[] = [
   { id: 1, text: "A simple rounded primary alert—check it out! ", class: "primary" },
@@ -162,7 +272,8 @@ interface alert6 {
 export const Customizedalert1: alert6[] = [
   {
     id: 1,
-    class1: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z",
+    class1:
+      "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z",
     color: "primary"
   },
   {
@@ -209,7 +320,13 @@ export const avatarsizealert: alert8[] = [
   { id: 3, src1: "../../assets/images/faces/8.jpg", color: "warning", class: "", class1: "" },
   { id: 4, src1: "../../assets/images/faces/11.jpg", color: "danger", class: "md", class1: "" },
   { id: 5, src1: "../../assets/images/faces/13.jpg", color: "info", class: "lg", class1: "" },
-  { id: 6, src1: "../../assets/images/faces/14.jpg", color: "dark", class: "xl", class1: "text-muted" }
+  {
+    id: 6,
+    src1: "../../assets/images/faces/14.jpg",
+    color: "dark",
+    class: "xl",
+    class1: "text-muted"
+  }
 ];
 
 const svg1 = (
@@ -346,7 +463,8 @@ export const Svgalert1: alert9[] = [
 export const Svgalert: alert9[] = [
   {
     id: 1,
-    class1: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z",
+    class1:
+      "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z",
     text1: "Information Alert",
     text2: "Information alert to show to information",
     color: "primary",
@@ -398,28 +516,32 @@ export const Additionalcontentalerts: alert10[] = [
   {
     id: 1,
     text1: "Thank you for reporting this.",
-    text2: "We appreciate you to let us know the bug in the template and for warning us about future consequences ",
+    text2:
+      "We appreciate you to let us know the bug in the template and for warning us about future consequences ",
     text3: "Visit for support for queries ?",
     class: "primary"
   },
   {
     id: 2,
     text1: "Thank you for reporting this.",
-    text2: "We appreciate you to let us know the bug in the template and for warning us about future consequences ",
+    text2:
+      "We appreciate you to let us know the bug in the template and for warning us about future consequences ",
     text3: "Visit for support for queries ?",
     class: "secondary"
   },
   {
     id: 3,
     text1: "Thank you for reporting this.",
-    text2: "We appreciate you to let us know the bug in the template and for warning us about future consequences ",
+    text2:
+      "We appreciate you to let us know the bug in the template and for warning us about future consequences ",
     text3: "Visit for support for queries ?",
     class: "success"
   },
   {
     id: 4,
     text1: "Thank you for reporting this.",
-    text2: "We appreciate you to let us know the bug in the template and for warning us about future consequences ",
+    text2:
+      "We appreciate you to let us know the bug in the template and for warning us about future consequences ",
     text3: "Visit for support for queries ?",
     class: "warning"
   }

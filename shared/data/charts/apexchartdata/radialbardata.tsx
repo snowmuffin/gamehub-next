@@ -159,7 +159,10 @@ export class Circlechart extends Component<{}, spark3> {
           },
           formatter: function (
             seriesName: string,
-            opts: { w: { globals: { series: { [x: string]: string } } }; seriesIndex: string | number }
+            opts: {
+              w: { globals: { series: { [x: string]: string } } };
+              seriesIndex: string | number;
+            }
           ) {
             return seriesName + ":  " + opts.w.globals.series[opts.seriesIndex];
           },

@@ -38,7 +38,8 @@ const ProfileDropdown = () => {
         </Dropdown.Item>
         <Dropdown.Item as="li">
           <Link className="d-flex align-items-center" href="/pages/email/mail-app">
-            <i className="bi bi-envelope fs-16 me-2 op-7"></i>Inbox <span className="ms-auto badge bg-info">17</span>
+            <i className="bi bi-envelope fs-16 me-2 op-7"></i>Inbox{" "}
+            <span className="ms-auto badge bg-info">17</span>
           </Link>
         </Dropdown.Item>
         <Dropdown.Item as="li">

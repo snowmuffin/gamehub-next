@@ -18,62 +18,110 @@ export const ProfileGallery = () => {
       <Row>
         <Col xxl={3} xl={3} lg={3} md={6} sm={12} className="col-12">
           <Link href="#!" scroll={false} className="glightbox card" data-gallery="gallery1">
-            <img src="../../assets/images/media/media-40.jpg" alt="image" onClick={() => setOpen(true)} />
+            <img
+              src="../../assets/images/media/media-40.jpg"
+              alt="image"
+              onClick={() => setOpen(true)}
+            />
           </Link>
         </Col>
         <Col xxl={3} xl={3} lg={3} md={6} sm={12} className="col-12">
           <Link href="#!" scroll={false} className="glightbox card" data-gallery="gallery1">
-            <img src="../../assets/images/media/media-41.jpg" alt="image" onClick={() => setOpen(true)} />
+            <img
+              src="../../assets/images/media/media-41.jpg"
+              alt="image"
+              onClick={() => setOpen(true)}
+            />
           </Link>
         </Col>
         <Col xxl={3} xl={3} lg={3} md={6} sm={12} className="col-12">
           <Link href="#!" scroll={false} className="glightbox card" data-gallery="gallery1">
-            <img src="../../assets/images/media/media-42.jpg" alt="image" onClick={() => setOpen(true)} />
+            <img
+              src="../../assets/images/media/media-42.jpg"
+              alt="image"
+              onClick={() => setOpen(true)}
+            />
           </Link>
         </Col>
         <Col xxl={3} xl={3} lg={3} md={6} sm={12} className="col-12">
           <Link href="#!" scroll={false} className="glightbox card" data-gallery="gallery1">
-            <img src="../../assets/images/media/media-43.jpg" alt="image" onClick={() => setOpen(true)} />
+            <img
+              src="../../assets/images/media/media-43.jpg"
+              alt="image"
+              onClick={() => setOpen(true)}
+            />
           </Link>
         </Col>
         <Col xxl={3} xl={3} lg={3} md={6} sm={12} className="col-12">
           <Link href="#!" scroll={false} className="glightbox card" data-gallery="gallery1">
-            <img src="../../assets/images/media/media-44.jpg" alt="image" onClick={() => setOpen(true)} />
+            <img
+              src="../../assets/images/media/media-44.jpg"
+              alt="image"
+              onClick={() => setOpen(true)}
+            />
           </Link>
         </Col>
         <Col xxl={3} xl={3} lg={3} md={6} sm={12} className="col-12">
           <Link href="#!" scroll={false} className="glightbox card" data-gallery="gallery1">
-            <img src="../../assets/images/media/media-45.jpg" alt="image" onClick={() => setOpen(true)} />
+            <img
+              src="../../assets/images/media/media-45.jpg"
+              alt="image"
+              onClick={() => setOpen(true)}
+            />
           </Link>
         </Col>
         <Col xxl={3} xl={3} lg={3} md={6} sm={12} className="col-12">
           <Link href="#!" scroll={false} className="glightbox card" data-gallery="gallery1">
-            <img src="../../assets/images/media/media-46.jpg" alt="image" onClick={() => setOpen(true)} />
+            <img
+              src="../../assets/images/media/media-46.jpg"
+              alt="image"
+              onClick={() => setOpen(true)}
+            />
           </Link>
         </Col>
         <Col xxl={3} xl={3} lg={3} md={6} sm={12} className="col-12">
           <Link href="#!" scroll={false} className="glightbox card" data-gallery="gallery1">
-            <img src="../../assets/images/media/media-60.jpg" alt="image" onClick={() => setOpen(true)} />
+            <img
+              src="../../assets/images/media/media-60.jpg"
+              alt="image"
+              onClick={() => setOpen(true)}
+            />
           </Link>
         </Col>
         <Col xxl={3} xl={3} lg={3} md={6} sm={12} className="col-12">
           <Link href="#!" scroll={false} className="glightbox card" data-gallery="gallery1">
-            <img src="../../assets/images/media/media-26.jpg" alt="image" onClick={() => setOpen(true)} />
+            <img
+              src="../../assets/images/media/media-26.jpg"
+              alt="image"
+              onClick={() => setOpen(true)}
+            />
           </Link>
         </Col>
         <Col xxl={3} xl={3} lg={3} md={6} sm={12} className="col-12">
           <Link href="#!" scroll={false} className="glightbox card" data-gallery="gallery1">
-            <img src="../../assets/images/media/media-32.jpg" alt="image" onClick={() => setOpen(true)} />
+            <img
+              src="../../assets/images/media/media-32.jpg"
+              alt="image"
+              onClick={() => setOpen(true)}
+            />
           </Link>
         </Col>
         <Col xxl={3} xl={3} lg={3} md={6} sm={12} className="col-12">
           <Link href="#!" scroll={false} className="glightbox card" data-gallery="gallery1">
-            <img src="../../assets/images/media/media-30.jpg" alt="image" onClick={() => setOpen(true)} />
+            <img
+              src="../../assets/images/media/media-30.jpg"
+              alt="image"
+              onClick={() => setOpen(true)}
+            />
           </Link>
         </Col>
         <Col xxl={3} xl={3} lg={3} md={6} sm={12} className="col-12">
           <Link href="#!" scroll={false} className="glightbox card" data-gallery="gallery1">
-            <img src="../../assets/images/media/media-31.jpg" alt="image" onClick={() => setOpen(true)} />
+            <img
+              src="../../assets/images/media/media-31.jpg"
+              alt="image"
+              onClick={() => setOpen(true)}
+            />
           </Link>
         </Col>
       </Row>
@@ -189,9 +237,34 @@ interface Follower {
   mail: string;
 }
 export const Followers: Follower[] = [
-  { id: 1, src1: "../../assets/images/faces/1.jpg", heading: "Gloria Rose", mail: "gloriarose559@gmail.com" },
-  { id: 2, src1: "../../assets/images/faces/3.jpg", heading: "Carolina", mail: "carolina@gmail.com" },
-  { id: 3, src1: "../../assets/images/faces/6.jpg", heading: "Whitney Skyln", mail: "whitneyskyln421@gmail.com" },
-  { id: 4, src1: "../../assets/images/faces/15.jpg", heading: "Mark Ron", mail: "Markron121@gmail.com" },
-  { id: 5, src1: "../../assets/images/faces/13.jpg", heading: "Nick Ted", mail: "nickted454@gmail.com" }
+  {
+    id: 1,
+    src1: "../../assets/images/faces/1.jpg",
+    heading: "Gloria Rose",
+    mail: "gloriarose559@gmail.com"
+  },
+  {
+    id: 2,
+    src1: "../../assets/images/faces/3.jpg",
+    heading: "Carolina",
+    mail: "carolina@gmail.com"
+  },
+  {
+    id: 3,
+    src1: "../../assets/images/faces/6.jpg",
+    heading: "Whitney Skyln",
+    mail: "whitneyskyln421@gmail.com"
+  },
+  {
+    id: 4,
+    src1: "../../assets/images/faces/15.jpg",
+    heading: "Mark Ron",
+    mail: "Markron121@gmail.com"
+  },
+  {
+    id: 5,
+    src1: "../../assets/images/faces/13.jpg",
+    heading: "Nick Ted",
+    mail: "nickted454@gmail.com"
+  }
 ];

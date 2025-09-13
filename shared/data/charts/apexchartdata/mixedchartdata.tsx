@@ -120,7 +120,13 @@ export class Mixedlinecolumn extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={"100%"} height={320} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={"100%"}
+        height={320}
+      />
     );
   }
 }
@@ -245,7 +251,13 @@ export class Linearea extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={"100%"} height={320} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={"100%"}
+        height={320}
+      />
     );
   }
 }
@@ -370,7 +382,13 @@ export class Linecolumnarea extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={"100%"} height={320} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={"100%"}
+        height={320}
+      />
     );
   }
 }

@@ -22,7 +22,12 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
           Switcherclose();
         }}
       ></div>
-      <div className="offcanvas offcanvas-end" tabIndex={-1} id="switcher-canvas" aria-labelledby="offcanvasRightLabel">
+      <div
+        className="offcanvas offcanvas-end"
+        tabIndex={-1}
+        id="switcher-canvas"
+        aria-labelledby="offcanvasRightLabel"
+      >
         <div className="offcanvas-header border-bottom">
           <h5 className="offcanvas-title text-default" id="offcanvasRightLabel">
             Switcher
@@ -98,7 +103,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="direction"
                           id="switcher-ltr"
                           checked={local_variable.dir == "ltr"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Ltr(ThemeChanger);
                           }}
@@ -116,7 +121,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="direction"
                           id="switcher-rtl"
                           checked={local_variable.dir == "rtl"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Rtl(ThemeChanger);
                           }}
@@ -139,7 +144,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="navigation-style"
                           id="switcher-vertical"
                           checked={local_variable.dataNavLayout == "vertical"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => switcherdata.Vertical(ThemeChanger)}
                         />
                       </div>
@@ -154,7 +159,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           type="radio"
                           name="navigation-style"
                           checked={local_variable.dataNavLayout == "horizontal"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => switcherdata.HorizontalClick(ThemeChanger)}
                           id="switcher-horizontal"
                         />
@@ -175,7 +180,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           type="radio"
                           name="navigation-menu-styles"
                           checked={local_variable.dataNavStyle == "menu-click"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => switcherdata.Menuclick(ThemeChanger)}
                           id="switcher-menu-click"
                         />
@@ -191,7 +196,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           type="radio"
                           name="navigation-menu-styles"
                           checked={local_variable.dataNavStyle == "menu-hover"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => switcherdata.MenuHover(ThemeChanger)}
                           id="switcher-menu-hover"
                         />
@@ -207,7 +212,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           type="radio"
                           name="navigation-menu-styles"
                           checked={local_variable.dataNavStyle == "icon-click"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => switcherdata.IconClick(ThemeChanger)}
                           id="switcher-icon-click"
                         />
@@ -223,7 +228,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           type="radio"
                           name="navigation-menu-styles"
                           checked={local_variable.dataNavStyle == "icon-hover"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => switcherdata.IconHover(ThemeChanger)}
                           id="switcher-icon-hover"
                         />
@@ -258,7 +263,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           type="radio"
                           name="sidemenu-layout-styles"
                           checked={local_variable.dataToggled == "close-menu-close"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => switcherdata.Closedmenu(ThemeChanger)}
                           id="switcher-closed-menu"
                         />
@@ -274,7 +279,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           type="radio"
                           name="sidemenu-layout-styles"
                           checked={local_variable.dataToggled == "icon-text-close"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => switcherdata.iconText(ThemeChanger)}
                           id="switcher-icontext-menu"
                         />
@@ -321,7 +326,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           type="radio"
                           name="sidemenu-layout-styles"
                           checked={local_variable.dataVerticalStyle == "doublemenu"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => switcherdata.DoubletFn(ThemeChanger)}
                           id="switcher-double-menu"
                         />
@@ -343,7 +348,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="layout-width"
                           id="switcher-full-width"
                           checked={local_variable.dataWidth == "fullwidth"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => switcherdata.Fullwidth(ThemeChanger)}
                         />
                       </div>
@@ -359,7 +364,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="layout-width"
                           id="switcher-boxed"
                           checked={local_variable.dataWidth == "boxed"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => switcherdata.Boxed(ThemeChanger)}
                         />
                       </div>
@@ -380,7 +385,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="menu-positions"
                           id="switcher-menu-fixed"
                           checked={local_variable.dataMenuPosition == "fixed"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => switcherdata.FixedMenu(ThemeChanger)}
                         />
                       </div>
@@ -396,7 +401,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="menu-positions"
                           id="switcher-menu-scroll"
                           checked={local_variable.dataMenuPosition == "scrollable"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => switcherdata.scrollMenu(ThemeChanger)}
                         />
                       </div>
@@ -417,7 +422,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="header-positions"
                           id="switcher-header-fixed"
                           checked={local_variable.dataHeaderPosition == "fixed"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => switcherdata.Headerpostionfixed(ThemeChanger)}
                         />
                       </div>
@@ -432,7 +437,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           type="radio"
                           name="header-positions"
                           checked={local_variable.dataHeaderPosition == "scrollable"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => switcherdata.Headerpostionscroll(ThemeChanger)}
                           id="switcher-header-scroll"
                         />
@@ -451,7 +456,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           className="form-check-input color-input color-primary-1"
                           type="radio"
                           checked={local_variable.colorPrimaryRgb == "58, 88, 146"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => switcherdata.primaryColor1(ThemeChanger)}
                           name="theme-primary"
                           id="switcher-primary"
@@ -462,7 +467,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           className="form-check-input color-input color-primary-2"
                           type="radio"
                           checked={local_variable.colorPrimaryRgb == "92, 144, 163"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => switcherdata.primaryColor2(ThemeChanger)}
                           name="theme-primary"
                           id="switcher-primary1"
@@ -474,7 +479,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           type="radio"
                           name="theme-primary"
                           checked={local_variable.colorPrimaryRgb == "161, 90, 223"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => switcherdata.primaryColor3(ThemeChanger)}
                           id="switcher-primary2"
                         />
@@ -485,7 +490,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           type="radio"
                           name="theme-primary"
                           checked={local_variable.colorPrimaryRgb == "78, 172, 76"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => switcherdata.primaryColor4(ThemeChanger)}
                           id="switcher-primary3"
                         />
@@ -496,7 +501,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           type="radio"
                           name="theme-primary"
                           checked={local_variable.colorPrimaryRgb == "223, 90, 90"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => switcherdata.primaryColor5(ThemeChanger)}
                           id="switcher-primary4"
                         />
@@ -515,7 +520,10 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                                 }
                               }}
                             >
-                              <Themeprimarycolor theme={local_variable} actionfunction={ThemeChanger} />
+                              <Themeprimarycolor
+                                theme={local_variable}
+                                actionfunction={ThemeChanger}
+                              />
                             </button>
                           </div>
                         </div>
@@ -532,7 +540,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="background-pattern"
                           id="switcher-pattern-img"
                           checked={local_variable.patternImg == "bgpattern1"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Pattern1(ThemeChanger);
                           }}
@@ -545,7 +553,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="background-pattern"
                           id="switcher-pattern-img1"
                           checked={local_variable.patternImg == "bgpattern2"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Pattern2(ThemeChanger);
                           }}
@@ -558,7 +566,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="background-pattern"
                           id="switcher-pattern-img2"
                           checked={local_variable.patternImg == "bgpattern3"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Pattern3(ThemeChanger);
                           }}
@@ -571,7 +579,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="background-pattern"
                           id="switcher-pattern-img3"
                           checked={local_variable.patternImg == "bgpattern4"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Pattern4(ThemeChanger);
                           }}
@@ -584,7 +592,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="background-pattern"
                           id="switcher-pattern-img4"
                           checked={local_variable.patternImg == "bgpattern5"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Pattern5(ThemeChanger);
                           }}
@@ -597,7 +605,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="background-pattern"
                           id="switcher-pattern-img5"
                           checked={local_variable.patternImg == "bgpattern6"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Pattern6(ThemeChanger);
                           }}
@@ -610,7 +618,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="background-pattern"
                           id="switcher-pattern-img6"
                           checked={local_variable.patternImg == "bgpattern7"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Pattern7(ThemeChanger);
                           }}
@@ -623,7 +631,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="background-pattern"
                           id="switcher-pattern-img7"
                           checked={local_variable.patternImg == "bgpattern8"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Pattern8(ThemeChanger);
                           }}
@@ -636,7 +644,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="background-pattern"
                           id="switcher-pattern-img8"
                           checked={local_variable.patternImg == "bgpattern9"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Pattern9(ThemeChanger);
                           }}
@@ -649,7 +657,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="background-pattern"
                           id="switcher-pattern-img9"
                           checked={local_variable.patternImg == "bgpattern10"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Pattern10(ThemeChanger);
                           }}
@@ -667,7 +675,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="card-style"
                           id="switcher-card-style"
                           checked={local_variable.dataCardStyle == "style1"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Card1(ThemeChanger);
                           }}
@@ -680,7 +688,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="card-style"
                           id="switcher-card-style1"
                           checked={local_variable.dataCardStyle == "style2"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Card2(ThemeChanger);
                           }}
@@ -693,7 +701,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="card-style"
                           id="switcher-card-style2"
                           checked={local_variable.dataCardStyle == "style3"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Card3(ThemeChanger);
                           }}
@@ -706,7 +714,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="card-style"
                           id="switcher-card-style3"
                           checked={local_variable.dataCardStyle == "style4"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Card4(ThemeChanger);
                           }}
@@ -719,7 +727,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="card-style"
                           id="switcher-card-style4"
                           checked={local_variable.dataCardStyle == "style5"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Card5(ThemeChanger);
                           }}
@@ -732,7 +740,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="card-style"
                           id="switcher-card-style5"
                           checked={local_variable.dataCardStyle == "style6"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Card6(ThemeChanger);
                           }}
@@ -745,7 +753,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="card-style"
                           id="switcher-card-style6"
                           checked={local_variable.dataCardStyle == "style7"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Card7(ThemeChanger);
                           }}
@@ -758,7 +766,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="card-style"
                           id="switcher-card-style7"
                           checked={local_variable.dataCardStyle == "style8"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Card8(ThemeChanger);
                           }}
@@ -771,7 +779,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="card-style"
                           id="switcher-card-style8"
                           checked={local_variable.dataCardStyle == "style9"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Card9(ThemeChanger);
                           }}
@@ -784,7 +792,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="card-style"
                           id="switcher-card-style9"
                           checked={local_variable.dataCardStyle == "style10"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Card10(ThemeChanger);
                           }}
@@ -802,7 +810,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="card-background"
                           id="switcher-card-background"
                           checked={local_variable.dataCardBackground == "background1"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Background1(ThemeChanger);
                           }}
@@ -815,7 +823,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="card-background"
                           id="switcher-card-background1"
                           checked={local_variable.dataCardBackground == "background2"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Background2(ThemeChanger);
                           }}
@@ -828,7 +836,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="card-background"
                           id="switcher-card-background2"
                           checked={local_variable.dataCardBackground == "background3"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Background3(ThemeChanger);
                           }}
@@ -841,7 +849,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="card-background"
                           id="switcher-card-background3"
                           checked={local_variable.dataCardBackground == "background4"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Background4(ThemeChanger);
                           }}
@@ -854,7 +862,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="card-background"
                           id="switcher-card-background4"
                           checked={local_variable.dataCardBackground == "background5"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Background5(ThemeChanger);
                           }}
@@ -867,7 +875,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="card-background"
                           id="switcher-card-background5"
                           checked={local_variable.dataCardBackground == "background6"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Background6(ThemeChanger);
                           }}
@@ -880,7 +888,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="card-background"
                           id="switcher-card-background6"
                           checked={local_variable.dataCardBackground == "background7"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Background7(ThemeChanger);
                           }}
@@ -893,7 +901,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="card-background"
                           id="switcher-card-background7"
                           checked={local_variable.dataCardBackground == "background8"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Background8(ThemeChanger);
                           }}
@@ -906,7 +914,7 @@ const Switcher = ({ local_variable, ThemeChanger }: any) => {
                           name="card-background"
                           id="switcher-card-background8"
                           checked={local_variable.dataCardBackground == "background9"}
-                          onChange={_e => {}}
+                          onChange={(_e) => {}}
                           onClick={() => {
                             switcherdata.Background9(ThemeChanger);
                           }}

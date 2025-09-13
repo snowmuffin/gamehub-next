@@ -104,7 +104,7 @@ export class Basiheatmap extends Component<{}, spark3> {
           height: 350,
           type: "heatmap",
           events: {
-            mounted: chart => {
+            mounted: (chart) => {
               chart.windowResizeHandler();
             }
           }
@@ -302,7 +302,7 @@ export class Multiseriesheatmap extends Component<{}, spark3> {
           height: 350,
           type: "heatmap",
           events: {
-            mounted: chart => {
+            mounted: (chart) => {
               chart.windowResizeHandler();
             }
           }
@@ -443,7 +443,7 @@ export class Colorrange extends Component<{}, spark3> {
           height: 350,
           type: "heatmap",
           events: {
-            mounted: chart => {
+            mounted: (chart) => {
               chart.windowResizeHandler();
             }
           }
@@ -615,7 +615,7 @@ export class Shadesheatmap extends Component<{}, spark3> {
           height: 350,
           type: "heatmap",
           events: {
-            mounted: chart => {
+            mounted: (chart) => {
               chart.windowResizeHandler();
             }
           }

@@ -7,9 +7,21 @@ interface filemanager {
 }
 
 export const Filemanagerlist: filemanager[] = [
-  { id: 1, class: " active files-type", icon: "ri-folder-2-line fs-16", text: "My Files", badge: "322" },
+  {
+    id: 1,
+    class: " active files-type",
+    icon: "ri-folder-2-line fs-16",
+    text: "My Files",
+    badge: "322"
+  },
   { id: 2, class: "files-type", icon: "ri-star-s-line fs-16", text: "Favourites", badge: "" },
-  { id: 3, class: "files-type", icon: "ri-share-forward-line fs-16", text: "Shared Files", badge: "" },
+  {
+    id: 3,
+    class: "files-type",
+    icon: "ri-share-forward-line fs-16",
+    text: "Shared Files",
+    badge: ""
+  },
   { id: 4, class: "files-type", icon: "ri-delete-bin-line fs-16", text: "Recycle Bin", badge: "" },
   { id: 5, class: "files-type", icon: "ri-history-fill fs-16", text: "Recent Files", badge: "" },
   { id: 6, class: "", icon: "ri-settings-3-line fs-16", text: "Settings", badge: "" },

@@ -63,7 +63,20 @@ export class Attendencesummary extends Component<{}, spark3> {
           position: "top"
         },
         xaxis: {
-          categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+          categories: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+          ],
           // show: false,
           axisBorder: {
             show: false,
@@ -102,7 +115,13 @@ export class Attendencesummary extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={700} height={292} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={700}
+        height={292}
+      />
     );
   }
 }
@@ -204,7 +223,13 @@ export class Jobsapplied extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={324} height={295} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={324}
+        height={295}
+      />
     );
   }
 }
@@ -290,9 +315,18 @@ export class Employeeroles extends Component<{}, spark3> {
 
 //Todo Tasks
 
-const check = <input className="form-check-input" type="checkbox" id="task1" value="" aria-label="..." />;
+const check = (
+  <input className="form-check-input" type="checkbox" id="task1" value="" aria-label="..." />
+);
 const defaultcheck = (
-  <input className="form-check-input" type="checkbox" id="task1" value="" aria-label="..." defaultChecked />
+  <input
+    className="form-check-input"
+    type="checkbox"
+    id="task1"
+    value=""
+    aria-label="..."
+    defaultChecked
+  />
 );
 
 export const Todotask = [

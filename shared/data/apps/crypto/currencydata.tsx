@@ -85,7 +85,15 @@ export class BTC extends React.Component<{}, spark3> {
   }
 
   render() {
-    return <ReactBTC options={this.state.options} series={this.state.series} type="area" height={60} width={"100%"} />;
+    return (
+      <ReactBTC
+        options={this.state.options}
+        series={this.state.series}
+        type="area"
+        height={60}
+        width={"100%"}
+      />
+    );
   }
 }
 
@@ -153,7 +161,15 @@ export class ETH extends React.Component<{}, spark3> {
   }
 
   render() {
-    return <ReactETH options={this.state.options} series={this.state.series} type="area" height={60} width={"100%"} />;
+    return (
+      <ReactETH
+        options={this.state.options}
+        series={this.state.series}
+        type="area"
+        height={60}
+        width={"100%"}
+      />
+    );
   }
 }
 
@@ -220,7 +236,15 @@ export class DASH extends React.Component<{}, spark3> {
   }
 
   render() {
-    return <ReactDASH options={this.state.options} series={this.state.series} type="area" height={60} width={"100%"} />;
+    return (
+      <ReactDASH
+        options={this.state.options}
+        series={this.state.series}
+        type="area"
+        height={60}
+        width={"100%"}
+      />
+    );
   }
 }
 //LTC
@@ -286,7 +310,15 @@ export class LTC extends React.Component<{}, spark3> {
   }
 
   render() {
-    return <ReactLTC options={this.state.options} series={this.state.series} type="area" height={60} width={"100%"} />;
+    return (
+      <ReactLTC
+        options={this.state.options}
+        series={this.state.series}
+        type="area"
+        height={60}
+        width={"100%"}
+      />
+    );
   }
 }
 
@@ -354,7 +386,15 @@ export class XRS extends React.Component<{}, spark3> {
   }
 
   render() {
-    return <ReactXRS options={this.state.options} series={this.state.series} type="area" height={60} width={"100%"} />;
+    return (
+      <ReactXRS
+        options={this.state.options}
+        series={this.state.series}
+        type="area"
+        height={60}
+        width={"100%"}
+      />
+    );
   }
 }
 
@@ -422,7 +462,15 @@ export class GLM extends React.Component<{}, spark3> {
   }
 
   render() {
-    return <ReactGLM options={this.state.options} series={this.state.series} type="area" height={60} width={"100%"} />;
+    return (
+      <ReactGLM
+        options={this.state.options}
+        series={this.state.series}
+        type="area"
+        height={60}
+        width={"100%"}
+      />
+    );
   }
 }
 //Monero
@@ -491,7 +539,13 @@ export class Monero extends React.Component<{}, spark3> {
 
   render() {
     return (
-      <ReactMonero options={this.state.options} series={this.state.series} type="area" height={60} width={"100%"} />
+      <ReactMonero
+        options={this.state.options}
+        series={this.state.series}
+        type="area"
+        height={60}
+        width={"100%"}
+      />
     );
   }
 }
@@ -560,6 +614,14 @@ export class EOS extends React.Component<{}, spark3> {
   }
 
   render() {
-    return <ReactEOS options={this.state.options} series={this.state.series} type="area" height={60} width={"100%"} />;
+    return (
+      <ReactEOS
+        options={this.state.options}
+        series={this.state.series}
+        type="area"
+        height={60}
+        width={"100%"}
+      />
+    );
   }
 }

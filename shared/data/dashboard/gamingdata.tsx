@@ -24,8 +24,8 @@ export class NewEvent extends Component<{}, spark3> {
         {
           name: "Value",
           data: [
-            14, 12, 17, 16, 18, 15, 18, 23, 28, 44, 40, 34, 34, 22, 37, 46, 21, 35, 40, 34, 46, 55, 62, 55, 23, 11, 22,
-            27, 13, 22, 37, 21, 44, 22, 45, 35
+            14, 12, 17, 16, 18, 15, 18, 23, 28, 44, 40, 34, 34, 22, 37, 46, 21, 35, 40, 34, 46, 55,
+            62, 55, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 45, 35
           ]
         }
       ],
@@ -97,7 +97,13 @@ export class NewEvent extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="area" width={324} height={50} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="area"
+        width={324}
+        height={50}
+      />
     );
   }
 }
@@ -112,8 +118,8 @@ export class Completedissues extends Component<{}, spark3> {
         {
           name: "Value",
           data: [
-            14, 12, 17, 16, 18, 15, 18, 23, 28, 44, 40, 34, 34, 22, 37, 46, 21, 35, 40, 34, 46, 55, 62, 55, 23, 11, 22,
-            27, 13, 22, 37, 21, 44, 22, 45, 35
+            14, 12, 17, 16, 18, 15, 18, 23, 28, 44, 40, 34, 34, 22, 37, 46, 21, 35, 40, 34, 46, 55,
+            62, 55, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 45, 35
           ]
         }
       ],
@@ -160,7 +166,13 @@ export class Completedissues extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={324} height={50} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={324}
+        height={50}
+      />
     );
   }
 }
@@ -175,8 +187,8 @@ export class PendingEvents extends Component<{}, spark3> {
         {
           name: "Value",
           data: [
-            14, 12, 17, 16, 18, 15, 18, 23, 28, 44, 40, 34, 34, 22, 37, 46, 21, 35, 40, 34, 46, 55, 62, 55, 23, 11, 22,
-            27, 13, 22, 37, 21, 44, 22, 45, 35
+            14, 12, 17, 16, 18, 15, 18, 23, 28, 44, 40, 34, 34, 22, 37, 46, 21, 35, 40, 34, 46, 55,
+            62, 55, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 45, 35
           ]
         }
       ],
@@ -226,7 +238,13 @@ export class PendingEvents extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={324} height={50} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={324}
+        height={50}
+      />
     );
   }
 }
@@ -241,8 +259,8 @@ export class UnsolvedEvents extends Component<{}, spark3> {
         {
           name: "Value",
           data: [
-            14, 12, 17, 16, 18, 15, 18, 23, 28, 44, 40, 34, 34, 22, 37, 46, 21, 35, 40, 34, 46, 55, 62, 55, 23, 11, 22,
-            27, 13, 22, 37, 21, 44, 22, 45, 35
+            14, 12, 17, 16, 18, 15, 18, 23, 28, 44, 40, 34, 34, 22, 37, 46, 21, 35, 40, 34, 46, 55,
+            62, 55, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 45, 35
           ]
         }
       ],
@@ -292,7 +310,13 @@ export class UnsolvedEvents extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="area" width={324} height={50} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="area"
+        width={324}
+        height={50}
+      />
     );
   }
 }
@@ -335,7 +359,13 @@ export class SafeZone extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="donut" width={80} height={80} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="donut"
+        width={80}
+        height={80}
+      />
     );
   }
 }
@@ -378,7 +408,13 @@ export class DangerZone extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="donut" width={80} height={80} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="donut"
+        width={80}
+        height={80}
+      />
     );
   }
 }
@@ -794,7 +830,13 @@ export class DistanceCovered extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="area" width={"100%"} height={290} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="area"
+        width={"100%"}
+        height={290}
+      />
     );
   }
 }
@@ -985,7 +1027,13 @@ export class AirSupport extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={324} height={260} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={324}
+        height={260}
+      />
     );
   }
 }
@@ -1118,7 +1166,20 @@ export class TimeSpent extends Component<{}, spark3> {
         },
         xaxis: {
           type: "category",
-          categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Agu", "Sep", "Oct", "Nov", "Dec"],
+          categories: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Agu",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+          ],
           axisBorder: {
             show: true,
             color: "rgba(119, 119, 142, 0.05)",
@@ -1333,7 +1394,13 @@ export class Civilianpopulationsupport extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={"100%"} height={370} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={"100%"}
+        height={370}
+      />
     );
   }
 }
@@ -1348,8 +1415,8 @@ export class Civilianpopulation extends Component<{}, spark3> {
         {
           name: "population",
           data: [
-            2, 4, 3, 4, 3, 5, 5, 6.5, 6, 5, 4, 5, 8, 7, 7, 8, 8, 10, 9, 9, 12, 12, 11, 12, 13, 14, 16, 14, 15, 17, 19,
-            21
+            2, 4, 3, 4, 3, 5, 5, 6.5, 6, 5, 4, 5, 8, 7, 7, 8, 8, 10, 9, 9, 12, 12, 11, 12, 13, 14,
+            16, 14, 15, 17, 19, 21
           ]
         }
       ],
@@ -1426,7 +1493,13 @@ export class Civilianpopulation extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={300} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={300}
+      />
     );
   }
 }
@@ -1532,7 +1605,13 @@ export class Usersreport extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={305} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={305}
+      />
     );
   }
 }
@@ -1546,7 +1625,10 @@ export class Player1 extends Component<{}, spark3> {
       series: [
         {
           name: "Value",
-          data: [0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46]
+          data: [
+            0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43,
+            19, 46
+          ]
         }
       ],
       options: {
@@ -1601,7 +1683,13 @@ export class Player1 extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={120} height={20} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={120}
+        height={20}
+      />
     );
   }
 }
@@ -1613,7 +1701,10 @@ export class Player2 extends Component<{}, spark3> {
       series: [
         {
           name: "Value",
-          data: [0, 45, 54, 38, 56, 24, 65, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46, 31, 37, 39, 62, 51, 35, 41]
+          data: [
+            0, 45, 54, 38, 56, 24, 65, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46, 31, 37, 39, 62, 51,
+            35, 41
+          ]
         }
       ],
       options: {
@@ -1668,7 +1759,13 @@ export class Player2 extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={120} height={20} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={120}
+        height={20}
+      />
     );
   }
 }
@@ -1680,7 +1777,10 @@ export class Player3 extends Component<{}, spark3> {
       series: [
         {
           name: "Value",
-          data: [61, 27, 54, 43, 19, 46, 31, 37, 39, 0, 45, 54, 38, 56, 24, 65, 35, 27, 93, 53, 62, 51, 35, 41]
+          data: [
+            61, 27, 54, 43, 19, 46, 31, 37, 39, 0, 45, 54, 38, 56, 24, 65, 35, 27, 93, 53, 62, 51,
+            35, 41
+          ]
         }
       ],
       options: {
@@ -1735,7 +1835,13 @@ export class Player3 extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={120} height={20} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={120}
+        height={20}
+      />
     );
   }
 }
@@ -1747,7 +1853,10 @@ export class Player4 extends Component<{}, spark3> {
       series: [
         {
           name: "Value",
-          data: [61, 27, 54, 43, 19, 56, 24, 65, 35, 27, 93, 53, 46, 31, 37, 39, 0, 45, 54, 38, 62, 51, 35, 41]
+          data: [
+            61, 27, 54, 43, 19, 56, 24, 65, 35, 27, 93, 53, 46, 31, 37, 39, 0, 45, 54, 38, 62, 51,
+            35, 41
+          ]
         }
       ],
       options: {
@@ -1802,7 +1911,13 @@ export class Player4 extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={120} height={20} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={120}
+        height={20}
+      />
     );
   }
 }
@@ -1814,7 +1929,10 @@ export class Player5 extends Component<{}, spark3> {
       series: [
         {
           name: "Value",
-          data: [61, 27, 54, 37, 39, 0, 45, 54, 38, 62, 51, 35, 41, 43, 19, 56, 24, 65, 35, 27, 93, 53, 46, 31]
+          data: [
+            61, 27, 54, 37, 39, 0, 45, 54, 38, 62, 51, 35, 41, 43, 19, 56, 24, 65, 35, 27, 93, 53,
+            46, 31
+          ]
         }
       ],
       options: {
@@ -1869,7 +1987,13 @@ export class Player5 extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={120} height={20} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={120}
+        height={20}
+      />
     );
   }
 }

@@ -26,11 +26,12 @@ const Error401 = () => {
                   </p>
                   <p className="fs-3 fw-normal mb-3 text-fixed-white">Unauthorized</p>
                   <p className="fs-15 text-fixed-white mb-5 op-8">
-                    Sorry, we were unable to process your request. Please refresh and make the necessary modifications
-                    and resubmit.
+                    Sorry, we were unable to process your request. Please refresh and make the
+                    necessary modifications and resubmit.
                   </p>
                   <Link href="/dashboard/gaming" className="btn btn-primary-ghost">
-                    <i className="ri-arrow-left-line align-middle me-1 d-inline-block"></i>BACK TO HOME
+                    <i className="ri-arrow-left-line align-middle me-1 d-inline-block"></i>BACK TO
+                    HOME
                   </Link>
                 </Col>
               </div>

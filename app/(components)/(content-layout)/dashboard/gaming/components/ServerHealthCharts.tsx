@@ -155,17 +155,20 @@ export default function ServerHealthCharts({
 
   const uptimeSeries = useMemo(() => {
     const points = snapshots
-      .map(s => [new Date(s.windowStart).getTime(), Math.round((s.uptimeRatio ?? 0) * 10000) / 100])
+      .map((s) => [
+        new Date(s.windowStart).getTime(),
+        Math.round((s.uptimeRatio ?? 0) * 10000) / 100
+      ])
       .sort((a, b) => a[0] - b[0]);
     return [{ name: "Uptime %", data: points }];
   }, [snapshots]);
 
   const metricAvgSeries = useMemo(() => {
     const points = snapshots
-      .filter(s => s.metricAvg !== null)
-      .map(s => [new Date(s.windowStart).getTime(), s.metricAvg as number])
+      .filter((s) => s.metricAvg !== null)
+      .map((s) => [new Date(s.windowStart).getTime(), s.metricAvg as number])
       .sort((a, b) => a[0] - b[0]);
-    const nameBase = snapshots.find(s => s.metricName)?.metricName ?? metricName ?? "metric";
+    const nameBase = snapshots.find((s) => s.metricName)?.metricName ?? metricName ?? "metric";
     return [{ name: `${nameBase} avg`, data: points }];
   }, [snapshots, metricName]);
 
@@ -192,118 +195,126 @@ export default function ServerHealthCharts({
     <div className="d-flex justify-content-between align-items-center flex-wrap gap-2">
       <div className="card-title m-0">
         {(() => {
-          const label = serverOptions.find(s => s.code === code)?.name || code;
+          const label = serverOptions.find((s) => s.code === code)?.name || code;
           return `Server Health Charts — ${label}`;
         })()}
       </div>
       <div className="d-flex gap-2 align-items-center flex-wrap w-100">
-          <div className="d-flex align-items-center gap-2 me-2">
-            <div className="text-muted">Server</div>
-            <Form.Select
-              size="sm"
-              style={{ width: "min(220px, 100%)" }}
-              value={code}
-              onChange={e => onCodeChange?.(e.target.value)}
-              disabled={codesLoading || serverCodes.length === 0 || !onCodeChange}
-            >
-              {codesLoading && <option>Loading…</option>}
-              {!codesLoading && serverCodes.length === 0 && <option>No servers</option>}
-              {!codesLoading &&
-                (serverOptions.length > 0
-                  ? serverOptions.map(s => (
-                      <option key={s.code} value={s.code}>
-                        {s.name || s.code}
-                      </option>
-                    ))
-                  : serverCodes.map(c => (
-                      <option key={c} value={c}>
-                        {c}
-                      </option>
-                    )))}
-            </Form.Select>
-          </div>
+        <div className="d-flex align-items-center gap-2 me-2">
+          <div className="text-muted">Server</div>
           <Form.Select
             size="sm"
-            value={metricName}
-            onChange={e => setMetricName(e.target.value)}
-            style={{ width: "min(180px, 100%)" }}
-            disabled={availableMetrics.length === 0}
+            style={{ width: "min(220px, 100%)" }}
+            value={code}
+            onChange={(e) => onCodeChange?.(e.target.value)}
+            disabled={codesLoading || serverCodes.length === 0 || !onCodeChange}
           >
-            {availableMetrics.length > 1 && <option value="">all metrics</option>}
-            {availableMetrics.length === 0 && <option>No metrics</option>}
-            {availableMetrics.map(m => (
-              <option key={m} value={m}>
-                {m}
-              </option>
-            ))}
+            {codesLoading && <option>Loading…</option>}
+            {!codesLoading && serverCodes.length === 0 && <option>No servers</option>}
+            {!codesLoading &&
+              (serverOptions.length > 0
+                ? serverOptions.map((s) => (
+                    <option key={s.code} value={s.code}>
+                      {s.name || s.code}
+                    </option>
+                  ))
+                : serverCodes.map((c) => (
+                    <option key={c} value={c}>
+                      {c}
+                    </option>
+                  )))}
           </Form.Select>
-          <Form.Select
-            size="sm"
-            value={windowSize}
-            onChange={e => setWindowSize(e.target.value as any)}
-            style={{ width: "min(100px, 100%)" }}
-          >
-            <option value="1m">1m</option>
-            <option value="5m">5m</option>
-            <option value="1h">1h</option>
-          </Form.Select>
-          <div className="btn-group">
-            <button className="btn btn-sm btn-outline-primary" onClick={() => onPreset(1)}>
-              1h
-            </button>
-            <button className="btn btn-sm btn-outline-primary" onClick={() => onPreset(6)}>
-              6h
-            </button>
-            <button className="btn btn-sm btn-outline-primary" onClick={() => onPreset(24)}>
-              24h
-            </button>
-          </div>
+        </div>
+        <Form.Select
+          size="sm"
+          value={metricName}
+          onChange={(e) => setMetricName(e.target.value)}
+          style={{ width: "min(180px, 100%)" }}
+          disabled={availableMetrics.length === 0}
+        >
+          {availableMetrics.length > 1 && <option value="">all metrics</option>}
+          {availableMetrics.length === 0 && <option>No metrics</option>}
+          {availableMetrics.map((m) => (
+            <option key={m} value={m}>
+              {m}
+            </option>
+          ))}
+        </Form.Select>
+        <Form.Select
+          size="sm"
+          value={windowSize}
+          onChange={(e) => setWindowSize(e.target.value as any)}
+          style={{ width: "min(100px, 100%)" }}
+        >
+          <option value="1m">1m</option>
+          <option value="5m">5m</option>
+          <option value="1h">1h</option>
+        </Form.Select>
+        <div className="btn-group">
+          <button className="btn btn-sm btn-outline-primary" onClick={() => onPreset(1)}>
+            1h
+          </button>
+          <button className="btn btn-sm btn-outline-primary" onClick={() => onPreset(6)}>
+            6h
+          </button>
+          <button className="btn btn-sm btn-outline-primary" onClick={() => onPreset(24)}>
+            24h
+          </button>
+        </div>
       </div>
     </div>
   );
 
   const body = (
     <div>
-        {loading ? (
-          <div className="d-flex align-items-center gap-2">
-            <Spinner size="sm" /> <span>Loading chart data…</span>
-          </div>
-        ) : error ? (
-          <div className="text-danger">{error}</div>
-        ) : (
-          <>
-            <Row className="g-4">
-              {rawEventSeries.length > 0 && (
-                <Col xs={12}>
-                  <div className="mb-2 text-muted">
-                    Raw Events {metricName ? `— ${metricName}` : availableMetrics.length > 1 ? "— all metrics" : ""}
-                  </div>
-                  <ReactApexChart
-                    options={{ ...commonOptions, yaxis: { labels: { formatter: (v: number) => `${v}` } } }}
-                    series={rawEventSeries as any}
-                    type="line"
-                    height={260}
-                  />
-                </Col>
-              )}
+      {loading ? (
+        <div className="d-flex align-items-center gap-2">
+          <Spinner size="sm" /> <span>Loading chart data…</span>
+        </div>
+      ) : error ? (
+        <div className="text-danger">{error}</div>
+      ) : (
+        <>
+          <Row className="g-4">
+            {rawEventSeries.length > 0 && (
+              <Col xs={12}>
+                <div className="mb-2 text-muted">
+                  Raw Events{" "}
+                  {metricName
+                    ? `— ${metricName}`
+                    : availableMetrics.length > 1
+                      ? "— all metrics"
+                      : ""}
+                </div>
+                <ReactApexChart
+                  options={{
+                    ...commonOptions,
+                    yaxis: { labels: { formatter: (v: number) => `${v}` } }
+                  }}
+                  series={rawEventSeries as any}
+                  type="line"
+                  height={260}
+                />
+              </Col>
+            )}
 
-              {snapshots.length > 0 && (
-                <Col>
-                  <div className="mb-2 text-muted">Uptime Ratio (%)</div>
-                  <ReactApexChart
-                    options={{
-                      ...commonOptions,
-                      yaxis: { max: 100, min: 0, labels: { formatter: (v: number) => `${v}%` } }
-                    }}
-                    series={uptimeSeries as any}
-                    type="line"
-                    height={220}
-                  />
-                </Col>
-              )}
-            </Row>
-          </>
-        )}
+            {snapshots.length > 0 && (
+              <Col>
+                <div className="mb-2 text-muted">Uptime Ratio (%)</div>
+                <ReactApexChart
+                  options={{
+                    ...commonOptions,
+                    yaxis: { max: 100, min: 0, labels: { formatter: (v: number) => `${v}%` } }
+                  }}
+                  series={uptimeSeries as any}
+                  type="line"
+                  height={220}
+                />
+              </Col>
+            )}
+          </Row>
+        </>
+      )}
     </div>
   );
 

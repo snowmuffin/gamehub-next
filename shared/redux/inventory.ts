@@ -59,7 +59,7 @@ const inventorySlice = createSlice({
     },
     updateItem: (state, action: PayloadAction<{ id: string; updates: Partial<InventoryItem> }>) => {
       const { id, updates } = action.payload;
-      const itemIndex = state.items.findIndex(item => item.id === id);
+      const itemIndex = state.items.findIndex((item) => item.id === id);
       if (itemIndex !== -1) {
         state.items[itemIndex] = { ...state.items[itemIndex], ...updates };
       }
@@ -71,7 +71,7 @@ const inventorySlice = createSlice({
       state.items.push(action.payload);
     },
     removeItem: (state, action: PayloadAction<string>) => {
-      state.items = state.items.filter(item => item.id !== action.payload);
+      state.items = state.items.filter((item) => item.id !== action.payload);
       if (state.selectedItem?.id === action.payload) {
         state.selectedItem = null;
       }
@@ -86,7 +86,7 @@ const inventorySlice = createSlice({
     setFilters: (state, action: PayloadAction<Partial<InventoryState["filters"]>>) => {
       state.filters = { ...state.filters, ...action.payload };
     },
-    clearFilters: state => {
+    clearFilters: (state) => {
       state.filters = initialState.filters;
     },
     // Modal-related actions
@@ -103,7 +103,7 @@ const inventorySlice = createSlice({
     setModalData: (state, action: PayloadAction<any>) => {
       state.modalData = action.payload;
     },
-    resetSubmitState: state => {
+    resetSubmitState: (state) => {
       state.isSubmit = false;
       state.submitQuantity = 0;
       state.submitPrice = 0;

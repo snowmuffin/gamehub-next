@@ -12,7 +12,13 @@ const AirSupportCard = () => (
     <Card.Header className="justify-content-between">
       <div className="card-title">Air Support</div>
       <Dropdown>
-        <Dropdown.Toggle as="a" aria-label="anchor" href="#!" data-bs-toggle="dropdown" className="op-4 no-caret">
+        <Dropdown.Toggle
+          as="a"
+          aria-label="anchor"
+          href="#!"
+          data-bs-toggle="dropdown"
+          className="op-4 no-caret"
+        >
           <i className="bi bi-grid text-primary"></i>
         </Dropdown.Toggle>
         <Dropdown.Menu>

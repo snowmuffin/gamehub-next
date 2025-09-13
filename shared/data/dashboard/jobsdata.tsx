@@ -141,7 +141,20 @@ export class CandidatePerformance extends Component<{}, spark3> {
           }
         },
         xaxis: {
-          categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+          categories: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+          ],
           axisBorder: {
             show: false,
             color: "rgba(119, 119, 142, 0.05)"
@@ -188,7 +201,13 @@ export class CandidatePerformance extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={"100%"} height={307} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={"100%"}
+        height={307}
+      />
     );
   }
 }

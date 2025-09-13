@@ -57,7 +57,20 @@ export class Learninganalysis extends Component<{}, spark3> {
         legend: {
           show: false
         },
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec"
+        ],
         markers: {
           size: 0
         },
@@ -73,7 +86,13 @@ export class Learninganalysis extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={"100%"} height={328} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={"100%"}
+        height={328}
+      />
     );
   }
 }
@@ -105,14 +124,25 @@ export class Topcourse extends Component<{}, spark3> {
           // Adjust the position of data labels to the center
           // position: 'center'
         },
-        colors: ["var(--primary-color)", "var(--primary08)", "var(--primary06)", "var(--primary04)"],
+        colors: [
+          "var(--primary-color)",
+          "var(--primary08)",
+          "var(--primary06)",
+          "var(--primary04)"
+        ],
         labels: ["Sales"]
       }
     };
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="pie" width={"100%"} height={238} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="pie"
+        width={"100%"}
+        height={238}
+      />
     );
   }
 }
@@ -230,7 +260,13 @@ export class Coursesprogress extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={286} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={286}
+      />
     );
   }
 }
@@ -281,7 +317,20 @@ export class Payouts extends Component<{}, spark3> {
         legend: {
           show: false
         },
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec"
+        ],
         markers: {
           size: 0
         },
@@ -319,7 +368,13 @@ export class Payouts extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="area" width={"100%"} height={235} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="area"
+        width={"100%"}
+        height={235}
+      />
     );
   }
 }

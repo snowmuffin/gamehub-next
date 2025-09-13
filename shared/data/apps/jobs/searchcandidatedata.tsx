@@ -40,7 +40,7 @@ const LabeledTwoThumbs1 = ({ rtl }: any) => {
         min={MIN}
         max={MAX}
         rtl={rtl}
-        onChange={newValues => setValues(newValues)}
+        onChange={(newValues) => setValues(newValues)}
         renderTrack={({ props, children }) => (
           <div
             onMouseDown={props.onMouseDown}

@@ -55,7 +55,13 @@ export class InvoiceStats extends React.Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexCharts options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={210} />
+      <ReactApexCharts
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={210}
+      />
     );
   }
 }

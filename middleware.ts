@@ -28,7 +28,7 @@ export function middleware(request: NextRequest) {
 
   // Additional allowed origins (comma-separated in env var)
   const additionalOrigins = process.env.NEXT_PUBLIC_ALLOWED_ORIGINS
-    ? process.env.NEXT_PUBLIC_ALLOWED_ORIGINS.split(",").map(origin => origin.trim())
+    ? process.env.NEXT_PUBLIC_ALLOWED_ORIGINS.split(",").map((origin) => origin.trim())
     : [];
 
   const allowedOrigins = [...baseOrigins, ...additionalOrigins];

@@ -22,32 +22,116 @@ const THRUSTERS_BY_GRID: Record<GridSize, ThrusterSpec[]> = {
     { id: "ion_large", name: "Large Ion Thruster", thrustN: 172_800, kind: "ion", massKg: 721 }, // 172.8 kN, 721 kg
     { id: "ion_small", name: "Ion Thruster", thrustN: 14_400, kind: "ion", massKg: 121 }, // 14.4 kN, 121 kg
     // Hydrogen
-    { id: "hydrogen_large", name: "Large Hydrogen Thruster", thrustN: 480_000, kind: "hydro", massKg: 1_222 }, // 480 kN, 1,222 kg
-    { id: "hydrogen_small", name: "Hydrogen Thruster", thrustN: 98_400, kind: "hydro", massKg: 334 }, // 98.4 kN, 334 kg
+    {
+      id: "hydrogen_large",
+      name: "Large Hydrogen Thruster",
+      thrustN: 480_000,
+      kind: "hydro",
+      massKg: 1_222
+    }, // 480 kN, 1,222 kg
+    {
+      id: "hydrogen_small",
+      name: "Hydrogen Thruster",
+      thrustN: 98_400,
+      kind: "hydro",
+      massKg: 334
+    }, // 98.4 kN, 334 kg
     // Atmospheric
-    { id: "atmo_large", name: "Large Atmospheric Thruster", thrustN: 576_000, kind: "atmo", massKg: 2_948 }, // 576 kN, 2,948 kg
+    {
+      id: "atmo_large",
+      name: "Large Atmospheric Thruster",
+      thrustN: 576_000,
+      kind: "atmo",
+      massKg: 2_948
+    }, // 576 kN, 2,948 kg
     { id: "atmo_small", name: "Atmospheric Thruster", thrustN: 96_000, kind: "atmo", massKg: 699 }, // 96 kN, 699 kg
     // Flat Atmospheric (Flatmo)
-    { id: "flatmo_small", name: "Flat Atmospheric Thruster", thrustN: 32_000, kind: "atmo", massKg: 303 }, // 32 kN, 303 kg
-  { id: "flatmo_large", name: "Large Flat Atmospheric Thruster", thrustN: 230_000, kind: "atmo", massKg: 1_060 }, // 230 kN, 1,060 kg
+    {
+      id: "flatmo_small",
+      name: "Flat Atmospheric Thruster",
+      thrustN: 32_000,
+      kind: "atmo",
+      massKg: 303
+    }, // 32 kN, 303 kg
+    {
+      id: "flatmo_large",
+      name: "Large Flat Atmospheric Thruster",
+      thrustN: 230_000,
+      kind: "atmo",
+      massKg: 1_060
+    }, // 230 kN, 1,060 kg
     // Prototech (treated as Ion-like for environment curve)
-    { id: "prototech_small", name: "Prototech Thruster", thrustN: 561_600, kind: "ion", massKg: 1521 } // 561.6 kN
+    {
+      id: "prototech_small",
+      name: "Prototech Thruster",
+      thrustN: 561_600,
+      kind: "ion",
+      massKg: 1521
+    } // 561.6 kN
   ],
   large: [
     // Ion
-    { id: "ion_large", name: "Large Ion Thruster", thrustN: 4_320_000, kind: "ion", massKg: 43_200 }, // 4,320 kN, 43,200 kg
+    {
+      id: "ion_large",
+      name: "Large Ion Thruster",
+      thrustN: 4_320_000,
+      kind: "ion",
+      massKg: 43_200
+    }, // 4,320 kN, 43,200 kg
     { id: "ion_small", name: "Ion Thruster", thrustN: 345_600, kind: "ion", massKg: 4_380 }, // 345.6 kN, 4,380 kg
     // Hydrogen
-    { id: "hydrogen_large", name: "Large Hydrogen Thruster", thrustN: 7_200_000, kind: "hydro", massKg: 6_940 }, // 7,200 kN, 6,940 kg
-    { id: "hydrogen_small", name: "Hydrogen Thruster", thrustN: 1_080_000, kind: "hydro", massKg: 1_420 }, // 1,080 kN, 1,420 kg
+    {
+      id: "hydrogen_large",
+      name: "Large Hydrogen Thruster",
+      thrustN: 7_200_000,
+      kind: "hydro",
+      massKg: 6_940
+    }, // 7,200 kN, 6,940 kg
+    {
+      id: "hydrogen_small",
+      name: "Hydrogen Thruster",
+      thrustN: 1_080_000,
+      kind: "hydro",
+      massKg: 1_420
+    }, // 1,080 kN, 1,420 kg
     // Atmospheric
-    { id: "atmo_large", name: "Large Atmospheric Thruster", thrustN: 6_480_000, kind: "atmo", massKg: 32_970 }, // 6,480 kN, 32,970 kg
-    { id: "atmo_small", name: "Atmospheric Thruster", thrustN: 648_000, kind: "atmo", massKg: 4_000 }, // 648 kN, 4,000 kg
+    {
+      id: "atmo_large",
+      name: "Large Atmospheric Thruster",
+      thrustN: 6_480_000,
+      kind: "atmo",
+      massKg: 32_970
+    }, // 6,480 kN, 32,970 kg
+    {
+      id: "atmo_small",
+      name: "Atmospheric Thruster",
+      thrustN: 648_000,
+      kind: "atmo",
+      massKg: 4_000
+    }, // 648 kN, 4,000 kg
     // Flat Atmospheric (Flatmo)
-    { id: "flatmo_small", name: "Flat Atmospheric Thruster", thrustN: 200_000, kind: "atmo", massKg: 1_273 }, // 200 kN, 1,273 kg
-  { id: "flatmo_large", name: "Large Flat Atmospheric Thruster", thrustN: 2_600_000, kind: "atmo", massKg: 12_190 }, // 2,600 kN, 12,190 kg
+    {
+      id: "flatmo_small",
+      name: "Flat Atmospheric Thruster",
+      thrustN: 200_000,
+      kind: "atmo",
+      massKg: 1_273
+    }, // 200 kN, 1,273 kg
+    {
+      id: "flatmo_large",
+      name: "Large Flat Atmospheric Thruster",
+      thrustN: 2_600_000,
+      kind: "atmo",
+      massKg: 12_190
+    }, // 2,600 kN, 12,190 kg
     // Prototech (treated as Ion-like for environment curve)
-    { id: "prototech_large", name: "Prototech Thruster", thrustN: 14_040_000, kind: "ion", massKg: 38_850 } // 14,040 kN
+    {
+      id: "prototech_large",
+      name: "Prototech Thruster",
+      thrustN: 14_040_000,
+      kind: "ion",
+      massKg: 38_850
+    } // 14,040 kN
   ]
 };
 
@@ -100,7 +184,7 @@ const SpaceEngineersCalculator: React.FC = () => {
 
   React.useEffect(() => {
     const next: Record<string, number> = {};
-    thrusters.forEach(t => {
+    thrusters.forEach((t) => {
       next[t.id] = 0;
     });
     setThrusterCounts(next);
@@ -109,7 +193,7 @@ const SpaceEngineersCalculator: React.FC = () => {
   const thrusterRows = useMemo(() => {
     const health = clampNumber(healthPct, 0, 100) / 100;
     const throttle = clampNumber(throttlePct, 0, 100) / 100;
-    return thrusters.map(t => {
+    return thrusters.map((t) => {
       const envEff = getEfficiency(t.kind, atmDensity);
       const effEachN = t.thrustN * envEff * health * throttle;
       const count = Math.max(0, Math.floor(thrusterCounts[t.id] ?? 0));
@@ -120,11 +204,20 @@ const SpaceEngineersCalculator: React.FC = () => {
     });
   }, [thrusters, thrusterCounts, atmDensity, healthPct, throttlePct]);
 
-  const totalEffectiveN = useMemo(() => thrusterRows.reduce((sum, r) => sum + r.totalEffN, 0), [thrusterRows]);
+  const totalEffectiveN = useMemo(
+    () => thrusterRows.reduce((sum, r) => sum + r.totalEffN, 0),
+    [thrusterRows]
+  );
 
-  const thrustersMassKg = useMemo(() => thrusterRows.reduce((sum, r) => sum + r.totalMassKg, 0), [thrusterRows]);
+  const thrustersMassKg = useMemo(
+    () => thrusterRows.reduce((sum, r) => sum + r.totalMassKg, 0),
+    [thrusterRows]
+  );
 
-  const requiredBaseN = useMemo(() => Math.max(0, weightKg) * Math.max(0, gravityG) * g_ms2, [weightKg, gravityG]);
+  const requiredBaseN = useMemo(
+    () => Math.max(0, weightKg) * Math.max(0, gravityG) * g_ms2,
+    [weightKg, gravityG]
+  );
 
   const requiredExtraFromThrustersN = useMemo(
     () => thrustersMassKg * Math.max(0, gravityG) * g_ms2,
@@ -151,12 +244,12 @@ const SpaceEngineersCalculator: React.FC = () => {
                     type="number"
                     value={weightKg}
                     min={0}
-                    onChange={e => setWeightKg(Number(e.target.value))}
+                    onChange={(e) => setWeightKg(Number(e.target.value))}
                   />
                 </Col>
                 <Col xs={12}>
                   <Form.Label>Ship Size</Form.Label>
-                  <Form.Select value={grid} onChange={e => setGrid(e.target.value as GridSize)}>
+                  <Form.Select value={grid} onChange={(e) => setGrid(e.target.value as GridSize)}>
                     <option value="small">Small Ship</option>
                     <option value="large">Large Ship</option>
                   </Form.Select>
@@ -169,7 +262,7 @@ const SpaceEngineersCalculator: React.FC = () => {
                       value={gravityG}
                       step={0.1}
                       min={0}
-                      onChange={e => setGravityG(Number(e.target.value))}
+                      onChange={(e) => setGravityG(Number(e.target.value))}
                     />
                   </div>
                 </Col>
@@ -183,7 +276,7 @@ const SpaceEngineersCalculator: React.FC = () => {
                           value={atmDensity}
                           step={0.05}
                           min={0}
-                          onChange={e => setAtmDensity(Number(e.target.value))}
+                          onChange={(e) => setAtmDensity(Number(e.target.value))}
                         />
                         <span className="text-muted">atm density (≥ 0)</span>
                       </div>
@@ -225,7 +318,9 @@ const SpaceEngineersCalculator: React.FC = () => {
                   label={`Base ${formatKN(requiredBaseN)} kN`}
                 />
                 <ProgressBar
-                  now={requiredTotalN > 0 ? (requiredExtraFromThrustersN / requiredTotalN) * 100 : 0}
+                  now={
+                    requiredTotalN > 0 ? (requiredExtraFromThrustersN / requiredTotalN) * 100 : 0
+                  }
                   key={2}
                   variant="warning"
                   label={`+Thrusters ${formatKN(requiredExtraFromThrustersN)} kN`}
@@ -244,7 +339,7 @@ const SpaceEngineersCalculator: React.FC = () => {
                 </tr>
               </thead>
               <tbody>
-                {thrusterRows.map(r => (
+                {thrusterRows.map((r) => (
                   <tr key={r.id}>
                     <td>{r.name}</td>
                     <td className="text-end">{formatKN(r.effEachN)}</td>
@@ -255,8 +350,8 @@ const SpaceEngineersCalculator: React.FC = () => {
                         min={0}
                         step={1}
                         value={thrusterCounts[r.id] ?? 0}
-                        onChange={e =>
-                          setThrusterCounts(prev => ({
+                        onChange={(e) =>
+                          setThrusterCounts((prev) => ({
                             ...prev,
                             [r.id]: Math.max(0, Math.floor(Number(e.target.value) || 0))
                           }))
@@ -273,7 +368,9 @@ const SpaceEngineersCalculator: React.FC = () => {
               <Button
                 variant="outline-secondary"
                 size="sm"
-                onClick={() => setThrusterCounts(Object.fromEntries(thrusters.map(t => [t.id, 0])))}
+                onClick={() =>
+                  setThrusterCounts(Object.fromEntries(thrusters.map((t) => [t.id, 0])))
+                }
               >
                 Reset Counts
               </Button>

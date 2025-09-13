@@ -86,7 +86,9 @@ export class BTC extends React.Component<{}, spark3> {
   }
 
   render() {
-    return <ReactBTC options={this.state.options} series={this.state.series} type="area" height={60} />;
+    return (
+      <ReactBTC options={this.state.options} series={this.state.series} type="area" height={60} />
+    );
   }
 }
 
@@ -154,7 +156,9 @@ export class ETH extends React.Component<{}, spark3> {
   }
 
   render() {
-    return <ReactETH options={this.state.options} series={this.state.series} type="area" height={60} />;
+    return (
+      <ReactETH options={this.state.options} series={this.state.series} type="area" height={60} />
+    );
   }
 }
 
@@ -221,7 +225,9 @@ export class DASH extends React.Component<{}, spark3> {
   }
 
   render() {
-    return <ReactDASH options={this.state.options} series={this.state.series} type="area" height={60} />;
+    return (
+      <ReactDASH options={this.state.options} series={this.state.series} type="area" height={60} />
+    );
   }
 }
 //LTC
@@ -287,7 +293,9 @@ export class LTC extends React.Component<{}, spark3> {
   }
 
   render() {
-    return <ReactLTC options={this.state.options} series={this.state.series} type="area" height={60} />;
+    return (
+      <ReactLTC options={this.state.options} series={this.state.series} type="area" height={60} />
+    );
   }
 }
 
@@ -355,7 +363,9 @@ export class XRS extends React.Component<{}, spark3> {
   }
 
   render() {
-    return <ReactXRS options={this.state.options} series={this.state.series} type="area" height={60} />;
+    return (
+      <ReactXRS options={this.state.options} series={this.state.series} type="area" height={60} />
+    );
   }
 }
 
@@ -423,7 +433,9 @@ export class GLM extends React.Component<{}, spark3> {
   }
 
   render() {
-    return <ReactGLM options={this.state.options} series={this.state.series} type="area" height={60} />;
+    return (
+      <ReactGLM options={this.state.options} series={this.state.series} type="area" height={60} />
+    );
   }
 }
 
@@ -492,7 +504,14 @@ export class Monero extends React.Component<{}, spark3> {
   }
 
   render() {
-    return <ReactMonero options={this.state.options} series={this.state.series} type="area" height={60} />;
+    return (
+      <ReactMonero
+        options={this.state.options}
+        series={this.state.series}
+        type="area"
+        height={60}
+      />
+    );
   }
 }
 
@@ -560,7 +579,9 @@ export class EOS extends React.Component<{}, spark3> {
   }
 
   render() {
-    return <ReactEOS options={this.state.options} series={this.state.series} type="area" height={60} />;
+    return (
+      <ReactEOS options={this.state.options} series={this.state.series} type="area" height={60} />
+    );
   }
 }
 export class Statistics extends React.Component<{}, spark3> {
@@ -628,7 +649,20 @@ export class Statistics extends React.Component<{}, spark3> {
         },
         xaxis: {
           type: "category",
-          categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+          categories: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+          ],
           axisBorder: {
             show: true,
             color: "rgba(119, 119, 142, 0.05)"

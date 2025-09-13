@@ -35,7 +35,7 @@ const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    logout: state => {
+    logout: (state) => {
       state.token = null;
       state.error = null;
     },
@@ -46,7 +46,7 @@ const authSlice = createSlice({
       state.error = null;
     },
     // Reset state when login starts
-    loginStart: state => {
+    loginStart: (state) => {
       state.loading = true;
       state.error = null;
     },
@@ -56,9 +56,9 @@ const authSlice = createSlice({
       state.error = action.payload;
     }
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
-      .addCase(steamLogin.pending, state => {
+      .addCase(steamLogin.pending, (state) => {
         state.loading = true;
         state.error = null;
       })

@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "next-env.d.ts",
+    "middleware.ts",
+    "pages/api/**/*.ts",
+    "shared/api/**/*.ts",
+    "shared/api/**/*.tsx",
+    "shared/utils/**/*.ts",
+    "shared/utils/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "shared/data/**",
+    "shared/layout-components/header/**",
+    "shared/layout-components/header/SearchBar.tsx",
+    "app/(components)/(content-layout)/dashboard/inventory/**"
+  ]
+}

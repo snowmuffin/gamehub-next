@@ -19,8 +19,8 @@ const RulesEn = () => (
               <div className="mb-4 fs-14">
                 <p className="mb-3">
                   <span className="fw-medium text-default">
-                    Please read and follow the rules and notices below to ensure a fair and enjoyable experience for
-                    everyone.
+                    Please read and follow the rules and notices below to ensure a fair and
+                    enjoyable experience for everyone.
                   </span>
                 </p>
               </div>
@@ -28,7 +28,8 @@ const RulesEn = () => (
                 <li className="mb-4">
                   <p className="fw-medium mb-2 fs-14 text-primary">No Cheating or Exploiting</p>
                   <p className="mb-0 text-muted">
-                    The use of cheats, hacks, or exploits is not allowed. Report any bugs or exploits to the staff.
+                    The use of cheats, hacks, or exploits is not allowed. Report any bugs or
+                    exploits to the staff.
                   </p>
                 </li>
                 <li className="mb-4">
@@ -53,40 +54,46 @@ const RulesEn = () => (
                 <li className="mb-4">
                   <p className="fw-medium mb-2 fs-14 text-primary">In‑game Names</p>
                   <p className="mb-0 text-muted">
-                    Using non-English characters for factions, blocks, grids, or usernames can lead to errors—please use
-                    English letters whenever possible.
+                    Using non-English characters for factions, blocks, grids, or usernames can lead
+                    to errors—please use English letters whenever possible.
                   </p>
                 </li>
                 <li className="mb-4">
                   <p className="fw-medium mb-2 fs-14 text-primary">PvP Rules</p>
-                  <p className="mb-0 text-muted">There are no PvP restrictions—feel free to engage in combat freely.</p>
+                  <p className="mb-0 text-muted">
+                    There are no PvP restrictions—feel free to engage in combat freely.
+                  </p>
                 </li>
                 <li className="mb-4">
                   <p className="fw-medium mb-2 fs-14 text-primary">Building Restrictions</p>
                   <p className="mb-0 text-muted">
-                    Construction of enormous structures or abuse of scripts that negatively impact server performance
-                    may be restricted.
+                    Construction of enormous structures or abuse of scripts that negatively impact
+                    server performance may be restricted.
                   </p>
                 </li>
                 <li>
                   <p className="fw-medium mb-2 fs-14 text-primary">Grid Restore</p>
                   <p className="mb-0 text-muted">
-                    If you would like to request restore for a grid deleted due to an error, please contact us via the
-                    Grid-Restore channel. DMs will no longer be accepted.
+                    If you would like to request restore for a grid deleted due to an error, please
+                    contact us via the Grid-Restore channel. DMs will no longer be accepted.
                     <ul className="mt-2">
                       <li>
-                        <strong>6-1.</strong> If grid name is default, it will not be eligible for restoration.
+                        <strong>6-1.</strong> If grid name is default, it will not be eligible for
+                        restoration.
                       </li>
                       <li>
-                        <strong>6-2.</strong> The issue was caused by physical destruction (even if it appears to be a
-                        bug), it will not be eligible for restoration.
+                        <strong>6-2.</strong> The issue was caused by physical destruction (even if
+                        it appears to be a bug), it will not be eligible for restoration.
                       </li>
                     </ul>
                   </p>
                 </li>
               </ol>
               <div className="mt-4 fs-14">
-                <p>For more detailed rules and updates, please visit our Discord or website regularly.</p>
+                <p>
+                  For more detailed rules and updates, please visit our Discord or website
+                  regularly.
+                </p>
               </div>
             </div>
           </Card.Body>

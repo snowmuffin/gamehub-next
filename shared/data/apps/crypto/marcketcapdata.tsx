@@ -23,9 +23,10 @@ export class Bitcoin extends React.Component<{}, spark3> {
         {
           name: "Value",
           data: [
-            0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46, 0, 45, 54,
-            38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46, 0, 45, 54, 38, 56, 24,
-            65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46
+            0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43,
+            19, 46, 0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27,
+            54, 43, 19, 46, 0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53,
+            61, 27, 54, 43, 19, 46
           ]
         }
       ],
@@ -82,7 +83,13 @@ export class Bitcoin extends React.Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" height={35} width={120} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        height={35}
+        width={120}
+      />
     );
   }
 }
@@ -96,9 +103,10 @@ export class Etherium extends React.Component<{}, spark3> {
         {
           name: "Value",
           data: [
-            0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46, 0, 45, 54,
-            38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93,
-            53, 61, 27, 54, 43, 19, 46, 0, 45, 54, 93, 53, 61, 27, 54, 43, 19, 46
+            0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43,
+            19, 46, 0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 65,
+            31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46, 0, 45, 54, 93, 53,
+            61, 27, 54, 43, 19, 46
           ]
         }
       ],
@@ -155,7 +163,13 @@ export class Etherium extends React.Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" height={35} width={120} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        height={35}
+        width={120}
+      />
     );
   }
 }
@@ -168,7 +182,10 @@ export class BTC extends React.Component<{}, spark3> {
       series: [
         {
           name: "Value",
-          data: [0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46]
+          data: [
+            0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43,
+            19, 46
+          ]
         }
       ],
       options: {
@@ -180,7 +197,7 @@ export class BTC extends React.Component<{}, spark3> {
             enabled: true
           },
           events: {
-            mounted: chart => {
+            mounted: (chart) => {
               chart.windowResizeHandler();
             }
           },
@@ -226,7 +243,13 @@ export class BTC extends React.Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" height={35} width={120} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        height={35}
+        width={120}
+      />
     );
   }
 }
@@ -240,7 +263,10 @@ export class ETH extends React.Component<{}, spark3> {
       series: [
         {
           name: "Value",
-          data: [0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46]
+          data: [
+            0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43,
+            19, 46
+          ]
         }
       ],
       options: {
@@ -252,7 +278,7 @@ export class ETH extends React.Component<{}, spark3> {
             enabled: true
           },
           events: {
-            mounted: chart => {
+            mounted: (chart) => {
               chart.windowResizeHandler();
             }
           },
@@ -298,7 +324,13 @@ export class ETH extends React.Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" height={35} width={120} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        height={35}
+        width={120}
+      />
     );
   }
 }
@@ -311,7 +343,10 @@ export class DASH extends React.Component<{}, spark3> {
       series: [
         {
           name: "Value",
-          data: [0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46]
+          data: [
+            0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43,
+            19, 46
+          ]
         }
       ],
       options: {
@@ -323,7 +358,7 @@ export class DASH extends React.Component<{}, spark3> {
             enabled: true
           },
           events: {
-            mounted: chart => {
+            mounted: (chart) => {
               chart.windowResizeHandler();
             }
           },
@@ -369,7 +404,13 @@ export class DASH extends React.Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" height={35} width={120} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        height={35}
+        width={120}
+      />
     );
   }
 }
@@ -383,7 +424,10 @@ export class BitcoinChart extends React.Component<{}, spark3> {
       series: [
         {
           name: "Value",
-          data: [0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46]
+          data: [
+            0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43,
+            19, 46
+          ]
         }
       ],
       options: {
@@ -436,7 +480,13 @@ export class BitcoinChart extends React.Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="area" height={40} width={150} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="area"
+        height={40}
+        width={150}
+      />
     );
   }
 }
@@ -450,7 +500,10 @@ export class Dashcoinchart extends React.Component<{}, spark3> {
       series: [
         {
           name: "Value",
-          data: [0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46]
+          data: [
+            0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43,
+            19, 46
+          ]
         }
       ],
       options: {
@@ -503,7 +556,13 @@ export class Dashcoinchart extends React.Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="area" height={40} width={150} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="area"
+        height={40}
+        width={150}
+      />
     );
   }
 }

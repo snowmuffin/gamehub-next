@@ -86,7 +86,13 @@ export class Basicbar extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={320} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={320}
+      />
     );
   }
 }
@@ -172,7 +178,13 @@ export class Grouped extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={320} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={320}
+      />
     );
   }
 }
@@ -280,7 +292,13 @@ export class Stackedbar extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={320} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={320}
+      />
     );
   }
 }
@@ -384,7 +402,13 @@ export class Stacked100bar extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={320} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={320}
+      />
     );
   }
 }
@@ -397,13 +421,15 @@ export class Negativebar extends Component<{}, spark3> {
       series: [
         {
           name: "Males",
-          data: [0.4, 0.65, 0.76, 0.88, 1.5, 2.1, 2.9, 3.8, 3.9, 4.2, 4, 4.3, 4.1, 4.2, 4.5, 3.9, 3.5, 3]
+          data: [
+            0.4, 0.65, 0.76, 0.88, 1.5, 2.1, 2.9, 3.8, 3.9, 4.2, 4, 4.3, 4.1, 4.2, 4.5, 3.9, 3.5, 3
+          ]
         },
         {
           name: "Females",
           data: [
-            -0.8, -1.05, -1.06, -1.18, -1.4, -2.2, -2.85, -3.7, -3.96, -4.22, -4.3, -4.4, -4.1, -4, -4.1, -3.4, -3.1,
-            -2.8
+            -0.8, -1.05, -1.06, -1.18, -1.4, -2.2, -2.85, -3.7, -3.96, -4.22, -4.3, -4.4, -4.1, -4,
+            -4.1, -3.4, -3.1, -2.8
           ]
         }
       ],
@@ -489,7 +515,13 @@ export class Negativebar extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={350} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={350}
+      />
     );
   }
 }
@@ -660,7 +692,13 @@ export class Markerbar extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={350} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={350}
+      />
     );
   }
 }
@@ -760,7 +798,13 @@ export class Reversedbar extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={350} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={350}
+      />
     );
   }
 }
@@ -819,7 +863,10 @@ export class Categorybar extends Component<{}, spark3> {
           },
           formatter: function (
             val: string,
-            opt: { w: { globals: { labels: { [x: string]: string } } }; dataPointIndex: string | number }
+            opt: {
+              w: { globals: { labels: { [x: string]: string } } };
+              dataPointIndex: string | number;
+            }
           ) {
             return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val;
           },
@@ -893,7 +940,13 @@ export class Categorybar extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={350} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={350}
+      />
     );
   }
 }
@@ -1008,7 +1061,13 @@ export class Patternbar extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={350} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={350}
+      />
     );
   }
 }
@@ -1023,8 +1082,8 @@ export class Imagebar extends Component<{}, spark3> {
         {
           name: "coins",
           data: [
-            2, 4, 3, 4, 3, 5, 5, 6.5, 6, 5, 4, 5, 8, 7, 7, 8, 8, 10, 9, 9, 12, 12, 11, 12, 13, 14, 16, 14, 15, 17, 19,
-            21
+            2, 4, 3, 4, 3, 5, 5, 6.5, 6, 5, 4, 5, 8, 7, 7, 8, 8, 10, 9, 9, 12, 12, 11, 12, 13, 14,
+            16, 14, 15, 17, 19, 21
           ]
         }
       ],
@@ -1111,7 +1170,13 @@ export class Imagebar extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={350} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={350}
+      />
     );
   }
 }

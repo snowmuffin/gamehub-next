@@ -5,7 +5,13 @@ import Link from "next/link";
 
 const AppsOffcanvas = ({ show, handleClose }: { show: boolean; handleClose: () => void }) => {
   return (
-    <Offcanvas placement="end" show={show} onHide={handleClose} className="offcanvas-end" id="apps-header-offcanvas">
+    <Offcanvas
+      placement="end"
+      show={show}
+      onHide={handleClose}
+      className="offcanvas-end"
+      id="apps-header-offcanvas"
+    >
       <Offcanvas.Header className="border-bottom">
         <h6 className="offcanvas-title" id="offcanvasExampleLabel">
           Shortcuts

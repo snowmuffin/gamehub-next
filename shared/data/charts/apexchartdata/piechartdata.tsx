@@ -30,7 +30,13 @@ export class Basicpiechart extends Component<{}, spark3> {
             }
           }
         },
-        colors: ["rgb(0,255,190)", "rgb(69,214,91)", "rgb(243,156,18)", "rgb(52,152,219)", "rgb(231,76,60)"],
+        colors: [
+          "rgb(0,255,190)",
+          "rgb(69,214,91)",
+          "rgb(243,156,18)",
+          "rgb(52,152,219)",
+          "rgb(231,76,60)"
+        ],
         labels: ["Team A", "Team B", "Team C", "Team D", "Team E"],
         legend: {
           position: "bottom"
@@ -46,7 +52,13 @@ export class Basicpiechart extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="pie" width={"100%"} height={300} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="pie"
+        width={"100%"}
+        height={300}
+      />
     );
   }
 }
@@ -70,7 +82,13 @@ export class Simpledonut extends Component<{}, spark3> {
         legend: {
           position: "bottom"
         },
-        colors: ["rgb(0,255,190)", "rgb(69,214,91)", "rgb(243,156,18)", "rgb(52,152,219)", "rgb(231,76,60)"],
+        colors: [
+          "rgb(0,255,190)",
+          "rgb(69,214,91)",
+          "rgb(243,156,18)",
+          "rgb(52,152,219)",
+          "rgb(231,76,60)"
+        ],
         dataLabels: {
           dropShadow: {
             enabled: false
@@ -100,7 +118,13 @@ export class Updatingdonut extends Component<{}, spark3> {
 
     this.state = {
       series: [44, 55, 13, 33],
-      colors: ["rgb(0,255,190)", "rgb(69,214,91)", "rgb(243,156,18)", "rgb(52,152,219)", "rgb(231,76,60)"],
+      colors: [
+        "rgb(0,255,190)",
+        "rgb(69,214,91)",
+        "rgb(243,156,18)",
+        "rgb(52,152,219)",
+        "rgb(231,76,60)"
+      ],
       options: {
         chart: {
           height: 280,
@@ -114,7 +138,13 @@ export class Updatingdonut extends Component<{}, spark3> {
         dataLabels: {
           enabled: false
         },
-        colors: ["rgb(0,143,251)", "rgb(69,214,91)", "rgb(243,156,18)", "rgb(255,69,96)", "rgb(231,76,60)"],
+        colors: [
+          "rgb(0,143,251)",
+          "rgb(69,214,91)",
+          "rgb(243,156,18)",
+          "rgb(255,69,96)",
+          "rgb(231,76,60)"
+        ],
         legend: {
           position: "bottom"
         }
@@ -290,7 +320,10 @@ export class Gradientpie extends Component<{}, spark3> {
         legend: {
           formatter: function (
             val: string,
-            opts: { w: { globals: { series: { [x: string]: string } } }; seriesIndex: string | number }
+            opts: {
+              w: { globals: { series: { [x: string]: string } } };
+              seriesIndex: string | number;
+            }
           ) {
             return val + " - " + opts.w.globals.series[opts.seriesIndex];
           },
@@ -365,7 +398,13 @@ export class Donutwithpattern extends Component<{}, spark3> {
             }
           }
         },
-        colors: ["rgb(68,244,200)", "rgb(69,214,91)", "rgb(243,156,18)", "rgb(80,165,223)", "rgb(231,76,60)"],
+        colors: [
+          "rgb(68,244,200)",
+          "rgb(69,214,91)",
+          "rgb(243,156,18)",
+          "rgb(80,165,223)",
+          "rgb(231,76,60)"
+        ],
         labels: ["Comedy", "Action", "SciFi", "Drama", "Horror"],
         dataLabels: {
           enabled: true,

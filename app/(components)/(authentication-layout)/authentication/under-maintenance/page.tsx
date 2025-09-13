@@ -20,7 +20,8 @@ const UnderMaintenance = () => {
                     <h1 className="construction-gradient-title mb-0">Under Maintenance</h1>
                   </div>
                   <p className="mb-4 fs-14">
-                    Exciting updates and new features are on the way! Stay tuned for an enhanced experience.
+                    Exciting updates and new features are on the way! Stay tuned for an enhanced
+                    experience.
                   </p>
                   <DayCounter />
                   <div className="input-group mb-5">
@@ -31,24 +32,44 @@ const UnderMaintenance = () => {
                       aria-label="YourMailAddress"
                       aria-describedby="button-addon2"
                     />
-                    <Button variant="" className="btn btn-primary btn-lg" type="button" id="button-addon2">
+                    <Button
+                      variant=""
+                      className="btn btn-primary btn-lg"
+                      type="button"
+                      id="button-addon2"
+                    >
                       Get Notified
                     </Button>
                   </div>
                   <div className="btn-list">
-                    <Button variant="" className="btn btn-icon btn-sm btn-wave authentication-social-btn">
+                    <Button
+                      variant=""
+                      className="btn btn-icon btn-sm btn-wave authentication-social-btn"
+                    >
                       <i className="ri-facebook-line fw-bold"></i>
                     </Button>
-                    <Button variant="" className="btn btn-icon btn-sm btn-wave authentication-social-btn">
+                    <Button
+                      variant=""
+                      className="btn btn-icon btn-sm btn-wave authentication-social-btn"
+                    >
                       <i className="ri-twitter-x-line fw-bold"></i>
                     </Button>
-                    <Button variant="" className="btn btn-icon btn-sm btn-wave authentication-social-btn">
+                    <Button
+                      variant=""
+                      className="btn btn-icon btn-sm btn-wave authentication-social-btn"
+                    >
                       <i className="ri-instagram-line fw-bold"></i>
                     </Button>
-                    <Button variant="" className="btn btn-icon btn-sm btn-wave authentication-social-btn">
+                    <Button
+                      variant=""
+                      className="btn btn-icon btn-sm btn-wave authentication-social-btn"
+                    >
                       <i className="ri-github-line fw-bold"></i>
                     </Button>
-                    <Button variant="" className="btn btn-icon btn-sm btn-wave authentication-social-btn">
+                    <Button
+                      variant=""
+                      className="btn btn-icon btn-sm btn-wave authentication-social-btn"
+                    >
                       <i className="ri-youtube-line fw-bold"></i>
                     </Button>
                   </div>

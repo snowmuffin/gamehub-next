@@ -1,11 +1,19 @@
 import { useTranslation } from "react-i18next";
 
-import { Dialog, Grid2, Stack, Typography } from "@mui/material";
+import { Dialog, Grid, Stack, Typography } from "@mui/material";
 
 import { useAppDispatch, useAppSelector } from "@/shared/hooks";
 import { inventoryActions, selectInventory } from "@/shared/redux/inventory";
 
-import EmptyContents from "@/shared/components/EmptyContents";
+// Fallback simple EmptyContents inline until a shared component exists
+const EmptyContents = ({ empty_msg1, empty_msg2 }: { empty_msg1: string; empty_msg2: string }) => (
+  <Stack p={6} alignItems="center" justifyContent="center" width="100%" gap={1}>
+    <Typography variant="h6">{empty_msg1}</Typography>
+    <Typography variant="body2" color="text.secondary">
+      {empty_msg2}
+    </Typography>
+  </Stack>
+);
 
 import ItemSlot from "./ItemSlot";
 import ItemModal from "./ItemModal";
@@ -31,11 +39,15 @@ const InventoryEntity = () => {
   };
 
   return (
-    <Stack id="inventory_wrap" direction="column" sx={{ justifyContent: "flex-start", alignItems: "center", gap: 1 }}>
+    <Stack
+      id="inventory_wrap"
+      direction="column"
+      sx={{ justifyContent: "flex-start", alignItems: "center", gap: 1 }}
+    >
       <Typography fontWeight="bold" variant="h4">
         {t("my_inventory")}
       </Typography>
-      <Grid2
+      <Grid
         id="inventory_box"
         container
         spacing={2}
@@ -48,7 +60,7 @@ const InventoryEntity = () => {
       >
         {isSuccess ? (
           items &&
-          items.map(item => {
+          items.map((item) => {
             return (
               <ItemSlot
                 key={item.indexName}
@@ -69,9 +81,12 @@ const InventoryEntity = () => {
             <InventorySkeleton />
           </DeferredComponent>
         ) : (
-          <EmptyContents empty_msg1="inventory_is_empty_msg_1" empty_msg2="inventory_is_empty_msg_2" />
+          <EmptyContents
+            empty_msg1="inventory_is_empty_msg_1"
+            empty_msg2="inventory_is_empty_msg_2"
+          />
         )}
-      </Grid2>
+      </Grid>
       <Dialog open={isOpen ? isOpen : false} onClose={handleClose}>
         <ItemModal handleClose={handleClose} handleSubmit={handleSubmit} />
       </Dialog>

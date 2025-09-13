@@ -82,7 +82,13 @@ export class Bitcoinwidget extends Component<{}, spark3> {
   render() {
     return (
       <div id="chart">
-        <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={100} height={20} />
+        <ReactApexChart
+          options={this.state.options}
+          series={this.state.series}
+          type="line"
+          width={100}
+          height={20}
+        />
       </div>
     );
   }
@@ -157,7 +163,13 @@ export class Etherumwidget extends Component<{}, spark3> {
   render() {
     return (
       <div id="chart">
-        <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={100} height={20} />
+        <ReactApexChart
+          options={this.state.options}
+          series={this.state.series}
+          type="line"
+          width={100}
+          height={20}
+        />
       </div>
     );
   }
@@ -232,7 +244,13 @@ export class DshCoinwidget extends Component<{}, spark3> {
   render() {
     return (
       <div id="chart">
-        <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={100} height={20} />
+        <ReactApexChart
+          options={this.state.options}
+          series={this.state.series}
+          type="line"
+          width={100}
+          height={20}
+        />
       </div>
     );
   }
@@ -307,7 +325,13 @@ export class GlmCoinwidget extends Component<{}, spark3> {
   render() {
     return (
       <div id="chart">
-        <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={100} height={20} />
+        <ReactApexChart
+          options={this.state.options}
+          series={this.state.series}
+          type="line"
+          width={100}
+          height={20}
+        />
       </div>
     );
   }
@@ -438,7 +462,20 @@ export class TotalRevenue1 extends Component<{}, spark3> {
         legend: {
           show: false
         },
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec"
+        ],
         markers: {
           size: 0
         },

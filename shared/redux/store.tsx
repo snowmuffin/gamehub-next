@@ -23,7 +23,7 @@ const store = configureStore({
     inventory: inventoryReducer, // Add inventory reducer
     snackbar: snackbarReducer // Add snackbar reducer
   },
-  middleware: getDefaultMiddleware =>
+  middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false // Disable serializable check
     })

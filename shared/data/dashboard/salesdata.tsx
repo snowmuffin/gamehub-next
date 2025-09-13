@@ -44,7 +44,7 @@ export class MaleUsers extends Component<{}, spark3> {
             opacity: 0.1
           },
           events: {
-            mounted: chart => {
+            mounted: (chart) => {
               chart.windowResizeHandler();
             }
           }
@@ -135,7 +135,7 @@ export class FemaleUsers extends Component<{}, spark3> {
             opacity: 0.1
           },
           events: {
-            mounted: chart => {
+            mounted: (chart) => {
               chart.windowResizeHandler();
             }
           }
@@ -183,7 +183,13 @@ export class FemaleUsers extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={"100%"} height={110} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={"100%"}
+        height={110}
+      />
     );
   }
 }
@@ -284,7 +290,20 @@ export class SalesStatistics extends Component<{}, spark3> {
         },
         xaxis: {
           type: "category",
-          categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+          categories: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+          ],
           axisBorder: {
             show: true,
             color: "rgba(119, 119, 142, 0.05)",
@@ -329,7 +348,13 @@ export class SalesStatistics extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={"100%"} height={315} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={"100%"}
+        height={315}
+      />
     );
   }
 }
@@ -495,19 +520,40 @@ export class Visitors extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={"100%"} height={290} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={"100%"}
+        height={290}
+      />
     );
   }
 }
 
 const svg1 = (
-  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
-    <path d="M224,80V200a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H216A8,8,0,0,1,224,80Z" opacity="0.2"></path>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    fill="#000000"
+    viewBox="0 0 256 256"
+  >
+    <path
+      d="M224,80V200a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H216A8,8,0,0,1,224,80Z"
+      opacity="0.2"
+    ></path>
     <path d="M216,64H176a48,48,0,0,0-96,0H40A16,16,0,0,0,24,80V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V80A16,16,0,0,0,216,64ZM128,32a32,32,0,0,1,32,32H96A32,32,0,0,1,128,32Zm88,168H40V80H80V96a8,8,0,0,0,16,0V80h64V96a8,8,0,0,0,16,0V80h40Z"></path>
   </svg>
 );
 const svg2 = (
-  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    fill="#000000"
+    viewBox="0 0 256 256"
+  >
     <path
       d="M192,168a40,40,0,0,1-40,40H128V128h24A40,40,0,0,1,192,168ZM112,48a40,40,0,0,0,0,80h16V48Z"
       opacity="0.2"
@@ -516,7 +562,13 @@ const svg2 = (
   </svg>
 );
 const svg3 = (
-  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    fill="#000000"
+    viewBox="0 0 256 256"
+  >
     <path
       d="M128,56C48,56,16,128,16,128s32,72,112,72,112-72,112-72S208,56,128,56Zm0,112a40,40,0,1,1,40-40A40,40,0,0,1,128,168Z"
       opacity="0.2"
@@ -525,7 +577,13 @@ const svg3 = (
   </svg>
 );
 const svg4 = (
-  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    fill="#000000"
+    viewBox="0 0 256 256"
+  >
     <path
       d="M224,88V200a8,8,0,0,1-8,8H56a16,16,0,0,1-16-16V64A16,16,0,0,0,56,80H216A8,8,0,0,1,224,88Z"
       opacity="0.2"

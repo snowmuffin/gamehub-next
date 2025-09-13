@@ -8,7 +8,12 @@ interface CustomIconButtonProps extends IconButtonProps {
   icon?: React.ReactNode;
 }
 
-const CustomIconButton: React.FC<CustomIconButtonProps> = ({ tooltip, children, icon, ...props }) => {
+const CustomIconButton: React.FC<CustomIconButtonProps> = ({
+  tooltip,
+  children,
+  icon,
+  ...props
+}) => {
   const button = (
     <IconButton
       {...props}

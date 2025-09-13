@@ -29,7 +29,7 @@ const SigninBasic = () => {
 
       const additionalOrigins = process.env.NEXT_PUBLIC_ALLOWED_ORIGINS
         ? process.env.NEXT_PUBLIC_ALLOWED_ORIGINS.split(",")
-            .map(origin => origin.trim())
+            .map((origin) => origin.trim())
             .filter(Boolean)
         : [];
 
@@ -39,7 +39,9 @@ const SigninBasic = () => {
         baseOrigins.push(`http://${frontendDomain}`);
       }
 
-      const allowedOrigins = Array.from(new Set([...baseOrigins.filter(Boolean), ...additionalOrigins]));
+      const allowedOrigins = Array.from(
+        new Set([...baseOrigins.filter(Boolean), ...additionalOrigins])
+      );
 
       // Additionally, allow protocol differences when the hostname matches
       const currentHost = window.location.hostname;
@@ -110,12 +112,17 @@ const SigninBasic = () => {
 
     // Pass current origin to the backend so it can target postMessage correctly
     const currentOrigin = window.location.origin;
-    const baseUrl = process.env.NEXT_PUBLIC_STEAM_AUTH_URL || `${window.location.origin}/auth/steam`;
+    const baseUrl =
+      process.env.NEXT_PUBLIC_STEAM_AUTH_URL || `${window.location.origin}/auth/steam`;
 
     // Append the current origin as a query parameter
     const steamAuthUrl = `${baseUrl}?origin=${encodeURIComponent(currentOrigin)}`;
 
-    const popup = window.open(steamAuthUrl, "Steam Login", "width=600,height=700,scrollbars=yes,resizable=yes");
+    const popup = window.open(
+      steamAuthUrl,
+      "Steam Login",
+      "width=600,height=700,scrollbars=yes,resizable=yes"
+    );
 
     if (!popup) {
       setIsLoginInProgress(false);
@@ -165,7 +172,12 @@ const SigninBasic = () => {
               <Card.Body className="p-5">
                 <h3 className="text-center mb-4">Sign in with Steam</h3>
                 {clientError && <p className="text-danger text-center">{clientError}</p>}
-                <Button variant="primary" className="w-100" onClick={handleSteamLogin} disabled={loading}>
+                <Button
+                  variant="primary"
+                  className="w-100"
+                  onClick={handleSteamLogin}
+                  disabled={loading}
+                >
                   {loading ? "Logging in..." : "Login with Steam"}
                 </Button>
               </Card.Body>

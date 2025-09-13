@@ -102,7 +102,13 @@ export class Crmrevenue extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="area" width={100} height={40} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="area"
+        width={100}
+        height={40}
+      />
     );
   }
 }
@@ -189,7 +195,20 @@ export class Performance extends Component<{}, spark3> {
         legend: {
           position: "top"
         },
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec"
+        ],
         markers: {
           size: 0
         },
@@ -199,7 +218,13 @@ export class Performance extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={"100%"} height={285} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={"100%"}
+        height={285}
+      />
     );
   }
 }
@@ -314,7 +339,13 @@ export class Revenuetarget extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={283} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={283}
+      />
     );
   }
 }
@@ -451,8 +482,20 @@ export const Topdeals: topdeal[] = [
     company: "Nebula Nexus",
     sale: "14,253"
   },
-  { id: 6, deal: "$1.11923M", src1: "../../assets/images/company-logos/1.png", company: "Horizon Hub", sale: "12,763" },
-  { id: 7, deal: "$3.28911M", src1: "../../assets/images/company-logos/6.png", company: "Spruko Tech", sale: "10,543" }
+  {
+    id: 6,
+    deal: "$1.11923M",
+    src1: "../../assets/images/company-logos/1.png",
+    company: "Horizon Hub",
+    sale: "12,763"
+  },
+  {
+    id: 7,
+    deal: "$3.28911M",
+    src1: "../../assets/images/company-logos/6.png",
+    company: "Spruko Tech",
+    sale: "10,543"
+  }
 ];
 
 //Recent Leads

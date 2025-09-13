@@ -82,7 +82,13 @@ export class Totalrevenue1 extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={100} height={30} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={100}
+        height={30}
+      />
     );
   }
 }
@@ -156,7 +162,13 @@ export class Totalcustomaers extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={100} height={30} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={100}
+        height={30}
+      />
     );
   }
 }
@@ -230,7 +242,13 @@ export class Conversationratio extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={100} height={30} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={100}
+        height={30}
+      />
     );
   }
 }
@@ -304,7 +322,13 @@ export class Totaldeals extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={100} height={30} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={100}
+        height={30}
+      />
     );
   }
 }
@@ -564,7 +588,7 @@ export class Cryptoprice extends Component<{}, spark3> {
       options: {
         chart: {
           events: {
-            mounted: chart => {
+            mounted: (chart) => {
               chart.windowResizeHandler();
             }
           },
@@ -708,7 +732,10 @@ export class Bitcoin extends Component<{}, spark3> {
       series: [
         {
           name: "Value",
-          data: [0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46]
+          data: [
+            0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43,
+            19, 46
+          ]
         }
       ],
       options: {
@@ -763,7 +790,13 @@ export class Bitcoin extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={120} height={20} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={120}
+        height={20}
+      />
     );
   }
 }
@@ -776,7 +809,10 @@ export class Ethereum extends Component<{}, spark3> {
       series: [
         {
           name: "Value",
-          data: [0, 45, 54, 38, 56, 24, 65, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46, 31, 37, 39, 62, 51, 35, 41]
+          data: [
+            0, 45, 54, 38, 56, 24, 65, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46, 31, 37, 39, 62, 51,
+            35, 41
+          ]
         }
       ],
       options: {
@@ -832,7 +868,13 @@ export class Ethereum extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={120} height={20} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={120}
+        height={20}
+      />
     );
   }
 }
@@ -846,7 +888,10 @@ export class DataPrice extends Component<{}, spark3> {
       series: [
         {
           name: "Value",
-          data: [61, 27, 54, 43, 19, 46, 31, 37, 39, 0, 45, 54, 38, 56, 24, 65, 35, 27, 93, 53, 62, 51, 35, 41]
+          data: [
+            61, 27, 54, 43, 19, 46, 31, 37, 39, 0, 45, 54, 38, 56, 24, 65, 35, 27, 93, 53, 62, 51,
+            35, 41
+          ]
         }
       ],
       options: {
@@ -901,7 +946,13 @@ export class DataPrice extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={120} height={20} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={120}
+        height={20}
+      />
     );
   }
 }
@@ -914,7 +965,10 @@ export class RipplePrice extends Component<{}, spark3> {
       series: [
         {
           name: "Value",
-          data: [61, 27, 54, 43, 19, 56, 24, 65, 35, 27, 93, 53, 46, 31, 37, 39, 0, 45, 54, 38, 62, 51, 35, 41]
+          data: [
+            61, 27, 54, 43, 19, 56, 24, 65, 35, 27, 93, 53, 46, 31, 37, 39, 0, 45, 54, 38, 62, 51,
+            35, 41
+          ]
         }
       ],
       options: {
@@ -969,7 +1023,13 @@ export class RipplePrice extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={120} height={20} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={120}
+        height={20}
+      />
     );
   }
 }
@@ -982,7 +1042,10 @@ export class IotaPrice extends Component<{}, spark3> {
       series: [
         {
           name: "Value",
-          data: [61, 27, 54, 37, 39, 0, 45, 54, 38, 62, 51, 35, 41, 43, 19, 56, 24, 65, 35, 27, 93, 53, 46, 31]
+          data: [
+            61, 27, 54, 37, 39, 0, 45, 54, 38, 62, 51, 35, 41, 43, 19, 56, 24, 65, 35, 27, 93, 53,
+            46, 31
+          ]
         }
       ],
       options: {
@@ -1037,7 +1100,13 @@ export class IotaPrice extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={120} height={20} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={120}
+        height={20}
+      />
     );
   }
 }
@@ -1050,7 +1119,10 @@ export class NeoPrice extends Component<{}, spark3> {
       series: [
         {
           name: "Value",
-          data: [62, 51, 35, 41, 43, 19, 56, 24, 65, 35, 27, 93, 53, 46, 31, 61, 27, 54, 37, 39, 0, 45, 54, 38]
+          data: [
+            62, 51, 35, 41, 43, 19, 56, 24, 65, 35, 27, 93, 53, 46, 31, 61, 27, 54, 37, 39, 0, 45,
+            54, 38
+          ]
         }
       ],
       options: {
@@ -1105,7 +1177,13 @@ export class NeoPrice extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={120} height={20} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={120}
+        height={20}
+      />
     );
   }
 }

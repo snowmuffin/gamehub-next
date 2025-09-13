@@ -27,7 +27,12 @@ const Landingswitcher = ({ local_variable, ThemeChanger }: any) => {
           Switcherclose();
         }}
       ></div>
-      <div className="offcanvas offcanvas-end" tabIndex={-1} id="switcher-canvas" aria-labelledby="offcanvasRightLabel">
+      <div
+        className="offcanvas offcanvas-end"
+        tabIndex={-1}
+        id="switcher-canvas"
+        aria-labelledby="offcanvasRightLabel"
+      >
         <div className="offcanvas-header border-bottom">
           <h5 className="offcanvas-title text-default" id="offcanvasRightLabel">
             Switcher
@@ -60,7 +65,7 @@ const Landingswitcher = ({ local_variable, ThemeChanger }: any) => {
                       name="direction"
                       id="switcher-ltr"
                       checked={local_variable.dir == "ltr"}
-                      onChange={_e => {}}
+                      onChange={(_e) => {}}
                       onClick={() => {
                         switcherdata.Ltr(ThemeChanger);
                       }}
@@ -78,7 +83,7 @@ const Landingswitcher = ({ local_variable, ThemeChanger }: any) => {
                       name="direction"
                       id="switcher-rtl"
                       checked={local_variable.dir == "rtl"}
-                      onChange={_e => {}}
+                      onChange={(_e) => {}}
                       onClick={() => {
                         switcherdata.Rtl(ThemeChanger);
                       }}
@@ -95,7 +100,7 @@ const Landingswitcher = ({ local_variable, ThemeChanger }: any) => {
                     className="form-check-input color-input color-primary-1"
                     type="radio"
                     checked={local_variable.colorPrimaryRgb == "58, 88, 146"}
-                    onChange={_e => {}}
+                    onChange={(_e) => {}}
                     onClick={() => switcherdata.primaryColor1(ThemeChanger)}
                     name="theme-primary"
                     id="switcher-primary"
@@ -106,7 +111,7 @@ const Landingswitcher = ({ local_variable, ThemeChanger }: any) => {
                     className="form-check-input color-input color-primary-2"
                     type="radio"
                     checked={local_variable.colorPrimaryRgb == "92, 144, 163"}
-                    onChange={_e => {}}
+                    onChange={(_e) => {}}
                     onClick={() => switcherdata.primaryColor2(ThemeChanger)}
                     name="theme-primary"
                     id="switcher-primary1"
@@ -118,7 +123,7 @@ const Landingswitcher = ({ local_variable, ThemeChanger }: any) => {
                     type="radio"
                     name="theme-primary"
                     checked={local_variable.colorPrimaryRgb == "161, 90, 223"}
-                    onChange={_e => {}}
+                    onChange={(_e) => {}}
                     onClick={() => switcherdata.primaryColor3(ThemeChanger)}
                     id="switcher-primary2"
                   />
@@ -129,7 +134,7 @@ const Landingswitcher = ({ local_variable, ThemeChanger }: any) => {
                     type="radio"
                     name="theme-primary"
                     checked={local_variable.colorPrimaryRgb == "78, 172, 76"}
-                    onChange={_e => {}}
+                    onChange={(_e) => {}}
                     onClick={() => switcherdata.primaryColor4(ThemeChanger)}
                     id="switcher-primary3"
                   />
@@ -140,7 +145,7 @@ const Landingswitcher = ({ local_variable, ThemeChanger }: any) => {
                     type="radio"
                     name="theme-primary"
                     checked={local_variable.colorPrimaryRgb == "223, 90, 90"}
-                    onChange={_e => {}}
+                    onChange={(_e) => {}}
                     onClick={() => switcherdata.primaryColor5(ThemeChanger)}
                     id="switcher-primary4"
                   />

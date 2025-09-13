@@ -19,17 +19,24 @@ const CommandsKo = () => (
               <h5 className="fw-medium pb-3 text-primary">아이템 관련 명령어</h5>
               <ol className="fs-14">
                 <li className="mb-3">
-                  <span className="fw-medium text-primary">!cmd uploaditem &lt;itemname&gt; [quantity]</span>
-                  <div className="text-muted">캐릭터 인벤토리에 있는 아이템을 웹 인벤토리로 업로드 합니다.</div>
+                  <span className="fw-medium text-primary">
+                    !cmd uploaditem &lt;itemname&gt; [quantity]
+                  </span>
+                  <div className="text-muted">
+                    캐릭터 인벤토리에 있는 아이템을 웹 인벤토리로 업로드 합니다.
+                  </div>
                 </li>
                 <li className="mb-3">
                   <span className="fw-medium text-primary">!cmd listitems</span>
                   <div className="text-muted">
-                    캐릭터 인벤토리에 있는 아이템 목록을 표시합니다. (업로드 시 사용 가능한 이름 제공)
+                    캐릭터 인벤토리에 있는 아이템 목록을 표시합니다. (업로드 시 사용 가능한 이름
+                    제공)
                   </div>
                 </li>
                 <li className="mb-3">
-                  <span className="fw-medium text-primary">!cmd downloaditem &lt;item_name&gt; &lt;quantity&gt;</span>
+                  <span className="fw-medium text-primary">
+                    !cmd downloaditem &lt;item_name&gt; &lt;quantity&gt;
+                  </span>
                   <div className="text-muted">웹 인벤토리에서 아이템을 다운로드합니다.</div>
                 </li>
                 <li className="mb-3">
@@ -67,10 +74,12 @@ const CommandsKo = () => (
                   <div className="text-muted">바라보고 있는 그리드의 문제를 해결합니다.</div>
                 </li>
                 <li>
-                  <span className="fw-medium text-primary">!transfer &lt;PlayerName&gt; [GridName]</span>
+                  <span className="fw-medium text-primary">
+                    !transfer &lt;PlayerName&gt; [GridName]
+                  </span>
                   <div className="text-muted">
-                    특정 플레이어에게 그리드 소유권을 넘깁니다. 그리드 이름을 생략하면 바라보고 있는 그리드의 소유권을
-                    넘길 수 있습니다.
+                    특정 플레이어에게 그리드 소유권을 넘깁니다. 그리드 이름을 생략하면 바라보고 있는
+                    그리드의 소유권을 넘길 수 있습니다.
                   </div>
                 </li>
               </ol>

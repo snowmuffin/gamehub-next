@@ -2,38 +2,31 @@
  * URL configuration utilities based on environment variables
  */
 
+import type { Env } from "./env.schema";
+import { getEnv } from "./env.schema";
+
+const env = (): Env => getEnv();
+
 // Get frontend URL
-export const getFrontendUrl = (): string => {
-  return process.env.NEXT_PUBLIC_FRONTEND_URL || "http://localhost:3000";
-};
+export const getFrontendUrl = (): string =>
+  env().NEXT_PUBLIC_FRONTEND_URL || "http://localhost:3000";
 
 // Get API URL
-export const getApiUrl = (): string => {
-  return process.env.NEXT_PUBLIC_API_URL || "";
-};
+export const getApiUrl = (): string => env().NEXT_PUBLIC_API_URL || "";
 
 // Get Steam authentication URL
-export const getSteamAuthUrl = (): string => {
-  return process.env.NEXT_PUBLIC_STEAM_AUTH_URL || `${getApiUrl()}/auth/steam`;
-};
+export const getSteamAuthUrl = (): string =>
+  env().NEXT_PUBLIC_STEAM_AUTH_URL || `${getApiUrl()}/auth/steam`;
 
 // Get domain info
-export const getFrontendDomain = (): string => {
-  return process.env.NEXT_PUBLIC_FRONTEND_DOMAIN || "localhost:3000";
-};
+export const getFrontendDomain = (): string =>
+  env().NEXT_PUBLIC_FRONTEND_DOMAIN || "localhost:3000";
 
-export const getApiDomain = (): string => {
-  return process.env.NEXT_PUBLIC_API_DOMAIN || "";
-};
+export const getApiDomain = (): string => env().NEXT_PUBLIC_API_DOMAIN || "";
 
 // Environment helpers
-export const isDevelopment = (): boolean => {
-  return process.env.NODE_ENV === "development";
-};
-
-export const isProduction = (): boolean => {
-  return process.env.NODE_ENV === "production";
-};
+export const isDevelopment = (): boolean => env().NODE_ENV === "development";
+export const isProduction = (): boolean => env().NODE_ENV === "production";
 
 // URL builder helpers
 export const createUrl = (path: string, baseUrl?: string): string => {
@@ -49,8 +42,9 @@ export const createApiUrl = (path: string): string => {
 // Log environment info (development mode only)
 export const logEnvironmentInfo = (): void => {
   if (isDevelopment() && typeof window !== "undefined") {
+    // eslint-disable-next-line no-console
     console.log("🌍 Environment Configuration:", {
-      NODE_ENV: process.env.NODE_ENV,
+      NODE_ENV: env().NODE_ENV,
       FRONTEND_URL: getFrontendUrl(),
       FRONTEND_DOMAIN: getFrontendDomain(),
       API_URL: getApiUrl(),

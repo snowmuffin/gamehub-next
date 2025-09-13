@@ -38,7 +38,7 @@ export class Basicolumn extends Component<{}, spark3> {
           type: "bar",
           height: 320,
           events: {
-            mounted: chart => {
+            mounted: (chart) => {
               chart.windowResizeHandler();
             }
           }
@@ -106,7 +106,13 @@ export class Basicolumn extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={300} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={300}
+      />
     );
   }
 }
@@ -128,7 +134,7 @@ export class Columnwithlabels extends Component<{}, spark3> {
           height: 320,
           type: "bar",
           events: {
-            mounted: chart => {
+            mounted: (chart) => {
               chart.windowResizeHandler();
             }
           }
@@ -157,7 +163,20 @@ export class Columnwithlabels extends Component<{}, spark3> {
         },
         colors: ["rgb(0,255,190)"],
         xaxis: {
-          categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+          categories: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+          ],
           position: "top",
           axisBorder: {
             show: false
@@ -219,7 +238,13 @@ export class Columnwithlabels extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={300} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={300}
+      />
     );
   }
 }
@@ -342,7 +367,7 @@ export class Markers extends Component<{}, spark3> {
           height: 320,
           type: "bar",
           events: {
-            mounted: chart => {
+            mounted: (chart) => {
               chart.windowResizeHandler();
             }
           }
@@ -395,7 +420,13 @@ export class Markers extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={300} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={300}
+      />
     );
   }
 }
@@ -435,7 +466,7 @@ export class Rotated extends Component<{}, spark3> {
           height: 320,
           type: "bar",
           events: {
-            mounted: chart => {
+            mounted: (chart) => {
               chart.windowResizeHandler();
             }
           }
@@ -519,7 +550,13 @@ export class Rotated extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={300} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={300}
+      />
     );
   }
 }
@@ -534,8 +571,9 @@ export class Negativecolumn extends Component<{}, spark3> {
         {
           name: "Cash Flow",
           data: [
-            1.45, 5.42, 5.9, -0.42, -12.6, -18.1, -18.2, -14.16, -11.1, -6.09, 0.34, 3.88, 13.07, 5.8, 2, 7.37, 8.1,
-            13.57, 15.75, 17.1, 19.8, -27.03, -54.4, -47.2, -43.3, -18.6, -48.6, -41.1, -39.6, -37.6, -29.4, -21.4, -2.4
+            1.45, 5.42, 5.9, -0.42, -12.6, -18.1, -18.2, -14.16, -11.1, -6.09, 0.34, 3.88, 13.07,
+            5.8, 2, 7.37, 8.1, 13.57, 15.75, 17.1, 19.8, -27.03, -54.4, -47.2, -43.3, -18.6, -48.6,
+            -41.1, -39.6, -37.6, -29.4, -21.4, -2.4
           ]
         }
       ],
@@ -544,7 +582,7 @@ export class Negativecolumn extends Component<{}, spark3> {
           type: "bar",
           height: 320,
           events: {
-            mounted: chart => {
+            mounted: (chart) => {
               chart.windowResizeHandler();
             }
           }
@@ -650,7 +688,13 @@ export class Negativecolumn extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={300} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={300}
+      />
     );
   }
 }
@@ -749,7 +793,13 @@ export class Rangecolumn extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={300} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={300}
+      />
     );
   }
 }
@@ -982,7 +1032,15 @@ export class Loaded extends Component<{}, spark3> {
           data: makeData()
         }
       ],
-      colors: ["rgb(0,255,190)", "rgb(72, 247, 104)", "#f5b849", "#49b6f5", "#e6533c", "#26bf94", "#00ffbe"],
+      colors: [
+        "rgb(0,255,190)",
+        "rgb(72, 247, 104)",
+        "#f5b849",
+        "#49b6f5",
+        "#e6533c",
+        "#26bf94",
+        "#00ffbe"
+      ],
       options: {
         chart: {
           id: "barYear",
@@ -1129,7 +1187,10 @@ export class Loaded extends Component<{}, spark3> {
           x: {
             formatter: function (
               _val: any,
-              opts: { w: { globals: { seriesNames: { [x: string]: any } } }; seriesIndex: string | number }
+              opts: {
+                w: { globals: { seriesNames: { [x: string]: any } } };
+                seriesIndex: string | number;
+              }
             ) {
               return opts.w.globals.seriesNames[opts.seriesIndex];
             }
@@ -1185,7 +1246,7 @@ export class Distributed extends Component<{}, spark3> {
           type: "bar",
           events: {
             click: function (_chart, _w, _e) {},
-            mounted: chart => {
+            mounted: (chart) => {
               chart.windowResizeHandler();
             }
           }
@@ -1250,7 +1311,13 @@ export class Distributed extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={350} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={350}
+      />
     );
   }
 }

@@ -436,7 +436,20 @@ export class SalesStatics extends Component<{}, spark3> {
         },
         xaxis: {
           type: "category",
-          categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "sep", "oct", "nov", "dec"],
+          categories: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "sep",
+            "oct",
+            "nov",
+            "dec"
+          ],
           axisBorder: {
             show: false,
             color: "rgba(119, 119, 142, 0.05)",
@@ -460,7 +473,13 @@ export class SalesStatics extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="area" width={"100%"} height={300} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="area"
+        width={"100%"}
+        height={300}
+      />
     );
   }
 }

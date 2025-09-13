@@ -54,11 +54,17 @@ function Layout({ children, local_variable, ThemeChanger }: any) {
         style={customstyles}
       >
         <head>
-          <link href="https://cdn.jsdelivr.net/npm/dragula@3.7.3/dist/dragula.min.css" rel="stylesheet" />
+          <link
+            href="https://cdn.jsdelivr.net/npm/dragula@3.7.3/dist/dragula.min.css"
+            rel="stylesheet"
+          />
         </head>
         <body className={`${local_variable.body ? local_variable.body : ""}`}>
           {children}
-          <Script src="https://cdn.jsdelivr.net/npm/dragula@3.7.3/dist/dragula.min.js" strategy="afterInteractive" />
+          <Script
+            src="https://cdn.jsdelivr.net/npm/dragula@3.7.3/dist/dragula.min.js"
+            strategy="afterInteractive"
+          />
         </body>
       </html>
     </>

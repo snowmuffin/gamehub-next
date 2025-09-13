@@ -27,7 +27,6 @@ const AuthHandler = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const token = useSelector((state: RootState) => state.auth.token);
 
-
   useEffect(() => {
     if (token && !isTokenExpired(token)) {
       router.push("/dashboard/gaming");
@@ -35,7 +34,6 @@ const AuthHandler = ({ children }: { children: React.ReactNode }) => {
       router.push("/authentication/sign-in/signin-basic");
     }
   }, [token, router]);
-
 
   return <>{children}</>;
 };

@@ -85,12 +85,12 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
     if (typeof window !== "undefined") {
       if (window.scrollY > 30 && document.querySelector(".landing-body")) {
         const Scolls = document.querySelectorAll(".sticky");
-        Scolls.forEach(e => {
+        Scolls.forEach((e) => {
           e.classList.add("sticky-pin");
         });
       } else {
         const Scolls = document.querySelectorAll(".sticky");
-        Scolls.forEach(e => {
+        Scolls.forEach((e) => {
           e.classList.remove("sticky-pin");
         });
       }
@@ -110,9 +110,12 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
   const onScroll = () => {
     const sections = document.querySelectorAll(".side-menu__item");
     const scrollPos =
-      window.scrollY || document.documentElement.scrollTop || document.querySelector("body")?.scrollTop || 0;
+      window.scrollY ||
+      document.documentElement.scrollTop ||
+      document.querySelector("body")?.scrollTop ||
+      0;
 
-    sections.forEach(elem => {
+    sections.forEach((elem) => {
       const value = elem.getAttribute("href") ?? "";
       const fragmentIndex = value.indexOf("#");
       const fragment = fragmentIndex !== -1 ? value.substring(fragmentIndex + 1) : "";
@@ -236,7 +239,13 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                 </div>
               </div>
               <div className="slide-left" id="slide-left">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#7b8191"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
                   {" "}
                   <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>{" "}
                 </svg>
@@ -279,14 +288,23 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                 </li>
               </ul>
               <div className="slide-right" id="slide-right">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#7b8191"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
                   {" "}
                   <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>{" "}
                 </svg>
               </div>
               <div className="d-lg-flex d-none">
                 <div className="btn-list d-lg-flex d-none mt-lg-2 mt-xl-0 mt-0">
-                  <Link href="/authentication/sign-in/signin-basic" className="btn btn-wave btn-primary">
+                  <Link
+                    href="/authentication/sign-in/signin-basic"
+                    className="btn btn-wave btn-primary"
+                  >
                     Sign Up
                   </Link>
                   <Button
@@ -312,20 +330,27 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                 <Col xxl={7} xl={7} lg={7} md={8} className="">
                   <div className="py-lg-5">
                     <div className="mb-3">
-                      <h6 className="fw-medium text-fixed-white op-8 fs-14">- Level Up Your Design Universe</h6>
+                      <h6 className="fw-medium text-fixed-white op-8 fs-14">
+                        - Level Up Your Design Universe
+                      </h6>
                     </div>
                     <p className="landing-banner-heading mb-3">
-                      Empower your vision with our <span className="text-warning">SCIFI Template!</span> Design
+                      Empower your vision with our{" "}
+                      <span className="text-warning">SCIFI Template!</span> Design
                     </p>
                     <div className="fs-15 mb-5 text-fixed-white op-7">
-                      SCIFI - Turn imagination into reality as you explore a realm where ideas flourish, and designs
-                      come to life. Elevate your brand and redefine excellence through our creative designs.
+                      SCIFI - Turn imagination into reality as you explore a realm where ideas
+                      flourish, and designs come to life. Elevate your brand and redefine excellence
+                      through our creative designs.
                     </div>
                     <Link href="/dashboard/gaming" className="m-1 btn btn-lg btn-secondary">
                       <i className="ri-eye-line me-2 align-middle"></i>
                       View Demos
                     </Link>
-                    <Link href="/dashboard/gaming" className="m-1 btn btn-lg bg-primary-transparent">
+                    <Link
+                      href="/dashboard/gaming"
+                      className="m-1 btn btn-lg bg-primary-transparent"
+                    >
                       <i className="ri-arrow-right-line me-2 align-middle"></i>
                       Get Started
                     </Link>
@@ -370,7 +395,8 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                     </div>
                     <h4 className="fw-medium">Creative Designs</h4>
                     <p className="fs-14 text-muted">
-                      Nam rhoncus mauris id nisi semper tempor. Phasellus vulputate sit amet elit eu rutrum
+                      Nam rhoncus mauris id nisi semper tempor. Phasellus vulputate sit amet elit eu
+                      rutrum
                     </p>
                     <Link href="#!" scroll={false} className="fw-medium text-primary">
                       Read More<i className="ti ti-arrow-narrow-right ms-2 fs-5 align-middle"></i>
@@ -392,10 +418,12 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                     </div>
                     <h4 className="fw-medium">24/7 Customer Support</h4>
                     <p className="fs-14 text-muted">
-                      Nam rhoncus mauris id nisi semper tempor. Phasellus vulputate sit amet elit eu rutrum
+                      Nam rhoncus mauris id nisi semper tempor. Phasellus vulputate sit amet elit eu
+                      rutrum
                     </p>
                     <Link href="#!" scroll={false} className="fw-medium text-info">
-                      Read More<i className="ti ti-arrow-narrow-right ms-2 fs-5 al align-middle"></i>
+                      Read More
+                      <i className="ti ti-arrow-narrow-right ms-2 fs-5 al align-middle"></i>
                     </Link>
                   </Card.Body>
                 </Card>
@@ -414,7 +442,8 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                     </div>
                     <h4 className="fw-medium">Skilled Staff</h4>
                     <p className="fs-14 text-muted">
-                      Nam rhoncus mauris id nisi semper tempor. Phasellus vulputate sit amet elit eu rutrum
+                      Nam rhoncus mauris id nisi semper tempor. Phasellus vulputate sit amet elit eu
+                      rutrum
                     </p>
                     <Link href="#!" scroll={false} className="fw-medium text-warning">
                       Read More<i className="ti ti-arrow-narrow-right ms-2 fs-5 align-middle"></i>
@@ -430,7 +459,11 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
             <div className="row gx-5 mx-0">
               <Col>
                 <div className="home-proving-image">
-                  <img src="../assets/images/media/landing/2.png" alt="" className="img-fluid rounded" />
+                  <img
+                    src="../assets/images/media/landing/2.png"
+                    alt=""
+                    className="img-fluid rounded"
+                  />
                 </div>
                 <div className="proving-pattern-1"></div>
               </Col>
@@ -441,8 +474,9 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                   </div>
                   <h4 className="heading-title">Where Innovation Meets Passion!</h4>
                   <div className="heading-description fs-14 op-8">
-                    Welcome to SCIFI, where we offer a unique and tailored experience that is sure to exceed your
-                    expectations. Choose us and let us show you what true excellence looks like
+                    Welcome to SCIFI, where we offer a unique and tailored experience that is sure
+                    to exceed your expectations. Choose us and let us show you what true excellence
+                    looks like
                   </div>
                 </div>
                 <div className="row gy-3 mb-0 ps-3">
@@ -453,8 +487,22 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                       </div>
                       <div>
                         <span className="fs-14">
-                          Benefiting from years of industry experience, we've forged a reputable standing in our
-                          field.Sed convallis lobortis nisl. Maecenas aliquet lorem turpis, nec vehicula ante finibus
+                          Benefiting from years of industry experience, we've forged a reputable
+                          standing in our field.Sed convallis lobortis nisl. Maecenas aliquet lorem
+                          turpis, nec vehicula ante finibus in. Donec id egestas eros.
+                        </span>
+                      </div>
+                    </div>
+                  </Col>
+                  <Col xl={12}>
+                    <div className="d-flex align-items-top">
+                      <div className="me-2 home-prove-svg">
+                        <i className="ri-arrow-right-circle-line align-middle fs-16 text-secondary d-inline-block"></i>
+                      </div>
+                      <div>
+                        <span className="fs-14">
+                          Comprising skilled and seasoned professionals, our team.Sed convallis
+                          lobortis nisl. Maecenas aliquet lorem turpis, nec vehicula ante finibus
                           in. Donec id egestas eros.
                         </span>
                       </div>
@@ -467,21 +515,9 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                       </div>
                       <div>
                         <span className="fs-14">
-                          Comprising skilled and seasoned professionals, our team.Sed convallis lobortis nisl. Maecenas
-                          aliquet lorem turpis, nec vehicula ante finibus in. Donec id egestas eros.
-                        </span>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col xl={12}>
-                    <div className="d-flex align-items-top">
-                      <div className="me-2 home-prove-svg">
-                        <i className="ri-arrow-right-circle-line align-middle fs-16 text-secondary d-inline-block"></i>
-                      </div>
-                      <div>
-                        <span className="fs-14">
-                          We customize our services to meet individual needs..Sed convallis lobortis nisl. Maecenas
-                          aliquet lorem turpis, nec vehicula ante finibus in. Donec id egestas eros.
+                          We customize our services to meet individual needs..Sed convallis lobortis
+                          nisl. Maecenas aliquet lorem turpis, nec vehicula ante finibus in. Donec
+                          id egestas eros.
                         </span>
                       </div>
                     </div>
@@ -507,7 +543,7 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
               </div>
             </div>
             <Row>
-              {Ourbest.map(idx => (
+              {Ourbest.map((idx) => (
                 <div className="col-xl-3" key={Math.random()}>
                   <Card className="custom-card landing-card">
                     <div className="top-left"></div>
@@ -541,31 +577,59 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
               </p>
               <h2 className="text-fixed-white text-center fw-medium">Our Features</h2>
               <div className="fs-16 text-fixed-white text-center op-8 mb-5">
-                Ullamco ea commodo.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                laudantium, totam rem aperiam.perspiciatis unde omnis.
+                Ullamco ea commodo.Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque laudantium, totam rem aperiam.perspiciatis unde omnis.
               </div>
             </div>
             <div className="d-flex align-items-center justify-content-center trusted-companies sub-card-companies flex-wrap mb-3 mb-xl-0 gap-5">
               <div className="trust-img">
-                <img src="../assets/images/media/landing/web/1.png" alt="img" className="border-0" />
+                <img
+                  src="../assets/images/media/landing/web/1.png"
+                  alt="img"
+                  className="border-0"
+                />
               </div>
               <div className="trust-img">
-                <img src="../assets/images/media/landing/web/2.png" alt="img" className="border-0" />
+                <img
+                  src="../assets/images/media/landing/web/2.png"
+                  alt="img"
+                  className="border-0"
+                />
               </div>
               <div className="trust-img">
-                <img src="../assets/images/media/landing/web/3.png" alt="img" className="border-0" />
+                <img
+                  src="../assets/images/media/landing/web/3.png"
+                  alt="img"
+                  className="border-0"
+                />
               </div>
               <div className="trust-img">
-                <img src="../assets/images/media/landing/web/4.png" alt="img" className="border-0" />
+                <img
+                  src="../assets/images/media/landing/web/4.png"
+                  alt="img"
+                  className="border-0"
+                />
               </div>
               <div className="trust-img">
-                <img src="../assets/images/media/landing/web/5.png" alt="img" className="border-0" />
+                <img
+                  src="../assets/images/media/landing/web/5.png"
+                  alt="img"
+                  className="border-0"
+                />
               </div>
               <div className="trust-img">
-                <img src="../assets/images/media/landing/web/6.png" alt="img" className="border-0" />
+                <img
+                  src="../assets/images/media/landing/web/6.png"
+                  alt="img"
+                  className="border-0"
+                />
               </div>
               <div className="trust-img me-0">
-                <img src="../assets/images/media/landing/web/1.png" alt="img" className="border-0" />
+                <img
+                  src="../assets/images/media/landing/web/1.png"
+                  alt="img"
+                  className="border-0"
+                />
               </div>
             </div>
           </div>
@@ -580,7 +644,8 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
               <div className="row justify-content-center">
                 <Col xl={7}>
                   <p className="text-muted fs-15 mb-5 fw-normal">
-                    Our user-friendly plans are carefully tailored to accommodate every category effectively.
+                    Our user-friendly plans are carefully tailored to accommodate every category
+                    effectively.
                   </p>
                 </Col>
               </div>
@@ -595,7 +660,9 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                   <Card.Body>
                     <div className="mb-4">
                       <p className="fs-18 fw-medium mb-1">Intro</p>
-                      <p className="mb-1 fs-14 op-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.</p>
+                      <p className="mb-1 fs-14 op-8">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.
+                      </p>
                       <p className="text-justify fw-medium mb-1">
                         <span className="fs-2">$</span>
                         <span className="fs-40 me-1">0</span>
@@ -604,8 +671,8 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                         </span>
                       </p>
                       <p className="fs-12 mb-2 text-info p-1 lh-1 bg-info-transparent d-inline-flex">
-                        <i className="ri-information-line align-middle me-1 d-inline-block fs-11"></i>Billed monthly on
-                        regular basis!
+                        <i className="ri-information-line align-middle me-1 d-inline-block fs-11"></i>
+                        Billed monthly on regular basis!
                       </p>
                     </div>
                     <ul className="text-justify list-unstyled pricing-body ps-0">
@@ -663,7 +730,9 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                   <Card.Body>
                     <div className="mb-4">
                       <p className="fs-18 fw-medium mb-1">Basic</p>
-                      <p className="mb-1 fs-14 op-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.</p>
+                      <p className="mb-1 fs-14 op-8">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.
+                      </p>
                       <p className="text-justify fw-medium mb-1">
                         <span className="fs-2">$</span>
                         <span className="fs-40 me-1">29</span>
@@ -672,8 +741,8 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                         </span>
                       </p>
                       <p className="fs-12 mb-2 text-info p-1 lh-1 bg-info-transparent d-inline-flex">
-                        <i className="ri-information-line align-middle me-1 d-inline-block fs-11"></i>Billed monthly on
-                        regular basis!
+                        <i className="ri-information-line align-middle me-1 d-inline-block fs-11"></i>
+                        Billed monthly on regular basis!
                       </p>
                     </div>
                     <ul className="text-justify list-unstyled pricing-body ps-0">
@@ -730,7 +799,9 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                     </span>
                     <div className="mb-4">
                       <p className="fs-18 fw-medium mb-1">Popular</p>
-                      <p className="mb-1 fs-14 op-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.</p>
+                      <p className="mb-1 fs-14 op-8">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.
+                      </p>
                       <p className="text-justify fw-medium mb-1">
                         <span className="fs-2">$</span>
                         <span className="fs-40 me-1">49</span>
@@ -739,8 +810,8 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                         </span>
                       </p>
                       <p className="fs-12 mb-2 text-info p-1 lh-1 bg-info-transparent d-inline-flex">
-                        <i className="ri-information-line align-middle me-1 d-inline-block fs-11"></i>Billed monthly on
-                        regular basis!
+                        <i className="ri-information-line align-middle me-1 d-inline-block fs-11"></i>
+                        Billed monthly on regular basis!
                       </p>
                     </div>
                     <ul className="text-justify list-unstyled pricing-body ps-0">
@@ -798,7 +869,9 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                   <Card.Body>
                     <div className="mb-4">
                       <p className="fs-18 fw-medium mb-1">Advanced</p>
-                      <p className="mb-1 fs-14 op-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.</p>
+                      <p className="mb-1 fs-14 op-8">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.
+                      </p>
                       <p className="text-justify fw-medium mb-1">
                         <span className="fs-2">$</span>
                         <span className="fs-40 me-1">29</span>
@@ -807,8 +880,8 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                         </span>
                       </p>
                       <p className="fs-12 mb-2 text-info p-1 lh-1 bg-info-transparent d-inline-flex">
-                        <i className="ri-information-line align-middle me-1 d-inline-block fs-11"></i>Billed monthly on
-                        regular basis!
+                        <i className="ri-information-line align-middle me-1 d-inline-block fs-11"></i>
+                        Billed monthly on regular basis!
                       </p>
                     </div>
                     <ul className="text-justify list-unstyled pricing-body ps-0">
@@ -870,7 +943,8 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
               <div className="row justify-content-center">
                 <Col xl={7}>
                   <p className="text-muted fs-15 mb-5 fw-normal">
-                    Here are the testimonials shared by our highly satisfied customers about our product.
+                    Here are the testimonials shared by our highly satisfied customers about our
+                    product.
                   </p>
                 </Col>
               </div>
@@ -895,8 +969,8 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                     <Card.Body>
                       <i className="ri-double-quotes-l text-primary fs-2"></i>
                       <div className="op-9 fs-14 mb-3">
-                        Nulla maximus nunc ut euismod condimentum. Nunc vel quam maximus, sagittis ante non, tempor
-                        risus. Suspendissei. Nam lacus risus. --
+                        Nulla maximus nunc ut euismod condimentum. Nunc vel quam maximus, sagittis
+                        ante non, tempor risus. Suspendissei. Nam lacus risus. --
                         <Link
                           href="#!"
                           scroll={false}
@@ -945,8 +1019,8 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                     <Card.Body>
                       <i className="ri-double-quotes-l text-primary fs-2"></i>
                       <div className="op-9 fs-14 mb-3">
-                        Mauris quis dolor ut nisl mattis dignissim sed ac massa. Nunc ante nisi, malesuada id leo sit
-                        amet, pretium fringilla dolor. --
+                        Mauris quis dolor ut nisl mattis dignissim sed ac massa. Nunc ante nisi,
+                        malesuada id leo sit amet, pretium fringilla dolor. --
                         <Link
                           href="#!"
                           scroll={false}
@@ -995,8 +1069,8 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                     <Card.Body>
                       <i className="ri-double-quotes-l text-primary fs-2"></i>
                       <div className="op-9 fs-14 mb-3">
-                        Nulla maximus nunc ut euismod condimentum. Nunc vel quam maximus, sagittis ante non, tempor
-                        risus. Suspendissei. Nam lacus risus. --
+                        Nulla maximus nunc ut euismod condimentum. Nunc vel quam maximus, sagittis
+                        ante non, tempor risus. Suspendissei. Nam lacus risus. --
                         <Link
                           href="#!"
                           scroll={false}
@@ -1045,8 +1119,8 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                     <Card.Body>
                       <i className="ri-double-quotes-l text-primary fs-2"></i>
                       <div className="op-9 fs-14 mb-3">
-                        Mauris quis dolor ut nisl mattis dignissim sed ac massa. Nunc ante nisi, malesuada id leo sit
-                        amet, pretium fringilla dolor. --
+                        Mauris quis dolor ut nisl mattis dignissim sed ac massa. Nunc ante nisi,
+                        malesuada id leo sit amet, pretium fringilla dolor. --
                         <Link
                           href="#!"
                           scroll={false}
@@ -1095,8 +1169,8 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                     <Card.Body>
                       <i className="ri-double-quotes-l text-primary fs-2"></i>
                       <div className="op-9 fs-14 mb-3">
-                        Nulla maximus nunc ut euismod condimentum. Nunc vel quam maximus, sagittis ante non, tempor
-                        risus. Suspendissei. Nam lacus risus. --
+                        Nulla maximus nunc ut euismod condimentum. Nunc vel quam maximus, sagittis
+                        ante non, tempor risus. Suspendissei. Nam lacus risus. --
                         <Link
                           href="#!"
                           scroll={false}
@@ -1145,8 +1219,8 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                     <Card.Body>
                       <i className="ri-double-quotes-l text-primary fs-2"></i>
                       <div className="op-9 fs-14 mb-3">
-                        Mauris quis dolor ut nisl mattis dignissim sed ac massa. Nunc ante nisi, malesuada id leo sit
-                        amet, pretium fringilla dolor. --
+                        Mauris quis dolor ut nisl mattis dignissim sed ac massa. Nunc ante nisi,
+                        malesuada id leo sit amet, pretium fringilla dolor. --
                         <Link
                           href="#!"
                           scroll={false}
@@ -1224,11 +1298,12 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                           data-bs-parent="#accordionFAQ1"
                         >
                           <Accordion.Body>
-                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the
-                            collapse plugin adds the appropriate classes that we use to style each element. These
-                            classes control the overall appearance, as well as the showing and hiding via CSS
-                            transitions. You can modify any of this with custom CSS or overriding our default variables.
-                            It's also worth noting that just about any HTML can go within the
+                            <strong>This is the first item's accordion body.</strong> It is shown by
+                            default, until the collapse plugin adds the appropriate classes that we
+                            use to style each element. These classes control the overall appearance,
+                            as well as the showing and hiding via CSS transitions. You can modify
+                            any of this with custom CSS or overriding our default variables. It's
+                            also worth noting that just about any HTML can go within the
                             <code>.accordion-body</code>, though the transition does limit overflow.
                           </Accordion.Body>
                         </div>
@@ -1244,8 +1319,9 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                           data-bs-parent="#accordionFAQ1"
                         >
                           <Accordion.Body>
-                            Check the template provider's website or documentation for information on updates. Regular
-                            updates may include bug fixes, new features, or compatibility improvements.
+                            Check the template provider's website or documentation for information
+                            on updates. Regular updates may include bug fixes, new features, or
+                            compatibility improvements.
                           </Accordion.Body>
                         </div>
                       </Accordion.Item>
@@ -1260,11 +1336,12 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                           data-bs-parent="#accordionFAQ1"
                         >
                           <Accordion.Body>
-                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the
-                            collapse plugin adds the appropriate classes that we use to style each element. These
-                            classes control the overall appearance, as well as the showing and hiding via CSS
-                            transitions. You can modify any of this with custom CSS or overriding our default variables.
-                            It's also worth noting that just about any HTML can go within the
+                            <strong>This is the first item's accordion body.</strong> It is shown by
+                            default, until the collapse plugin adds the appropriate classes that we
+                            use to style each element. These classes control the overall appearance,
+                            as well as the showing and hiding via CSS transitions. You can modify
+                            any of this with custom CSS or overriding our default variables. It's
+                            also worth noting that just about any HTML can go within the
                             <code>.accordion-body</code>, though the transition does limit overflow.
                           </Accordion.Body>
                         </div>
@@ -1280,8 +1357,9 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                           data-bs-parent="#accordionFAQ1"
                         >
                           <Accordion.Body>
-                            Yes, you can upgrade or downgrade your subscription plan at any time. Visit your account
-                            settings or contact our support team to make changes to your subscription level.
+                            Yes, you can upgrade or downgrade your subscription plan at any time.
+                            Visit your account settings or contact our support team to make changes
+                            to your subscription level.
                           </Accordion.Body>
                         </div>
                       </Accordion.Item>
@@ -1296,8 +1374,9 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                           data-bs-parent="#accordionFAQ1"
                         >
                           <Accordion.Body>
-                            Billing frequency depends on your chosen subscription plan. We offer monthly, quarterly, and
-                            annual billing options. Check your subscription details for the billing cycle information.
+                            Billing frequency depends on your chosen subscription plan. We offer
+                            monthly, quarterly, and annual billing options. Check your subscription
+                            details for the billing cycle information.
                           </Accordion.Body>
                         </div>
                       </Accordion.Item>
@@ -1312,8 +1391,9 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                           data-bs-parent="#accordionFAQ1"
                         >
                           <Accordion.Body>
-                            Our subscription service typically provides access to premium features, exclusive content,
-                            and ongoing updates related to our landing page offerings.
+                            Our subscription service typically provides access to premium features,
+                            exclusive content, and ongoing updates related to our landing page
+                            offerings.
                           </Accordion.Body>
                         </div>
                       </Accordion.Item>
@@ -1336,8 +1416,9 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                           data-bs-parent="#accordionFAQ2"
                         >
                           <Accordion.Body>
-                            Billing frequency depends on your chosen subscription plan. We offer monthly, quarterly, and
-                            annual billing options. Check your subscription details for the billing cycle information.
+                            Billing frequency depends on your chosen subscription plan. We offer
+                            monthly, quarterly, and annual billing options. Check your subscription
+                            details for the billing cycle information.
                           </Accordion.Body>
                         </div>
                       </Accordion.Item>
@@ -1352,8 +1433,9 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                           data-bs-parent="#accordionFAQ2"
                         >
                           <Accordion.Body>
-                            Our subscription service typically provides access to premium features, exclusive content,
-                            and ongoing updates related to our landing page offerings.
+                            Our subscription service typically provides access to premium features,
+                            exclusive content, and ongoing updates related to our landing page
+                            offerings.
                           </Accordion.Body>
                         </div>
                       </Accordion.Item>
@@ -1368,11 +1450,12 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                           data-bs-parent="#accordionFAQ2"
                         >
                           <Accordion.Body>
-                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the
-                            collapse plugin adds the appropriate classes that we use to style each element. These
-                            classes control the overall appearance, as well as the showing and hiding via CSS
-                            transitions. You can modify any of this with custom CSS or overriding our default variables.
-                            It's also worth noting that just about any HTML can go within the
+                            <strong>This is the first item's accordion body.</strong> It is shown by
+                            default, until the collapse plugin adds the appropriate classes that we
+                            use to style each element. These classes control the overall appearance,
+                            as well as the showing and hiding via CSS transitions. You can modify
+                            any of this with custom CSS or overriding our default variables. It's
+                            also worth noting that just about any HTML can go within the
                             <code>.accordion-body</code>, though the transition does limit overflow.
                           </Accordion.Body>
                         </div>
@@ -1388,8 +1471,9 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                           data-bs-parent="#accordionFAQ2"
                         >
                           <Accordion.Body>
-                            Check the template provider's website or documentation for information on updates. Regular
-                            updates may include bug fixes, new features, or compatibility improvements.
+                            Check the template provider's website or documentation for information
+                            on updates. Regular updates may include bug fixes, new features, or
+                            compatibility improvements.
                           </Accordion.Body>
                         </div>
                       </Accordion.Item>
@@ -1404,11 +1488,12 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                           data-bs-parent="#accordionFAQ2"
                         >
                           <Accordion.Body>
-                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the
-                            collapse plugin adds the appropriate classes that we use to style each element. These
-                            classes control the overall appearance, as well as the showing and hiding via CSS
-                            transitions. You can modify any of this with custom CSS or overriding our default variables.
-                            It's also worth noting that just about any HTML can go within the
+                            <strong>This is the first item's accordion body.</strong> It is shown by
+                            default, until the collapse plugin adds the appropriate classes that we
+                            use to style each element. These classes control the overall appearance,
+                            as well as the showing and hiding via CSS transitions. You can modify
+                            any of this with custom CSS or overriding our default variables. It's
+                            also worth noting that just about any HTML can go within the
                             <code>.accordion-body</code>, though the transition does limit overflow.
                           </Accordion.Body>
                         </div>
@@ -1424,11 +1509,12 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                           data-bs-parent="#accordionFAQ2"
                         >
                           <Accordion.Body>
-                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the
-                            collapse plugin adds the appropriate classes that we use to style each element. These
-                            classes control the overall appearance, as well as the showing and hiding via CSS
-                            transitions. You can modify any of this with custom CSS or overriding our default variables.
-                            It's also worth noting that just about any HTML can go within the
+                            <strong>This is the first item's accordion body.</strong> It is shown by
+                            default, until the collapse plugin adds the appropriate classes that we
+                            use to style each element. These classes control the overall appearance,
+                            as well as the showing and hiding via CSS transitions. You can modify
+                            any of this with custom CSS or overriding our default variables. It's
+                            also worth noting that just about any HTML can go within the
                             <code>.accordion-body</code>, though the transition does limit overflow.
                           </Accordion.Body>
                         </div>
@@ -1456,8 +1542,15 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
               </div>
             </div>
             <Row>
-              {Amazingteam.map(idx => (
-                <Col xl={3} lg={3} md={6} sm={6} className="col-12 mb-lg-0 mb-4" key={Math.random()}>
+              {Amazingteam.map((idx) => (
+                <Col
+                  xl={3}
+                  lg={3}
+                  md={6}
+                  sm={6}
+                  className="col-12 mb-lg-0 mb-4"
+                  key={Math.random()}
+                >
                   <Card className="custom-card  team-card text-center">
                     <div className="top-left"></div>
                     <div className="top-right"></div>
@@ -1473,8 +1566,8 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                         <h5 className="mb-0 fw-medium">{idx.heading}</h5>
                         <p className="mb-1 fs-14 fw-medium text-primary">{idx.role}</p>
                         <p className="mb-0 fs-13 text-muted op-8">
-                          Aliquam ullamcorper neque vitae dui ullamcorper, at varius erat feugiat. Proin aliquam, purus
-                          ut.
+                          Aliquam ullamcorper neque vitae dui ullamcorper, at varius erat feugiat.
+                          Proin aliquam, purus ut.
                         </p>
                         <div className="d-flex justify-content-center mt-4">
                           <Link
@@ -1528,8 +1621,8 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
               <div className="col-xl-9">
                 <p className="text-muted fs-15 mb-5 fw-normal">
                   {" "}
-                  Have questions, or need help with a product or service, contacting support allows you to connect with
-                  a dedicated team of professionals
+                  Have questions, or need help with a product or service, contacting support allows
+                  you to connect with a dedicated team of professionals
                 </p>
               </div>
             </div>
@@ -1596,8 +1689,8 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                       <div className="p-3">
                         <div className="fs-18 text-primary fw-medium mb-3">Contact Information</div>
                         <div className="mb-3">
-                          <i className="ri-map-pin-fill me-2 text-primary"></i> 1352/A-12, Abcd Street, KLM Town,
-                          Hyderabad.
+                          <i className="ri-map-pin-fill me-2 text-primary"></i> 1352/A-12, Abcd
+                          Street, KLM Town, Hyderabad.
                         </div>
                         <div className="d-flex mb-3">
                           <i className="ri-phone-fill me-2 d-inline-block text-primary"></i>
@@ -1644,8 +1737,8 @@ const Landing = ({ local_variable, ThemeChanger }: any) => {
                     </Link>
                   </p>
                   <p className="mb-2 op-6 fw-normal fs-14">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed. Reprehenderit et magnam, fuga est
-                    mollitia eius.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed. Reprehenderit et
+                    magnam, fuga est mollitia eius.
                   </p>
                   <p className="mb-0 op-6 fw-normal fs-14">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem ea esse ad

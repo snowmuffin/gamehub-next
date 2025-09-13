@@ -2,7 +2,17 @@
 import { basePath } from "@/next.config";
 import Link from "next/link";
 import React, { Fragment, useEffect, useState } from "react";
-import { Button, Dropdown, Form, InputGroup, ListGroup, Modal, Nav, Offcanvas, Tab } from "react-bootstrap";
+import {
+  Button,
+  Dropdown,
+  Form,
+  InputGroup,
+  ListGroup,
+  Modal,
+  Nav,
+  Offcanvas,
+  Tab
+} from "react-bootstrap";
 import MENUITEMS from "../sidebar/nav";
 import store from "@/shared/redux/store";
 import { connect } from "react-redux";
@@ -64,7 +74,10 @@ const Header = ({ local_variable, ThemeChanger }: any) => {
       ThemeChanger({ ...theme, dataToggled: "close" });
     }
     if (window.innerWidth >= 992) {
-      ThemeChanger({ ...theme, dataToggled: local_variable.dataToggled ? local_variable.dataToggled : "" });
+      ThemeChanger({
+        ...theme,
+        dataToggled: local_variable.dataToggled ? local_variable.dataToggled : ""
+      });
       // local_variable.dataHeaderStyles == 'dark' ? 'light' : 'dark',
     }
   }
@@ -253,7 +266,10 @@ const Header = ({ local_variable, ThemeChanger }: any) => {
           setShow2(true);
 
           // Check if the element has a path and doesn't already exist in allElement2 before pushing
-          if (allElement.path && !allElement2.some((el: { title: any }) => el.title === allElement.title)) {
+          if (
+            allElement.path &&
+            !allElement2.some((el: { title: any }) => el.title === allElement.title)
+          ) {
             allElement2.push(allElement);
           }
         }

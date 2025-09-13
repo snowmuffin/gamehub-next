@@ -111,7 +111,10 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
         // greater than 992
         console.log("Width is greater than or equal to 992");
         console.log("Current dataVerticalStyle:", theme.dataVerticalStyle);
-        ThemeChanger({ ...theme, dataToggled: theme.dataVerticalStyle === "doublemenu" ? "double-menu-open" : "" });
+        ThemeChanger({
+          ...theme,
+          dataToggled: theme.dataVerticalStyle === "doublemenu" ? "double-menu-open" : ""
+        });
         console.log("menuresizeclosed");
       }
     }
@@ -123,13 +126,13 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
       const slide = document.querySelectorAll<HTMLElement>(".slide");
       const slideMenu = document.querySelectorAll<HTMLElement>(".slide-menu");
 
-      slide.forEach(element => {
+      slide.forEach((element) => {
         if (element.classList.contains("is-expanded")) {
           element.classList.remove("is-expanded");
         }
       });
 
-      slideMenu.forEach(element => {
+      slideMenu.forEach((element) => {
         if (element.classList.contains("open")) {
           element.classList.remove("open");
           element.style.display = "none";
@@ -145,8 +148,12 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
     const mainContainer1 = document.querySelector<HTMLElement>(".main-sidebar");
 
     if (menuNav && mainContainer1) {
-      const marginLeftValue = Math.ceil(Number(window.getComputedStyle(menuNav).marginInlineStart.split("px")[0]));
-      const marginRightValue = Math.ceil(Number(window.getComputedStyle(menuNav).marginInlineEnd.split("px")[0]));
+      const marginLeftValue = Math.ceil(
+        Number(window.getComputedStyle(menuNav).marginInlineStart.split("px")[0])
+      );
+      const marginRightValue = Math.ceil(
+        Number(window.getComputedStyle(menuNav).marginInlineEnd.split("px")[0])
+      );
       const check = menuNav.scrollWidth - mainContainer1.offsetWidth;
       let mainContainer1Width = mainContainer1.offsetWidth;
 
@@ -164,7 +171,9 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
             }
 
             menuNav.style.marginInlineStart =
-              Number(menuNav.style.marginInlineStart.split("px")[0]) - Math.abs(mainContainer1Width) + "px";
+              Number(menuNav.style.marginInlineStart.split("px")[0]) -
+              Math.abs(mainContainer1Width) +
+              "px";
 
             const slideRightButton = document.querySelector<HTMLElement>("#slide-right");
             if (slideRightButton) {
@@ -184,7 +193,9 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
             }
 
             menuNav.style.marginInlineStart =
-              Number(menuNav.style.marginInlineStart.split("px")[0]) - Math.abs(mainContainer1Width) + "px";
+              Number(menuNav.style.marginInlineStart.split("px")[0]) -
+              Math.abs(mainContainer1Width) +
+              "px";
 
             const slideLeftButton = document.querySelector<HTMLElement>("#slide-left");
             if (slideLeftButton) {
@@ -212,8 +223,12 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
     const mainContainer1 = document.querySelector<HTMLElement>(".main-sidebar");
 
     if (menuNav && mainContainer1) {
-      const marginLeftValue = Math.ceil(Number(window.getComputedStyle(menuNav).marginInlineStart.split("px")[0]));
-      const marginRightValue = Math.ceil(Number(window.getComputedStyle(menuNav).marginInlineEnd.split("px")[0]));
+      const marginLeftValue = Math.ceil(
+        Number(window.getComputedStyle(menuNav).marginInlineStart.split("px")[0])
+      );
+      const marginRightValue = Math.ceil(
+        Number(window.getComputedStyle(menuNav).marginInlineEnd.split("px")[0])
+      );
       const check = menuNav.scrollWidth - mainContainer1.offsetWidth;
       let mainContainer1Width = mainContainer1.offsetWidth;
 
@@ -235,7 +250,9 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
             }
 
             menuNav.style.marginInlineStart =
-              Number(menuNav.style.marginInlineStart.split("px")[0]) - Math.abs(mainContainer1Width) + "px";
+              Number(menuNav.style.marginInlineStart.split("px")[0]) -
+              Math.abs(mainContainer1Width) +
+              "px";
 
             const slideLeftButton = document.querySelector<HTMLElement>("#slide-left");
             if (slideLeftButton) {
@@ -262,8 +279,12 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
     const menuNav = document.querySelector(".main-menu") as HTMLElement;
     const mainContainer1 = document.querySelector(".main-sidebar") as HTMLElement;
 
-    const marginLeftValue = Math.ceil(Number(window.getComputedStyle(menuNav).marginLeft.split("px")[0]));
-    const marginRightValue = Math.ceil(Number(window.getComputedStyle(menuNav).marginRight.split("px")[0]));
+    const marginLeftValue = Math.ceil(
+      Number(window.getComputedStyle(menuNav).marginLeft.split("px")[0])
+    );
+    const marginRightValue = Math.ceil(
+      Number(window.getComputedStyle(menuNav).marginRight.split("px")[0])
+    );
     const check = menuNav.scrollWidth - mainContainer1.offsetWidth;
 
     // Show/Hide the arrows
@@ -325,7 +346,10 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
   function getParentObject(obj: any, childObject: any) {
     for (const key in obj) {
       if (obj.hasOwnProperty(key)) {
-        if (typeof obj[key] === "object" && JSON.stringify(obj[key]) === JSON.stringify(childObject)) {
+        if (
+          typeof obj[key] === "object" &&
+          JSON.stringify(obj[key]) === JSON.stringify(childObject)
+        ) {
           return obj; // Return the parent object
         }
         if (typeof obj[key] === "object") {
@@ -499,7 +523,8 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
                 }
               } else {
                 if (
-                  outterUlWidth + siblingULRect.right + siblingULRect.width + 50 > window.innerWidth &&
+                  outterUlWidth + siblingULRect.right + siblingULRect.width + 50 >
+                    window.innerWidth &&
                   siblingULRect.right >= 0 &&
                   outterUlWidth + siblingULRect.width + siblingULRect.width < window.innerWidth
                 ) {
@@ -634,7 +659,12 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
       >
         {" "}
       </div>
-      <aside className="app-sidebar" id="sidebar" onMouseOver={() => Onhover()} onMouseLeave={() => Outhover()}>
+      <aside
+        className="app-sidebar"
+        id="sidebar"
+        onMouseOver={() => Onhover()}
+        onMouseLeave={() => Outhover()}
+      >
         <div className="top-left"></div>
         <div className="top-right"></div>
         <div className="bottom-left"></div>
@@ -673,7 +703,13 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
                 slideLeft();
               }}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="#7b8191"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
                 <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
               </svg>
             </div>
@@ -685,21 +721,34 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
                     className={`${levelone.menutitle ? "slide__category" : ""} ${levelone.type === "link" ? "slide" : ""}
                        					${levelone.type === "sub" ? "slide has-sub" : ""} ${levelone?.active ? "open" : ""} ${levelone?.selected ? "active" : ""}`}
                   >
-                    {levelone.menutitle ? <span className="category-name">{levelone.menutitle}</span> : ""}
+                    {levelone.menutitle ? (
+                      <span className="category-name">{levelone.menutitle}</span>
+                    ) : (
+                      ""
+                    )}
                     {levelone.type === "link" ? (
                       <Link
                         href={levelone.path + "/"}
                         className={`side-menu__item ${levelone.selected ? "active" : ""}`}
                       >
-                        <span className={`${local_variable?.dataVerticalStyle == "doublemenu" ? "" : "d-none"}`}>
-                          <OverlayTrigger placement="right" overlay={<Tooltip>{levelone.title}</Tooltip>}>
+                        <span
+                          className={`${local_variable?.dataVerticalStyle == "doublemenu" ? "" : "d-none"}`}
+                        >
+                          <OverlayTrigger
+                            placement="right"
+                            overlay={<Tooltip>{levelone.title}</Tooltip>}
+                          >
                             <div>{levelone.icon}</div>
                           </OverlayTrigger>
                         </span>
                         {local_variable.dataVerticalStyle != "doublemenu" ? levelone.icon : ""}
                         <span className="side-menu__label">
                           {levelone.title}{" "}
-                          {levelone.badgetxt ? <span className={levelone.class}> {levelone.badgetxt}</span> : ""}
+                          {levelone.badgetxt ? (
+                            <span className={levelone.class}> {levelone.badgetxt}</span>
+                          ) : (
+                            ""
+                          )}
                         </span>
                       </Link>
                     ) : (
@@ -711,7 +760,11 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
                         <span className="">
                           {" "}
                           {levelone.title}{" "}
-                          {levelone.badgetxt ? <span className={levelone.class}>{levelone.badgetxt} </span> : ""}
+                          {levelone.badgetxt ? (
+                            <span className={levelone.class}>{levelone.badgetxt} </span>
+                          ) : (
+                            ""
+                          )}
                         </span>
                       </Link>
                     ) : (
@@ -739,7 +792,13 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
               }}
               id="slide-right"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="#7b8191"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
                 <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
               </svg>
             </div>

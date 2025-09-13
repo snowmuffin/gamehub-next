@@ -75,14 +75,19 @@ const Gaming = () => {
       setCodesLoading(true);
       setCodesError(null);
       try {
-        const res = await apiRequest.get("/space-engineers/servers", {
+        const res = await apiRequest.get<{
+          codes?: string[];
+          servers?: Array<{ code: string; name?: string }>;
+        }>("/space-engineers/servers", {
           includeInactive: includeInactive ? "true" : "false",
           withNames: "true"
         });
         const codes = (res.data?.codes || []) as string[];
         const servers = (res.data?.servers || []) as Array<{ code: string; name?: string }>;
         setServerCodes(codes);
-        setServerOptions(servers && servers.length > 0 ? servers : codes.map(code => ({ code, name: code })));
+        setServerOptions(
+          servers && servers.length > 0 ? servers : codes.map((code) => ({ code, name: code }))
+        );
         // Initialize or validate selected code
         if (!serverCode || !codes.includes(serverCode)) {
           setServerCode(codes[0] || "");
@@ -132,7 +137,7 @@ const Gaming = () => {
     <Fragment>
       <Seo title={"Gaming"} />
 
-  <Row className="g-4 equal-card-row">
+      <Row className="g-4 equal-card-row">
         <Col xl={5} lg={6} md={6} sm={12}>
           {error ? (
             <div className="text-danger text-center">{error}</div>
@@ -160,7 +165,8 @@ const Gaming = () => {
               <Card.Header className="justify-content-between">
                 <div className="card-title">
                   {(() => {
-                    const label = serverOptions.find(s => s.code === serverCode)?.name || serverCode;
+                    const label =
+                      serverOptions.find((s) => s.code === serverCode)?.name || serverCode;
                     return `Server Health — ${label}`;
                   })()}
                 </div>
@@ -169,7 +175,7 @@ const Gaming = () => {
                 <ServerHealthStatusCard
                   embedded
                   code={serverCode}
-                  displayName={serverOptions.find(s => s.code === serverCode)?.name || serverCode}
+                  displayName={serverOptions.find((s) => s.code === serverCode)?.name || serverCode}
                 />
                 <ServerHealthCharts
                   embedded
@@ -191,7 +197,7 @@ const Gaming = () => {
         </Col>
       </Row>
 
-  <Row className="g-4 mt-1 equal-card-row">
+      <Row className="g-4 mt-1 equal-card-row">
         <Col xs={12}>
           <SpaceEngineersCalculator />
         </Col>

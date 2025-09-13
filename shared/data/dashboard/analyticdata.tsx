@@ -129,7 +129,14 @@ export const RealtimeChart = () => {
     return () => clearInterval(interval);
   }, []);
 
-  return <ReactApexChart options={chartData.options} series={chartData.series} type="radar" height={268} />;
+  return (
+    <ReactApexChart
+      options={chartData.options}
+      series={chartData.series}
+      type="radar"
+      height={268}
+    />
+  );
 };
 
 //VIEWS BY BROWSER
@@ -295,7 +302,7 @@ export class Userreport extends Component<{}, spark3> {
 
           type: "bar",
           events: {
-            mounted: chart => {
+            mounted: (chart) => {
               chart.windowResizeHandler();
             }
           }
@@ -321,7 +328,20 @@ export class Userreport extends Component<{}, spark3> {
         legend: {
           show: false
         },
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec"
+        ],
         markers: {
           size: 0
         },
@@ -338,7 +358,13 @@ export class Userreport extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={357} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={357}
+      />
     );
   }
 }
@@ -627,7 +653,13 @@ export class Revenue extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="area" width={"100%"} height={278} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="area"
+        width={"100%"}
+        height={278}
+      />
     );
   }
 }
@@ -707,7 +739,12 @@ export class SessionSource extends Component<{}, spark3> {
             }
           }
         },
-        colors: ["var(--primary-color)", "var(--primary06)", "var(--primary04)", "var(--primary005)"]
+        colors: [
+          "var(--primary-color)",
+          "var(--primary06)",
+          "var(--primary04)",
+          "var(--primary005)"
+        ]
       }
     };
   }

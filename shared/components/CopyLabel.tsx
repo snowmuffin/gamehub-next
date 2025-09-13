@@ -76,7 +76,11 @@ export const CopyLabel: React.FC<CopyLabelProps> = ({
       {showIcon && (
         <Tooltip title={copied ? "Copied!" : "Copy to clipboard"}>
           <IconButton size="small" onClick={handleCopy}>
-            {copied ? <CheckIcon fontSize="small" color="success" /> : <CopyIcon fontSize="small" />}
+            {copied ? (
+              <CheckIcon fontSize="small" color="success" />
+            ) : (
+              <CopyIcon fontSize="small" />
+            )}
           </IconButton>
         </Tooltip>
       )}

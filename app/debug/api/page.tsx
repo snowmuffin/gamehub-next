@@ -47,7 +47,7 @@ const ApiDebugPage = () => {
         result.error = `${response.status} ${response.statusText}`;
       }
 
-      setTestResults(prev => [result, ...prev]);
+      setTestResults((prev) => [result, ...prev]);
     } catch (error: any) {
       const result = {
         name: endpoint.name,
@@ -60,7 +60,7 @@ const ApiDebugPage = () => {
         data: null as any,
         error: error.message as string
       };
-      setTestResults(prev => [result, ...prev]);
+      setTestResults((prev) => [result, ...prev]);
     } finally {
       setLoading(false);
     }
@@ -73,7 +73,7 @@ const ApiDebugPage = () => {
   const testAllEndpoints = async () => {
     for (const endpoint of testEndpoints) {
       await testApi(endpoint);
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Wait 1 second
+      await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait 1 second
     }
   };
 
@@ -132,7 +132,9 @@ const ApiDebugPage = () => {
                     </p>
                     <p className="mb-1">
                       <strong>상태:</strong> {result.status} {result.statusText}
-                      {result.responseTime > 0 && <span className="ms-2">({result.responseTime}ms)</span>}
+                      {result.responseTime > 0 && (
+                        <span className="ms-2">({result.responseTime}ms)</span>
+                      )}
                     </p>
                     {result.error && (
                       <p className="mb-1 text-danger">
@@ -142,11 +144,15 @@ const ApiDebugPage = () => {
                     {result.data && (
                       <details>
                         <summary>응답 데이터</summary>
-                        <pre className="mt-2 p-2 bg-light border rounded">{JSON.stringify(result.data, null, 2)}</pre>
+                        <pre className="mt-2 p-2 bg-light border rounded">
+                          {JSON.stringify(result.data, null, 2)}
+                        </pre>
                       </details>
                     )}
                   </div>
-                  <small className="text-muted">{new Date(result.timestamp).toLocaleTimeString()}</small>
+                  <small className="text-muted">
+                    {new Date(result.timestamp).toLocaleTimeString()}
+                  </small>
                 </div>
               </Alert>
             ))

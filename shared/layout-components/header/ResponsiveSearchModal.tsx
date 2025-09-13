@@ -2,7 +2,13 @@
 import React from "react";
 import { Modal, InputGroup, Form, Button } from "react-bootstrap";
 
-const ResponsiveSearchModal = ({ show, handleClose }: { show: boolean; handleClose: () => void }) => {
+const ResponsiveSearchModal = ({
+  show,
+  handleClose
+}: {
+  show: boolean;
+  handleClose: () => void;
+}) => {
   return (
     <Modal
       show={show}

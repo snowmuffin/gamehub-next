@@ -18,42 +18,74 @@ export const Gallerylist = () => {
       <Row>
         <Col lg={3} md={3} sm={6} className="col-12">
           <Link href="#!" scroll={false} className="glightbox card" data-gallery="gallery1">
-            <img src="../../assets/images/media/media-40.jpg" alt="image" onClick={() => setOpen(true)} />
+            <img
+              src="../../assets/images/media/media-40.jpg"
+              alt="image"
+              onClick={() => setOpen(true)}
+            />
           </Link>
         </Col>
         <Col lg={3} md={3} sm={6} className="col-12">
           <Link href="#!" scroll={false} className="glightbox card" data-gallery="gallery1">
-            <img src="../../assets/images/media/media-41.jpg" alt="image" onClick={() => setOpen(true)} />
+            <img
+              src="../../assets/images/media/media-41.jpg"
+              alt="image"
+              onClick={() => setOpen(true)}
+            />
           </Link>
         </Col>
         <Col lg={3} md={3} sm={6} className="col-12">
           <Link href="#!" scroll={false} className="glightbox card" data-gallery="gallery1">
-            <img src="../../assets/images/media/media-42.jpg" alt="image" onClick={() => setOpen(true)} />
+            <img
+              src="../../assets/images/media/media-42.jpg"
+              alt="image"
+              onClick={() => setOpen(true)}
+            />
           </Link>
         </Col>
         <Col lg={3} md={3} sm={6} className="col-12">
           <Link href="#!" scroll={false} className="glightbox card" data-gallery="gallery1">
-            <img src="../../assets/images/media/media-43.jpg" alt="image" onClick={() => setOpen(true)} />
+            <img
+              src="../../assets/images/media/media-43.jpg"
+              alt="image"
+              onClick={() => setOpen(true)}
+            />
           </Link>
         </Col>
         <Col lg={3} md={3} sm={6} className="col-12">
           <Link href="#!" scroll={false} className="glightbox card" data-gallery="gallery1">
-            <img src="../../assets/images/media/media-44.jpg" alt="image" onClick={() => setOpen(true)} />
+            <img
+              src="../../assets/images/media/media-44.jpg"
+              alt="image"
+              onClick={() => setOpen(true)}
+            />
           </Link>
         </Col>
         <Col lg={3} md={3} sm={6} className="col-12">
           <Link href="#!" scroll={false} className="glightbox card" data-gallery="gallery1">
-            <img src="../../assets/images/media/media-45.jpg" alt="image" onClick={() => setOpen(true)} />
+            <img
+              src="../../assets/images/media/media-45.jpg"
+              alt="image"
+              onClick={() => setOpen(true)}
+            />
           </Link>
         </Col>
         <Col lg={3} md={3} sm={6} className="col-12">
           <Link href="#!" scroll={false} className="glightbox card" data-gallery="gallery1">
-            <img src="../../assets/images/media/media-46.jpg" alt="image" onClick={() => setOpen(true)} />
+            <img
+              src="../../assets/images/media/media-46.jpg"
+              alt="image"
+              onClick={() => setOpen(true)}
+            />
           </Link>
         </Col>
         <Col lg={3} md={3} sm={6} className="col-12">
           <Link href="#!" scroll={false} className="glightbox card" data-gallery="gallery1">
-            <img src="../../assets/images/media/media-60.jpg" alt="image" onClick={() => setOpen(true)} />
+            <img
+              src="../../assets/images/media/media-60.jpg"
+              alt="image"
+              onClick={() => setOpen(true)}
+            />
           </Link>
         </Col>
       </Row>

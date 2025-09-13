@@ -24,7 +24,7 @@ const LanguageDropdown = () => {
     dispatch(setLanguage(langCode));
   };
 
-  const selected = LANGUAGE_OPTIONS.find(l => l.code === language) || LANGUAGE_OPTIONS[0];
+  const selected = LANGUAGE_OPTIONS.find((l) => l.code === language) || LANGUAGE_OPTIONS[0];
 
   return (
     <Dropdown className="header-element country-selector dropdown">
@@ -42,8 +42,11 @@ const LanguageDropdown = () => {
         />
         <span style={{ marginLeft: 8 }}>{selected.label}</span>
       </Dropdown.Toggle>
-      <Dropdown.Menu className="main-header-dropdown dropdown-menu dropdown-menu-end" data-popper-placement="none">
-        {LANGUAGE_OPTIONS.map(option => (
+      <Dropdown.Menu
+        className="main-header-dropdown dropdown-menu dropdown-menu-end"
+        data-popper-placement="none"
+      >
+        {LANGUAGE_OPTIONS.map((option) => (
           <Link
             key={option.code}
             className="dropdown-item d-flex align-items-center"
@@ -52,7 +55,10 @@ const LanguageDropdown = () => {
             onClick={() => handleSelect(option.code)}
           >
             <span className="avatar avatar-xs lh-1 me-2">
-              <img src={`${process.env.NODE_ENV === "production" ? basePath : ""}${option.flag}`} alt="img" />
+              <img
+                src={`${process.env.NODE_ENV === "production" ? basePath : ""}${option.flag}`}
+                alt="img"
+              />
             </span>
             {option.label}
             {language === option.code && (

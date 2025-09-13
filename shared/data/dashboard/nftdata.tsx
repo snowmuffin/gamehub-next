@@ -24,8 +24,8 @@ export class Nftbalance extends Component<{}, spark3> {
         {
           name: "Value",
           data: [
-            14, 12, 17, 16, 18, 15, 18, 23, 28, 44, 40, 34, 34, 22, 37, 46, 21, 35, 40, 34, 46, 55, 62, 55, 23, 11, 22,
-            27, 13, 22, 37, 21, 44, 22, 45, 35
+            14, 12, 17, 16, 18, 15, 18, 23, 28, 44, 40, 34, 34, 22, 37, 46, 21, 35, 40, 34, 46, 55,
+            62, 55, 23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 45, 35
           ]
         }
       ],
@@ -68,7 +68,13 @@ export class Nftbalance extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="bar" width={"100%"} height={80} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="bar"
+        width={"100%"}
+        height={80}
+      />
     );
   }
 }
@@ -97,7 +103,7 @@ export class Nftstatistics extends Component<{}, spark3> {
             enabled: false
           },
           events: {
-            mounted: chart => {
+            mounted: (chart) => {
               chart.windowResizeHandler();
             }
           },
@@ -146,7 +152,20 @@ export class Nftstatistics extends Component<{}, spark3> {
           }
         },
         xaxis: {
-          categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+          categories: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+          ],
           axisBorder: {
             show: true,
             color: "rgba(119, 119, 142, 0.05)",
@@ -169,7 +188,13 @@ export class Nftstatistics extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={"100%"} height={290} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={"100%"}
+        height={290}
+      />
     );
   }
 }

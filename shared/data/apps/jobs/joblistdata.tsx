@@ -1,7 +1,11 @@
 import { Form } from "react-bootstrap";
 
-const checked = <Form.Check type="checkbox" id="checkboxNoLabeljob22" value="" aria-label="..." defaultChecked />;
-const notchecked = <Form.Check type="checkbox" id="checkboxNoLabeljob22" value="" aria-label="..." />;
+const checked = (
+  <Form.Check type="checkbox" id="checkboxNoLabeljob22" value="" aria-label="..." defaultChecked />
+);
+const notchecked = (
+  <Form.Check type="checkbox" id="checkboxNoLabeljob22" value="" aria-label="..." />
+);
 export const Tabledata = [
   {
     id: 1,

@@ -4,7 +4,13 @@ import { Fragment } from "react";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { connect } from "react-redux";
 
-function Menuloop({ local_variable, MenuItems, toggleSidemenu, level, HoverToggleInnerMenuFn }: any) {
+function Menuloop({
+  local_variable,
+  MenuItems,
+  toggleSidemenu,
+  level,
+  HoverToggleInnerMenuFn
+}: any) {
   const handleClick = (event: any) => {
     event.preventDefault();
   };
@@ -15,11 +21,11 @@ function Menuloop({ local_variable, MenuItems, toggleSidemenu, level, HoverToggl
         href="#!"
         scroll={false}
         className={`side-menu__item ${MenuItems?.selected ? "active" : ""}`}
-        onClick={event => {
+        onClick={(event) => {
           event.preventDefault();
           toggleSidemenu(event, MenuItems);
         }}
-        onMouseEnter={event => HoverToggleInnerMenuFn(event, MenuItems)}
+        onMouseEnter={(event) => HoverToggleInnerMenuFn(event, MenuItems)}
       >
         <span className={`${local_variable?.dataVerticalStyle == "doublemenu" ? "" : "d-none"}`}>
           <OverlayTrigger placement="right" overlay={<Tooltip>{MenuItems.title}</Tooltip>}>
@@ -30,7 +36,12 @@ function Menuloop({ local_variable, MenuItems, toggleSidemenu, level, HoverToggl
 
         <span className={`${level == 1 ? "side-menu__label" : ""}`}>
           {" "}
-          {MenuItems.title} {MenuItems.badgetxt ? <span className={MenuItems.class}> {MenuItems.badgetxt} </span> : ""}
+          {MenuItems.title}{" "}
+          {MenuItems.badgetxt ? (
+            <span className={MenuItems.class}> {MenuItems.badgetxt} </span>
+          ) : (
+            ""
+          )}
         </span>
         <i className="fe fe-chevron-right side-menu__angle"></i>
       </Link>
@@ -53,12 +64,19 @@ function Menuloop({ local_variable, MenuItems, toggleSidemenu, level, HoverToggl
             key={index}
           >
             {firstlevel.type === "link" ? (
-              <Link href={firstlevel.path} className={`side-menu__item ${firstlevel.selected ? "active" : ""}`}>
+              <Link
+                href={firstlevel.path}
+                className={`side-menu__item ${firstlevel.selected ? "active" : ""}`}
+              >
                 {firstlevel.icon}
                 <span className="">
                   {" "}
                   {firstlevel.title}{" "}
-                  {firstlevel.badgetxt ? <span className={firstlevel.class}> {firstlevel.badgetxt}</span> : ""}
+                  {firstlevel.badgetxt ? (
+                    <span className={firstlevel.class}> {firstlevel.badgetxt}</span>
+                  ) : (
+                    ""
+                  )}
                 </span>
               </Link>
             ) : (
@@ -71,7 +89,11 @@ function Menuloop({ local_variable, MenuItems, toggleSidemenu, level, HoverToggl
                 <span className="">
                   {" "}
                   {firstlevel.title}{" "}
-                  {firstlevel.badgetxt ? <span className={firstlevel.class}> {firstlevel.badgetxt} </span> : ""}
+                  {firstlevel.badgetxt ? (
+                    <span className={firstlevel.class}> {firstlevel.badgetxt} </span>
+                  ) : (
+                    ""
+                  )}
                 </span>
               </Link>
             ) : (

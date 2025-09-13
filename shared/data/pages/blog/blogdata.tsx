@@ -6,9 +6,24 @@ interface blogdata {
   data: string;
 }
 export const Blogdata: blogdata[] = [
-  { id: 1, src1: "../../../assets/images/media/media-73.jpg", heading: "Know nature closely", data: "Nature" },
-  { id: 2, src1: "../../../assets/images/media/media-74.jpg", heading: "Playing your favorite sports", data: "Sports" },
-  { id: 3, src1: "../../../assets/images/media/media-75.jpg", heading: "Staying Healthy", data: "Food" }
+  {
+    id: 1,
+    src1: "../../../assets/images/media/media-73.jpg",
+    heading: "Know nature closely",
+    data: "Nature"
+  },
+  {
+    id: 2,
+    src1: "../../../assets/images/media/media-74.jpg",
+    heading: "Playing your favorite sports",
+    data: "Sports"
+  },
+  {
+    id: 3,
+    src1: "../../../assets/images/media/media-75.jpg",
+    heading: "Staying Healthy",
+    data: "Food"
+  }
 ];
 
 interface blogdata1 {
@@ -33,7 +48,13 @@ export const Blogdata1: blogdata1[] = [
     date: "12,Nov 2023",
     time: "14:05"
   },
-  { id: 3, src1: "../../../assets/images/media/media-25.jpg", heading: "Flowers", date: "05,Dec 2023", time: "20:00" },
+  {
+    id: 3,
+    src1: "../../../assets/images/media/media-25.jpg",
+    heading: "Flowers",
+    date: "05,Dec 2023",
+    time: "20:00"
+  },
   {
     id: 4,
     src1: "../../../assets/images/media/media-52.jpg",

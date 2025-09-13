@@ -28,7 +28,7 @@ const Inventory = () => {
       () => {
         // Successfully copied - could add a toast notification here instead
       },
-      err => {
+      (err) => {
         // Failed to copy - could add error handling here instead
       }
     );
@@ -48,7 +48,7 @@ const Inventory = () => {
               {loading ? (
                 <p>Loading...</p> // Displayed while loading
               ) : products.length > 0 ? (
-                products.map(product => (
+                products.map((product) => (
                   <Col xxl={3} xl={6} lg={6} md={6} sm={12} className="" key={product.indexName}>
                     <Card className="custom-card shadow-none my-4">
                       <div className="top-left"></div>
@@ -66,17 +66,23 @@ const Inventory = () => {
                             width={200}
                             height={200}
                           />
-                          <span className="badge bg-secondary top-left-badge">{product.rarity}</span>
+                          <span className="badge bg-secondary top-left-badge">
+                            {product.rarity}
+                          </span>
                         </Link>
                         <p className="product-name fw-medium mb-0">{product.displayName}</p>
-                        <p className="product-description fs-11 text-muted mb-2">{product.description}</p>
+                        <p className="product-description fs-11 text-muted mb-2">
+                          {product.description}
+                        </p>
 
                         <span className="fs-11 text-success fw-medium mb-2">
                           Available Quantity: {product.quantity}
                         </span>
                         <Button
                           variant="primary"
-                          onClick={() => copyToClipboard(`!cmd downloaditem ${product.indexName} 1`)}
+                          onClick={() =>
+                            copyToClipboard(`!cmd downloaditem ${product.indexName} 1`)
+                          }
                         >
                           Download
                         </Button>

@@ -26,10 +26,12 @@ const Error404 = () => {
                   </p>
                   <p className="fs-3 fw-normal mb-3 text-fixed-white">Oops! Page Not Found.</p>
                   <p className="fs-15 text-fixed-white mb-5 op-8">
-                    The page you are attempting to access may have been removed or is temporarily unavailable.
+                    The page you are attempting to access may have been removed or is temporarily
+                    unavailable.
                   </p>
                   <Link href="/dashboard/gaming" className="btn btn-primary-ghost">
-                    <i className="ri-arrow-left-line align-middle me-1 d-inline-block"></i>BACK TO HOME
+                    <i className="ri-arrow-left-line align-middle me-1 d-inline-block"></i>BACK TO
+                    HOME
                   </Link>
                 </Col>
               </div>

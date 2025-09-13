@@ -19,7 +19,9 @@ const CommandsEn = () => (
               <h5 className="fw-medium pb-3 text-primary">Item Commands</h5>
               <ol className="fs-14">
                 <li className="mb-3">
-                  <span className="fw-medium text-primary">!cmd uploaditem &lt;itemname&gt; [quantity]</span>
+                  <span className="fw-medium text-primary">
+                    !cmd uploaditem &lt;itemname&gt; [quantity]
+                  </span>
                   <div className="text-muted">
                     Uploads an item from your character's inventory to your web inventory.
                   </div>
@@ -27,16 +29,21 @@ const CommandsEn = () => (
                 <li className="mb-3">
                   <span className="fw-medium text-primary">!cmd listitems</span>
                   <div className="text-muted">
-                    Displays a list of items in your character's inventory (shows names usable for upload).
+                    Displays a list of items in your character's inventory (shows names usable for
+                    upload).
                   </div>
                 </li>
                 <li className="mb-3">
-                  <span className="fw-medium text-primary">!cmd downloaditem &lt;item_name&gt; &lt;quantity&gt;</span>
+                  <span className="fw-medium text-primary">
+                    !cmd downloaditem &lt;item_name&gt; &lt;quantity&gt;
+                  </span>
                   <div className="text-muted">Downloads an item from your web inventory.</div>
                 </li>
                 <li className="mb-3">
                   <span className="fw-medium text-primary">!cmd globalencounters gps</span>
-                  <div className="text-muted">Retrieves all Factorum GPS coordinates available in the session.</div>
+                  <div className="text-muted">
+                    Retrieves all Factorum GPS coordinates available in the session.
+                  </div>
                 </li>
               </ol>
               <h5 className="fw-medium pb-3 text-primary mt-4">Block Commands</h5>
@@ -69,10 +76,12 @@ const CommandsEn = () => (
                   <div className="text-muted">Fixes issues with the grid you are looking at.</div>
                 </li>
                 <li>
-                  <span className="fw-medium text-primary">!transfer &lt;PlayerName&gt; [GridName]</span>
+                  <span className="fw-medium text-primary">
+                    !transfer &lt;PlayerName&gt; [GridName]
+                  </span>
                   <div className="text-muted">
-                    Transfers grid ownership to a specific player. If you omit the grid name, ownership of the grid you
-                    are looking at will be transferred.
+                    Transfers grid ownership to a specific player. If you omit the grid name,
+                    ownership of the grid you are looking at will be transferred.
                   </div>
                 </li>
               </ol>

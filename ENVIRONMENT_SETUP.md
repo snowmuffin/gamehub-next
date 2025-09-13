@@ -74,7 +74,13 @@ NEXT_PUBLIC_STEAM_AUTH_URL=https://api.yourdomain.com/auth/steam
 In the application, use the utility functions in `shared/utils/environment.ts` to access environment variables:
 
 ```typescript
-import { getFrontendUrl, getApiUrl, getSteamAuthUrl, createUrl, createApiUrl } from "@/shared/utils/environment";
+import {
+  getFrontendUrl,
+  getApiUrl,
+  getSteamAuthUrl,
+  createUrl,
+  createApiUrl
+} from "@/shared/utils/environment";
 
 // Example of URL creation
 const homeUrl = createUrl("/dashboard");

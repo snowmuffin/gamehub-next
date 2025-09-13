@@ -28,40 +28,43 @@ const ServerOverviewEn = () => (
                 <li className="mb-4">
                   <p className="fw-medium mb-2 fs-14 text-primary">Upgrade Modules</p>
                   <p className="mb-0 text-muted">
-                    Enhance and customize your grid's performance by applying upgrade modules, allowing for deeper
-                    engineering and creative builds.
+                    Enhance and customize your grid's performance by applying upgrade modules,
+                    allowing for deeper engineering and creative builds.
                   </p>
                 </li>
                 <li className="mb-4">
                   <p className="fw-medium mb-2 fs-14 text-primary">Web Inventory</p>
                   <p className="mb-0 text-muted">
-                    Manage your items flexibly with a dedicated web inventory. You can upload and download items between
-                    the game and the website at your convenience.
+                    Manage your items flexibly with a dedicated web inventory. You can upload and
+                    download items between the game and the website at your convenience.
                   </p>
                 </li>
                 <li className="mb-4">
                   <p className="fw-medium mb-2 fs-14 text-primary">Web Trading</p>
                   <p className="mb-0 text-muted">
-                    Trade items securely and easily through our website-based trading system (coming soon).
+                    Trade items securely and easily through our website-based trading system (coming
+                    soon).
                   </p>
                 </li>
                 <li className="mb-4">
                   <p className="fw-medium mb-2 fs-14 text-primary">Ranking System</p>
                   <p className="mb-0 text-muted">
-                    Compete with other players and track your progress with real-time rankings displayed on the website.
+                    Compete with other players and track your progress with real-time rankings
+                    displayed on the website.
                   </p>
                 </li>
                 <li className="mb-4">
                   <p className="fw-medium mb-2 fs-14 text-primary">Prime Blocks</p>
                   <p className="mb-0 text-muted">
-                    Discover advanced blocks crafted from Prime Matter, a rare and valuable resource for high-end
-                    construction.
+                    Discover advanced blocks crafted from Prime Matter, a rare and valuable resource
+                    for high-end construction.
                   </p>
                 </li>
                 <li>
                   <p className="fw-medium mb-2 fs-14 text-primary">More Content</p>
                   <p className="mb-0 text-muted">
-                    We are constantly working on new features and content to keep the gameplay fresh and exciting.
+                    We are constantly working on new features and content to keep the gameplay fresh
+                    and exciting.
                   </p>
                 </li>
               </ol>

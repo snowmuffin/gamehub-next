@@ -27,7 +27,9 @@ const ShowCode = ({
         <div className="prism-toggle">
           <button className="btn btn-sm btn-primary-light" onClick={toggleCode}>
             {showCode ? "Hide Code" : "Show Code"}
-            <i className={`${showCode ? "ri-code-s-slash-line" : "ri-code-line"} ms-2 align-middle inline-block`}></i>
+            <i
+              className={`${showCode ? "ri-code-s-slash-line" : "ri-code-line"} ms-2 align-middle inline-block`}
+            ></i>
           </button>
         </div>
       </Card.Header>

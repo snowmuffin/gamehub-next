@@ -19,10 +19,12 @@ const PlayerStatisticsCard = ({ rankings }: PlayerStatisticsCardProps) => (
     <div className="bottom-right"></div>
     <Card.Header className="justify-content-between">
       <div className="card-title">Player Statistics</div>
-      <Badge className="bg-primary-transparent border border-primary border-opacity-10 rounded-0">View All</Badge>
+      <Badge className="bg-primary-transparent border border-primary border-opacity-10 rounded-0">
+        View All
+      </Badge>
     </Card.Header>
     <Card.Body className="player-statistics">
-  <div className="table-responsive">
+      <div className="table-responsive">
         {rankings.length > 0 ? (
           <table className="table text-nowrap table-borderless table-striped">
             <thead>
@@ -33,7 +35,7 @@ const PlayerStatisticsCard = ({ rankings }: PlayerStatisticsCardProps) => (
               </tr>
             </thead>
             <tbody>
-      {rankings.map((player: Ranking, index: number) => (
+              {rankings.map((player: Ranking, index: number) => (
                 <tr key={player.steam_id}>
                   <td>{index + 1}</td>
                   <td>{player.username}</td>

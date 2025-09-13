@@ -158,7 +158,10 @@ export class Multiplecolored extends Component<{}, spark3> {
           enabled: true,
           formatter: (
             val: any[],
-            opts: { w: { globals: { labels: { [x: string]: any } } }; dataPointIndex: string | number }
+            opts: {
+              w: { globals: { labels: { [x: string]: any } } };
+              dataPointIndex: string | number;
+            }
           ) => {
             const label = opts.w.globals.labels[opts.dataPointIndex];
             const a = moment(val[0]);
@@ -653,7 +656,10 @@ export class Timelinegrouped1 extends Component<{}, spark3> {
           enabled: true,
           formatter: (
             val: any[],
-            opts: { w: { globals: { labels: { [x: string]: any } } }; dataPointIndex: string | number }
+            opts: {
+              w: { globals: { labels: { [x: string]: any } } };
+              dataPointIndex: string | number;
+            }
           ) => {
             const label = opts.w.globals.labels[opts.dataPointIndex];
             const a = moment(val[0]);

@@ -41,12 +41,12 @@ const snackbarSlice = createSlice({
         state.open = true;
       }
     },
-    hideSnackbar: state => {
+    hideSnackbar: (state) => {
       state.open = false;
       state.currentMessage = null;
     },
     removeSnackbar: (state, action: PayloadAction<string>) => {
-      state.messages = state.messages.filter(msg => msg.id !== action.payload);
+      state.messages = state.messages.filter((msg) => msg.id !== action.payload);
 
       // If we removed the current message, show next one
       if (state.currentMessage?.id === action.payload) {
@@ -59,13 +59,13 @@ const snackbarSlice = createSlice({
         }
       }
     },
-    processNextMessage: state => {
+    processNextMessage: (state) => {
       if (state.messages.length > 0 && !state.open) {
         state.currentMessage = state.messages[0];
         state.open = true;
       }
     },
-    clearAllMessages: state => {
+    clearAllMessages: (state) => {
       state.messages = [];
       state.open = false;
       state.currentMessage = null;

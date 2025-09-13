@@ -16,7 +16,10 @@ const SidebarToggle = ({ local_variable, ThemeChanger }: any) => {
         switch (verticalStyle) {
           case "closed":
             ThemeChanger({ ...theme, dataNavStyle: "" });
-            ThemeChanger({ ...theme, dataToggled: theme.dataToggled === "close-menu-close" ? "" : "close-menu-close" });
+            ThemeChanger({
+              ...theme,
+              dataToggled: theme.dataToggled === "close-menu-close" ? "" : "close-menu-close"
+            });
             break;
           case "overlay":
             ThemeChanger({ ...theme, dataNavStyle: "" });
@@ -28,7 +31,10 @@ const SidebarToggle = ({ local_variable, ThemeChanger }: any) => {
             break;
           case "icontext":
             ThemeChanger({ ...theme, dataNavStyle: "" });
-            ThemeChanger({ ...theme, dataToggled: theme.dataToggled === "icon-text-close" ? "" : "icon-text-close" });
+            ThemeChanger({
+              ...theme,
+              dataToggled: theme.dataToggled === "icon-text-close" ? "" : "icon-text-close"
+            });
             break;
           case "doublemenu":
             ThemeChanger({ ...theme, dataNavStyle: "" });

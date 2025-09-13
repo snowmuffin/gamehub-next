@@ -62,7 +62,9 @@ export default function ServerHealthStatusCard({
     setLoading(true);
     setError(null);
     try {
-      const res = await apiRequest.get(`/space-engineers/servers/${encodeURIComponent(code)}/health/status`);
+      const res = await apiRequest.get(
+        `/space-engineers/servers/${encodeURIComponent(code)}/health/status`
+      );
       setData(res.data as StatusResponse);
     } catch (e: any) {
       const status = e?.response?.status;
@@ -106,7 +108,9 @@ export default function ServerHealthStatusCard({
             <div className="text-muted">Metric</div>
             <div className="fw-semibold">
               {data?.metricName ?? "-"}
-              {data?.metricValue !== null && data?.metricValue !== undefined ? `: ${data.metricValue}` : ""}
+              {data?.metricValue !== null && data?.metricValue !== undefined
+                ? `: ${data.metricValue}`
+                : ""}
               {data?.metricUnit ? ` ${data.metricUnit}` : ""}
             </div>
           </div>

@@ -41,12 +41,52 @@ interface teamdata {
   mail: string;
 }
 export const TeamData: teamdata[] = [
-  { id: 1, src1: "../../assets/images/faces/11.jpg", heading: "NoahFisher", mail: "noahfisher041@gmail.com" },
-  { id: 2, src1: "../../assets/images/faces/2.jpg", heading: "Isabella Rose", mail: "isabellarose98@gmail.com" },
-  { id: 3, src1: "../../assets/images/faces/4.jpg", heading: "Nitheri Morgan", mail: "Nitherimorgan45@gmail.com" },
-  { id: 4, src1: "../../assets/images/faces/10.jpg", heading: "EthanClark", mail: "ethanclark111@gmail.com" },
-  { id: 5, src1: "../../assets/images/faces/13.jpg", heading: "Jackson Taylor", mail: "jacksontaylor00@gmail.com" },
-  { id: 6, src1: "../../assets/images/faces/5.jpg", heading: "Amelia Grace", mail: "ameliagrace16@gmail.com" },
-  { id: 7, src1: "../../assets/images/faces/8.jpg", heading: "Natalie Miller", mail: "nataliemiller2135@gmail.com" },
-  { id: 8, src1: "../../assets/images/faces/15.jpg", heading: "Evelyn Anna", mail: "liamanderson52@gmail.com" }
+  {
+    id: 1,
+    src1: "../../assets/images/faces/11.jpg",
+    heading: "NoahFisher",
+    mail: "noahfisher041@gmail.com"
+  },
+  {
+    id: 2,
+    src1: "../../assets/images/faces/2.jpg",
+    heading: "Isabella Rose",
+    mail: "isabellarose98@gmail.com"
+  },
+  {
+    id: 3,
+    src1: "../../assets/images/faces/4.jpg",
+    heading: "Nitheri Morgan",
+    mail: "Nitherimorgan45@gmail.com"
+  },
+  {
+    id: 4,
+    src1: "../../assets/images/faces/10.jpg",
+    heading: "EthanClark",
+    mail: "ethanclark111@gmail.com"
+  },
+  {
+    id: 5,
+    src1: "../../assets/images/faces/13.jpg",
+    heading: "Jackson Taylor",
+    mail: "jacksontaylor00@gmail.com"
+  },
+  {
+    id: 6,
+    src1: "../../assets/images/faces/5.jpg",
+    heading: "Amelia Grace",
+    mail: "ameliagrace16@gmail.com"
+  },
+  {
+    id: 7,
+    src1: "../../assets/images/faces/8.jpg",
+    heading: "Natalie Miller",
+    mail: "nataliemiller2135@gmail.com"
+  },
+  {
+    id: 8,
+    src1: "../../assets/images/faces/15.jpg",
+    heading: "Evelyn Anna",
+    mail: "liamanderson52@gmail.com"
+  }
 ];

@@ -24,10 +24,30 @@ interface amazing {
   src1: string;
 }
 export const Amazingteam: amazing[] = [
-  { id: 1, heading: "Charlie John", role: "HR Manager", src1: "../assets/images/media/landing/team/1.png" },
-  { id: 2, heading: "Marlin Shane", role: "Team Lead", src1: "../assets/images/media/landing/team/2.png" },
-  { id: 3, heading: "Angela Lia", role: "Project Manager", src1: "../assets/images/media/landing/team/3.png" },
-  { id: 4, heading: "Stella Daisy", role: "Head of Department", src1: "../assets/images/media/landing/team/4.png" }
+  {
+    id: 1,
+    heading: "Charlie John",
+    role: "HR Manager",
+    src1: "../assets/images/media/landing/team/1.png"
+  },
+  {
+    id: 2,
+    heading: "Marlin Shane",
+    role: "Team Lead",
+    src1: "../assets/images/media/landing/team/2.png"
+  },
+  {
+    id: 3,
+    heading: "Angela Lia",
+    role: "Project Manager",
+    src1: "../assets/images/media/landing/team/3.png"
+  },
+  {
+    id: 4,
+    heading: "Stella Daisy",
+    role: "Head of Department",
+    src1: "../assets/images/media/landing/team/4.png"
+  }
 ];
 
 //Top Job Categories

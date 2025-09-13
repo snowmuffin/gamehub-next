@@ -124,7 +124,20 @@ export class Totalearnings extends Component<{}, spark3> {
         },
         xaxis: {
           type: "category",
-          categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+          categories: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+          ],
           axisBorder: {
             show: true,
             color: "rgba(119, 119, 142, 0.05)",
@@ -181,7 +194,13 @@ export class Totalearnings extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={"100%"} height={335} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={"100%"}
+        height={335}
+      />
     );
   }
 }
@@ -270,7 +289,20 @@ export class Portfoliovalue extends Component<{}, spark3> {
         },
         xaxis: {
           type: "category",
-          categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "sep", "oct", "nov", "dec"],
+          categories: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "sep",
+            "oct",
+            "nov",
+            "dec"
+          ],
           axisBorder: {
             show: false,
             color: "rgba(119, 119, 142, 0.05)",
@@ -294,7 +326,13 @@ export class Portfoliovalue extends Component<{}, spark3> {
   }
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="area" width={"100%"} height={260} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="area"
+        width={"100%"}
+        height={260}
+      />
     );
   }
 }
@@ -307,7 +345,10 @@ export class Applestock extends Component<{}, spark3> {
       series: [
         {
           name: "Value",
-          data: [0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46]
+          data: [
+            0, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43,
+            19, 46
+          ]
         }
       ],
       options: {
@@ -363,7 +404,13 @@ export class Applestock extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={120} height={20} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={120}
+        height={20}
+      />
     );
   }
 }
@@ -376,7 +423,10 @@ export class Nvidiastock extends Component<{}, spark3> {
       series: [
         {
           name: "Value",
-          data: [0, 45, 54, 38, 56, 24, 65, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46, 31, 37, 39, 62, 51, 35, 41]
+          data: [
+            0, 45, 54, 38, 56, 24, 65, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46, 31, 37, 39, 62, 51,
+            35, 41
+          ]
         }
       ],
       options: {
@@ -432,7 +482,13 @@ export class Nvidiastock extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={120} height={20} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={120}
+        height={20}
+      />
     );
   }
 }
@@ -445,7 +501,10 @@ export class Amazonstock extends Component<{}, spark3> {
       series: [
         {
           name: "Value",
-          data: [61, 27, 54, 43, 19, 46, 31, 37, 39, 0, 45, 54, 38, 56, 24, 65, 35, 27, 93, 53, 62, 51, 35, 41]
+          data: [
+            61, 27, 54, 43, 19, 46, 31, 37, 39, 0, 45, 54, 38, 56, 24, 65, 35, 27, 93, 53, 62, 51,
+            35, 41
+          ]
         }
       ],
       options: {
@@ -501,7 +560,13 @@ export class Amazonstock extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={120} height={20} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={120}
+        height={20}
+      />
     );
   }
 }
@@ -514,7 +579,10 @@ export class Microsoftstock extends Component<{}, spark3> {
       series: [
         {
           name: "Value",
-          data: [61, 27, 54, 43, 19, 56, 24, 65, 35, 27, 93, 53, 46, 31, 37, 39, 0, 45, 54, 38, 62, 51, 35, 41]
+          data: [
+            61, 27, 54, 43, 19, 56, 24, 65, 35, 27, 93, 53, 46, 31, 37, 39, 0, 45, 54, 38, 62, 51,
+            35, 41
+          ]
         }
       ],
       options: {
@@ -570,7 +638,13 @@ export class Microsoftstock extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={120} height={20} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={120}
+        height={20}
+      />
     );
   }
 }
@@ -583,7 +657,10 @@ export class Alphabetstock extends Component<{}, spark3> {
       series: [
         {
           name: "Value",
-          data: [61, 27, 54, 37, 39, 0, 45, 54, 38, 62, 51, 35, 41, 43, 19, 56, 24, 65, 35, 27, 93, 53, 46, 31]
+          data: [
+            61, 27, 54, 37, 39, 0, 45, 54, 38, 62, 51, 35, 41, 43, 19, 56, 24, 65, 35, 27, 93, 53,
+            46, 31
+          ]
         }
       ],
       options: {
@@ -639,7 +716,13 @@ export class Alphabetstock extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={120} height={20} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={120}
+        height={20}
+      />
     );
   }
 }
@@ -652,7 +735,10 @@ export class Mastercardstock extends Component<{}, spark3> {
       series: [
         {
           name: "Value",
-          data: [62, 51, 35, 41, 43, 19, 56, 24, 65, 35, 27, 93, 53, 46, 31, 61, 27, 54, 37, 39, 0, 45, 54, 38]
+          data: [
+            62, 51, 35, 41, 43, 19, 56, 24, 65, 35, 27, 93, 53, 46, 31, 61, 27, 54, 37, 39, 0, 45,
+            54, 38
+          ]
         }
       ],
       options: {
@@ -708,7 +794,13 @@ export class Mastercardstock extends Component<{}, spark3> {
 
   render() {
     return (
-      <ReactApexChart options={this.state.options} series={this.state.series} type="line" width={120} height={20} />
+      <ReactApexChart
+        options={this.state.options}
+        series={this.state.series}
+        type="line"
+        width={120}
+        height={20}
+      />
     );
   }
 }
@@ -723,8 +815,24 @@ interface stock {
   stock: string;
 }
 export const Stocksdata: stock[] = [
-  { id: 1, icon: "apple", data: "Apple", data1: "Apple Inc", price: "$191.56", percent: "1.55%", stock: "180" },
-  { id: 2, icon: "nvidia", data: "Nvidia", data1: "NVIDIA Corp", price: "$594.91", percent: "4.17%", stock: "63 " },
+  {
+    id: 1,
+    icon: "apple",
+    data: "Apple",
+    data1: "Apple Inc",
+    price: "$191.56",
+    percent: "1.55%",
+    stock: "180"
+  },
+  {
+    id: 2,
+    icon: "nvidia",
+    data: "Nvidia",
+    data1: "NVIDIA Corp",
+    price: "$594.91",
+    percent: "4.17%",
+    stock: "63 "
+  },
   {
     id: 3,
     icon: "amazon",
@@ -743,7 +851,15 @@ export const Stocksdata: stock[] = [
     percent: "1.22%",
     stock: "153"
   },
-  { id: 5, icon: "google", data: "ALPHABET", data1: "Alphabet Inc", price: "$147.97", percent: "2.06%", stock: "45" }
+  {
+    id: 5,
+    icon: "google",
+    data: "ALPHABET",
+    data1: "Alphabet Inc",
+    price: "$147.97",
+    percent: "2.06%",
+    stock: "45"
+  }
 ];
 
 //My Portfolio :

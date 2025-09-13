@@ -38,7 +38,13 @@ export const Latestpost: latestpost[] = [
     date: "12,Nov 2023",
     time: " 14:05"
   },
-  { id: 3, src1: "../../../assets/images/media/media-25.jpg", heading: "Flower", date: " 05,Dec 2023", time: "20:00" },
+  {
+    id: 3,
+    src1: "../../../assets/images/media/media-25.jpg",
+    heading: "Flower",
+    date: " 05,Dec 2023",
+    time: "20:00"
+  },
   {
     id: 4,
     src1: "../../../assets/images/media/media-52.jpg",

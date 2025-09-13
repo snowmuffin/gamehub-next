@@ -4,7 +4,9 @@ import MenuItems from "@/shared/layout-components/sidebar/nav";
 
 export function addOrRemoveCss(cssCode: string | null) {
   if (document.head) {
-    const dynamicBootstrapStyle = document.head.querySelector(`style[data-name="dynamic-bootstrap"]`);
+    const dynamicBootstrapStyle = document.head.querySelector(
+      `style[data-name="dynamic-bootstrap"]`
+    );
     if (dynamicBootstrapStyle) {
       document.head.removeChild(dynamicBootstrapStyle);
     }

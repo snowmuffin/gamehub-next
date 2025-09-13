@@ -151,7 +151,9 @@ const ItemModal = ({ handleClose, handleSubmit }: ItemModalProps) => {
                 <CopyLabel
                   mainLabel={modalData.displayName ? modalData.displayName : "Unknown"}
                   subLabel={modalData.category ? t(modalData.category) : "Unknown"}
-                  copyValue={modalData.indexName ? `!cmd downloaditem ${modalData.indexName} 1` : "Unknown"}
+                  copyValue={
+                    modalData.indexName ? `!cmd downloaditem ${modalData.indexName} 1` : "Unknown"
+                  }
                 />
                 <Typography minHeight={80} width="100%" textAlign="left" variant="body2">
                   {modalData.description ? t(modalData.description) : "Unknown"}
@@ -170,7 +172,13 @@ const ItemModal = ({ handleClose, handleSubmit }: ItemModalProps) => {
                     {isSubmit ? (
                       <CustomStack row fullWidth gap={1}>
                         <CustomStack fullWidth justifyContent="space-between" gap={1}>
-                          <Typography width="100%" maxWidth={120} textAlign="left" fontWeight="bold" variant="inherit">
+                          <Typography
+                            width="100%"
+                            maxWidth={120}
+                            textAlign="left"
+                            fontWeight="bold"
+                            variant="inherit"
+                          >
                             {t("submit_quantity")}
                           </Typography>
                           <CustomStack>
@@ -179,13 +187,19 @@ const ItemModal = ({ handleClose, handleSubmit }: ItemModalProps) => {
                               color="warning"
                               tooltip={t("min_quantity")}
                               icon={<RemoveOutlinedIcon />}
-                              onClick={() => dispatch(inventoryActions.INVENTORY_CHANGE_MODAL_ITEMS_QTY(1))}
+                              onClick={() =>
+                                dispatch(inventoryActions.INVENTORY_CHANGE_MODAL_ITEMS_QTY(1))
+                              }
                               sx={{ borderRadius: 1 }}
                             />
                             <TextField
                               name="quantity"
                               variant="standard"
-                              value={submitQuantity ? submitQuantity.toLocaleString("ko-KR") : submitQuantity}
+                              value={
+                                submitQuantity
+                                  ? submitQuantity.toLocaleString("ko-KR")
+                                  : submitQuantity
+                              }
                               onChange={hanldeChangeQuantity}
                               slotProps={{
                                 htmlInput: {
@@ -211,14 +225,22 @@ const ItemModal = ({ handleClose, handleSubmit }: ItemModalProps) => {
                           </CustomStack>
                         </CustomStack>
                         <CustomStack fullWidth gap={1} justifyContent="space-between">
-                          <Typography width="100%" maxWidth={120} textAlign="left" fontWeight="bold" variant="inherit">
+                          <Typography
+                            width="100%"
+                            maxWidth={120}
+                            textAlign="left"
+                            fontWeight="bold"
+                            variant="inherit"
+                          >
                             {t("submit_price")}
                           </Typography>
                           <CustomStack width={228}>
                             <TextField
                               name="price"
                               variant="standard"
-                              value={submitPrice ? submitPrice.toLocaleString("ko-KR") : submitPrice}
+                              value={
+                                submitPrice ? submitPrice.toLocaleString("ko-KR") : submitPrice
+                              }
                               onChange={hanldeChangeQuantity}
                               slotProps={{
                                 htmlInput: {
@@ -232,11 +254,22 @@ const ItemModal = ({ handleClose, handleSubmit }: ItemModalProps) => {
                       </CustomStack>
                     ) : (
                       <CustomStack fullWidth>
-                        <Typography width="100%" textAlign="left" fontWeight="bold" variant="inherit">
-                          {modalData.quantity ? (isSubmit ? t("submit_quantity") : t("quantity")) : "Unknown"}
+                        <Typography
+                          width="100%"
+                          textAlign="left"
+                          fontWeight="bold"
+                          variant="inherit"
+                        >
+                          {modalData.quantity
+                            ? isSubmit
+                              ? t("submit_quantity")
+                              : t("quantity")
+                            : "Unknown"}
                         </Typography>
                         <Typography width="100%" textAlign="right" variant="inherit">
-                          {modalData.quantity ? `${Number(modalData.quantity).toLocaleString("ko-KR")}` : "Unknown"}
+                          {modalData.quantity
+                            ? `${Number(modalData.quantity).toLocaleString("ko-KR")}`
+                            : "Unknown"}
                         </Typography>
                       </CustomStack>
                     )}
