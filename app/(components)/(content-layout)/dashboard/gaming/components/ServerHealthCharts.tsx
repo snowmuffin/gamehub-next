@@ -207,15 +207,17 @@ export default function ServerHealthCharts({
               {codesLoading && <option>Loading…</option>}
               {!codesLoading && serverCodes.length === 0 && <option>No servers</option>}
               {!codesLoading &&
-                (serverOptions.length > 0 ? serverOptions.map(s => (
-                  <option key={s.code} value={s.code}>
-                    {s.name || s.code}
-                  </option>
-                )) : serverCodes.map(c => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
-                )))}
+                (serverOptions.length > 0
+                  ? serverOptions.map(s => (
+                      <option key={s.code} value={s.code}>
+                        {s.name || s.code}
+                      </option>
+                    ))
+                  : serverCodes.map(c => (
+                      <option key={c} value={c}>
+                        {c}
+                      </option>
+                    )))}
             </Form.Select>
           </div>
           <Form.Select

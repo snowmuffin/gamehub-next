@@ -31,11 +31,7 @@ const AuthHandler = ({ children }: { children: React.ReactNode }) => {
     // Log environment information (development mode only)
     logEnvironmentInfo();
 
-    if (token && !isTokenExpired(token)) {
-      router.push("/dashboard/gaming");
-    } else {
-      router.push("/authentication/sign-in/signin-basic");
-    }
+    router.push("/dashboard/gaming");
   }, [token, router]);
 
   return <>{children}</>;

@@ -37,6 +37,7 @@ import PlayerStatisticsCard from "./components/PlayerStatisticsCard";
 import TopCountriesCard from "./components/TopCountriesCard";
 import ServerHealthStatusCard from "./components/ServerHealthStatusCard";
 import ServerHealthCharts from "./components/ServerHealthCharts";
+import SpaceEngineersCalculator from "./components/SpaceEngineersCalculator";
 
 type Ranking = any;
 
@@ -78,11 +79,7 @@ const Gaming = () => {
         const codes = (res.data?.codes || []) as string[];
         const servers = (res.data?.servers || []) as Array<{ code: string; name?: string }>;
         setServerCodes(codes);
-        setServerOptions(
-          servers && servers.length > 0
-            ? servers
-            : codes.map(code => ({ code, name: code }))
-        );
+        setServerOptions(servers && servers.length > 0 ? servers : codes.map(code => ({ code, name: code })));
         // Initialize or validate selected code
         if (!serverCode || !codes.includes(serverCode)) {
           setServerCode(codes[0] || "");
@@ -114,7 +111,7 @@ const Gaming = () => {
             <PlayerStatisticsCard rankings={rankings} />
           )}
         </Col>
-        <Col xl={5} lg={6} md={6} sm={12}>
+        <Col xl={7} lg={6} md={6} sm={12}>
           {serverCode ? (
             <>
               <Col xs={12}>
@@ -142,6 +139,12 @@ const Gaming = () => {
               </Card>
             </Col>
           )}
+        </Col>
+      </Row>
+
+      <Row className="g-4 mt-1">
+        <Col xs={12}>
+          <SpaceEngineersCalculator />
         </Col>
       </Row>
     </Fragment>
