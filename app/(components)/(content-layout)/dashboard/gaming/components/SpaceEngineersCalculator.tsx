@@ -135,13 +135,14 @@ const SpaceEngineersCalculator: React.FC = () => {
   const meetsRequirement = totalEffectiveN >= requiredTotalN && requiredTotalN > 0;
 
   return (
-    <Row className="g-4">
-      <Col xl={6} lg={6} md={12}>
-        <Card className="custom-card h-100">
-          <Card.Header>
-            <Card.Title>Ship Specifications</Card.Title>
-          </Card.Header>
-          <Card.Body>
+    <Card className="custom-card h-100">
+      <Card.Header>
+        <Card.Title>Space Engineers Calculator</Card.Title>
+      </Card.Header>
+      <Card.Body>
+        <Row className="g-4">
+          <Col xl={6} lg={6} md={12}>
+            <h6 className="mb-3">Ship Specifications</h6>
             <Form>
               <Row className="gy-3">
                 <Col xs={12}>
@@ -192,15 +193,9 @@ const SpaceEngineersCalculator: React.FC = () => {
                 </Col>
               </Row>
             </Form>
-          </Card.Body>
-        </Card>
-      </Col>
-      <Col xl={6} lg={6} md={12}>
-        <Card className="custom-card h-100">
-          <Card.Header>
-            <Card.Title>Ship Thruster Requirements</Card.Title>
-          </Card.Header>
-          <Card.Body>
+          </Col>
+          <Col xl={6} lg={6} md={12}>
+            <h6 className="mb-3">Ship Thruster Requirements</h6>
             <p className="mb-1">
               Required thrust: <b>{formatKN(requiredTotalN)} kN</b>
             </p>
@@ -282,10 +277,10 @@ const SpaceEngineersCalculator: React.FC = () => {
                 Thrusters mass: <b>{thrustersMassKg.toLocaleString()} kg</b>
               </div>
             </div>
-          </Card.Body>
-        </Card>
-      </Col>
-    </Row>
+          </Col>
+        </Row>
+      </Card.Body>
+    </Card>
   );
 };
 
