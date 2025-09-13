@@ -1,7 +1,8 @@
 "use client";
 import React, { Fragment, useEffect, useState } from "react";
-import Landingswitcher from "@/shared/layout-components/swicther/landingswitcher";
+
 import Backtotop from "@/shared/layout-components/backtotop/backtotop";
+import Landingswitcher from "@/shared/layout-components/swicther/landingswitcher";
 
 const Landinglayout = ({ children }: any) => {
   const [lateLoad, setlateLoad] = useState(false);

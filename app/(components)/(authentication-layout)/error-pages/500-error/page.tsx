@@ -1,8 +1,9 @@
 "use client";
-import Seo from "@/shared/layout-components/seo";
 import Link from "next/link";
 import React, { Fragment, useEffect } from "react";
 import { Col } from "react-bootstrap";
+
+import Seo from "@/shared/layout-components/seo";
 
 const Error500 = () => {
   const ErrorCover = () => {

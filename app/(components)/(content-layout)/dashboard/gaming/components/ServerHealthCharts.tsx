@@ -2,6 +2,7 @@
 import dynamic from "next/dynamic";
 import React, { useEffect, useMemo, useState } from "react";
 import { Card, Col, Form, Row, Spinner } from "react-bootstrap";
+
 import { apiRequest } from "@/shared/api/request";
 
 const ReactApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
@@ -53,6 +54,8 @@ type ServerHealthChartsProps = {
   embedded?: boolean;
 };
 
+type ChartXYSeries = Array<{ name: string; data: Array<[number, number]> }>;
+
 export default function ServerHealthCharts({
   code,
   onCodeChange,
@@ -89,10 +92,10 @@ export default function ServerHealthCharts({
       ]);
       setEvents(evRes.data as EventItem[]);
       setSnapshots(snRes.data as SnapshotItem[]);
-    } catch (e: any) {
-      const status = e?.response?.status;
+    } catch (e) {
+      const status = (e as any)?.response?.status;
       if (status === 404) setError("Server code not found (404)");
-      else setError(e?.message || "Failed to load chart data");
+      else setError((e as Error)?.message || "Failed to load chart data");
       setEvents([]);
       setSnapshots([]);
     } finally {
@@ -128,8 +131,8 @@ export default function ServerHealthCharts({
   }, [availableMetrics, metricName]);
 
   // Build raw events series: if a metric is selected, show that only; otherwise, group by available metrics
-  const rawEventSeries = useMemo(() => {
-    if (!events.length) return [] as any[];
+  const rawEventSeries: ChartXYSeries = useMemo(() => {
+    if (!events.length) return [] as ChartXYSeries;
     const byMetric = new Map<string, Array<[number, number]>>();
 
     const addPoint = (name: string, at: string, value: number) => {
@@ -146,19 +149,22 @@ export default function ServerHealthCharts({
     }
 
     // Sort each series by time and emit
-    const series = Array.from(byMetric.entries()).map(([name, pts]) => ({
+    const series: ChartXYSeries = Array.from(byMetric.entries()).map(([name, pts]) => ({
       name,
       data: pts.sort((a, b) => a[0] - b[0])
     }));
     return series;
   }, [events, metricName]);
 
-  const uptimeSeries = useMemo(() => {
-    const points = snapshots
-      .map((s) => [
-        new Date(s.windowStart).getTime(),
-        Math.round((s.uptimeRatio ?? 0) * 10000) / 100
-      ])
+  const uptimeSeries: ChartXYSeries = useMemo(() => {
+    const points: Array<[number, number]> = snapshots
+      .map(
+        (s) =>
+          [new Date(s.windowStart).getTime(), Math.round((s.uptimeRatio ?? 0) * 10000) / 100] as [
+            number,
+            number
+          ]
+      )
       .sort((a, b) => a[0] - b[0]);
     return [{ name: "Uptime %", data: points }];
   }, [snapshots]);
@@ -243,7 +249,7 @@ export default function ServerHealthCharts({
         <Form.Select
           size="sm"
           value={windowSize}
-          onChange={(e) => setWindowSize(e.target.value as any)}
+          onChange={(e) => setWindowSize(e.target.value as "1m" | "5m" | "1h")}
           style={{ width: "min(100px, 100%)" }}
         >
           <option value="1m">1m</option>
@@ -291,7 +297,7 @@ export default function ServerHealthCharts({
                     ...commonOptions,
                     yaxis: { labels: { formatter: (v: number) => `${v}` } }
                   }}
-                  series={rawEventSeries as any}
+                  series={rawEventSeries}
                   type="line"
                   height={260}
                 />
@@ -306,7 +312,7 @@ export default function ServerHealthCharts({
                     ...commonOptions,
                     yaxis: { max: 100, min: 0, labels: { formatter: (v: number) => `${v}%` } }
                   }}
-                  series={uptimeSeries as any}
+                  series={uptimeSeries}
                   type="line"
                   height={220}
                 />

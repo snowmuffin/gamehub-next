@@ -1,17 +1,18 @@
 "use client";
+import Image from "next/image";
+import Link from "next/link";
 import React, { Fragment, useEffect } from "react";
 import { Accordion, Button, Card, Col, Dropdown, Row } from "react-bootstrap";
-import Link from "next/link";
-import Image from "next/image";
 import { connect } from "react-redux";
+import { Autoplay, Pagination } from "swiper/modules";
 import { SwiperSlide, Swiper } from "swiper/react";
+
+import { Featuredjobs, JobCategory } from "@/shared/data/pages/landingdata";
+import Seo from "@/shared/layout-components/seo";
 import { ThemeChanger } from "@/shared/redux/action";
 
 // import required modules
-import { Autoplay, Pagination } from "swiper/modules";
 import store from "@/shared/redux/store";
-import { Featuredjobs, JobCategory } from "@/shared/data/pages/landingdata";
-import Seo from "@/shared/layout-components/seo";
 
 const Joblanding = ({ ThemeChanger }: any) => {
   useEffect(() => {

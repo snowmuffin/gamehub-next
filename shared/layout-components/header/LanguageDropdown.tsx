@@ -2,15 +2,15 @@
 import React from "react";
 import { Dropdown } from "react-bootstrap";
 import Link from "next/link";
-import { basePath } from "@/next.config";
+import ReactCountryFlag from "react-country-flag";
 import { useDispatch, useSelector } from "react-redux";
 import { setLanguage } from "@/shared/redux/languageSlice"; // Update path if needed
 
 const LANGUAGE_OPTIONS = [
-  { code: "en", label: "English", flag: "/assets/images/flags/us_flag.jpg" },
-  { code: "ko", label: "한국어", flag: "/assets/images/flags/kr_flag.jpg" }
-  // ...Add more languages here if needed...
-];
+  { code: "en", label: "English", countryCode: "US" },
+  { code: "ko", label: "한국어", countryCode: "KR" }
+  // Add more languages by mapping to appropriate ISO 3166-1 alpha-2 country codes
+] as const;
 
 const LanguageDropdown = () => {
   const dispatch = useDispatch();
@@ -35,10 +35,11 @@ const LanguageDropdown = () => {
         data-bs-auto-close="outside"
         data-bs-toggle="dropdown"
       >
-        <img
-          src={`${process.env.NODE_ENV === "production" ? basePath : ""}${selected.flag}`}
-          alt="img"
-          className="header-link-icon"
+        <ReactCountryFlag
+          countryCode={selected.countryCode}
+          svg
+          aria-label={selected.label}
+          style={{ width: 20, height: 20, borderRadius: 4 }}
         />
         <span style={{ marginLeft: 8 }}>{selected.label}</span>
       </Dropdown.Toggle>
@@ -54,10 +55,14 @@ const LanguageDropdown = () => {
             scroll={false}
             onClick={() => handleSelect(option.code)}
           >
-            <span className="avatar avatar-xs lh-1 me-2">
-              <img
-                src={`${process.env.NODE_ENV === "production" ? basePath : ""}${option.flag}`}
-                alt="img"
+            <span
+              className="avatar avatar-xs lh-1 me-2"
+              style={{ display: "inline-flex", alignItems: "center" }}
+            >
+              <ReactCountryFlag
+                countryCode={option.countryCode}
+                svg
+                style={{ width: 18, height: 18, borderRadius: 3 }}
               />
             </span>
             {option.label}

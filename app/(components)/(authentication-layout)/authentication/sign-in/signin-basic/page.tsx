@@ -1,11 +1,12 @@
 "use client";
-import Seo from "@/shared/layout-components/seo";
-import { useSelector, useDispatch } from "react-redux";
+import { useRouter } from "next/navigation";
 import React, { Fragment, useEffect } from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
-import { RootState, AppDispatch } from "@/shared/redux/store";
+import { useSelector, useDispatch } from "react-redux";
+
+import Seo from "@/shared/layout-components/seo";
 import { loginSuccess, loginStart, loginFailure } from "@/shared/redux/authSlice";
-import { useRouter } from "next/navigation";
+import type { RootState, AppDispatch } from "@/shared/redux/store";
 
 const SigninBasic = () => {
   const dispatch = useDispatch<AppDispatch>();

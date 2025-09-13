@@ -1,10 +1,11 @@
 "use client";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import React, { Fragment, useEffect, useState } from "react";
 import { Card, Col, Row, Button } from "react-bootstrap";
-import Seo from "@/shared/layout-components/seo";
+
 import { apiRequest } from "@/shared/api/request"; // Import API request utility
+import Seo from "@/shared/layout-components/seo";
 
 const Inventory = () => {
   const [products, setProducts] = useState<any[]>([]); // State to store API data

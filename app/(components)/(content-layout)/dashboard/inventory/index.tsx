@@ -1,6 +1,5 @@
-import { useTranslation } from "react-i18next";
-
 import { Dialog, Grid, Stack, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 import { useAppDispatch, useAppSelector } from "@/shared/hooks";
 import { inventoryActions, selectInventory } from "@/shared/redux/inventory";
@@ -15,8 +14,9 @@ const EmptyContents = ({ empty_msg1, empty_msg2 }: { empty_msg1: string; empty_m
   </Stack>
 );
 
-import ItemSlot from "./ItemSlot";
 import ItemModal from "./ItemModal";
+import ItemSlot from "./ItemSlot";
+
 import { DeferredComponent } from "@/shared/components";
 
 const InventoryEntity = () => {

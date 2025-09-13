@@ -1,17 +1,18 @@
 "use client";
-import { ThemeChanger } from "@/shared/redux/action";
-import store from "@/shared/redux/store";
-import React, { Fragment, useEffect } from "react";
-import { connect } from "react-redux";
-import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
+import Link from "next/link";
+import React, { Fragment, useEffect } from "react";
+import { Accordion, Button, Card, Col, Form, Row } from "react-bootstrap";
+import { connect } from "react-redux";
+import { Autoplay, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // import required modules
-import { Autoplay, Pagination } from "swiper/modules";
-import { Accordion, Button, Card, Col, Form, Row } from "react-bootstrap";
-import Link from "next/link";
+
 import { Amazingteam, Ourbest } from "@/shared/data/pages/landingdata";
 import Seo from "@/shared/layout-components/seo";
+import { ThemeChanger } from "@/shared/redux/action";
+import store from "@/shared/redux/store";
 
 const Landing = ({ local_variable, ThemeChanger }: any) => {
   useEffect(() => {

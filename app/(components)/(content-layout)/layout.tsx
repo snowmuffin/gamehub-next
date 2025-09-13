@@ -1,11 +1,12 @@
 "use client";
-import Header from "@/shared/layout-components/header/header";
 import React, { Fragment, useEffect, useState } from "react";
 import { connect } from "react-redux";
-import Sidebar from "@/shared/layout-components/sidebar/sidebar";
-import Footer from "@/shared/layout-components/footer/footer";
-import Swicther from "@/shared/layout-components/swicther/swicther";
+
 import Backtotop from "@/shared/layout-components/backtotop/backtotop";
+import Footer from "@/shared/layout-components/footer/footer";
+import Header from "@/shared/layout-components/header/header";
+import Sidebar from "@/shared/layout-components/sidebar/sidebar";
+import Swicther from "@/shared/layout-components/swicther/swicther";
 
 const ContentLayout = ({ children }: any) => {
   const [lateLoad, setlateLoad] = useState(false);

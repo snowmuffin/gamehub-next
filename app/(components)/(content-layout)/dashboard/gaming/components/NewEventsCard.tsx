@@ -1,6 +1,8 @@
 import React from "react";
 import { Card } from "react-bootstrap";
+
 import { NewEvent } from "@/shared/data/dashboard/gamingdata";
+
 import DropdownMenu from "./DropdownMenu";
 
 const NewEventsCard = () => (

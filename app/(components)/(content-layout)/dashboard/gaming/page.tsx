@@ -1,45 +1,20 @@
 "use client";
-import {
-  Civilianpopulation,
-  Civilianpopulationsupport,
-  Completedissues,
-  DangerZone,
-  Energyblock,
-  NewEvent,
-  PendingEvents,
-  Player1,
-  Player2,
-  Player3,
-  Player4,
-  Player5,
-  SafeZone,
-  Skillachieved,
-  TimeSpent,
-  UnsolvedEvents,
-  Usersreport
-} from "@/shared/data/dashboard/gamingdata";
-const WorldMapCom = dynamic(() => import("@/shared/data/dashboard/mapdata"), { ssr: false });
-import Seo from "@/shared/layout-components/seo";
-import dynamic from "next/dynamic";
-import Link from "next/link";
 import React, { Fragment, useEffect, useRef, useState } from "react";
-import { Badge, Card, Col, Dropdown, Form, ProgressBar, Row } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
+
 import { apiRequest } from "@/shared/api/request";
-import CompletedEventsCard from "./components/CompletedEventsCard";
-import PendingEventsCard from "./components/PendingEventsCard";
-import UnresolvedEventsCard from "./components/UnresolvedEventsCard";
-import NewEventsCard from "./components/NewEventsCard";
-import AirSupportCard from "./components/AirSupportCard";
-import TotalTimeSpentCard from "./components/TotalTimeSpentCard";
-import DropdownMenu from "./components/DropdownMenu";
-import DistanceCoveredCard from "./components/DistanceCoveredCard";
+import Seo from "@/shared/layout-components/seo";
+
 import PlayerStatisticsCard from "./components/PlayerStatisticsCard";
-import TopCountriesCard from "./components/TopCountriesCard";
-import ServerHealthStatusCard from "./components/ServerHealthStatusCard";
 import ServerHealthCharts from "./components/ServerHealthCharts";
+import ServerHealthStatusCard from "./components/ServerHealthStatusCard";
 import SpaceEngineersCalculator from "./components/SpaceEngineersCalculator";
 
-type Ranking = any;
+type Ranking = {
+  steam_id: string;
+  username: string;
+  score: number;
+};
 
 const Gaming = () => {
   const [rankings, setRankings] = useState<Ranking[]>([]);
@@ -49,9 +24,8 @@ const Gaming = () => {
   const [serverCodes, setServerCodes] = useState<string[]>([]);
   const [serverCode, setServerCode] = useState<string>("");
   const [serverOptions, setServerOptions] = useState<Array<{ code: string; name?: string }>>([]);
-  const [includeInactive, setIncludeInactive] = useState(false);
+  const [includeInactive, _setIncludeInactive] = useState(false);
   const [codesLoading, setCodesLoading] = useState(false);
-  const [codesError, setCodesError] = useState<string | null>(null);
   // Measure right column (server) container height to cap rankings height
   const serverColRef = useRef<HTMLDivElement | null>(null);
   const [serverColHeight, setServerColHeight] = useState<number | null>(null);
@@ -59,9 +33,9 @@ const Gaming = () => {
   useEffect(() => {
     const fetchRankings = async () => {
       try {
-        const response = await apiRequest.get("/user/rankings");
-        setRankings(response.data as Ranking[]);
-      } catch (error) {
+        const response = await apiRequest.get<Ranking[]>("/user/rankings");
+        setRankings(response.data);
+      } catch {
         setError("Failed to load rankings. Please try again later.");
       }
     };
@@ -73,7 +47,6 @@ const Gaming = () => {
   useEffect(() => {
     const fetchServerCodes = async () => {
       setCodesLoading(true);
-      setCodesError(null);
       try {
         const res = await apiRequest.get<{
           codes?: string[];
@@ -92,8 +65,7 @@ const Gaming = () => {
         if (!serverCode || !codes.includes(serverCode)) {
           setServerCode(codes[0] || "");
         }
-      } catch (e: any) {
-        setCodesError(e?.message || "Failed to load server codes");
+      } catch {
         setServerCodes([]);
         setServerOptions([]);
         // Keep existing selection if any; otherwise blank
@@ -157,36 +129,40 @@ const Gaming = () => {
         </Col>
         <Col xl={7} lg={6} md={6} sm={12}>
           {serverCode ? (
-            <Card className="custom-card h-100" ref={serverColRef as any}>
-              <div className="top-left"></div>
-              <div className="top-right"></div>
-              <div className="bottom-left"></div>
-              <div className="bottom-right"></div>
-              <Card.Header className="justify-content-between">
-                <div className="card-title">
-                  {(() => {
-                    const label =
-                      serverOptions.find((s) => s.code === serverCode)?.name || serverCode;
-                    return `Server Health — ${label}`;
-                  })()}
-                </div>
-              </Card.Header>
-              <Card.Body>
-                <ServerHealthStatusCard
-                  embedded
-                  code={serverCode}
-                  displayName={serverOptions.find((s) => s.code === serverCode)?.name || serverCode}
-                />
-                <ServerHealthCharts
-                  embedded
-                  code={serverCode}
-                  onCodeChange={setServerCode}
-                  serverCodes={serverCodes}
-                  serverOptions={serverOptions}
-                  codesLoading={codesLoading}
-                />
-              </Card.Body>
-            </Card>
+            <div ref={serverColRef} className="h-100" style={{ height: "100%" }}>
+              <Card className="custom-card h-100">
+                <div className="top-left"></div>
+                <div className="top-right"></div>
+                <div className="bottom-left"></div>
+                <div className="bottom-right"></div>
+                <Card.Header className="justify-content-between">
+                  <div className="card-title">
+                    {(() => {
+                      const label =
+                        serverOptions.find((s) => s.code === serverCode)?.name || serverCode;
+                      return `Server Health — ${label}`;
+                    })()}
+                  </div>
+                </Card.Header>
+                <Card.Body>
+                  <ServerHealthStatusCard
+                    embedded
+                    code={serverCode}
+                    displayName={
+                      serverOptions.find((s) => s.code === serverCode)?.name || serverCode
+                    }
+                  />
+                  <ServerHealthCharts
+                    embedded
+                    code={serverCode}
+                    onCodeChange={setServerCode}
+                    serverCodes={serverCodes}
+                    serverOptions={serverOptions}
+                    codesLoading={codesLoading}
+                  />
+                </Card.Body>
+              </Card>
+            </div>
           ) : (
             <Card className="custom-card">
               <Card.Body>

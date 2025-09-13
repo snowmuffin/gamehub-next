@@ -1,10 +1,11 @@
 "use client";
-import * as switcherdata from "@/shared/data/switcherdata/switcherdata";
-import React, { useEffect } from "react";
-import Script from "next/script";
-import { connect } from "react-redux";
-import { ThemeChanger } from "@/shared/redux/action";
 import { useRouter, usePathname } from "next/navigation";
+import Script from "next/script";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+
+import * as switcherdata from "@/shared/data/switcherdata/switcherdata";
+import { ThemeChanger } from "@/shared/redux/action";
 
 function Layout({ children, local_variable, ThemeChanger }: any) {
   const router = useRouter();

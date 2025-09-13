@@ -1,6 +1,3 @@
-import { ChangeEvent } from "react";
-import { useTranslation, useAppDispatch, useAppSelector } from "@/shared/hooks";
-
 import {
   Avatar,
   Box,
@@ -14,6 +11,12 @@ import {
   TextField,
   Typography
 } from "@mui/material";
+import type { ChangeEvent } from "react";
+
+import { CopyLabel } from "@/shared/components/CopyLabel";
+import CustomIconButton from "@/shared/components/CustomIconButton";
+import CustomStack from "@/shared/components/CustomStack";
+import { useTranslation, useAppDispatch, useAppSelector } from "@/shared/hooks";
 
 // Replace Material-UI icons with simple text icons
 const CloseIcon = () => <span>✕</span>;
@@ -22,9 +25,6 @@ const AddOutlinedIcon = () => <span>+</span>;
 const RemoveOutlinedIcon = () => <span>-</span>;
 
 import { inventoryActions, selectInventory } from "@/shared/redux/inventory";
-import { CopyLabel } from "@/shared/components/CopyLabel";
-import CustomStack from "@/shared/components/CustomStack";
-import CustomIconButton from "@/shared/components/CustomIconButton";
 import { snackbarActions } from "@/shared/redux/snackbar";
 
 interface ItemModalProps {

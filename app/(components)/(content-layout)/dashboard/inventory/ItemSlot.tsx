@@ -1,9 +1,9 @@
+import { Paper, Skeleton, Stack, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
-import { Paper, Skeleton, Stack, Typography } from "@mui/material";
-
 import { CopyLabel } from "@/shared/components/CopyLabel";
-import { ITEM_PROPS } from "@/shared/redux/inventory";
+import type { ITEM_PROPS } from "@/shared/redux/inventory";
+
 import { DeferredComponent } from "@/shared/components";
 
 interface AdditionalProps {

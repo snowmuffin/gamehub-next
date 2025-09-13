@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useMemo, useState } from "react";
 import { Badge, Card, Spinner } from "react-bootstrap";
+
 import { apiRequest } from "@/shared/api/request";
 
 type HealthStatus = "UP" | "DOWN" | "DEGRADED" | "UNKNOWN";
@@ -66,10 +67,10 @@ export default function ServerHealthStatusCard({
         `/space-engineers/servers/${encodeURIComponent(code)}/health/status`
       );
       setData(res.data as StatusResponse);
-    } catch (e: any) {
-      const status = e?.response?.status;
+    } catch (e) {
+      const status = (e as any)?.response?.status;
       if (status === 404) setError("Server code not found (404)");
-      else setError(e?.message || "Failed to fetch status");
+      else setError((e as Error)?.message || "Failed to fetch status");
       setData(null);
     } finally {
       setLoading(false);

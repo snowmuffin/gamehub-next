@@ -1,6 +1,7 @@
+import Link from "next/link";
 import React from "react";
 import { Card, Dropdown } from "react-bootstrap";
-import Link from "next/link";
+
 import { TimeSpent } from "@/shared/data/dashboard/gamingdata";
 
 const TotalTimeSpentCard = () => (

@@ -1,10 +1,12 @@
 "use client";
-import React, { Fragment } from "react";
-import { DayCounter } from "../../../../../shared/data/authentication/comingdata";
-import { Button, Col, Row } from "react-bootstrap";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import React, { Fragment } from "react";
+import { Button, Col, Row } from "react-bootstrap";
+
 import Seo from "@/shared/layout-components/seo";
+
+import { DayCounter } from "../../../../../shared/data/authentication/comingdata";
 
 const UnderMaintenance = () => {
   return (

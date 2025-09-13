@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useSelector } from "react-redux";
+
 import RulesEn from "./RulesEn";
 import RulesKo from "./RulesKo";
 

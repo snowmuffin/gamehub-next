@@ -1,7 +1,8 @@
 "use client";
-import Seo from "@/shared/layout-components/seo";
 import React, { Fragment } from "react";
 import { Card, Col, Row } from "react-bootstrap";
+
+import Seo from "@/shared/layout-components/seo";
 
 const RulesEn = () => (
   <Fragment>

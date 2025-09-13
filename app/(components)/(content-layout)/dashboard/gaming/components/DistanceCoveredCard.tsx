@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Col, ProgressBar } from "react-bootstrap";
+
 import { SafeZone, DangerZone, DistanceCovered } from "@/shared/data/dashboard/gamingdata";
 
 const DistanceCoveredCard = () => (

@@ -2,8 +2,12 @@
 import React, { useEffect } from "react";
 import "./globals.scss";
 import { Provider, useSelector } from "react-redux";
-import store, { RootState } from "@/shared/redux/store";
+
+import type { RootState } from "@/shared/redux/store";
+import store from "@/shared/redux/store";
+
 import { useRouter } from "next/navigation";
+
 import { logEnvironmentInfo } from "@/shared/utils/environment";
 
 const isTokenExpired = (token: string): boolean => {

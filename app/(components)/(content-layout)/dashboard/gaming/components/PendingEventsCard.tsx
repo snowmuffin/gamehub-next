@@ -1,6 +1,7 @@
+import Link from "next/link";
 import React from "react";
 import { Card, Dropdown } from "react-bootstrap";
-import Link from "next/link";
+
 import { PendingEvents } from "@/shared/data/dashboard/gamingdata";
 
 const PendingEventsCard = () => (
