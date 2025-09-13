@@ -22,7 +22,7 @@ const WorldMapCom = dynamic(() => import("@/shared/data/dashboard/mapdata"), { s
 import Seo from "@/shared/layout-components/seo";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import { Badge, Card, Col, Dropdown, Form, ProgressBar, Row } from "react-bootstrap";
 import { apiRequest } from "@/shared/api/request";
 import CompletedEventsCard from "./components/CompletedEventsCard";
@@ -52,6 +52,9 @@ const Gaming = () => {
   const [includeInactive, setIncludeInactive] = useState(false);
   const [codesLoading, setCodesLoading] = useState(false);
   const [codesError, setCodesError] = useState<string | null>(null);
+  // Measure right column (server) container height to cap rankings height
+  const serverColRef = useRef<HTMLDivElement | null>(null);
+  const [serverColHeight, setServerColHeight] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchRankings = async () => {
@@ -99,6 +102,32 @@ const Gaming = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [includeInactive]);
 
+  // Observe right column height changes and update cap for rankings
+  useEffect(() => {
+    const el = serverColRef.current;
+    if (!el || typeof window === "undefined") return;
+
+    const update = () => {
+      const h = el.getBoundingClientRect().height;
+      if (Number.isFinite(h) && h > 0) setServerColHeight(h);
+    };
+
+    update();
+
+    let ro: ResizeObserver | null = null;
+    if ("ResizeObserver" in window) {
+      ro = new ResizeObserver(() => update());
+      ro.observe(el);
+    }
+    const onResize = () => update();
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      window.removeEventListener("resize", onResize);
+      if (ro) ro.disconnect();
+    };
+  }, [serverCode]);
+
   return (
     <Fragment>
       <Seo title={"Gaming"} />
@@ -108,12 +137,22 @@ const Gaming = () => {
           {error ? (
             <div className="text-danger text-center">{error}</div>
           ) : (
-            <PlayerStatisticsCard rankings={rankings} />
+            <div
+              style={{
+                display: "flex",
+                height: "100%",
+                maxHeight: serverColHeight ? `${serverColHeight}px` : undefined,
+                minHeight: 0,
+                width: "100%"
+              }}
+            >
+              <PlayerStatisticsCard rankings={rankings} />
+            </div>
           )}
         </Col>
         <Col xl={7} lg={6} md={6} sm={12}>
           {serverCode ? (
-            <Card className="custom-card h-100">
+            <Card className="custom-card h-100" ref={serverColRef as any}>
               <div className="top-left"></div>
               <div className="top-right"></div>
               <div className="bottom-left"></div>
