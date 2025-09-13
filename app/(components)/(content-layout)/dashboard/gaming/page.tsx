@@ -103,7 +103,7 @@ const Gaming = () => {
     <Fragment>
       <Seo title={"Gaming"} />
 
-      <Row className="g-4 equal-card-row">
+  <Row className="g-4 equal-card-row">
         <Col xl={5} lg={6} md={6} sm={12}>
           {error ? (
             <div className="text-danger text-center">{error}</div>
@@ -142,7 +142,7 @@ const Gaming = () => {
         </Col>
       </Row>
 
-      <Row className="g-4 mt-1 equal-card-row">
+  <Row className="g-4 mt-1 equal-card-row">
         <Col xs={12}>
           <SpaceEngineersCalculator />
         </Col>

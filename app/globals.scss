@@ -32,44 +32,44 @@
 
 // Equal height cards per row helper
 .equal-card-row {
-  // Make columns stretch and cards fill
-  > [class^="col"],
-  > [class*=" col"],
-  > .col,
-  > .col-auto,
-  > .col-1,
-  > .col-2,
-  > .col-3,
-  > .col-4,
-  > .col-5,
-  > .col-6,
-  > .col-7,
-  > .col-8,
-  > .col-9,
-  > .col-10,
-  > .col-11,
-  > .col-12,
-  > .col-sm,
-  > .col-md,
-  > .col-lg,
-  > .col-xl,
-  > .col-xxl,
-  > [class^="col-"] {
-    display: flex;
-  }
+	// Make columns stretch and cards fill
+	> [class^="col"],
+	> [class*=" col"],
+	> .col,
+	> .col-auto,
+	> .col-1,
+	> .col-2,
+	> .col-3,
+	> .col-4,
+	> .col-5,
+	> .col-6,
+	> .col-7,
+	> .col-8,
+	> .col-9,
+	> .col-10,
+	> .col-11,
+	> .col-12,
+	> .col-sm,
+	> .col-md,
+	> .col-lg,
+	> .col-xl,
+	> .col-xxl,
+	> [class^="col-"] {
+		display: flex;
+	}
 
-  .card,
-  .custom-card,
-  .card.custom-card {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
+	.card,
+	.custom-card,
+	.card.custom-card {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
 
-  .card > .card-body,
-  .custom-card > .card-body {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-  }
+	.card > .card-body,
+	.custom-card > .card-body {
+		display: flex;
+		flex-direction: column;
+		flex: 1 1 auto;
+	}
 }
