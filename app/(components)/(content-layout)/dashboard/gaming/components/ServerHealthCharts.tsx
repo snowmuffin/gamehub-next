@@ -172,11 +172,16 @@ export default function ServerHealthCharts({
   const commonOptions = useMemo(
     () => ({
       chart: { id: "health-chart", animations: { enabled: true } },
-      xaxis: { type: "datetime" as const },
+      xaxis: { type: "datetime" as const, labels: { datetimeUTC: false } },
       stroke: { width: 2, curve: "smooth" as const },
       dataLabels: { enabled: false },
       grid: { borderColor: "#f2f5f7" },
-      tooltip: { x: { format: "yyyy-MM-dd HH:mm" } }
+      tooltip: {
+        x: {
+          format: "yyyy-MM-dd HH:mm",
+          formatter: (val: number) => new Date(val).toLocaleString()
+        }
+      }
     }),
     []
   );
