@@ -62,7 +62,8 @@ function formatKN(n: number) {
 const g_ms2 = 9.81; // m/s^2 per 1g
 
 function getEfficiency(kind: ThrusterKind, atmDensity: number) {
-  const d = Math.max(0, Math.min(1, atmDensity));
+  // Allow densities > 1 (e.g., dense atmospheres); keep lower bound at 0
+  const d = Math.max(0, atmDensity);
   switch (kind) {
     case "ion":
       // Ion: 100% in vacuum -> 20% at sea-level atmosphere (linear by density)
@@ -182,10 +183,9 @@ const SpaceEngineersCalculator: React.FC = () => {
                           value={atmDensity}
                           step={0.05}
                           min={0}
-                          max={1}
                           onChange={e => setAtmDensity(Number(e.target.value))}
                         />
-                        <span className="text-muted">atm density (0–1)</span>
+                        <span className="text-muted">atm density (≥ 0)</span>
                       </div>
                     </Col>
                   </Row>
