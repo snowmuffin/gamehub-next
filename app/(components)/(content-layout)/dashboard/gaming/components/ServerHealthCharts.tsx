@@ -50,6 +50,7 @@ type ServerHealthChartsProps = {
   serverCodes?: string[];
   codesLoading?: boolean;
   serverOptions?: Array<{ code: string; name?: string }>;
+  embedded?: boolean;
 };
 
 export default function ServerHealthCharts({
@@ -57,7 +58,8 @@ export default function ServerHealthCharts({
   onCodeChange,
   serverCodes = [],
   codesLoading = false,
-  serverOptions = []
+  serverOptions = [],
+  embedded = false
 }: ServerHealthChartsProps) {
   const [{ from, to }, setRange] = useState(defaultRange(6));
   const [metricName, setMetricName] = useState<string>("");
@@ -181,20 +183,15 @@ export default function ServerHealthCharts({
 
   const onPreset = (hours: number) => setRange(defaultRange(hours));
 
-  return (
-    <Card className="custom-card">
-      <div className="top-left"></div>
-      <div className="top-right"></div>
-      <div className="bottom-left"></div>
-      <div className="bottom-right"></div>
-      <Card.Header className="justify-content-between">
-        <div className="card-title">
-          {(() => {
-            const label = serverOptions.find(s => s.code === code)?.name || code;
-            return `Server Health Charts — ${label}`;
-          })()}
-        </div>
-  <div className="d-flex gap-2 align-items-center flex-wrap w-100">
+  const header = (
+    <div className="d-flex justify-content-between align-items-center flex-wrap gap-2">
+      <div className="card-title m-0">
+        {(() => {
+          const label = serverOptions.find(s => s.code === code)?.name || code;
+          return `Server Health Charts — ${label}`;
+        })()}
+      </div>
+      <div className="d-flex gap-2 align-items-center flex-wrap w-100">
           <div className="d-flex align-items-center gap-2 me-2">
             <div className="text-muted">Server</div>
             <Form.Select
@@ -256,9 +253,12 @@ export default function ServerHealthCharts({
               24h
             </button>
           </div>
-        </div>
-      </Card.Header>
-      <Card.Body>
+      </div>
+    </div>
+  );
+
+  const body = (
+    <div>
         {loading ? (
           <div className="d-flex align-items-center gap-2">
             <Spinner size="sm" /> <span>Loading chart data…</span>
@@ -299,7 +299,25 @@ export default function ServerHealthCharts({
             </Row>
           </>
         )}
-      </Card.Body>
+    </div>
+  );
+
+  if (embedded)
+    return (
+      <div className="mt-2">
+        {header}
+        {body}
+      </div>
+    );
+
+  return (
+    <Card className="custom-card">
+      <div className="top-left"></div>
+      <div className="top-right"></div>
+      <div className="bottom-left"></div>
+      <div className="bottom-right"></div>
+      <Card.Header className="justify-content-between">{header}</Card.Header>
+      <Card.Body>{body}</Card.Body>
     </Card>
   );
 }

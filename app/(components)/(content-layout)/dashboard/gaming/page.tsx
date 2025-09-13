@@ -113,33 +113,41 @@ const Gaming = () => {
         </Col>
         <Col xl={7} lg={6} md={6} sm={12}>
           {serverCode ? (
-            <Row className="g-4">
-              <Col xs={12}>
+            <Card className="custom-card h-100">
+              <div className="top-left"></div>
+              <div className="top-right"></div>
+              <div className="bottom-left"></div>
+              <div className="bottom-right"></div>
+              <Card.Header className="justify-content-between">
+                <div className="card-title">
+                  {(() => {
+                    const label = serverOptions.find(s => s.code === serverCode)?.name || serverCode;
+                    return `Server Health — ${label}`;
+                  })()}
+                </div>
+              </Card.Header>
+              <Card.Body>
                 <ServerHealthStatusCard
+                  embedded
                   code={serverCode}
                   displayName={serverOptions.find(s => s.code === serverCode)?.name || serverCode}
                 />
-              </Col>
-              <Col xs={12}>
                 <ServerHealthCharts
+                  embedded
                   code={serverCode}
                   onCodeChange={setServerCode}
                   serverCodes={serverCodes}
                   serverOptions={serverOptions}
                   codesLoading={codesLoading}
                 />
-              </Col>
-            </Row>
+              </Card.Body>
+            </Card>
           ) : (
-            <Row>
-              <Col xs={12}>
-                <Card className="custom-card">
-                  <Card.Body>
-                    <div className="text-muted">Select a server to view status and charts.</div>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Row>
+            <Card className="custom-card">
+              <Card.Body>
+                <div className="text-muted">Select a server to view status and charts.</div>
+              </Card.Body>
+            </Card>
           )}
         </Col>
       </Row>

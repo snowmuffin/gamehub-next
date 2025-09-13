@@ -1,8 +1,18 @@
 import React from "react";
 import { Card, Badge } from "react-bootstrap";
 
-const PlayerStatisticsCard = ({ rankings }) => (
-  <Card className="custom-card">
+type Ranking = {
+  steam_id: string;
+  username: string;
+  score: number;
+};
+
+type PlayerStatisticsCardProps = {
+  rankings: Ranking[];
+};
+
+const PlayerStatisticsCard = ({ rankings }: PlayerStatisticsCardProps) => (
+  <Card className="custom-card no-stretch">
     <div className="top-left"></div>
     <div className="top-right"></div>
     <div className="bottom-left"></div>
@@ -12,7 +22,7 @@ const PlayerStatisticsCard = ({ rankings }) => (
       <Badge className="bg-primary-transparent border border-primary border-opacity-10 rounded-0">View All</Badge>
     </Card.Header>
     <Card.Body className="player-statistics">
-      <div className="table-responsive">
+  <div className="table-responsive">
         {rankings.length > 0 ? (
           <table className="table text-nowrap table-borderless table-striped">
             <thead>
@@ -23,7 +33,7 @@ const PlayerStatisticsCard = ({ rankings }) => (
               </tr>
             </thead>
             <tbody>
-              {rankings.map((player, index) => (
+      {rankings.map((player: Ranking, index: number) => (
                 <tr key={player.steam_id}>
                   <td>{index + 1}</td>
                   <td>{player.username}</td>

@@ -44,11 +44,13 @@ function percent(v?: number | null) {
 export default function ServerHealthStatusCard({
   code,
   displayName,
-  refreshMs = 30000
+  refreshMs = 30000,
+  embedded = false
 }: {
   code: string;
   displayName?: string;
   refreshMs?: number;
+  embedded?: boolean;
 }) {
   const [data, setData] = useState<StatusResponse | null>(null);
   const [loading, setLoading] = useState(false);
@@ -82,6 +84,55 @@ export default function ServerHealthStatusCard({
   const status = data?.status ?? "UNKNOWN";
   const badgeVariant = statusColor[status];
 
+  const content = (
+    <>
+      <div className="d-flex justify-content-between align-items-center mb-2">
+        <div className="fw-semibold">{title}</div>
+        <Badge bg={badgeVariant}>{status}</Badge>
+      </div>
+      {loading ? (
+        <div className="d-flex align-items-center gap-2">
+          <Spinner size="sm" /> <span>Loading…</span>
+        </div>
+      ) : error ? (
+        <div className="text-danger">{error}</div>
+      ) : (
+        <div className="row g-3">
+          <div className="col-6 col-md-3">
+            <div className="text-muted">Last Observed</div>
+            <div className="fw-semibold">{formatDate(data?.observedAt)}</div>
+          </div>
+          <div className="col-6 col-md-3">
+            <div className="text-muted">Metric</div>
+            <div className="fw-semibold">
+              {data?.metricName ?? "-"}
+              {data?.metricValue !== null && data?.metricValue !== undefined ? `: ${data.metricValue}` : ""}
+              {data?.metricUnit ? ` ${data.metricUnit}` : ""}
+            </div>
+          </div>
+          <div className="col-6 col-md-3">
+            <div className="text-muted">HTTP</div>
+            <div className="fw-semibold">{data?.httpStatus ?? "-"}</div>
+          </div>
+          <div className="col-6 col-md-3">
+            <div className="text-muted">Method</div>
+            <div className="fw-semibold">{data?.method ?? "-"}</div>
+          </div>
+          <div className="col-6 col-md-3">
+            <div className="text-muted">Outage</div>
+            <div className="fw-semibold">{data?.outageOpen ? "OPEN" : "CLOSED"}</div>
+          </div>
+          <div className="col-6 col-md-3">
+            <div className="text-muted">Uptime (1h)</div>
+            <div className="fw-semibold">{percent(data?.uptime1h)}</div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+
+  if (embedded) return <div className="mb-3">{content}</div>;
+
   return (
     <Card className="custom-card h-100">
       <div className="top-left"></div>
@@ -92,46 +143,7 @@ export default function ServerHealthStatusCard({
         <div className="card-title">{title}</div>
         <Badge bg={badgeVariant}>{status}</Badge>
       </Card.Header>
-      <Card.Body>
-        {loading ? (
-          <div className="d-flex align-items-center gap-2">
-            <Spinner size="sm" /> <span>Loading…</span>
-          </div>
-        ) : error ? (
-          <div className="text-danger">{error}</div>
-        ) : (
-          <div className="row g-3">
-            <div className="col-6 col-md-3">
-              <div className="text-muted">Last Observed</div>
-              <div className="fw-semibold">{formatDate(data?.observedAt)}</div>
-            </div>
-            <div className="col-6 col-md-3">
-              <div className="text-muted">Metric</div>
-              <div className="fw-semibold">
-                {data?.metricName ?? "-"}
-                {data?.metricValue !== null && data?.metricValue !== undefined ? `: ${data.metricValue}` : ""}
-                {data?.metricUnit ? ` ${data.metricUnit}` : ""}
-              </div>
-            </div>
-            <div className="col-6 col-md-3">
-              <div className="text-muted">HTTP</div>
-              <div className="fw-semibold">{data?.httpStatus ?? "-"}</div>
-            </div>
-            <div className="col-6 col-md-3">
-              <div className="text-muted">Method</div>
-              <div className="fw-semibold">{data?.method ?? "-"}</div>
-            </div>
-            <div className="col-6 col-md-3">
-              <div className="text-muted">Outage</div>
-              <div className="fw-semibold">{data?.outageOpen ? "OPEN" : "CLOSED"}</div>
-            </div>
-            <div className="col-6 col-md-3">
-              <div className="text-muted">Uptime (1h)</div>
-              <div className="fw-semibold">{percent(data?.uptime1h)}</div>
-            </div>
-          </div>
-        )}
-      </Card.Body>
+      <Card.Body>{content}</Card.Body>
     </Card>
   );
 }
