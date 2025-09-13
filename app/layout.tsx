@@ -27,12 +27,15 @@ const AuthHandler = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const token = useSelector((state: RootState) => state.auth.token);
 
-  useEffect(() => {
-    // Log environment information (development mode only)
-    logEnvironmentInfo();
 
-    router.push("/dashboard/gaming");
+  useEffect(() => {
+    if (token && !isTokenExpired(token)) {
+      router.push("/dashboard/gaming");
+    } else {
+      router.push("/authentication/sign-in/signin-basic");
+    }
   }, [token, router]);
+
 
   return <>{children}</>;
 };
