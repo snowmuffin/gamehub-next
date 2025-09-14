@@ -1,9 +1,11 @@
 "use client";
 import React, { Fragment, useEffect, useRef, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 import { apiRequest } from "@/shared/api/request";
 import Seo from "@/shared/layout-components/seo";
+import type { RootState } from "@/shared/redux/store";
 
 import PlayerStatisticsCard from "./components/PlayerStatisticsCard";
 import ServerHealthCharts from "./components/ServerHealthCharts";
@@ -17,7 +19,11 @@ type Ranking = {
 };
 
 const Gaming = () => {
+  const token = useSelector((state: RootState) => state.auth.token);
+  const isLoggedIn = !!token;
+  
   const [rankings, setRankings] = useState<Ranking[]>([]);
+  const [rankingsLoading, setRankingsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   // Space Engineers server codes
@@ -32,16 +38,25 @@ const Gaming = () => {
 
   useEffect(() => {
     const fetchRankings = async () => {
+      if (!isLoggedIn) {
+        setRankingsLoading(false);
+        return;
+      }
+
+      setRankingsLoading(true);
       try {
         const response = await apiRequest.get<Ranking[]>("/user/rankings");
         setRankings(response.data);
+        setError(null);
       } catch {
         setError("Failed to load rankings. Please try again later.");
+      } finally {
+        setRankingsLoading(false);
       }
     };
 
     fetchRankings();
-  }, []);
+  }, [isLoggedIn]);
 
   // Fetch server codes list
   useEffect(() => {
@@ -111,21 +126,22 @@ const Gaming = () => {
 
       <Row className="g-4 equal-card-row">
         <Col xl={5} lg={6} md={6} sm={12}>
-          {error ? (
-            <div className="text-danger text-center">{error}</div>
-          ) : (
-            <div
-              style={{
-                display: "flex",
-                height: "100%",
-                maxHeight: serverColHeight ? `${serverColHeight}px` : undefined,
-                minHeight: 0,
-                width: "100%"
-              }}
-            >
-              <PlayerStatisticsCard rankings={rankings} />
-            </div>
-          )}
+          <div
+            style={{
+              display: "flex",
+              height: "100%",
+              maxHeight: serverColHeight ? `${serverColHeight}px` : undefined,
+              minHeight: 0,
+              width: "100%"
+            }}
+          >
+            <PlayerStatisticsCard 
+              rankings={rankings} 
+              loading={rankingsLoading}
+              error={error}
+              isLoggedIn={isLoggedIn}
+            />
+          </div>
         </Col>
         <Col xl={7} lg={6} md={6} sm={12}>
           {serverCode ? (

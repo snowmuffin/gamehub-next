@@ -9,9 +9,12 @@ type Ranking = {
 
 type PlayerStatisticsCardProps = {
   rankings: Ranking[];
+  loading?: boolean;
+  error?: string | null;
+  isLoggedIn?: boolean;
 };
 
-const PlayerStatisticsCard = ({ rankings }: PlayerStatisticsCardProps) => (
+const PlayerStatisticsCard = ({ rankings, loading = false, error = null, isLoggedIn = false }: PlayerStatisticsCardProps) => (
   <Card className="custom-card">
     <div className="top-left"></div>
     <div className="top-right"></div>
@@ -25,7 +28,43 @@ const PlayerStatisticsCard = ({ rankings }: PlayerStatisticsCardProps) => (
     </Card.Header>
     <Card.Body className="player-statistics">
       <div className="table-responsive">
-        {rankings.length > 0 ? (
+        {!isLoggedIn ? (
+          <div className="text-center p-4">
+            <div className="mb-3">
+              <i className="bi bi-lock text-primary fs-1"></i>
+            </div>
+            <h6 className="text-muted mb-2">Login Required</h6>
+            <p className="text-muted small mb-3">Please login with Steam to view player rankings.</p>
+            <div className="d-flex justify-content-center">
+              <small className="text-muted">
+                <i className="bi bi-arrow-up me-1"></i>
+                Use the "Login with Steam" button in the header
+              </small>
+            </div>
+          </div>
+        ) : loading ? (
+          <div className="text-center p-4">
+            <div className="spinner-border spinner-border-sm me-2" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+            Loading player statistics...
+          </div>
+        ) : error ? (
+          <div className="text-center p-4">
+            <div className="mb-3">
+              <i className="bi bi-exclamation-triangle text-warning fs-1"></i>
+            </div>
+            <h6 className="text-muted mb-2">Failed to load rankings</h6>
+            <p className="text-muted small mb-3">{error}</p>
+            <button 
+              className="btn btn-sm btn-outline-primary"
+              onClick={() => window.location.reload()}
+            >
+              <i className="bi bi-arrow-clockwise me-1"></i>
+              Try Again
+            </button>
+          </div>
+        ) : rankings.length > 0 ? (
           <table className="table text-nowrap table-borderless table-striped">
             <thead>
               <tr>
@@ -45,7 +84,13 @@ const PlayerStatisticsCard = ({ rankings }: PlayerStatisticsCardProps) => (
             </tbody>
           </table>
         ) : (
-          <div className="text-center">No data available</div>
+          <div className="text-center p-4">
+            <div className="mb-3">
+              <i className="bi bi-people text-muted fs-1"></i>
+            </div>
+            <h6 className="text-muted mb-2">No Rankings Available</h6>
+            <p className="text-muted small">No player data to display at the moment.</p>
+          </div>
         )}
       </div>
     </Card.Body>
