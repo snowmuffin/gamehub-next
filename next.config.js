@@ -104,6 +104,16 @@ const nextConfig = {
     return config;
   },
 
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/dashboard/gaming",
+        permanent: false // Use 302 redirect instead of 301 for flexibility
+      }
+    ];
+  },
+
   async rewrites() {
     // Distinguish development vs production
     const isProd = process.env.NODE_ENV === "production";
