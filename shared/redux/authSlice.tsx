@@ -81,13 +81,8 @@ const authSlice = createSlice({
       })
       .addCase(steamLogin.fulfilled, (state, action) => {
         state.loading = false;
-        if (action.payload && typeof action.payload === 'object' && 'token' in action.payload) {
-          state.token = action.payload.token;
-          state.user = action.payload.user;
-        } else {
-          // Fallback for string token
-          state.token = action.payload as string;
-        }
+        state.token = action.payload.token;
+        state.user = action.payload.user;
       })
       .addCase(steamLogin.rejected, (state, action) => {
         state.loading = false;

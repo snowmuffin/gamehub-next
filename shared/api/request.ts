@@ -33,14 +33,14 @@ const getApiBaseUrl = (): string => {
 const AxiosInstance: AxiosInstanceType = axios.create({
   baseURL: getApiBaseUrl(),
   timeout: 5000,
-  withCredentials: true // Enable credentials to send cookies
+  withCredentials: false // Don't use credentials by default
 });
 
 // Separate instance for requests requiring authentication
 const AuthAxiosInstance: AxiosInstanceType = axios.create({
   baseURL: getApiBaseUrl(),
   timeout: 5000,
-  withCredentials: true // Use credentials for all requests (including cookies)
+  withCredentials: true // Use credentials only for authenticated requests
 });
 
 // Shared request interceptor
