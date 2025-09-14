@@ -3,6 +3,12 @@ import { NextRequest, NextResponse } from "next/server";
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Admin panel protection - redirect old admin routes
+  if (pathname.startsWith("/admin")) {
+    console.log("🚫 Admin access attempt on old route:", pathname);
+    return NextResponse.redirect(new URL("/404", request.url));
+  }
+
   // Log API requests
   if (pathname.startsWith("/api/")) {
     console.log("🔄 Middleware - API request detected:", {
