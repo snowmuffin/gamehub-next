@@ -10,7 +10,7 @@ import type { RootState, AppDispatch } from "@/shared/redux/store";
 const AuthDropdown = () => {
   const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
-  const { loading, error, token } = useSelector((state: RootState) => state.auth);
+  const { loading, error, token, user: reduxUser } = useSelector((state: RootState) => state.auth);
   const [clientError, setClientError] = useState<string | null>(null);
   const [isLoginInProgress, setIsLoginInProgress] = useState(false);
   const [user, setUser] = useState<any>(null);
@@ -25,15 +25,25 @@ const AuthDropdown = () => {
       const storedToken = localStorage.getItem("authToken");
       const storedUser = localStorage.getItem("user");
       
-      if (storedToken) {
-        dispatch(initializeAuth(storedToken));
-      }
+      console.log("🔄 Initializing auth from localStorage:", { 
+        hasToken: !!storedToken, 
+        hasUser: !!storedUser 
+      });
       
-      if (storedUser) {
-        setUser(JSON.parse(storedUser));
+      if (storedToken && storedUser) {
+        const userData = JSON.parse(storedUser);
+        dispatch(initializeAuth({ 
+          token: storedToken, 
+          user: userData 
+        }));
+        setUser(userData);
+        console.log("✅ Auth initialized successfully");
       }
     } catch (e) {
-      // Ignore error
+      // Clear invalid data and ignore error
+      console.error("❌ Failed to initialize auth, clearing localStorage:", e);
+      localStorage.removeItem("authToken");
+      localStorage.removeItem("user");
     }
   }, [dispatch]);
 
@@ -41,8 +51,10 @@ const AuthDropdown = () => {
   useEffect(() => {
     if (!token) {
       setUser(null);
+    } else if (reduxUser) {
+      setUser(reduxUser);
     }
-  }, [token]);
+  }, [token, reduxUser]);
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
@@ -89,10 +101,15 @@ const AuthDropdown = () => {
       }
 
       const { status, token, user, error } = event.data;
+      
+      console.log("🔐 Login message received:", { status, token: !!token, user: !!user, error });
 
       if (status === 200 && token) {
         setIsLoginInProgress(false);
-        dispatch(loginSuccess(token));
+        
+        console.log("✅ Login success, dispatching to Redux");
+        // Dispatch to Redux with both token and user
+        dispatch(loginSuccess({ token, user: user || null }));
 
         try {
           localStorage.setItem("authToken", token);
@@ -100,8 +117,10 @@ const AuthDropdown = () => {
             localStorage.setItem("user", JSON.stringify(user));
             setUser(user);
           }
+          console.log("💾 Token and user saved to localStorage");
         } catch (e) {
           // Ignore if writing to localStorage fails
+          console.error("❌ Failed to save to localStorage:", e);
         }
       } else if (status === 401) {
         setIsLoginInProgress(false);
