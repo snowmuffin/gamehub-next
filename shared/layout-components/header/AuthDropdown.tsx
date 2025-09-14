@@ -195,12 +195,6 @@ const AuthDropdown = () => {
 
   const handleLogout = () => {
     dispatch(logout());
-    try {
-      localStorage.removeItem("authToken");
-      localStorage.removeItem("user");
-    } catch (e) {
-      // Ignore error
-    }
     setUser(null);
     router.push("/dashboard/gaming");
   };

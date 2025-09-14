@@ -49,6 +49,17 @@ const authSlice = createSlice({
       state.token = null;
       state.user = null;
       state.error = null;
+      
+      // Clear localStorage when logging out
+      if (typeof window !== "undefined") {
+        try {
+          localStorage.removeItem("authToken");
+          localStorage.removeItem("user");
+          console.log("🧹 Logout: Cleared localStorage");
+        } catch (e) {
+          console.error("❌ Logout: Failed to clear localStorage:", e);
+        }
+      }
     },
     // Used when login succeeds via popup
     loginSuccess: (state, action) => {

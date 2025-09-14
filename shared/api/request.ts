@@ -4,6 +4,7 @@ import axios, {
   type InternalAxiosRequestConfig
 } from "axios";
 import store from "../redux/store"; // Import Redux store
+import { logout } from "../redux/authSlice"; // Import logout action
 import { getApiUrl } from "../utils/environment";
 
 // Determine API base URL via environment variables
@@ -81,6 +82,38 @@ const setupResponseInterceptor = (instance: AxiosInstanceType, instanceName: str
         baseURL: error.config?.baseURL,
         message: error.message
       });
+
+      // Handle 401 Unauthorized errors (token expired or invalid)
+      if (error.response?.status === 401) {
+        console.warn("🚨 Token expired or unauthorized, logging out...");
+        
+        // Dispatch logout action to clear Redux state
+        store.dispatch(logout());
+        
+        // Clear localStorage
+        try {
+          if (typeof window !== "undefined") {
+            localStorage.removeItem("authToken");
+            localStorage.removeItem("user");
+            console.log("🧹 Cleared localStorage after 401 error");
+          }
+        } catch (e) {
+          console.error("❌ Failed to clear localStorage:", e);
+        }
+
+        // Optionally redirect to login page or home
+        if (typeof window !== "undefined") {
+          // Only redirect if not already on public pages
+          const currentPath = window.location.pathname;
+          const publicPaths = ["/dashboard/gaming", "/landing", "/authentication"];
+          const isOnPublicPath = publicPaths.some(path => currentPath.startsWith(path));
+          
+          if (!isOnPublicPath) {
+            window.location.href = "/dashboard/gaming";
+          }
+        }
+      }
+
       return Promise.reject(error);
     }
   );

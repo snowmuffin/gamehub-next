@@ -1,10 +1,11 @@
 "use client";
 import React, { useEffect } from "react";
 import "./globals.scss";
-import { Provider, useSelector } from "react-redux";
+import { Provider, useSelector, useDispatch } from "react-redux";
 
 import type { RootState } from "@/shared/redux/store";
 import store from "@/shared/redux/store";
+import { logout } from "@/shared/redux/authSlice";
 
 import { useRouter } from "next/navigation";
 
@@ -29,6 +30,7 @@ const isTokenExpired = (token: string): boolean => {
 
 const AuthHandler = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
+  const dispatch = useDispatch();
   const token = useSelector((state: RootState) => state.auth.token);
 
   // Log environment info on client side only
@@ -37,6 +39,46 @@ const AuthHandler = ({ children }: { children: React.ReactNode }) => {
       logEnvironmentInfo();
     }
   }, []);
+
+  // Check for token expiration periodically
+  useEffect(() => {
+    if (!token) return;
+
+    // Check immediately
+    if (isTokenExpired(token)) {
+      console.warn("🚨 Token expired, logging out...");
+      handleTokenExpiration();
+      return;
+    }
+
+    // Set up periodic check every 30 seconds
+    const interval = setInterval(() => {
+      const currentToken = (store.getState() as RootState).auth.token;
+      if (currentToken && isTokenExpired(currentToken)) {
+        console.warn("🚨 Token expired during periodic check, logging out...");
+        handleTokenExpiration();
+      }
+    }, 30000); // Check every 30 seconds
+
+    return () => clearInterval(interval);
+  }, [token, dispatch]);
+
+  const handleTokenExpiration = () => {
+    // Dispatch logout action
+    dispatch(logout());
+    
+    // Clear localStorage
+    try {
+      localStorage.removeItem("authToken");
+      localStorage.removeItem("user");
+      console.log("🧹 Cleared localStorage after token expiration");
+    } catch (e) {
+      console.error("❌ Failed to clear localStorage:", e);
+    }
+
+    // Redirect to dashboard (public page)
+    router.push("/dashboard/gaming");
+  };
 
   return <>{children}</>;
 };
