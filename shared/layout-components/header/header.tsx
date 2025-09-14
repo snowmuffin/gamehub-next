@@ -22,6 +22,7 @@ import SwitcherIcon from "./SwitcherIcon"; // Import the new SwitcherIcon compon
 import ResponsiveSearchModal from "./ResponsiveSearchModal"; // Import the new ResponsiveSearchModal component
 import AppsOffcanvas from "./AppsOffcanvas"; // Import the new AppsOffcanvas component
 import LanguageDropdown from "./LanguageDropdown"; // Import the new LanguageDropdown component
+import AuthDropdown from "./AuthDropdown"; // Import the new AuthDropdown component
 
 const Header = ({ local_variable, ThemeChanger }: any) => {
   const [show, setShow] = useState(false);
@@ -335,6 +336,8 @@ const Header = ({ local_variable, ThemeChanger }: any) => {
           </div>
           <ul className="header-content-right">
             <LanguageDropdown />
+
+            <AuthDropdown />
 
             <SwitcherIcon />
           </ul>

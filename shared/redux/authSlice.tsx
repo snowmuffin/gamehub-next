@@ -54,6 +54,10 @@ const authSlice = createSlice({
     loginFailure: (state, action) => {
       state.loading = false;
       state.error = action.payload;
+    },
+    // Initialize auth state from localStorage
+    initializeAuth: (state, action) => {
+      state.token = action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -73,5 +77,5 @@ const authSlice = createSlice({
   }
 });
 
-export const { logout, loginSuccess, loginStart, loginFailure } = authSlice.actions;
+export const { logout, loginSuccess, loginStart, loginFailure, initializeAuth } = authSlice.actions;
 export default authSlice.reducer;

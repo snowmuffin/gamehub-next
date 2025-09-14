@@ -31,22 +31,25 @@ const AuthHandler = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const token = useSelector((state: RootState) => state.auth.token);
 
+  // Log environment info on client side only
   useEffect(() => {
-    if (token && !isTokenExpired(token)) {
-      router.push("/dashboard/gaming");
-    } else {
-      router.push("/authentication/sign-in/signin-basic");
+    if (typeof window !== "undefined") {
+      logEnvironmentInfo();
     }
-  }, [token, router]);
+  }, []);
 
   return <>{children}</>;
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <Provider store={store}>
-      <AuthHandler>{children}</AuthHandler>
-    </Provider>
+    <html lang="ko">
+      <body>
+        <Provider store={store}>
+          <AuthHandler>{children}</AuthHandler>
+        </Provider>
+      </body>
+    </html>
   );
 };
 
