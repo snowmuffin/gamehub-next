@@ -110,6 +110,11 @@ const nextConfig = {
         source: "/",
         destination: "/dashboard/gaming",
         permanent: false // Use 302 redirect instead of 301 for flexibility
+      },
+      {
+        source: "/utilities/space-engineers-calculator",
+        destination: "/utilities/thruster-requirement-calculator",
+        permanent: true
       }
     ];
   },
