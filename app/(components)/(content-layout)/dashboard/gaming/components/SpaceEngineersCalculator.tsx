@@ -171,7 +171,11 @@ const SpaceEngineersCalculator: React.FC = () => {
   const [healthPct, setHealthPct] = useState<number>(100); // damage/health
   const [throttlePct, setThrottlePct] = useState<number>(100);
   const [cargoAutoFill, setCargoAutoFill] = useState<boolean>(false);
-  const [thrusterCounts, setThrusterCounts] = useState<Record<string, number>>({});
+  // Separate counts: existing thrusters vs. additional thrusters to be added
+  // - existing counts affect available thrust but do NOT add mass (they're already part of ship weight)
+  // - added counts affect both available thrust and added thruster mass
+  const [existingThrusterCounts, setExistingThrusterCounts] = useState<Record<string, number>>({});
+  const [addedThrusterCounts, setAddedThrusterCounts] = useState<Record<string, number>>({});
 
   const requiredThrustN = useMemo(() => {
     const mass = Math.max(0, weightKg);
@@ -183,11 +187,12 @@ const SpaceEngineersCalculator: React.FC = () => {
   const thrusters = useMemo(() => THRUSTERS_BY_GRID[grid], [grid]);
 
   React.useEffect(() => {
-    const next: Record<string, number> = {};
+    const initCounts: Record<string, number> = {};
     thrusters.forEach((t) => {
-      next[t.id] = 0;
+      initCounts[t.id] = 0;
     });
-    setThrusterCounts(next);
+    setExistingThrusterCounts(initCounts);
+    setAddedThrusterCounts(initCounts);
   }, [thrusters]);
 
   const thrusterRows = useMemo(() => {
@@ -196,13 +201,25 @@ const SpaceEngineersCalculator: React.FC = () => {
     return thrusters.map((t) => {
       const envEff = getEfficiency(t.kind, atmDensity);
       const effEachN = t.thrustN * envEff * health * throttle;
-      const count = Math.max(0, Math.floor(thrusterCounts[t.id] ?? 0));
-      const totalEffN = effEachN * count;
+      const existCount = Math.max(0, Math.floor(existingThrusterCounts[t.id] ?? 0));
+      const addCount = Math.max(0, Math.floor(addedThrusterCounts[t.id] ?? 0));
+      const totalCount = existCount + addCount;
+      const totalEffN = effEachN * totalCount;
       const massEachKg = Math.max(0, Number(t.massKg ?? 0));
-      const totalMassKg = massEachKg * count;
-      return { ...t, count, effEachN, totalEffN, massEachKg, totalMassKg } as const;
+      // Only added thrusters contribute to added mass (existing should be part of base weight already)
+      const addedMassKg = massEachKg * addCount;
+      return {
+        ...t,
+        existCount,
+        addCount,
+        totalCount,
+        effEachN,
+        totalEffN,
+        massEachKg,
+        addedMassKg
+      } as const;
     });
-  }, [thrusters, thrusterCounts, atmDensity, healthPct, throttlePct]);
+  }, [thrusters, existingThrusterCounts, addedThrusterCounts, atmDensity, healthPct, throttlePct]);
 
   const totalEffectiveN = useMemo(
     () => thrusterRows.reduce((sum, r) => sum + r.totalEffN, 0),
@@ -210,7 +227,7 @@ const SpaceEngineersCalculator: React.FC = () => {
   );
 
   const thrustersMassKg = useMemo(
-    () => thrusterRows.reduce((sum, r) => sum + r.totalMassKg, 0),
+    () => thrusterRows.reduce((sum, r) => sum + r.addedMassKg, 0),
     [thrusterRows]
   );
 
@@ -334,7 +351,8 @@ const SpaceEngineersCalculator: React.FC = () => {
                   <th>Thruster</th>
                   <th className="text-end">Each (kN)</th>
                   <th className="text-end">Mass each (kg)</th>
-                  <th className="text-end">Count</th>
+                  <th className="text-end">Existing</th>
+                  <th className="text-end">Add</th>
                   <th className="text-end">Total (kN)</th>
                 </tr>
               </thead>
@@ -349,9 +367,23 @@ const SpaceEngineersCalculator: React.FC = () => {
                         type="number"
                         min={0}
                         step={1}
-                        value={thrusterCounts[r.id] ?? 0}
+                        value={existingThrusterCounts[r.id] ?? 0}
                         onChange={(e) =>
-                          setThrusterCounts((prev) => ({
+                          setExistingThrusterCounts((prev) => ({
+                            ...prev,
+                            [r.id]: Math.max(0, Math.floor(Number(e.target.value) || 0))
+                          }))
+                        }
+                      />
+                    </td>
+                    <td className="text-end" style={{ minWidth: 110 }}>
+                      <Form.Control
+                        type="number"
+                        min={0}
+                        step={1}
+                        value={addedThrusterCounts[r.id] ?? 0}
+                        onChange={(e) =>
+                          setAddedThrusterCounts((prev) => ({
                             ...prev,
                             [r.id]: Math.max(0, Math.floor(Number(e.target.value) || 0))
                           }))
@@ -368,15 +400,17 @@ const SpaceEngineersCalculator: React.FC = () => {
               <Button
                 variant="outline-secondary"
                 size="sm"
-                onClick={() =>
-                  setThrusterCounts(Object.fromEntries(thrusters.map((t) => [t.id, 0])))
-                }
+                onClick={() => {
+                  const zeros = Object.fromEntries(thrusters.map((t) => [t.id, 0]));
+                  setExistingThrusterCounts(zeros);
+                  setAddedThrusterCounts(zeros);
+                }}
               >
                 Reset Counts
               </Button>
 
               <div className="ms-auto text-muted small">
-                Thrusters mass: <b>{thrustersMassKg.toLocaleString()} kg</b>
+                Thrusters mass (added only): <b>{thrustersMassKg.toLocaleString()} kg</b>
               </div>
             </div>
           </Card.Body>
