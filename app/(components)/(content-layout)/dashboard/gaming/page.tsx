@@ -10,7 +10,6 @@ import type { RootState } from "@/shared/redux/store";
 import PlayerStatisticsCard from "./components/PlayerStatisticsCard";
 import ServerHealthCharts from "./components/ServerHealthCharts";
 import ServerHealthStatusCard from "./components/ServerHealthStatusCard";
-import SpaceEngineersCalculator from "./components/SpaceEngineersCalculator";
 
 type Ranking = {
   steam_id: string;
@@ -189,11 +188,7 @@ const Gaming = () => {
         </Col>
       </Row>
 
-      <Row className="g-4 mt-1 equal-card-row">
-        <Col xs={12}>
-          <SpaceEngineersCalculator />
-        </Col>
-      </Row>
+      {/* Space Engineers Calculator moved to its own Utilities page */}
     </Fragment>
   );
 };

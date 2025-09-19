@@ -29,45 +29,60 @@ function Layout({ children, local_variable, ThemeChanger }: any) {
     switcherdata.LocalStorageBackup(ThemeChanger);
   }, [ThemeChanger]);
 
+  // Apply HTML attributes and CSS variables on the client without rendering nested <html>/<body>
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    const el = document.documentElement;
+    const attrs: Record<string, any> = {
+      dir: local_variable.dir,
+      "data-theme-mode": local_variable.dataThemeMode,
+      "data-header-styles": local_variable.dataHeaderStyles,
+      "data-vertical-style": local_variable.dataVerticalStyle,
+      "data-card-background": local_variable.dataCardBackground,
+      "data-card-style": local_variable.dataCardStyle,
+      "data-nav-layout": local_variable.dataNavLayout,
+      "data-menu-styles": local_variable.dataMenuStyles,
+      "data-toggled": local_variable.dataToggled,
+      "data-nav-style": local_variable.dataNavStyle,
+      "hor-style": local_variable.horStyle,
+      "data-page-style": local_variable.dataPageStyle,
+      "data-width": local_variable.dataWidth,
+      "data-menu-position": local_variable.dataMenuPosition,
+      "data-header-position": local_variable.dataHeaderPosition,
+      "data-icon-overlay": local_variable.iconOverlay,
+      "data-bg-img": local_variable.bgImg,
+      "data-icon-text": local_variable.iconText,
+      "data-pattern-img": local_variable.patternImg
+    };
+    // Set or remove attributes based on values
+    Object.entries(attrs).forEach(([key, value]) => {
+      if (value === undefined || value === null || value === "") {
+        el.removeAttribute(key);
+      } else {
+        el.setAttribute(key, String(value));
+      }
+    });
+
+    // Apply CSS variables (customstyles)
+    Object.entries(customstyles).forEach(([key, value]) => {
+      if (value !== undefined && value !== null && value !== "") {
+        (el.style as any).setProperty(key, String(value));
+      }
+    });
+
+    // Update body class
+    if (document.body) {
+      document.body.className = local_variable.body ? String(local_variable.body) : "";
+    }
+  }, [local_variable, customstyles]);
+
   return (
     <>
-      <html
-        suppressHydrationWarning={true}
-        dir={local_variable.dir}
-        data-theme-mode={local_variable.dataThemeMode}
-        data-header-styles={local_variable.dataHeaderStyles}
-        data-vertical-style={local_variable.dataVerticalStyle}
-        data-card-background={local_variable.dataCardBackground}
-        data-card-style={local_variable.dataCardStyle}
-        data-nav-layout={local_variable.dataNavLayout}
-        data-menu-styles={local_variable.dataMenuStyles}
-        data-toggled={local_variable.dataToggled}
-        data-nav-style={local_variable.dataNavStyle}
-        hor-style={local_variable.horStyle}
-        data-page-style={local_variable.dataPageStyle}
-        data-width={local_variable.dataWidth}
-        data-menu-position={local_variable.dataMenuPosition}
-        data-header-position={local_variable.dataHeaderPosition}
-        data-icon-overlay={local_variable.iconOverlay}
-        data-bg-img={local_variable.bgImg}
-        data-icon-text={local_variable.iconText}
-        data-pattern-img={local_variable.patternImg}
-        style={customstyles}
-      >
-        <head>
-          <link
-            href="https://cdn.jsdelivr.net/npm/dragula@3.7.3/dist/dragula.min.css"
-            rel="stylesheet"
-          />
-        </head>
-        <body className={`${local_variable.body ? local_variable.body : ""}`}>
-          {children}
-          <Script
-            src="https://cdn.jsdelivr.net/npm/dragula@3.7.3/dist/dragula.min.js"
-            strategy="afterInteractive"
-          />
-        </body>
-      </html>
+      {children}
+      <Script
+        src="https://cdn.jsdelivr.net/npm/dragula@3.7.3/dist/dragula.min.js"
+        strategy="afterInteractive"
+      />
     </>
   );
 }

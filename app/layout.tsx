@@ -86,6 +86,12 @@ const AuthHandler = ({ children }: { children: React.ReactNode }) => {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="ko">
+      <head>
+        <link
+          href="https://cdn.jsdelivr.net/npm/dragula@3.7.3/dist/dragula.min.css"
+          rel="stylesheet"
+        />
+      </head>
       <body>
         <Provider store={store}>
           <AuthHandler>{children}</AuthHandler>

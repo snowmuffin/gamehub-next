@@ -17,7 +17,7 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
   function closeMenu() {
     const closeMenudata = (items: any) => {
       items?.forEach((item: any) => {
-        item.active = false;
+        if (!item.alwaysOpen) item.active = false;
         closeMenudata(item.children);
       });
     };
@@ -385,11 +385,11 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
     if (item) {
       if (Array.isArray(item)) {
         for (const val of item) {
-          val.active = false;
+          if (!val.alwaysOpen) val.active = false;
           val.selected = false;
         }
       }
-      item.active = false;
+      if (!item.alwaysOpen) item.active = false;
       item.selected = false;
 
       if (item.children && item.children.length > 0) {
@@ -464,10 +464,14 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
       ) {
         for (const item of MENUITEMS) {
           if (item === targetObject) {
-            if (theme.dataVerticalStyle == "doublemenu" && item.active) {
-              return;
+            if (item.alwaysOpen) {
+              item.active = true;
+            } else {
+              if (theme.dataVerticalStyle == "doublemenu" && item.active) {
+                return;
+              }
+              item.active = !item.active;
             }
-            item.active = !item.active;
 
             if (item.active) {
               closeOtherMenus(MENUITEMS, item);
@@ -479,7 +483,7 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
             setAncestorsActive(MENUITEMS, item);
           } else if (!item.active) {
             if (theme.dataVerticalStyle != "doublemenu") {
-              item.active = false; // Set active to false for items not matching the target
+              if (!item.alwaysOpen) item.active = false; // keep Utilities open
             }
           }
           if (item.children && item.children.length > 0) {
@@ -567,7 +571,7 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
   function closeOtherMenus(MENUITEMS: any, targetObject: any) {
     for (const item of MENUITEMS) {
       if (item !== targetObject) {
-        item.active = false;
+        if (!item.alwaysOpen) item.active = false;
         if (item.children && item.children.length > 0) {
           closeOtherMenus(item.children, targetObject);
         }
@@ -719,7 +723,7 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
                 <Fragment key={index}>
                   <li
                     className={`${levelone.menutitle ? "slide__category" : ""} ${levelone.type === "link" ? "slide" : ""}
-                       					${levelone.type === "sub" ? "slide has-sub" : ""} ${levelone?.active ? "open" : ""} ${levelone?.selected ? "active" : ""}`}
+                       						${(levelone.type === "sub" || levelone.type === "sub-static") ? "slide has-sub" : ""} ${levelone?.active ? "open" : ""} ${levelone?.selected ? "active" : ""}`}
                   >
                     {levelone.menutitle ? (
                       <span className="category-name">{levelone.menutitle}</span>
@@ -770,7 +774,7 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
                     ) : (
                       ""
                     )}
-                    {levelone.type === "sub" ? (
+                    {(levelone.type === "sub" || levelone.type === "sub-static") ? (
                       <Menuloop
                         MenuItems={levelone}
                         level={level + 1}

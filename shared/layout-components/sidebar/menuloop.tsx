@@ -23,7 +23,10 @@ function Menuloop({
         className={`side-menu__item ${MenuItems?.selected ? "active" : ""}`}
         onClick={(event) => {
           event.preventDefault();
-          toggleSidemenu(event, MenuItems);
+          // Do not toggle for static parent menus
+          if (MenuItems?.type !== "sub-static") {
+            toggleSidemenu(event, MenuItems);
+          }
         }}
         onMouseEnter={(event) => HoverToggleInnerMenuFn(event, MenuItems)}
       >
@@ -43,11 +46,13 @@ function Menuloop({
             ""
           )}
         </span>
-        <i className="fe fe-chevron-right side-menu__angle"></i>
+        {MenuItems?.type !== "sub-static" ? (
+          <i className="fe fe-chevron-right side-menu__angle"></i>
+        ) : null}
       </Link>
       <ul
         className={`slide-menu child${level}  ${MenuItems.active ? "double-menu-active" : ""} ${MenuItems?.dirchange ? "force-left" : ""} `}
-        style={MenuItems.active ? { display: "block" } : { display: "none" }}
+        style={MenuItems.type === "sub-static" || MenuItems.active ? { display: "block" } : { display: "none" }}
       >
         {level <= 1 ? (
           <li className="slide side-menu__label1">
@@ -60,7 +65,7 @@ function Menuloop({
         )}
         {MenuItems.children.map((firstlevel: any, index: any) => (
           <li
-            className={`${firstlevel.menutitle ? "slide__category" : ""} ${firstlevel?.type == "empty" ? "slide" : ""} ${firstlevel?.type == "link" ? "slide" : ""} ${firstlevel?.type == "sub" ? "slide has-sub" : ""} ${firstlevel?.active ? "open" : ""} ${firstlevel?.selected ? "active" : ""}`}
+            className={`${firstlevel.menutitle ? "slide__category" : ""} ${firstlevel?.type == "empty" ? "slide" : ""} ${firstlevel?.type == "link" ? "slide" : ""} ${(firstlevel?.type == "sub" || firstlevel?.type == "sub-static") ? "slide has-sub" : ""} ${firstlevel?.active ? "open" : ""} ${firstlevel?.selected ? "active" : ""}`}
             key={index}
           >
             {firstlevel.type === "link" ? (
@@ -99,7 +104,7 @@ function Menuloop({
             ) : (
               ""
             )}
-            {firstlevel.type === "sub" ? (
+            {(firstlevel.type === "sub" || firstlevel.type === "sub-static") ? (
               <Menuloop
                 MenuItems={firstlevel}
                 toggleSidemenu={toggleSidemenu}

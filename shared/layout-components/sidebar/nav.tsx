@@ -673,16 +673,17 @@ export const MENUITEMS: any = [
   {
     title: "Utilities",
     icon: Utilities,
-    type: "sub",
-    active: false,
+    type: "sub-static",
+    active: true,
     selected: false,
+    alwaysOpen: true,
     children: [
       {
-        path: "/authentication/coming-soon",
+        path: "/utilities/thruster-requirement-calculator",
         type: "link",
         active: false,
         selected: false,
-        title: "Additional Content"
+        title: "Thruster Requirement Calculator"
       }
     ]
   },
