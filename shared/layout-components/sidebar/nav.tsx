@@ -654,20 +654,7 @@ export const MENUITEMS: any = [
     active: false,
     selected: false,
     children: [
-      {
-        path: "/apps/ecommerce/item",
-        type: "link",
-        active: false,
-        selected: false,
-        title: "Item"
-      },
-      {
-        path: "/authentication/coming-soon",
-        type: "link",
-        active: false,
-        selected: false,
-        title: "Grid"
-      }
+
     ]
   },
   {
@@ -722,63 +709,6 @@ export const MENUITEMS: any = [
         active: false,
         selected: false,
         title: "Server Rules"
-      },
-      {
-        title: "Game Guides",
-        type: "sub",
-        menusub: true,
-        active: false,
-        selected: false,
-        children: [
-          {
-            path: "/authentication/coming-soon",
-            type: "link",
-            active: false,
-            selected: false,
-            title: "Comming soon"
-          },
-          {
-            path: "/authentication/coming-soon",
-            type: "link",
-            active: false,
-            selected: false,
-            title: "Comming soon"
-          },
-          {
-            path: "/authentication/coming-soon",
-            type: "link",
-            active: false,
-            selected: false,
-            title: "Comming soon"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    title: "Maps",
-    icon: MapsIcon,
-    type: "sub",
-    background: "hor-rightangle",
-    active: false,
-    selected: false,
-    children: [
-      {
-        path: "/authentication/coming-soon",
-        type: "link",
-        active: false,
-        selected: false,
-        disabled: true,
-        title: "Leaflet Maps"
-      },
-      {
-        path: "/authentication/coming-soon",
-        type: "link",
-        active: false,
-        selected: false,
-        disabled: true,
-
-        title: "Vector Maps"
       }
     ]
   }
