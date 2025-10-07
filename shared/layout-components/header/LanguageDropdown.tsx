@@ -6,6 +6,13 @@ import ReactCountryFlag from "react-country-flag";
 import { useDispatch, useSelector } from "react-redux";
 import { setLanguage } from "@/shared/redux/languageSlice"; // Update path if needed
 
+function setLangCookie(lang: string) {
+  if (typeof document === "undefined") return;
+  const d = new Date();
+  d.setTime(d.getTime() + 365 * 24 * 60 * 60 * 1000);
+  document.cookie = `lang=${encodeURIComponent(lang)}; expires=${d.toUTCString()}; path=/`;
+}
+
 const LANGUAGE_OPTIONS = [
   { code: "en", label: "English", countryCode: "US" },
   { code: "ko", label: "한국어", countryCode: "KR" }
@@ -22,6 +29,7 @@ const LanguageDropdown = () => {
 
   const handleSelect = (langCode: string) => {
     dispatch(setLanguage(langCode));
+    setLangCookie(langCode);
   };
 
   const selected = LANGUAGE_OPTIONS.find((l) => l.code === language) || LANGUAGE_OPTIONS[0];

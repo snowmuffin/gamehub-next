@@ -5,7 +5,7 @@ interface LanguageState {
 }
 
 const initialState: LanguageState = {
-  code: "en" // Default language code
+  code: "ko" // Default language code (overridden by cookie if present)
 };
 
 const languageSlice = createSlice({

@@ -10,6 +10,7 @@ import { logout } from "@/shared/redux/authSlice";
 import { useRouter } from "next/navigation";
 
 import { logEnvironmentInfo } from "@/shared/utils/environment";
+import LanguageInitializer from "@/shared/layout-components/LanguageInitializer";
 
 const isTokenExpired = (token: string): boolean => {
   try {
@@ -94,6 +95,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       </head>
       <body>
         <Provider store={store}>
+          <LanguageInitializer />
           <AuthHandler>{children}</AuthHandler>
         </Provider>
       </body>
