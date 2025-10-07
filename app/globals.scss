@@ -3,17 +3,11 @@
 @import "../public/assets/css/icons.css";
 
 // Third-party CSS imports - keep @import for CSS files
-@import "react-range-slider-input/dist/style.css";
-@import "react-datepicker/dist/react-datepicker.css"; // Date picker
-@import "leaflet/dist/leaflet.css";
-@import "react-country-state-city/dist/react-country-state-city.css";
-@import "suneditor/dist/css/suneditor.min.css";
+// Removed unused third-party CSS imports (packages pruned)
 @import "simplebar-react/dist/simplebar.min.css";
 
 // Color picker themes
-@import "@simonwep/pickr/dist/themes/classic.min.css";
-@import "@simonwep/pickr/dist/themes/monolith.min.css";
-@import "@simonwep/pickr/dist/themes/nano.min.css";
+// Removed Pickr themes (package pruned)
 
 // Swiper styles
 @import "swiper/css";
@@ -28,7 +22,7 @@
 @import "swiper/css/zoom"; // Swiper Zoom css
 @import "swiper/css/scrollbar";
 @import "swiper/css/free-mode";
-@import "react-color-palette/css";
+// Removed react-color-palette styles (package pruned)
 
 // Equal height cards per row helper
 .equal-card-row {
