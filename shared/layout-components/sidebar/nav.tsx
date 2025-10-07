@@ -667,6 +667,7 @@ export const MENUITEMS: any = [
       {
         path: "/utilities/thruster-requirement-calculator",
         type: "link",
+        menusub: true,
         active: false,
         selected: false,
         title: "Thruster Requirement Calculator"
@@ -674,6 +675,7 @@ export const MENUITEMS: any = [
       {
         path: "/utilities/terminal-velocity-calculator",
         type: "link",
+        menusub: true,
         active: false,
         selected: false,
         title: "Parachute / Terminal Velocity Calculator"
