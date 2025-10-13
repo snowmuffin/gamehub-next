@@ -14,6 +14,26 @@ type ThrusterSpec = {
   massKg?: number; // per-block mass on this grid
 };
 
+type CargoContainerSpec = {
+  id: string;
+  name: string;
+  massKg: number; // container mass when full (we ignore empty container weight)
+};
+
+// Cargo Container data from Space Engineers Wiki
+// Container mass represents the maximum cargo weight (container itself is ignored)
+const CARGO_CONTAINERS_BY_GRID: Record<GridSize, CargoContainerSpec[]> = {
+  small: [
+    { id: "small_cargo", name: "Small Cargo Container", massKg: 49.2 },
+    { id: "medium_cargo", name: "Medium Cargo Container", massKg: 274.8 },
+    { id: "large_cargo", name: "Large Cargo Container", massKg: 626.2 }
+  ],
+  large: [
+    { id: "small_cargo", name: "Small Cargo Container", massKg: 648.4 },
+    { id: "large_cargo", name: "Large Cargo Container", massKg: 2593.6 }
+  ]
+};
+
 // Thruster data from Space Engineers Wiki (values in Newtons at 100% efficiency).
 // Small Grid and Large Grid sets include Atmospheric, Flat Atmospheric (Flatmo), Ion, and Hydrogen.
 const THRUSTERS_BY_GRID: Record<GridSize, ThrusterSpec[]> = {
@@ -176,6 +196,8 @@ const SpaceEngineersCalculator: React.FC = () => {
   // - added counts affect both available thrust and added thruster mass
   const [existingThrusterCounts, setExistingThrusterCounts] = useState<Record<string, number>>({});
   const [addedThrusterCounts, setAddedThrusterCounts] = useState<Record<string, number>>({});
+  // Cargo containers
+  const [cargoContainerCounts, setCargoContainerCounts] = useState<Record<string, number>>({});
 
   const requiredThrustN = useMemo(() => {
     const mass = Math.max(0, weightKg);
@@ -185,6 +207,7 @@ const SpaceEngineersCalculator: React.FC = () => {
 
   // Initialize/reset counts whenever grid changes
   const thrusters = useMemo(() => THRUSTERS_BY_GRID[grid], [grid]);
+  const cargoContainers = useMemo(() => CARGO_CONTAINERS_BY_GRID[grid], [grid]);
 
   React.useEffect(() => {
     const initCounts: Record<string, number> = {};
@@ -193,7 +216,13 @@ const SpaceEngineersCalculator: React.FC = () => {
     });
     setExistingThrusterCounts(initCounts);
     setAddedThrusterCounts(initCounts);
-  }, [thrusters]);
+
+    const initCargoCounts: Record<string, number> = {};
+    cargoContainers.forEach((c) => {
+      initCargoCounts[c.id] = 0;
+    });
+    setCargoContainerCounts(initCargoCounts);
+  }, [thrusters, cargoContainers]);
 
   const thrusterRows = useMemo(() => {
     const health = clampNumber(healthPct, 0, 100) / 100;
@@ -231,6 +260,13 @@ const SpaceEngineersCalculator: React.FC = () => {
     [thrusterRows]
   );
 
+  const cargoMassKg = useMemo(() => {
+    return cargoContainers.reduce((sum, c) => {
+      const count = Math.max(0, Math.floor(cargoContainerCounts[c.id] ?? 0));
+      return sum + c.massKg * count;
+    }, 0);
+  }, [cargoContainers, cargoContainerCounts]);
+
   const requiredBaseN = useMemo(
     () => Math.max(0, weightKg) * Math.max(0, gravityG) * g_ms2,
     [weightKg, gravityG]
@@ -241,7 +277,12 @@ const SpaceEngineersCalculator: React.FC = () => {
     [thrustersMassKg, gravityG]
   );
 
-  const requiredTotalN = requiredBaseN + requiredExtraFromThrustersN;
+  const requiredExtraFromCargoN = useMemo(
+    () => cargoMassKg * Math.max(0, gravityG) * g_ms2,
+    [cargoMassKg, gravityG]
+  );
+
+  const requiredTotalN = requiredBaseN + requiredExtraFromThrustersN + requiredExtraFromCargoN;
 
   const meetsRequirement = totalEffectiveN >= requiredTotalN && requiredTotalN > 0;
 
@@ -300,6 +341,35 @@ const SpaceEngineersCalculator: React.FC = () => {
                     </Col>
                   </Row>
                 </Col>
+                <Col xs={12}>
+                  <Form.Label className="mb-2">Cargo Containers (Full)</Form.Label>
+                  <div className="d-flex flex-column gap-2">
+                    {cargoContainers.map((container) => (
+                      <div key={container.id} className="d-flex align-items-center gap-2">
+                        <div style={{ minWidth: "200px" }} className="text-muted small">
+                          {container.name}
+                        </div>
+                        <Form.Control
+                          type="number"
+                          min={0}
+                          step={1}
+                          value={cargoContainerCounts[container.id] ?? 0}
+                          onChange={(e) =>
+                            setCargoContainerCounts((prev) => ({
+                              ...prev,
+                              [container.id]: Math.max(0, Math.floor(Number(e.target.value) || 0))
+                            }))
+                          }
+                          style={{ width: "100px" }}
+                        />
+                        <span className="text-muted small">× {container.massKg} kg</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-2 text-muted small">
+                    Total cargo mass: <b>{cargoMassKg.toLocaleString()} kg</b>
+                  </div>
+                </Col>
               </Row>
             </Form>
           </Card.Body>
@@ -341,6 +411,14 @@ const SpaceEngineersCalculator: React.FC = () => {
                   key={2}
                   variant="warning"
                   label={`+Thrusters ${formatKN(requiredExtraFromThrustersN)} kN`}
+                />
+                <ProgressBar
+                  now={
+                    requiredTotalN > 0 ? (requiredExtraFromCargoN / requiredTotalN) * 100 : 0
+                  }
+                  key={3}
+                  variant="info"
+                  label={`+Cargo ${formatKN(requiredExtraFromCargoN)} kN`}
                 />
               </ProgressBar>
             </div>
