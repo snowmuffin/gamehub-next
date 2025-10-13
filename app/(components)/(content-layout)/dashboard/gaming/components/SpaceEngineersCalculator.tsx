@@ -198,6 +198,7 @@ const SpaceEngineersCalculator: React.FC = () => {
   const [addedThrusterCounts, setAddedThrusterCounts] = useState<Record<string, number>>({});
   // Cargo containers
   const [cargoContainerCounts, setCargoContainerCounts] = useState<Record<string, number>>({});
+  const [cargoMultiplier, setCargoMultiplier] = useState<number>(1); // Server cargo capacity multiplier
 
   const requiredThrustN = useMemo(() => {
     const mass = Math.max(0, weightKg);
@@ -261,11 +262,12 @@ const SpaceEngineersCalculator: React.FC = () => {
   );
 
   const cargoMassKg = useMemo(() => {
+    const multiplier = Math.max(0, cargoMultiplier);
     return cargoContainers.reduce((sum, c) => {
       const count = Math.max(0, Math.floor(cargoContainerCounts[c.id] ?? 0));
-      return sum + c.massKg * count;
+      return sum + c.massKg * count * multiplier;
     }, 0);
-  }, [cargoContainers, cargoContainerCounts]);
+  }, [cargoContainers, cargoContainerCounts, cargoMultiplier]);
 
   const requiredBaseN = useMemo(
     () => Math.max(0, weightKg) * Math.max(0, gravityG) * g_ms2,
@@ -344,6 +346,22 @@ const SpaceEngineersCalculator: React.FC = () => {
                 </Col>
                 <Col xs={12}>
                   <Form.Label className="mb-2">Cargo Containers (Full)</Form.Label>
+                  <div className="mb-3">
+                    <div className="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-2 mb-2">
+                      <label className="text-muted small mb-0" style={{ minWidth: "120px" }}>
+                        Capacity Multiplier:
+                      </label>
+                      <Form.Control
+                        type="number"
+                        min={0}
+                        step={0.1}
+                        value={cargoMultiplier}
+                        onChange={(e) => setCargoMultiplier(Number(e.target.value))}
+                        style={{ maxWidth: "120px" }}
+                      />
+                      <span className="text-muted small">×{cargoMultiplier}</span>
+                    </div>
+                  </div>
                   <div className="d-flex flex-column gap-2">
                     {cargoContainers.map((container) => (
                       <Row key={container.id} className="gx-2 gy-2 align-items-center">
@@ -366,13 +384,20 @@ const SpaceEngineersCalculator: React.FC = () => {
                           />
                         </Col>
                         <Col xs={6} sm={3} md={6} lg={3}>
-                          <span className="text-muted small">× {container.massKg} kg</span>
+                          <span className="text-muted small">
+                            × {(container.massKg * cargoMultiplier).toLocaleString(undefined, {
+                              maximumFractionDigits: 1
+                            })}{" "}
+                            kg
+                          </span>
                         </Col>
                       </Row>
                     ))}
                   </div>
-                  <div className="mt-2 text-muted small">
-                    Total cargo mass: <b>{cargoMassKg.toLocaleString()} kg</b>
+                  <div className="mt-3 pt-2 border-top">
+                    <div className="text-muted small">
+                      Total cargo mass: <b>{cargoMassKg.toLocaleString()} kg</b>
+                    </div>
                   </div>
                 </Col>
               </Row>
