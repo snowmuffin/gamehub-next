@@ -287,8 +287,8 @@ const SpaceEngineersCalculator: React.FC = () => {
   const meetsRequirement = totalEffectiveN >= requiredTotalN && requiredTotalN > 0;
 
   return (
-    <Row className="g-4">
-      <Col xl={6} lg={6} md={12}>
+    <Row className="g-3 g-lg-4">
+      <Col xl={6} lg={12} md={12}>
         <Card className="custom-card h-100">
           <Card.Header>
             <Card.Title>Ship Specifications</Card.Title>
@@ -327,16 +327,17 @@ const SpaceEngineersCalculator: React.FC = () => {
                 <Col xs={12}>
                   <Form.Label className="mb-1">Environment</Form.Label>
                   <Row className="gx-2 gy-2">
-                    <Col xs={7}>
-                      <div className="d-flex align-items-center gap-2">
+                    <Col xs={12}>
+                      <div className="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-2">
                         <Form.Control
                           type="number"
                           value={atmDensity}
                           step={0.05}
                           min={0}
                           onChange={(e) => setAtmDensity(Number(e.target.value))}
+                          style={{ maxWidth: "120px" }}
                         />
-                        <span className="text-muted">atm density (≥ 0)</span>
+                        <span className="text-muted small">atm density (≥ 0)</span>
                       </div>
                     </Col>
                   </Row>
@@ -345,25 +346,29 @@ const SpaceEngineersCalculator: React.FC = () => {
                   <Form.Label className="mb-2">Cargo Containers (Full)</Form.Label>
                   <div className="d-flex flex-column gap-2">
                     {cargoContainers.map((container) => (
-                      <div key={container.id} className="d-flex align-items-center gap-2">
-                        <div style={{ minWidth: "200px" }} className="text-muted small">
-                          {container.name}
-                        </div>
-                        <Form.Control
-                          type="number"
-                          min={0}
-                          step={1}
-                          value={cargoContainerCounts[container.id] ?? 0}
-                          onChange={(e) =>
-                            setCargoContainerCounts((prev) => ({
-                              ...prev,
-                              [container.id]: Math.max(0, Math.floor(Number(e.target.value) || 0))
-                            }))
-                          }
-                          style={{ width: "100px" }}
-                        />
-                        <span className="text-muted small">× {container.massKg} kg</span>
-                      </div>
+                      <Row key={container.id} className="gx-2 gy-2 align-items-center">
+                        <Col xs={12} sm={6} md={12} lg={6}>
+                          <div className="text-muted small">{container.name}</div>
+                        </Col>
+                        <Col xs={6} sm={3} md={6} lg={3}>
+                          <Form.Control
+                            type="number"
+                            min={0}
+                            step={1}
+                            value={cargoContainerCounts[container.id] ?? 0}
+                            onChange={(e) =>
+                              setCargoContainerCounts((prev) => ({
+                                ...prev,
+                                [container.id]: Math.max(0, Math.floor(Number(e.target.value) || 0))
+                              }))
+                            }
+                            className="w-100"
+                          />
+                        </Col>
+                        <Col xs={6} sm={3} md={6} lg={3}>
+                          <span className="text-muted small">× {container.massKg} kg</span>
+                        </Col>
+                      </Row>
                     ))}
                   </div>
                   <div className="mt-2 text-muted small">
@@ -375,7 +380,7 @@ const SpaceEngineersCalculator: React.FC = () => {
           </Card.Body>
         </Card>
       </Col>
-      <Col xl={6} lg={6} md={12}>
+      <Col xl={6} lg={12} md={12}>
         <Card className="custom-card h-100">
           <Card.Header>
             <Card.Title>Ship Thruster Requirements</Card.Title>
@@ -423,56 +428,66 @@ const SpaceEngineersCalculator: React.FC = () => {
               </ProgressBar>
             </div>
 
-            <Table responsive className="mb-3 align-middle">
-              <thead>
-                <tr>
-                  <th>Thruster</th>
-                  <th className="text-end">Each (kN)</th>
-                  <th className="text-end">Mass each (kg)</th>
-                  <th className="text-end">Existing</th>
-                  <th className="text-end">Add</th>
-                  <th className="text-end">Total (kN)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {thrusterRows.map((r) => (
-                  <tr key={r.id}>
-                    <td>{r.name}</td>
-                    <td className="text-end">{formatKN(r.effEachN)}</td>
-                    <td className="text-end">{(r.massEachKg ?? 0).toLocaleString()}</td>
-                    <td className="text-end" style={{ minWidth: 110 }}>
-                      <Form.Control
-                        type="number"
-                        min={0}
-                        step={1}
-                        value={existingThrusterCounts[r.id] ?? 0}
-                        onChange={(e) =>
-                          setExistingThrusterCounts((prev) => ({
-                            ...prev,
-                            [r.id]: Math.max(0, Math.floor(Number(e.target.value) || 0))
-                          }))
-                        }
-                      />
-                    </td>
-                    <td className="text-end" style={{ minWidth: 110 }}>
-                      <Form.Control
-                        type="number"
-                        min={0}
-                        step={1}
-                        value={addedThrusterCounts[r.id] ?? 0}
-                        onChange={(e) =>
-                          setAddedThrusterCounts((prev) => ({
-                            ...prev,
-                            [r.id]: Math.max(0, Math.floor(Number(e.target.value) || 0))
-                          }))
-                        }
-                      />
-                    </td>
-                    <td className="text-end">{formatKN(r.totalEffN)}</td>
+            <div className="table-responsive">
+              <Table className="mb-3 align-middle">
+                <thead>
+                  <tr>
+                    <th style={{ minWidth: "140px" }}>Thruster</th>
+                    <th className="text-end" style={{ minWidth: "80px" }}>Each (kN)</th>
+                    <th className="text-end d-none d-md-table-cell" style={{ minWidth: "100px" }}>Mass each (kg)</th>
+                    <th className="text-end" style={{ minWidth: "90px" }}>Existing</th>
+                    <th className="text-end" style={{ minWidth: "90px" }}>Add</th>
+                    <th className="text-end" style={{ minWidth: "80px" }}>Total (kN)</th>
                   </tr>
-                ))}
-              </tbody>
-            </Table>
+                </thead>
+                <tbody>
+                  {thrusterRows.map((r) => (
+                    <tr key={r.id}>
+                      <td>
+                        <div className="text-truncate" style={{ maxWidth: "200px" }} title={r.name}>
+                          {r.name}
+                        </div>
+                      </td>
+                      <td className="text-end">{formatKN(r.effEachN)}</td>
+                      <td className="text-end d-none d-md-table-cell">{(r.massEachKg ?? 0).toLocaleString()}</td>
+                      <td className="text-end">
+                        <Form.Control
+                          type="number"
+                          min={0}
+                          step={1}
+                          size="sm"
+                          value={existingThrusterCounts[r.id] ?? 0}
+                          onChange={(e) =>
+                            setExistingThrusterCounts((prev) => ({
+                              ...prev,
+                              [r.id]: Math.max(0, Math.floor(Number(e.target.value) || 0))
+                            }))
+                          }
+                          style={{ minWidth: "70px" }}
+                        />
+                      </td>
+                      <td className="text-end">
+                        <Form.Control
+                          type="number"
+                          min={0}
+                          step={1}
+                          size="sm"
+                          value={addedThrusterCounts[r.id] ?? 0}
+                          onChange={(e) =>
+                            setAddedThrusterCounts((prev) => ({
+                              ...prev,
+                              [r.id]: Math.max(0, Math.floor(Number(e.target.value) || 0))
+                            }))
+                          }
+                          style={{ minWidth: "70px" }}
+                        />
+                      </td>
+                      <td className="text-end">{formatKN(r.totalEffN)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </div>
 
             <div className="d-flex flex-wrap gap-2">
               <Button
