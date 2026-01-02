@@ -69,9 +69,9 @@ npm install --production=false
 echo -e "${YELLOW}🧹 Cleaning macOS hidden files...${NC}"
 npm run clean:macos
 
-# Build
-echo -e "${YELLOW}🔨 Building project...${NC}"
-npm run build
+# Build with increased Node.js memory
+echo -e "${YELLOW}🔨 Building project (with increased memory allocation)...${NC}"
+NODE_OPTIONS="--max-old-space-size=2048" npm run build
 
 # Create log directory
 mkdir -p logs
