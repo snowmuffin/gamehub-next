@@ -21,14 +21,18 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
 
   // Update menu items when wiki categories change
   useEffect(() => {
-    const updatedMenuItems = [...MENUITEMS];
+    console.log("Wiki categories loaded:", wikiCategories);
+    console.log("Language:", language);
+    
+    // Filter out any existing Wiki menu first
+    const baseMenuItems = MENUITEMS.filter(item => item.title !== "Wiki");
     
     // Always add Wiki menu (either with categories or empty)
     const wikiMenuItem = generateWikiMenuItem(wikiCategories, language);
-    updatedMenuItems.push(wikiMenuItem);
+    baseMenuItems.push(wikiMenuItem);
     
-    setMenuitems(updatedMenuItems);
-  }, [wikiCategories, language, wikiError]);
+    setMenuitems(baseMenuItems);
+  }, [wikiCategories, language]);
 
   function closeMenu() {
     const closeMenudata = (items: any) => {
