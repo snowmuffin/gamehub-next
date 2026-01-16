@@ -142,9 +142,6 @@ const ArticleEditor: React.FC<ArticleEditorProps> = ({
             />
           </Form.Group>
         </Col>
-      </Row
-          </Form.Group>
-        </Col>
       </Row>
 
       <Tab.Container defaultActiveKey="ko">
