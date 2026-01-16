@@ -10,7 +10,7 @@ import type {
   CreateArticleDto,
   UpdateArticleDto,
   WikiArticle,
-  WikiCategoryWithCount
+  WikiCategory
 } from "@/shared/types/wiki.types";
 
 const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
@@ -18,7 +18,7 @@ const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
 interface ArticleEditorProps {
   article?: WikiArticle | null;
   categoryId?: number | null;
-  categories: WikiCategoryWithCount[];
+  categories: WikiCategory[];
   onSave: (data: CreateArticleDto | UpdateArticleDto) => Promise<void>;
   onCancel: () => void;
 }
@@ -31,33 +31,26 @@ const ArticleEditor: React.FC<ArticleEditorProps> = ({
   onCancel
 }) => {
   const [selectedCategoryId, setSelectedCategoryId] = useState(
-    article?.category_id || categoryId || categories[0]?.id || 0
+    categoryId || categories[0]?.id || 0
   );
-  const [titleKo, setTitleKo] = useState(
-    article?.translations.find((t) => t.language === "ko")?.title || ""
-  );
-  const [titleEn, setTitleEn] = useState(
-    article?.translations.find((t) => t.language === "en")?.title || ""
-  );
-  const [contentKo, setContentKo] = useState(
-    article?.translations.find((t) => t.language === "ko")?.content || ""
-  );
-  const [contentEn, setContentEn] = useState(
-    article?.translations.find((t) => t.language === "en")?.content || ""
-  );
-  const [summaryKo, setSummaryKo] = useState(
-    article?.translations.find((t) => t.language === "ko")?.summary || ""
-  );
-  const [summaryEn, setSummaryEn] = useState(
-    article?.translations.find((t) => t.language === "en")?.summary || ""
-  );
-  const [displayOrder, setDisplayOrder] = useState(article?.display_order || 0);
-  const [isActive, setIsActive] = useState(article?.is_active ?? true);
+  const [slug, setSlug] = useState(article?.slug || "");
+  const [titleKo, setTitleKo] = useState(article?.title || "");
+  const [titleEn, setTitleEn] = useState("");
+  const [contentKo, setContentKo] = useState(article?.content || "");
+  const [contentEn, setContentEn] = useState("");
+  const [summaryKo, setSummaryKo] = useState(article?.summary || "");
+  const [summaryEn, setSummaryEn] = useState("");
+  const [displayOrder, setDisplayOrder] = useState(article?.displayOrder || 0);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!slug.trim()) {
+      setError("Slug is required");
+      return;
+    }
 
     if (!titleKo.trim() || !titleEn.trim()) {
       setError("Article titles are required for both languages");
@@ -75,23 +68,19 @@ const ArticleEditor: React.FC<ArticleEditorProps> = ({
     }
 
     const data: CreateArticleDto | UpdateArticleDto = {
-      category_id: selectedCategoryId,
-      display_order: displayOrder,
-      is_active: isActive,
-      translations: [
-        {
-          language: "ko",
-          title: titleKo.trim(),
-          content: contentKo.trim(),
-          summary: summaryKo.trim() || undefined
-        },
-        {
-          language: "en",
-          title: titleEn.trim(),
-          content: contentEn.trim(),
-          summary: summaryEn.trim() || undefined
-        }
-      ]
+      categoryId: selectedCategoryId,
+      slug: slug.trim(),
+      displayOrder,
+      ko: {
+        title: titleKo.trim(),
+        content: contentKo.trim(),
+        summary: summaryKo.trim() || undefined
+      },
+      en: {
+        title: titleEn.trim(),
+        content: contentEn.trim(),
+        summary: summaryEn.trim() || undefined
+      }
     };
 
     try {
@@ -108,8 +97,7 @@ const ArticleEditor: React.FC<ArticleEditorProps> = ({
     <Form onSubmit={handleSubmit}>
       {error && <div className="alert alert-danger">{error}</div>}
 
-      <Row className="mb-3">
-        <Col md={6}>
+      <Row classN4}>
           <Form.Group>
             <Form.Label>
               Category <span className="text-danger">*</span>
@@ -121,14 +109,29 @@ const ArticleEditor: React.FC<ArticleEditorProps> = ({
             >
               {categories.map((cat) => (
                 <option key={cat.id} value={cat.id}>
-                  {cat.translations.find((t) => t.language === "ko")?.name ||
-                    cat.translations[0]?.name}
+                  {cat.title}
                 </option>
               ))}
             </Form.Select>
           </Form.Group>
         </Col>
-        <Col md={3}>
+        <Col md={4}>
+          <Form.Group>
+            <Form.Label>
+              Slug <span className="text-danger">*</span>
+            </Form.Label>
+            <Form.Control
+              type="text"
+              value={slug}
+              onChange={(e) => setSlug(e.target.value)}
+              placeholder="getting-started"
+              required
+              disabled={!!article}
+            />
+            <Form.Text className="text-muted">URL identifier</Form.Text>
+          </Form.Group>
+        </Col>
+        <Col md={4}>
           <Form.Group>
             <Form.Label>Display Order</Form.Label>
             <Form.Control
@@ -138,15 +141,7 @@ const ArticleEditor: React.FC<ArticleEditorProps> = ({
             />
           </Form.Group>
         </Col>
-        <Col md={3}>
-          <Form.Group>
-            <Form.Check
-              type="checkbox"
-              label="Active"
-              checked={isActive}
-              onChange={(e) => setIsActive(e.target.checked)}
-              className="mt-4"
-            />
+      </Row
           </Form.Group>
         </Col>
       </Row>
