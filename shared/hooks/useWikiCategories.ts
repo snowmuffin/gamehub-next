@@ -7,11 +7,11 @@ import { useSelector } from "react-redux";
 
 import { getCategories } from "@/shared/api/wiki";
 import type { RootState } from "@/shared/redux/store";
-import type { WikiCategoryWithCount } from "@/shared/types/wiki.types";
+import type { WikiCategory } from "@/shared/types/wiki.types";
 
 export const useWikiCategories = () => {
   const language = useSelector((state: RootState) => state.language.code);
-  const [categories, setCategories] = useState<WikiCategoryWithCount[]>([]);
+  const [categories, setCategories] = useState<WikiCategory[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -25,12 +25,12 @@ export const useWikiCategories = () => {
     const fetchCategories = async () => {
       try {
         setLoading(true);
-        const response = await getCategories(language);
-        // Filter only active categories and sort by display_order
-        const activeCategories = response.categories
-          .filter((cat) => cat.is_active)
-          .sort((a, b) => a.display_order - b.display_order);
-        setCategories(activeCategories);
+        const categories = await getCategories(language);
+        // Filter only published categories and sort by displayOrder
+        const publishedCategories = categories
+          .filter((cat) => cat.isPublished)
+          .sort((a, b) => a.displayOrder - b.displayOrder);
+        setCategories(publishedCategories);
         setError(null);
       } catch (err) {
         console.error("Failed to fetch wiki categories for navigation:", err);

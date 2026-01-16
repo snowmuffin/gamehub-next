@@ -1,14 +1,15 @@
 /**
  * Wiki API functions
+ * Matches backend NestJS API structure
  */
 
 import { apiRequest } from "./request";
 import type {
   CreateArticleDto,
   CreateCategoryDto,
-  GetArticleResponse,
+  GetArticleDetailResponse,
   GetCategoriesResponse,
-  GetCategoryArticlesResponse,
+  GetCategoryWithArticlesResponse,
   UpdateArticleDto,
   UpdateCategoryDto,
   WikiArticle,
@@ -29,16 +30,16 @@ export const getCategories = async (lang = "ko"): Promise<GetCategoriesResponse>
 };
 
 /**
- * Get articles by category
- * @param categoryId Category ID
+ * Get category with articles by slug
+ * @param categorySlug Category slug
  * @param lang Language code (ko, en)
  */
-export const getCategoryArticles = async (
-  categoryId: number,
+export const getCategoryWithArticles = async (
+  categorySlug: string,
   lang = "ko"
-): Promise<GetCategoryArticlesResponse> => {
-  const response = await apiRequest.get<GetCategoryArticlesResponse>(
-    `/space-engineers/wiki/categories/${categoryId}/articles`,
+): Promise<GetCategoryWithArticlesResponse> => {
+  const response = await apiRequest.get<GetCategoryWithArticlesResponse>(
+    `/space-engineers/wiki/categories/${categorySlug}`,
     { params: { lang } }
   );
   return response.data;
@@ -46,13 +47,19 @@ export const getCategoryArticles = async (
 
 /**
  * Get article detail
- * @param articleId Article ID
+ * @param categorySlug Category slug
+ * @param articleSlug Article slug
  * @param lang Language code (ko, en)
  */
-export const getArticle = async (articleId: number, lang = "ko"): Promise<GetArticleResponse> => {
-  const response = await apiRequest.get<GetArticleResponse>(`/space-engineers/wiki/articles/${articleId}`, {
-    params: { lang }
-  });
+export const getArticleDetail = async (
+  categorySlug: string,
+  articleSlug: string,
+  lang = "ko"
+): Promise<GetArticleDetailResponse> => {
+  const response = await apiRequest.get<GetArticleDetailResponse>(
+    `/space-engineers/wiki/categories/${categorySlug}/articles/${articleSlug}`,
+    { params: { lang } }
+  );
   return response.data;
 };
 

@@ -2,7 +2,7 @@
  * Dynamic Wiki menu generator
  */
 
-import type { WikiCategoryWithCount } from "@/shared/types/wiki.types";
+import type { WikiCategory } from "@/shared/types/wiki.types";
 
 const FormsIcon = (
   <svg xmlns="http://www.w3.org/2000/svg" className="side-menu__icon" viewBox="0 0 256 256">
@@ -26,7 +26,7 @@ const FormsIcon = (
  * Generate dynamic Wiki menu item from categories
  */
 export const generateWikiMenuItem = (
-  categories: WikiCategoryWithCount[],
+  categories: WikiCategory[],
   language: string = "ko"
 ) => {
   // If no categories, return menu with link to main wiki page
@@ -43,13 +43,10 @@ export const generateWikiMenuItem = (
 
   // Generate children from categories
   const children = categories.map((category) => {
-    const translation = category.translations.find((t) => t.language === language);
-    const name = translation?.name || category.translations[0]?.name || "Untitled";
-
     return {
-      title: name,
+      title: category.title, // Already localized by backend
       type: "link",
-      path: `/wiki/categories/${category.id}`,
+      path: `/wiki/categories/${category.slug}`,
       menusub: true,
       active: false,
       selected: false

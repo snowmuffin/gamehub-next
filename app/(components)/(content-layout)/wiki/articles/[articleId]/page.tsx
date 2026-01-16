@@ -32,8 +32,8 @@ const WikiArticlePage = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await getArticle(articleId, language);
-        setArticle(response.article);
+        const article = await getArticle(articleId, language);
+        setArticle(article);
         setError(null);
       } catch (err) {
         console.error("Failed to fetch article:", err);

@@ -1,28 +1,30 @@
 /**
  * Wiki system type definitions
+ * Matches backend API structure
  */
 
 export interface WikiCategoryTranslation {
-  language: string;
-  name: string;
+  title: string;
   description?: string;
 }
 
 export interface WikiCategory {
   id: number;
-  display_order: number;
-  is_active: boolean;
-  created_at: string;
-  updated_at: string;
-  translations: WikiCategoryTranslation[];
+  slug: string;
+  icon?: string;
+  displayOrder: number;
+  isPublished: boolean;
+  createdAt: string;
+  updatedAt: string;
+  title: string; // Localized by backend based on ?lang parameter
+  description?: string; // Localized by backend
 }
 
-export interface WikiCategoryWithCount extends WikiCategory {
-  article_count: number;
+export interface WikiCategoryWithArticles extends WikiCategory {
+  articles: WikiArticle[];
 }
 
 export interface WikiArticleTranslation {
-  language: string;
   title: string;
   content: string;
   summary?: string;
@@ -30,79 +32,61 @@ export interface WikiArticleTranslation {
 
 export interface WikiArticle {
   id: number;
-  category_id: number;
-  display_order: number;
-  is_active: boolean;
-  view_count: number;
-  author_steam_id?: string;
-  created_at: string;
-  updated_at: string;
-  translations: WikiArticleTranslation[];
+  slug: string;
+  displayOrder: number;
+  isPublished: boolean;
+  createdAt: string;
+  updatedAt: string;
+  title: string; // Localized
+  content?: string; // Localized (only in detail view)
+  summary?: string; // Localized
 }
 
-export interface WikiArticleWithCategory extends WikiArticle {
-  category: WikiCategory;
+export interface WikiArticleDetail extends WikiArticle {
+  content: string;
+  category: {
+    id: number;
+    slug: string;
+    title: string;
+  };
 }
 
-export interface WikiCategoryWithArticles extends WikiCategory {
-  articles: WikiArticle[];
-}
-
-// API Request/Response types
-export interface GetCategoriesResponse {
-  categories: WikiCategoryWithCount[];
-}
-
-export interface GetCategoryArticlesResponse {
-  category: WikiCategory;
-  articles: WikiArticle[];
-}
-
-export interface GetArticleResponse {
-  article: WikiArticleWithCategory;
-}
+// API Response types
+export type GetCategoriesResponse = WikiCategory[];
+export type GetCategoryWithArticlesResponse = WikiCategoryWithArticles;
+export type GetArticleDetailResponse = WikiArticleDetail;
 
 // Admin CRUD DTOs
 export interface CreateCategoryDto {
-  display_order?: number;
-  is_active?: boolean;
-  translations: Array<{
-    language: string;
-    name: string;
-    description?: string;
-  }>;
+  slug: string;
+  icon?: string;
+  displayOrder?: number;
+  ko: WikiCategoryTranslation;
+  en: WikiCategoryTranslation;
 }
 
 export interface UpdateCategoryDto {
-  display_order?: number;
-  is_active?: boolean;
-  translations?: Array<{
-    language: string;
-    name: string;
-    description?: string;
-  }>;
+  slug?: string;
+  icon?: string;
+  displayOrder?: number;
+  isPublished?: boolean;
+  ko?: WikiCategoryTranslation;
+  en?: WikiCategoryTranslation;
 }
 
 export interface CreateArticleDto {
-  category_id: number;
-  display_order?: number;
-  is_active?: boolean;
-  translations: Array<{
-    language: string;
-    title: string;
-    content: string;
-    summary?: string;
-  }>;
+  categoryId: number;
+  slug: string;
+  displayOrder?: number;
+  ko: WikiArticleTranslation;
+  en: WikiArticleTranslation;
 }
 
 export interface UpdateArticleDto {
-  category_id?: number;
-  display_order?: number;
-  is_active?: boolean;
-  translations?: Array<{
-    language: string;
-    title: string;
-    content: string;
-    summary?: string;
-  }>;
+  categoryId?: number;
+  slug?: string;
+  displayOrder?: number;
+  isPublished?: boolean;
+  ko?: WikiArticleTranslation;
+  en?: WikiArticleTranslation;
 }

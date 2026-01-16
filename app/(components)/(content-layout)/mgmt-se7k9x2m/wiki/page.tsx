@@ -36,8 +36,8 @@ const AdminWikiPage = () => {
   const fetchCategories = async () => {
     try {
       setLoading(true);
-      const response = await getCategories(language);
-      setCategories(response.categories);
+      const categories = await getCategories(language);
+      setCategories(categories);
       setError(null);
     } catch (err) {
       console.error("Failed to fetch categories:", err);

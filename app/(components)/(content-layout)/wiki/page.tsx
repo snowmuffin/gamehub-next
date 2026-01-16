@@ -7,11 +7,11 @@ import { useSelector } from "react-redux";
 import { getCategories } from "@/shared/api/wiki";
 import Seo from "@/shared/layout-components/seo";
 import type { RootState } from "@/shared/redux/store";
-import type { WikiCategoryWithCount } from "@/shared/types/wiki.types";
+import type { WikiCategory } from "@/shared/types/wiki.types";
 
 const WikiIndexPage = () => {
   const language = useSelector((state: RootState) => state.language.code);
-  const [categories, setCategories] = useState<WikiCategoryWithCount[]>([]);
+  const [categories, setCategories] = useState<WikiCategory[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -19,8 +19,8 @@ const WikiIndexPage = () => {
     const fetchCategories = async () => {
       try {
         setLoading(true);
-        const response = await getCategories(language);
-        setCategories(response.categories);
+        const categories = await getCategories(language);
+        setCategories(categories);
         setError(null);
       } catch (err) {
         console.error("Failed to fetch wiki categories:", err);
@@ -32,16 +32,6 @@ const WikiIndexPage = () => {
 
     fetchCategories();
   }, [language]);
-
-  const getCategoryName = (category: WikiCategoryWithCount) => {
-    const translation = category.translations.find((t) => t.language === language);
-    return translation?.name || category.translations[0]?.name || "Untitled";
-  };
-
-  const getCategoryDescription = (category: WikiCategoryWithCount) => {
-    const translation = category.translations.find((t) => t.language === language);
-    return translation?.description || category.translations[0]?.description || "";
-  };
 
   if (loading) {
     return (
@@ -81,19 +71,19 @@ const WikiIndexPage = () => {
             {categories.map((category) => (
               <Col key={category.id} xl={4} lg={6} md={6} sm={12}>
                 <Link
-                  href={`/wiki/categories/${category.id}`}
+                  href={`/wiki/categories/${category.slug}`}
                   className="text-decoration-none"
                 >
                   <Card className="custom-card h-100 hover-card">
                     <Card.Body>
                       <div className="d-flex justify-content-between align-items-start mb-3">
-                        <h5 className="fw-medium mb-0">{getCategoryName(category)}</h5>
-                        <span className="badge bg-primary-transparent">
-                          {category.article_count} {language === "ko" ? "개" : "articles"}
-                        </span>
+                        <div className="d-flex align-items-center gap-2">
+                          {category.icon && <span style={{ fontSize: "1.5rem" }}>{category.icon}</span>}
+                          <h5 className="fw-medium mb-0">{category.title}</h5>
+                        </div>
                       </div>
-                      {getCategoryDescription(category) && (
-                        <p className="text-muted mb-0">{getCategoryDescription(category)}</p>
+                      {category.description && (
+                        <p className="text-muted mb-0">{category.description}</p>
                       )}
                     </Card.Body>
                   </Card>
