@@ -97,7 +97,8 @@ const ArticleEditor: React.FC<ArticleEditorProps> = ({
     <Form onSubmit={handleSubmit}>
       {error && <div className="alert alert-danger">{error}</div>}
 
-      <Row classN4}>
+      <Row className="mb-3">
+        <Col md={4}>
           <Form.Group>
             <Form.Label>
               Category <span className="text-danger">*</span>
