@@ -21,20 +21,11 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
 
   // Update menu items when wiki categories change
   useEffect(() => {
-    // If there's an error fetching wiki categories, use the static menu
-    if (wikiError) {
-      console.warn("Using static Wiki menu due to API error:", wikiError);
-      setMenuitems(MENUITEMS);
-      return;
-    }
-
     const updatedMenuItems = [...MENUITEMS];
-    const wikiMenuIndex = updatedMenuItems.findIndex((item) => item.title === "Wiki");
     
-    if (wikiMenuIndex !== -1 && wikiCategories.length > 0) {
-      // Replace the Wiki menu with dynamically generated one
-      updatedMenuItems[wikiMenuIndex] = generateWikiMenuItem(wikiCategories, language);
-    }
+    // Always add Wiki menu (either with categories or empty)
+    const wikiMenuItem = generateWikiMenuItem(wikiCategories, language);
+    updatedMenuItems.push(wikiMenuItem);
     
     setMenuitems(updatedMenuItems);
   }, [wikiCategories, language, wikiError]);

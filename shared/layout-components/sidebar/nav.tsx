@@ -681,39 +681,9 @@ export const MENUITEMS: any = [
         title: "Parachute / Terminal Velocity Calculator"
       }
     ]
-  },
-  {
-    title: "Wiki",
-    icon: FormsIcon,
-    type: "sub",
-    active: false,
-    selected: false,
-    children: [
-      {
-        title: "Server Overview",
-        type: "link",
-        path: "/wiki/server-overview",
-        menusub: true,
-        active: false,
-        selected: false
-      },
-      {
-        title: "Commands",
-        type: "link",
-        path: "/wiki/commands",
-        menusub: true,
-        active: false,
-        selected: false
-      },
-      {
-        path: "/wiki/rules",
-        type: "link",
-        active: false,
-        selected: false,
-        title: "Server Rules"
-      }
-    ]
   }
+  // Wiki menu is now dynamically generated from database
+  // See wikiMenuGenerator.tsx and sidebar.tsx
 ];
 
 export default MENUITEMS;
