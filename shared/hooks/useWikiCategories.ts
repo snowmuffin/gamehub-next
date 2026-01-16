@@ -26,11 +26,10 @@ export const useWikiCategories = () => {
       try {
         setLoading(true);
         const categories = await getCategories(language);
-        // Filter only published categories and sort by displayOrder
-        const publishedCategories = categories
-          .filter((cat) => cat.isPublished)
+        // Sort by displayOrder
+        const sortedCategories = categories
           .sort((a, b) => a.displayOrder - b.displayOrder);
-        setCategories(publishedCategories);
+        setCategories(sortedCategories);
         setError(null);
       } catch (err) {
         console.error("Failed to fetch wiki categories for navigation:", err);
