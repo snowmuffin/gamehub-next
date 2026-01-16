@@ -24,15 +24,16 @@ const Sidebar = ({ local_variable, ThemeChanger }: any) => {
     console.log("Wiki categories loaded:", wikiCategories);
     console.log("Language:", language);
     
-    // Start with original MENUITEMS and remove any Wiki items
-    const baseMenuItems = MENUITEMS.filter(item => item.title !== "Wiki");
+    // Replace Wiki menu item with dynamic version
+    const updatedMenuItems = MENUITEMS.map(item => {
+      if (item.title === "Wiki") {
+        return generateWikiMenuItem(wikiCategories, language);
+      }
+      return item;
+    });
     
-    // Always add Wiki menu (either with categories or empty)
-    const wikiMenuItem = generateWikiMenuItem(wikiCategories, language);
-    baseMenuItems.push(wikiMenuItem);
-    
-    console.log("Final menu items:", baseMenuItems);
-    setMenuitems([...baseMenuItems]); // Force new array reference
+    console.log("Final menu items:", updatedMenuItems);
+    setMenuitems([...updatedMenuItems]);
   }, [wikiCategories, language]);
 
   function closeMenu() {

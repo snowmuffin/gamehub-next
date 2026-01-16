@@ -681,9 +681,17 @@ export const MENUITEMS: any = [
         title: "Parachute / Terminal Velocity Calculator"
       }
     ]
+  },
+  // Wiki menu placeholder - will be replaced with dynamic content
+  // Initial state matches server-side render to prevent hydration errors
+  {
+    title: "Wiki",
+    icon: null as any, // Will be replaced by FormsIcon in sidebar.tsx
+    type: "link",
+    path: "/wiki",
+    active: false,
+    selected: false
   }
-  // Wiki menu is now dynamically generated from database
-  // See wikiMenuGenerator.tsx and sidebar.tsx
 ];
 
 export default MENUITEMS;
