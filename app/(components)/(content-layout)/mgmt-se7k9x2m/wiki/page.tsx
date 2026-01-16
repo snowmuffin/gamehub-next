@@ -160,23 +160,12 @@ const AdminWikiPage = () => {
                       <Tab
                         key={category.id}
                         eventKey={category.id.toString()}
-                        title={
-                          category.translations.find((t) => t.language === language)?.name ||
-                          category.translations[0]?.name ||
-                          "Untitled"
-                        }
+                        title={category.title || "Untitled"}
                       >
                         <div className="d-flex justify-content-between align-items-center mb-3">
                           <div>
-                            <h5>
-                              {category.translations.find((t) => t.language === language)?.name ||
-                                category.translations[0]?.name}
-                            </h5>
-                            <p className="text-muted mb-0">
-                              {category.translations.find((t) => t.language === language)
-                                ?.description ||
-                                category.translations[0]?.description}
-                            </p>
+                            <h5>{category.title}</h5>
+                            <p className="text-muted mb-0">{category.description}</p>
                           </div>
                           <div className="d-flex gap-2">
                             <Button
