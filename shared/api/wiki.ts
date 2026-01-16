@@ -22,7 +22,7 @@ import type {
  * @param lang Language code (ko, en)
  */
 export const getCategories = async (lang = "ko"): Promise<GetCategoriesResponse> => {
-  const response = await apiRequest.get<GetCategoriesResponse>("/wiki/categories", {
+  const response = await apiRequest.get<GetCategoriesResponse>("/space-engineers/wiki/categories", {
     params: { lang }
   });
   return response.data;
@@ -38,7 +38,7 @@ export const getCategoryArticles = async (
   lang = "ko"
 ): Promise<GetCategoryArticlesResponse> => {
   const response = await apiRequest.get<GetCategoryArticlesResponse>(
-    `/wiki/categories/${categoryId}`,
+    `/space-engineers/wiki/categories/${categoryId}`,
     { params: { lang } }
   );
   return response.data;
@@ -50,7 +50,7 @@ export const getCategoryArticles = async (
  * @param lang Language code (ko, en)
  */
 export const getArticle = async (articleId: number, lang = "ko"): Promise<GetArticleResponse> => {
-  const response = await apiRequest.get<GetArticleResponse>(`/wiki/articles/${articleId}`, {
+  const response = await apiRequest.get<GetArticleResponse>(`/space-engineers/wiki/articles/${articleId}`, {
     params: { lang }
   });
   return response.data;
@@ -62,7 +62,7 @@ export const getArticle = async (articleId: number, lang = "ko"): Promise<GetArt
  * Create a new category (Admin only)
  */
 export const createCategory = async (data: CreateCategoryDto): Promise<WikiCategory> => {
-  const response = await apiRequest.post<WikiCategory>("/admin/wiki/categories", data);
+  const response = await apiRequest.post<WikiCategory>("/space-engineers/wiki/admin/categories", data);
   return response.data;
 };
 
@@ -74,7 +74,7 @@ export const updateCategory = async (
   data: UpdateCategoryDto
 ): Promise<WikiCategory> => {
   const response = await apiRequest.put<WikiCategory>(
-    `/admin/wiki/categories/${categoryId}`,
+    `/space-engineers/wiki/admin/categories/${categoryId}`,
     data
   );
   return response.data;
@@ -84,14 +84,14 @@ export const updateCategory = async (
  * Delete a category (Admin only)
  */
 export const deleteCategory = async (categoryId: number): Promise<void> => {
-  await apiRequest.delete(`/admin/wiki/categories/${categoryId}`);
+  await apiRequest.delete(`/space-engineers/wiki/admin/categories/${categoryId}`);
 };
 
 /**
  * Create a new article (Admin only)
  */
 export const createArticle = async (data: CreateArticleDto): Promise<WikiArticle> => {
-  const response = await apiRequest.post<WikiArticle>("/admin/wiki/articles", data);
+  const response = await apiRequest.post<WikiArticle>("/space-engineers/wiki/admin/articles", data);
   return response.data;
 };
 
@@ -102,7 +102,7 @@ export const updateArticle = async (
   articleId: number,
   data: UpdateArticleDto
 ): Promise<WikiArticle> => {
-  const response = await apiRequest.put<WikiArticle>(`/admin/wiki/articles/${articleId}`, data);
+  const response = await apiRequest.put<WikiArticle>(`/space-engineers/wiki/admin/articles/${articleId}`, data);
   return response.data;
 };
 
@@ -110,5 +110,5 @@ export const updateArticle = async (
  * Delete an article (Admin only)
  */
 export const deleteArticle = async (articleId: number): Promise<void> => {
-  await apiRequest.delete(`/admin/wiki/articles/${articleId}`);
+  await apiRequest.delete(`/space-engineers/wiki/admin/articles/${articleId}`);
 };
