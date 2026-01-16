@@ -1,6 +1,6 @@
 "use client";
 import React, { Fragment, useState, useEffect } from "react";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { ThemeChanger } from "../../redux/action";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
@@ -10,9 +10,27 @@ import store from "../../redux/store";
 import { basePath } from "../../../next.config";
 import MENUITEMS from "./nav";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import { useWikiCategories } from "@/shared/hooks";
+import { generateWikiMenuItem } from "./wikiMenuGenerator";
+import type { RootState } from "@/shared/redux/store";
 
 const Sidebar = ({ local_variable, ThemeChanger }: any) => {
+  const language = useSelector((state: RootState) => state.language.code);
+  const { categories: wikiCategories } = useWikiCategories();
   const [menuitems, setMenuitems] = useState(MENUITEMS);
+
+  // Update menu items when wiki categories change
+  useEffect(() => {
+    const updatedMenuItems = [...MENUITEMS];
+    const wikiMenuIndex = updatedMenuItems.findIndex((item) => item.title === "Wiki");
+    
+    if (wikiMenuIndex !== -1) {
+      // Replace the Wiki menu with dynamically generated one
+      updatedMenuItems[wikiMenuIndex] = generateWikiMenuItem(wikiCategories, language);
+    }
+    
+    setMenuitems(updatedMenuItems);
+  }, [wikiCategories, language]);
 
   function closeMenu() {
     const closeMenudata = (items: any) => {

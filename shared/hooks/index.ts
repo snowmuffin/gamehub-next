@@ -8,4 +8,5 @@ export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 // Re-export other hooks
+export { useWikiCategories } from "./useWikiCategories";
 export { useTranslation } from "./useTranslation";
