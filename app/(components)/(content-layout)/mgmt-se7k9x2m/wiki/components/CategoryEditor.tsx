@@ -18,7 +18,6 @@ const CategoryEditor: React.FC<CategoryEditorProps> = ({ category, onSave, onCan
   const [descKo, setDescKo] = useState(category?.description || "");
   const [descEn, setDescEn] = useState("");
   const [displayOrder, setDisplayOrder] = useState(category?.displayOrder || 0);
-  const [isPublished, setIsPublished] = useState(category?.isPublished ?? true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -39,7 +38,6 @@ const CategoryEditor: React.FC<CategoryEditorProps> = ({ category, onSave, onCan
       slug: slug.trim(),
       icon: icon.trim() || undefined,
       displayOrder,
-      isPublished,
       ko: {
         title: titleKo.trim(),
         description: descKo.trim() || undefined
@@ -156,7 +154,7 @@ const CategoryEditor: React.FC<CategoryEditorProps> = ({ category, onSave, onCan
       </Row>
 
       <Row className="mb-3">
-        <Col md={6}>
+        <Col md={12}>
           <Form.Group>
             <Form.Label>Display Order</Form.Label>
             <Form.Control
@@ -165,17 +163,6 @@ const CategoryEditor: React.FC<CategoryEditorProps> = ({ category, onSave, onCan
               onChange={(e) => setDisplayOrder(Number(e.target.value))}
             />
             <Form.Text className="text-muted">Lower numbers appear first</Form.Text>
-          </Form.Group>
-        </Col>
-        <Col md={6}>
-          <Form.Group>
-            <Form.Check
-              type="checkbox"
-              label="Published (visible to users)"
-              checked={isPublished}
-              onChange={(e) => setIsPublished(e.target.checked)}
-              className="mt-4"
-            />
           </Form.Group>
         </Col>
       </Row>
