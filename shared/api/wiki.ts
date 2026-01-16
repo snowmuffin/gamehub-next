@@ -38,7 +38,7 @@ export const getCategoryArticles = async (
   lang = "ko"
 ): Promise<GetCategoryArticlesResponse> => {
   const response = await apiRequest.get<GetCategoryArticlesResponse>(
-    `/space-engineers/wiki/categories/${categoryId}`,
+    `/space-engineers/wiki/categories/${categoryId}/articles`,
     { params: { lang } }
   );
   return response.data;
@@ -73,7 +73,7 @@ export const updateCategory = async (
   categoryId: number,
   data: UpdateCategoryDto
 ): Promise<WikiCategory> => {
-  const response = await apiRequest.put<WikiCategory>(
+  const response = await apiRequest.patch<WikiCategory>(
     `/space-engineers/wiki/admin/categories/${categoryId}`,
     data
   );
@@ -102,7 +102,7 @@ export const updateArticle = async (
   articleId: number,
   data: UpdateArticleDto
 ): Promise<WikiArticle> => {
-  const response = await apiRequest.put<WikiArticle>(`/space-engineers/wiki/admin/articles/${articleId}`, data);
+  const response = await apiRequest.patch<WikiArticle>(`/space-engineers/wiki/admin/articles/${articleId}`, data);
   return response.data;
 };
 
