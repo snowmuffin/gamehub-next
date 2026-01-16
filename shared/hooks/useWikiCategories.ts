@@ -16,6 +16,12 @@ export const useWikiCategories = () => {
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
+    // Only run on client side
+    if (typeof window === "undefined") {
+      setLoading(false);
+      return;
+    }
+
     const fetchCategories = async () => {
       try {
         setLoading(true);

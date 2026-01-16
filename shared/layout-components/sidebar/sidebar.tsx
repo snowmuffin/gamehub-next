@@ -16,21 +16,28 @@ import type { RootState } from "@/shared/redux/store";
 
 const Sidebar = ({ local_variable, ThemeChanger }: any) => {
   const language = useSelector((state: RootState) => state.language.code);
-  const { categories: wikiCategories } = useWikiCategories();
+  const { categories: wikiCategories, error: wikiError } = useWikiCategories();
   const [menuitems, setMenuitems] = useState(MENUITEMS);
 
   // Update menu items when wiki categories change
   useEffect(() => {
+    // If there's an error fetching wiki categories, use the static menu
+    if (wikiError) {
+      console.warn("Using static Wiki menu due to API error:", wikiError);
+      setMenuitems(MENUITEMS);
+      return;
+    }
+
     const updatedMenuItems = [...MENUITEMS];
     const wikiMenuIndex = updatedMenuItems.findIndex((item) => item.title === "Wiki");
     
-    if (wikiMenuIndex !== -1) {
+    if (wikiMenuIndex !== -1 && wikiCategories.length > 0) {
       // Replace the Wiki menu with dynamically generated one
       updatedMenuItems[wikiMenuIndex] = generateWikiMenuItem(wikiCategories, language);
     }
     
     setMenuitems(updatedMenuItems);
-  }, [wikiCategories, language]);
+  }, [wikiCategories, language, wikiError]);
 
   function closeMenu() {
     const closeMenudata = (items: any) => {
