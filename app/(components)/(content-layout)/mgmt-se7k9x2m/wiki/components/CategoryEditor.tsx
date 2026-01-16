@@ -2,55 +2,52 @@
 import React, { useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 
-import type { CreateCategoryDto, UpdateCategoryDto, WikiCategoryWithCount } from "@/shared/types/wiki.types";
+import type { CreateCategoryDto, UpdateCategoryDto, WikiCategory } from "@/shared/types/wiki.types";
 
 interface CategoryEditorProps {
-  category?: WikiCategoryWithCount | null;
+  category?: WikiCategory | null;
   onSave: (data: CreateCategoryDto | UpdateCategoryDto) => Promise<void>;
   onCancel: () => void;
 }
 
 const CategoryEditor: React.FC<CategoryEditorProps> = ({ category, onSave, onCancel }) => {
-  const [nameKo, setNameKo] = useState(
-    category?.translations.find((t) => t.language === "ko")?.name || ""
-  );
-  const [nameEn, setNameEn] = useState(
-    category?.translations.find((t) => t.language === "en")?.name || ""
-  );
-  const [descKo, setDescKo] = useState(
-    category?.translations.find((t) => t.language === "ko")?.description || ""
-  );
-  const [descEn, setDescEn] = useState(
-    category?.translations.find((t) => t.language === "en")?.description || ""
-  );
-  const [displayOrder, setDisplayOrder] = useState(category?.display_order || 0);
-  const [isActive, setIsActive] = useState(category?.is_active ?? true);
+  const [slug, setSlug] = useState(category?.slug || "");
+  const [icon, setIcon] = useState(category?.icon || "");
+  const [titleKo, setTitleKo] = useState(category?.title || "");
+  const [titleEn, setTitleEn] = useState("");
+  const [descKo, setDescKo] = useState(category?.description || "");
+  const [descEn, setDescEn] = useState("");
+  const [displayOrder, setDisplayOrder] = useState(category?.displayOrder || 0);
+  const [isPublished, setIsPublished] = useState(category?.isPublished ?? true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!nameKo.trim() || !nameEn.trim()) {
-      setError("Category names are required for both languages");
+    if (!slug.trim()) {
+      setError("Slug is required");
+      return;
+    }
+
+    if (!titleKo.trim() || !titleEn.trim()) {
+      setError("Category titles are required for both languages");
       return;
     }
 
     const data: CreateCategoryDto | UpdateCategoryDto = {
-      display_order: displayOrder,
-      is_active: isActive,
-      translations: [
-        {
-          language: "ko",
-          name: nameKo.trim(),
-          description: descKo.trim() || undefined
-        },
-        {
-          language: "en",
-          name: nameEn.trim(),
-          description: descEn.trim() || undefined
-        }
-      ]
+      slug: slug.trim(),
+      icon: icon.trim() || undefined,
+      displayOrder,
+      isPublished,
+      ko: {
+        title: titleKo.trim(),
+        description: descKo.trim() || undefined
+      },
+      en: {
+        title: titleEn.trim(),
+        description: descEn.trim() || undefined
+      }
     };
 
     try {
@@ -71,13 +68,46 @@ const CategoryEditor: React.FC<CategoryEditorProps> = ({ category, onSave, onCan
         <Col md={6}>
           <Form.Group>
             <Form.Label>
-              Category Name (Korean) <span className="text-danger">*</span>
+              Slug <span className="text-danger">*</span>
             </Form.Label>
             <Form.Control
               type="text"
-              value={nameKo}
-              onChange={(e) => setNameKo(e.target.value)}
-              placeholder="명령어 안내"
+              value={slug}
+              onChange={(e) => setSlug(e.target.value)}
+              placeholder="server-overview"
+              required
+              disabled={!!category}
+            />
+            <Form.Text className="text-muted">
+              URL-friendly identifier (e.g., server-overview, commands)
+            </Form.Text>
+          </Form.Group>
+        </Col>
+        <Col md={6}>
+          <Form.Group>
+            <Form.Label>Icon</Form.Label>
+            <Form.Control
+              type="text"
+              value={icon}
+              onChange={(e) => setIcon(e.target.value)}
+              placeholder="🖥️"
+            />
+            <Form.Text className="text-muted">Emoji icon (optional)</Form.Text>
+          </Form.Group>
+        </Col>
+      </Row>
+
+      <Row className="mb-3">
+        <Col md={6}>
+          <Form.Group>
+            <Form.Label>
+              Title (Korean) <span className="text-danger">*</span>
+            </Form.Label>
+            <Form.Control
+              type="text"
+              value={titleKo}
+              onChange={(e) => setTitleKo(e.target.value)}
+              placeholder="서버 개요"
               required
             />
           </Form.Group>
@@ -85,13 +115,13 @@ const CategoryEditor: React.FC<CategoryEditorProps> = ({ category, onSave, onCan
         <Col md={6}>
           <Form.Group>
             <Form.Label>
-              Category Name (English) <span className="text-danger">*</span>
+              Title (English) <span className="text-danger">*</span>
             </Form.Label>
             <Form.Control
               type="text"
-              value={nameEn}
-              onChange={(e) => setNameEn(e.target.value)}
-              placeholder="Commands"
+              value={titleEn}
+              onChange={(e) => setTitleEn(e.target.value)}
+              placeholder="Server Overview"
               required
             />
           </Form.Group>
@@ -107,7 +137,7 @@ const CategoryEditor: React.FC<CategoryEditorProps> = ({ category, onSave, onCan
               rows={2}
               value={descKo}
               onChange={(e) => setDescKo(e.target.value)}
-              placeholder="서버 내 사용 가능한 명령어 목록"
+              placeholder="서버의 기본 정보와 특징"
             />
           </Form.Group>
         </Col>
@@ -119,7 +149,7 @@ const CategoryEditor: React.FC<CategoryEditorProps> = ({ category, onSave, onCan
               rows={2}
               value={descEn}
               onChange={(e) => setDescEn(e.target.value)}
-              placeholder="Available commands in the server"
+              placeholder="Basic server information and features"
             />
           </Form.Group>
         </Col>
@@ -141,9 +171,9 @@ const CategoryEditor: React.FC<CategoryEditorProps> = ({ category, onSave, onCan
           <Form.Group>
             <Form.Check
               type="checkbox"
-              label="Active (visible to users)"
-              checked={isActive}
-              onChange={(e) => setIsActive(e.target.checked)}
+              label="Published (visible to users)"
+              checked={isPublished}
+              onChange={(e) => setIsPublished(e.target.checked)}
               className="mt-4"
             />
           </Form.Group>

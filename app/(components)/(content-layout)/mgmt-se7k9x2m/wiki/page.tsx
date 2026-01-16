@@ -15,21 +15,21 @@ import {
 import AdminAuthGuard from "@/shared/components/AdminAuthGuard";
 import Seo from "@/shared/layout-components/seo";
 import type { RootState } from "@/shared/redux/store";
-import type { WikiArticle, WikiCategoryWithCount } from "@/shared/types/wiki.types";
+import type { WikiArticle, WikiCategory } from "@/shared/types/wiki.types";
 
 import ArticleEditor from "./components/ArticleEditor";
 import CategoryEditor from "./components/CategoryEditor";
 
 const AdminWikiPage = () => {
   const language = useSelector((state: RootState) => state.language.code);
-  const [categories, setCategories] = useState<WikiCategoryWithCount[]>([]);
+  const [categories, setCategories] = useState<WikiCategory[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   // Modal states
   const [showCategoryModal, setShowCategoryModal] = useState(false);
   const [showArticleModal, setShowArticleModal] = useState(false);
-  const [editingCategory, setEditingCategory] = useState<WikiCategoryWithCount | null>(null);
+  const [editingCategory, setEditingCategory] = useState<WikiCategory | null>(null);
   const [editingArticle, setEditingArticle] = useState<WikiArticle | null>(null);
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(null);
 
@@ -56,7 +56,7 @@ const AdminWikiPage = () => {
     setShowCategoryModal(true);
   };
 
-  const handleEditCategory = (category: WikiCategoryWithCount) => {
+  const handleEditCategory = (category: WikiCategory) => {
     setEditingCategory(category);
     setShowCategoryModal(true);
   };
