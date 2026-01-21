@@ -10,7 +10,7 @@ import type { RootState } from "@/shared/redux/store";
 import type { WikiCategory } from "@/shared/types/wiki.types";
 
 const WikiIndexPage = () => {
-  const language = useSelector((state: RootState) => state.language.code);
+  const language = useSelector((state: RootState) => state?.language?.code || "ko");
   const [categories, setCategories] = useState<WikiCategory[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

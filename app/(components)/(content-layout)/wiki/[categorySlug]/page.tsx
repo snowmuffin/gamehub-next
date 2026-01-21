@@ -13,7 +13,7 @@ import type { WikiCategoryWithArticles } from "@/shared/types/wiki.types";
 const WikiCategoryPage = () => {
   const params = useParams();
   const categorySlug = params.categorySlug as string;
-  const language = useSelector((state: RootState) => state.language.code);
+  const language = useSelector((state: RootState) => state?.language?.code || "ko");
   
   const [category, setCategory] = useState<WikiCategoryWithArticles | null>(null);
   const [loading, setLoading] = useState(true);

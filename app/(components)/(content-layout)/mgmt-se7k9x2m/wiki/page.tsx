@@ -22,7 +22,7 @@ import ArticleEditor from "./components/ArticleEditor";
 import CategoryEditor from "./components/CategoryEditor";
 
 const AdminWikiPage = () => {
-  const language = useSelector((state: RootState) => state.language.code);
+  const language = useSelector((state: RootState) => state?.language?.code || "ko");
   const [categories, setCategories] = useState<WikiCategory[]>([]);
   const [articles, setArticles] = useState<Record<number, WikiArticle[]>>({});
   const [loading, setLoading] = useState(true);

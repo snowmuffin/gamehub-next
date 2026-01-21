@@ -15,7 +15,7 @@ const WikiArticlePage = () => {
   const params = useParams();
   const categorySlug = params.categorySlug as string;
   const articleSlug = params.articleSlug as string;
-  const language = useSelector((state: RootState) => state.language.code);
+  const language = useSelector((state: RootState) => state?.language?.code || "ko");
   
   const [article, setArticle] = useState<WikiArticleDetail | null>(null);
   const [loading, setLoading] = useState(true);
