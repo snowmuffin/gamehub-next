@@ -8,7 +8,8 @@ import {
   createCategory,
   deleteArticle,
   deleteCategory,
-  getCategories,
+  getAdminArticles,
+  getAdminCategories,
   updateArticle,
   updateCategory
 } from "@/shared/api/wiki";
@@ -23,6 +24,7 @@ import CategoryEditor from "./components/CategoryEditor";
 const AdminWikiPage = () => {
   const language = useSelector((state: RootState) => state.language.code);
   const [categories, setCategories] = useState<WikiCategory[]>([]);
+  const [articles, setArticles] = useState<Record<number, WikiArticle[]>>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -36,7 +38,7 @@ const AdminWikiPage = () => {
   const fetchCategories = async () => {
     try {
       setLoading(true);
-      const categories = await getCategories(language);
+      const categories = await getAdminCategories();
       setCategories(categories);
       setError(null);
     } catch (err) {
@@ -44,6 +46,15 @@ const AdminWikiPage = () => {
       setError("Failed to load categories");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchArticlesForCategory = async (categoryId: number) => {
+    try {
+      const categoryArticles = await getAdminArticles(categoryId);
+      setArticles((prev) => ({ ...prev, [categoryId]: categoryArticles }));
+    } catch (err) {
+      console.error(`Failed to fetch articles for category ${categoryId}:`, err);
     }
   };
 
@@ -193,11 +204,73 @@ const AdminWikiPage = () => {
                           </div>
                         </div>
 
-                        {/* Article list will be implemented with getCategoryArticles */}
-                        <div className="alert alert-info">
-                          <i className="bi bi-info-circle me-2"></i>
-                          Article management coming soon. For now, you can create articles.
-                        </div>
+                        {/* Article list */}
+                        {!articles[category.id] ? (
+                          <div className="text-center py-3">
+                            <Button
+                              variant="outline-primary"
+                              onClick={() => fetchArticlesForCategory(category.id)}
+                            >
+                              <i className="bi bi-eye me-2"></i>
+                              Load Articles
+                            </Button>
+                          </div>
+                        ) : articles[category.id].length === 0 ? (
+                          <Alert variant="info">
+                            <i className="bi bi-info-circle me-2"></i>
+                            No articles in this category yet.
+                          </Alert>
+                        ) : (
+                          <Table striped bordered hover responsive>
+                            <thead>
+                              <tr>
+                                <th>Title</th>
+                                <th>Slug</th>
+                                <th style={{ width: "120px" }}>Order</th>
+                                <th style={{ width: "100px" }}>Status</th>
+                                <th style={{ width: "150px" }}>Actions</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {articles[category.id]
+                                .sort((a, b) => a.displayOrder - b.displayOrder)
+                                .map((article) => (
+                                  <tr key={article.id}>
+                                    <td>{article.title}</td>
+                                    <td>
+                                      <code>{article.slug}</code>
+                                    </td>
+                                    <td>{article.displayOrder}</td>
+                                    <td>
+                                      {article.isPublished ? (
+                                        <span className="badge bg-success">Published</span>
+                                      ) : (
+                                        <span className="badge bg-secondary">Draft</span>
+                                      )}
+                                    </td>
+                                    <td>
+                                      <div className="d-flex gap-1">
+                                        <Button
+                                          variant="outline-primary"
+                                          size="sm"
+                                          onClick={() => handleEditArticle(article)}
+                                        >
+                                          <i className="bi bi-pencil"></i>
+                                        </Button>
+                                        <Button
+                                          variant="outline-danger"
+                                          size="sm"
+                                          onClick={() => handleDeleteArticle(article.id)}
+                                        >
+                                          <i className="bi bi-trash"></i>
+                                        </Button>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                ))}
+                            </tbody>
+                          </Table>
+                        )}
                       </Tab>
                     ))}
                   </Tabs>

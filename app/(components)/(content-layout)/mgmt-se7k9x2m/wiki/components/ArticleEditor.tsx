@@ -30,17 +30,21 @@ const ArticleEditor: React.FC<ArticleEditorProps> = ({
   onSave,
   onCancel
 }) => {
+  // Get translations from article if editing
+  const koTranslation = article?.translations?.find((t) => t.language === "ko");
+  const enTranslation = article?.translations?.find((t) => t.language === "en");
+
   const [selectedCategoryId, setSelectedCategoryId] = useState(
-    categoryId || categories[0]?.id || 0
+    article?.category_id || categoryId || categories[0]?.id || 0
   );
   const [slug, setSlug] = useState(article?.slug || "");
-  const [titleKo, setTitleKo] = useState(article?.title || "");
-  const [titleEn, setTitleEn] = useState("");
-  const [contentKo, setContentKo] = useState(article?.content || "");
-  const [contentEn, setContentEn] = useState("");
-  const [summaryKo, setSummaryKo] = useState(article?.summary || "");
-  const [summaryEn, setSummaryEn] = useState("");
-  const [displayOrder, setDisplayOrder] = useState(article?.displayOrder || 0);
+  const [titleKo, setTitleKo] = useState(koTranslation?.title || "");
+  const [titleEn, setTitleEn] = useState(enTranslation?.title || "");
+  const [contentKo, setContentKo] = useState(koTranslation?.content || "");
+  const [contentEn, setContentEn] = useState(enTranslation?.content || "");
+  const [summaryKo, setSummaryKo] = useState(koTranslation?.summary || "");
+  const [summaryEn, setSummaryEn] = useState(enTranslation?.summary || "");
+  const [displayOrder, setDisplayOrder] = useState(article?.displayOrder ?? 0);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
