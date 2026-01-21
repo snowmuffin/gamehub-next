@@ -57,7 +57,7 @@ export const getArticleDetail = async (
   lang = "ko"
 ): Promise<GetArticleDetailResponse> => {
   const response = await apiRequest.get<GetArticleDetailResponse>(
-    `/space-engineers/wiki/categories/${categorySlug}/articles/${articleSlug}`,
+    `/space-engineers/wiki/articles/${categorySlug}/${articleSlug}`,
     { params: { lang } }
   );
   return response.data;
