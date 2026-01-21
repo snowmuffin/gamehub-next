@@ -71,7 +71,7 @@ const WikiIndexPage = () => {
             {categories.map((category) => (
               <Col key={category.id} xl={4} lg={6} md={6} sm={12}>
                 <Link
-                  href={`/wiki/categories/${category.slug}`}
+                  href={`/wiki/${category.slug}`}
                   className="text-decoration-none"
                 >
                   <Card className="custom-card h-100 hover-card">
