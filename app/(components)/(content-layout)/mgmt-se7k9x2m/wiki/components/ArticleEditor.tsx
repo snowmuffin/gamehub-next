@@ -48,6 +48,16 @@ const ArticleEditor: React.FC<ArticleEditorProps> = ({
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Helper to get category title from translations
+  const getCategoryTitle = (category: WikiCategory) => {
+    if (!category.translations || category.translations.length === 0) {
+      return "Untitled Category";
+    }
+    // Prefer Korean, fallback to first available
+    const translation = category.translations.find((t) => t.language === "ko") || category.translations[0];
+    return translation.title || "Untitled Category";
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -114,7 +124,7 @@ const ArticleEditor: React.FC<ArticleEditorProps> = ({
             >
               {categories.map((cat) => (
                 <option key={cat.id} value={cat.id}>
-                  {cat.title}
+                  {getCategoryTitle(cat)}
                 </option>
               ))}
             </Form.Select>

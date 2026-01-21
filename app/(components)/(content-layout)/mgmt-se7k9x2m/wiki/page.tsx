@@ -35,6 +35,20 @@ const AdminWikiPage = () => {
   const [editingArticle, setEditingArticle] = useState<WikiArticle | null>(null);
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(null);
 
+  // Helper function to get title from translations
+  const getTitle = (translations?: Array<{ language: string; title: string }>, fallback = "Untitled") => {
+    if (!translations || translations.length === 0) return fallback;
+    const translation = translations.find((t) => t.language === language) || translations[0];
+    return translation.title || fallback;
+  };
+
+  // Helper function to get description from translations
+  const getDescription = (translations?: Array<{ language: string; description?: string }>) => {
+    if (!translations || translations.length === 0) return "";
+    const translation = translations.find((t) => t.language === language) || translations[0];
+    return translation.description || "";
+  };
+
   const fetchCategories = async () => {
     try {
       setLoading(true);
@@ -171,12 +185,12 @@ const AdminWikiPage = () => {
                       <Tab
                         key={category.id}
                         eventKey={category.id.toString()}
-                        title={category.title || "Untitled"}
+                        title={getTitle(category.translations)}
                       >
                         <div className="d-flex justify-content-between align-items-center mb-3">
                           <div>
-                            <h5>{category.title}</h5>
-                            <p className="text-muted mb-0">{category.description}</p>
+                            <h5>{getTitle(category.translations)}</h5>
+                            <p className="text-muted mb-0">{getDescription(category.translations)}</p>
                           </div>
                           <div className="d-flex gap-2">
                             <Button
@@ -236,7 +250,7 @@ const AdminWikiPage = () => {
                                 .sort((a, b) => a.displayOrder - b.displayOrder)
                                 .map((article) => (
                                   <tr key={article.id}>
-                                    <td>{article.title}</td>
+                                    <td>{getTitle(article.translations, "Untitled Article")}</td>
                                     <td>
                                       <code>{article.slug}</code>
                                     </td>
