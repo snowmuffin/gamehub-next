@@ -14,7 +14,7 @@ import type { WikiArticleDetail } from "@/shared/types/wiki.types";
 const WikiArticlePage = () => {
   const params = useParams();
   const router = useRouter();
-  const language = useSelector((state: RootState) => state.language.code);
+  const language = useSelector((state: RootState) => state?.language?.code || "ko");
 
   const categorySlug = params?.categorySlug as string;
   const articleSlug = params?.articleSlug as string;

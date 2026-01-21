@@ -13,7 +13,7 @@ import type { WikiArticle, WikiCategoryWithArticles } from "@/shared/types/wiki.
 const WikiCategoryPage = () => {
   const params = useParams();
   const router = useRouter();
-  const language = useSelector((state: RootState) => state.language.code);
+  const language = useSelector((state: RootState) => state?.language?.code || "ko");
 
   const categorySlug = params?.categorySlug as string;
 

@@ -10,7 +10,7 @@ import ServerOverviewEn from "./ServerOverviewEn";
 import ServerOverviewKo from "./ServerOverviewKo";
 
 const ServerOverview = () => {
-  const language = useSelector((state: any) => state.language.code);
+  const language = useSelector((state: any) => state?.language?.code || "ko");
 
   if (language === "ko") {
     return <ServerOverviewKo />;
