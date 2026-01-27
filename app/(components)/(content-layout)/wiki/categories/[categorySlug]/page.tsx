@@ -80,7 +80,7 @@ const WikiCategoryPage = () => {
   const { articles, ...category } = categoryData;
 
   return (
-    <Fragment>
+    <Fragment key={language}>
       <Seo title={`${category.title} - Wiki`} />
       <Row className="justify-content-center">
         <Col xl={12}>

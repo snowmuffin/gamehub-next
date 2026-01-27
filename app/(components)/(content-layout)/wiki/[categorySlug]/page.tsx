@@ -42,7 +42,7 @@ const WikiCategoryPage = () => {
   }, [categorySlug, language]);
 
   return (
-    <Fragment>
+    <Fragment key={language}>
       <Seo title={category?.title || "Wiki Category"} />
 
       <div className="main-container container-fluid">

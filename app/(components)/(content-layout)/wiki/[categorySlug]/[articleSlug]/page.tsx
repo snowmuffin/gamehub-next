@@ -44,7 +44,7 @@ const WikiArticlePage = () => {
   }, [categorySlug, articleSlug, language]);
 
   return (
-    <Fragment>
+    <Fragment key={language}>
       <Seo title={article?.title || "Wiki Article"} />
 
       <div className="main-container container-fluid">

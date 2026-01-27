@@ -75,7 +75,7 @@ const WikiArticlePage = () => {
 
   if (loading) {
     return (
-      <Fragment>
+      <Fragment key={language}>
         <Seo title="Wiki" />
         <div className="d-flex justify-content-center align-items-center" style={{ minHeight: "400px" }}>
           <Spinner animation="border" variant="primary" />
@@ -86,7 +86,7 @@ const WikiArticlePage = () => {
 
   if (error || !article) {
     return (
-      <Fragment>
+      <Fragment key={language}>
         <Seo title="Wiki" />
         <Alert variant="danger">
           {error || "Article not found"}
@@ -101,7 +101,7 @@ const WikiArticlePage = () => {
   }
 
   return (
-    <Fragment>
+    <Fragment key={language}>
       <Seo title={getArticleTitle()} />
       <Row className="justify-content-center">
         <Col xl={10} lg={12}>

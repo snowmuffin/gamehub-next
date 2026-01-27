@@ -80,7 +80,7 @@ const WikiArticlePage = () => {
   }
 
   return (
-    <Fragment>
+    <Fragment key={language}>
       <Seo title={`${article.title} - Wiki`} />
       <Row className="justify-content-center">
         <Col xl={10}>

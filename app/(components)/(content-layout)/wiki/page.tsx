@@ -54,7 +54,7 @@ const WikiIndexPage = () => {
   }
 
   return (
-    <Fragment>
+    <Fragment key={language}>
       <Seo title="Wiki" />
       <Row className="justify-content-center">
         <Col xl={12}>
