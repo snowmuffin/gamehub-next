@@ -40,10 +40,12 @@ export const getCategoryWithArticles = async (
   categorySlug: string,
   lang = "ko"
 ): Promise<GetCategoryWithArticlesResponse> => {
+  console.log(`[getCategoryWithArticles] Requesting with categorySlug=${categorySlug}, lang=${lang}`);
   const response = await apiRequest.get<GetCategoryWithArticlesResponse>(
     `/space-engineers/wiki/categories/${categorySlug}`,
     { params: { lang } }
   );
+  console.log(`[getCategoryWithArticles] Response:`, response.data);
   return response.data;
 };
 

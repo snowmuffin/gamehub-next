@@ -33,8 +33,14 @@ export const useWikiCategories = () => {
           .sort((a, b) => a.displayOrder - b.displayOrder);
         setCategories(sortedCategories);
         setError(null);
-      } catch (err) {
-        console.error("Failed to fetch wiki categories for navigation:", err);
+      } catch (err: any) {
+        console.error("[useWikiCategories] Failed to fetch wiki categories:", err);
+        console.error("[useWikiCategories] Error details:", {
+          message: err.message,
+          response: err.response?.data,
+          status: err.response?.status,
+          url: err.config?.url
+        });
         setError(err as Error);
         // Set empty array on error to prevent breaking navigation
         setCategories([]);
