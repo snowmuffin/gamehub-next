@@ -58,7 +58,8 @@ const setupRequestInterceptor = (instance: AxiosInstanceType, instanceName: stri
 
     // eslint-disable-next-line no-console
     if (process.env.NODE_ENV !== "production") {
-      console.info(`[${instanceName}]`, config.method?.toUpperCase(), config.url, 'params:', config.params);
+      const fullUrl = `${config.baseURL}${config.url}${config.params ? `?${new URLSearchParams(config.params).toString()}` : ''}`;
+      console.info(`[${instanceName}]`, config.method?.toUpperCase(), fullUrl, 'params:', config.params);
     }
 
     if (token) {
