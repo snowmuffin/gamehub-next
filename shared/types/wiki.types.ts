@@ -18,6 +18,11 @@ export interface WikiCategory {
   updatedAt: string;
   title: string; // Localized by backend based on ?lang parameter
   description?: string; // Localized by backend
+  translations?: Array<{
+    language: string;
+    title: string;
+    description?: string;
+  }>; // Full translations for admin view
 }
 
 export interface WikiCategoryWithArticles extends WikiCategory {
@@ -33,6 +38,7 @@ export interface WikiArticleTranslation {
 export interface WikiArticle {
   id: number;
   slug: string;
+  category_id: number; // Backend uses snake_case
   displayOrder: number;
   isPublished: boolean;
   createdAt: string;
@@ -40,6 +46,12 @@ export interface WikiArticle {
   title: string; // Localized
   content?: string; // Localized (only in detail view)
   summary?: string; // Localized
+  translations?: Array<{
+    language: string;
+    title: string;
+    content: string;
+    summary?: string;
+  }>; // Full translations for admin view
 }
 
 export interface WikiArticleDetail extends WikiArticle {

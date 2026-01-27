@@ -10,7 +10,7 @@ import type { RootState } from "@/shared/redux/store";
 import type { WikiCategory } from "@/shared/types/wiki.types";
 
 const WikiIndexPage = () => {
-  const language = useSelector((state: RootState) => state.language.code);
+  const language = useSelector((state: RootState) => state?.language?.code || "ko");
   const [categories, setCategories] = useState<WikiCategory[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -71,7 +71,7 @@ const WikiIndexPage = () => {
             {categories.map((category) => (
               <Col key={category.id} xl={4} lg={6} md={6} sm={12}>
                 <Link
-                  href={`/wiki/categories/${category.slug}`}
+                  href={`/wiki/${category.slug}`}
                   className="text-decoration-none"
                 >
                   <Card className="custom-card h-100 hover-card">

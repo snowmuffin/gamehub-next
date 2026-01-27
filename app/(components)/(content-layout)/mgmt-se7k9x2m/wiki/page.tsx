@@ -8,7 +8,8 @@ import {
   createCategory,
   deleteArticle,
   deleteCategory,
-  getCategories,
+  getAdminArticles,
+  getAdminCategories,
   updateArticle,
   updateCategory
 } from "@/shared/api/wiki";
@@ -21,8 +22,9 @@ import ArticleEditor from "./components/ArticleEditor";
 import CategoryEditor from "./components/CategoryEditor";
 
 const AdminWikiPage = () => {
-  const language = useSelector((state: RootState) => state.language.code);
+  const language = useSelector((state: RootState) => state?.language?.code || "ko");
   const [categories, setCategories] = useState<WikiCategory[]>([]);
+  const [articles, setArticles] = useState<Record<number, WikiArticle[]>>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -33,10 +35,24 @@ const AdminWikiPage = () => {
   const [editingArticle, setEditingArticle] = useState<WikiArticle | null>(null);
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(null);
 
+  // Helper function to get title from translations
+  const getTitle = (translations?: Array<{ language: string; title: string }>, fallback = "Untitled") => {
+    if (!translations || translations.length === 0) return fallback;
+    const translation = translations.find((t) => t.language === language) || translations[0];
+    return translation.title || fallback;
+  };
+
+  // Helper function to get description from translations
+  const getDescription = (translations?: Array<{ language: string; description?: string }>) => {
+    if (!translations || translations.length === 0) return "";
+    const translation = translations.find((t) => t.language === language) || translations[0];
+    return translation.description || "";
+  };
+
   const fetchCategories = async () => {
     try {
       setLoading(true);
-      const categories = await getCategories(language);
+      const categories = await getAdminCategories();
       setCategories(categories);
       setError(null);
     } catch (err) {
@@ -44,6 +60,15 @@ const AdminWikiPage = () => {
       setError("Failed to load categories");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchArticlesForCategory = async (categoryId: number) => {
+    try {
+      const categoryArticles = await getAdminArticles(categoryId);
+      setArticles((prev) => ({ ...prev, [categoryId]: categoryArticles }));
+    } catch (err) {
+      console.error(`Failed to fetch articles for category ${categoryId}:`, err);
     }
   };
 
@@ -160,12 +185,12 @@ const AdminWikiPage = () => {
                       <Tab
                         key={category.id}
                         eventKey={category.id.toString()}
-                        title={category.title || "Untitled"}
+                        title={getTitle(category.translations)}
                       >
                         <div className="d-flex justify-content-between align-items-center mb-3">
                           <div>
-                            <h5>{category.title}</h5>
-                            <p className="text-muted mb-0">{category.description}</p>
+                            <h5>{getTitle(category.translations)}</h5>
+                            <p className="text-muted mb-0">{getDescription(category.translations)}</p>
                           </div>
                           <div className="d-flex gap-2">
                             <Button
@@ -193,11 +218,73 @@ const AdminWikiPage = () => {
                           </div>
                         </div>
 
-                        {/* Article list will be implemented with getCategoryArticles */}
-                        <div className="alert alert-info">
-                          <i className="bi bi-info-circle me-2"></i>
-                          Article management coming soon. For now, you can create articles.
-                        </div>
+                        {/* Article list */}
+                        {!articles[category.id] ? (
+                          <div className="text-center py-3">
+                            <Button
+                              variant="outline-primary"
+                              onClick={() => fetchArticlesForCategory(category.id)}
+                            >
+                              <i className="bi bi-eye me-2"></i>
+                              Load Articles
+                            </Button>
+                          </div>
+                        ) : articles[category.id].length === 0 ? (
+                          <Alert variant="info">
+                            <i className="bi bi-info-circle me-2"></i>
+                            No articles in this category yet.
+                          </Alert>
+                        ) : (
+                          <Table striped bordered hover responsive>
+                            <thead>
+                              <tr>
+                                <th>Title</th>
+                                <th>Slug</th>
+                                <th style={{ width: "120px" }}>Order</th>
+                                <th style={{ width: "100px" }}>Status</th>
+                                <th style={{ width: "150px" }}>Actions</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {articles[category.id]
+                                .sort((a, b) => a.displayOrder - b.displayOrder)
+                                .map((article) => (
+                                  <tr key={article.id}>
+                                    <td>{getTitle(article.translations, "Untitled Article")}</td>
+                                    <td>
+                                      <code>{article.slug}</code>
+                                    </td>
+                                    <td>{article.displayOrder}</td>
+                                    <td>
+                                      {article.isPublished ? (
+                                        <span className="badge bg-success">Published</span>
+                                      ) : (
+                                        <span className="badge bg-secondary">Draft</span>
+                                      )}
+                                    </td>
+                                    <td>
+                                      <div className="d-flex gap-1">
+                                        <Button
+                                          variant="outline-primary"
+                                          size="sm"
+                                          onClick={() => handleEditArticle(article)}
+                                        >
+                                          <i className="bi bi-pencil"></i>
+                                        </Button>
+                                        <Button
+                                          variant="outline-danger"
+                                          size="sm"
+                                          onClick={() => handleDeleteArticle(article.id)}
+                                        >
+                                          <i className="bi bi-trash"></i>
+                                        </Button>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                ))}
+                            </tbody>
+                          </Table>
+                        )}
                       </Tab>
                     ))}
                   </Tabs>

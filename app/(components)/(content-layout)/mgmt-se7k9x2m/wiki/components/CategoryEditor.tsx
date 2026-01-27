@@ -11,13 +11,17 @@ interface CategoryEditorProps {
 }
 
 const CategoryEditor: React.FC<CategoryEditorProps> = ({ category, onSave, onCancel }) => {
+  // Get translations from category if editing
+  const koTranslation = category?.translations?.find((t) => t.language === "ko");
+  const enTranslation = category?.translations?.find((t) => t.language === "en");
+
   const [slug, setSlug] = useState(category?.slug || "");
   const [icon, setIcon] = useState(category?.icon || "");
-  const [titleKo, setTitleKo] = useState(category?.title || "");
-  const [titleEn, setTitleEn] = useState("");
-  const [descKo, setDescKo] = useState(category?.description || "");
-  const [descEn, setDescEn] = useState("");
-  const [displayOrder, setDisplayOrder] = useState(category?.displayOrder || 0);
+  const [titleKo, setTitleKo] = useState(koTranslation?.title || "");
+  const [titleEn, setTitleEn] = useState(enTranslation?.title || "");
+  const [descKo, setDescKo] = useState(koTranslation?.description || "");
+  const [descEn, setDescEn] = useState(enTranslation?.description || "");
+  const [displayOrder, setDisplayOrder] = useState(category?.displayOrder ?? 0);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 

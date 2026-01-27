@@ -6,7 +6,7 @@ import RulesEn from "./RulesEn";
 import RulesKo from "./RulesKo";
 
 const RulesPage = () => {
-  const language = useSelector((state: any) => state.language.code);
+  const language = useSelector((state: any) => state?.language?.code || "ko");
 
   if (language === "ko") {
     return <RulesKo />;
