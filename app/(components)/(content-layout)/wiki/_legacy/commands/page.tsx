@@ -9,9 +9,9 @@ const CommandsPage = () => {
   const language = useSelector((state: any) => state?.language?.code || "ko");
 
   if (language === "ko") {
-    return <CommandsKo />;
+    return <CommandsKo key="ko" />;
   }
-  return <CommandsEn />;
+  return <CommandsEn key="en" />;
 };
 
 export default CommandsPage;

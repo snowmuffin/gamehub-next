@@ -13,9 +13,9 @@ const ServerOverview = () => {
   const language = useSelector((state: any) => state?.language?.code || "ko");
 
   if (language === "ko") {
-    return <ServerOverviewKo />;
+    return <ServerOverviewKo key="ko" />;
   }
-  return <ServerOverviewEn />;
+  return <ServerOverviewEn key="en" />;
 };
 
 export default ServerOverview;

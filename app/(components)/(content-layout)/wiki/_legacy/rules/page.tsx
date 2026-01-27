@@ -9,9 +9,9 @@ const RulesPage = () => {
   const language = useSelector((state: any) => state?.language?.code || "ko");
 
   if (language === "ko") {
-    return <RulesKo />;
+    return <RulesKo key="ko" />;
   }
-  return <RulesEn />;
+  return <RulesEn key="en" />;
 };
 
 export default RulesPage;
