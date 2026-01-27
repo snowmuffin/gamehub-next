@@ -46,14 +46,28 @@ echo -e "  Directory: $DEPLOY_DIR"
 echo ""
 
 # Git operations
-echo -e "${YELLOW}📥 Committing and pushing changes...${NC}"
+echo -e "${YELLOW}📥 Pulling latest changes...${NC}"
+git pull || {
+    echo -e "${RED}❌ Git pull failed. Please resolve conflicts manually.${NC}"
+    exit 1
+}
+
+echo -e "${YELLOW}📝 Committing changes...${NC}"
 git add -A
 read -p "Enter commit message (or press Enter for default): " COMMIT_MSG
 if [ -z "$COMMIT_MSG" ]; then
     COMMIT_MSG="Deploy $(date '+%Y-%m-%d %H:%M:%S')"
 fi
-git commit -m "$COMMIT_MSG" || echo "No changes to commit"
-git push
+
+if git commit -m "$COMMIT_MSG"; then
+    echo -e "${YELLOW}⬆️  Pushing to remote...${NC}"
+    git push || {
+        echo -e "${RED}❌ Git push failed.${NC}"
+        exit 1
+    }
+else
+    echo -e "${BLUE}ℹ️  No changes to commit${NC}"
+fi
 
 echo ""
 echo -e "${YELLOW}🚀 Deploying to server...${NC}"
