@@ -12,12 +12,13 @@ export interface WikiCategory {
   id: number;
   slug: string;
   icon?: string;
-  displayOrder: number;
-  isPublished: boolean;
-  createdAt: string;
-  updatedAt: string;
+  displayOrder?: number; // Optional because API might not return it
+  isPublished?: boolean; // Optional because public API doesn't return it
+  createdAt?: string; // Optional because public API doesn't return it
+  updatedAt?: string; // Optional because public API doesn't return it
   title: string; // Localized by backend based on ?lang parameter
   description?: string; // Localized by backend
+  articlesCount?: number; // Number of published articles (from public API)
   translations?: Array<{
     language: string;
     title: string;

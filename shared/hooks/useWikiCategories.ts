@@ -28,9 +28,9 @@ export const useWikiCategories = () => {
         console.log(`[useWikiCategories] Fetching categories with language: ${language}`);
         const categories = await getCategories(language);
         console.log(`[useWikiCategories] Received categories:`, categories);
-        // Sort by displayOrder
+        // Sort by displayOrder (use id as fallback)
         const sortedCategories = categories
-          .sort((a, b) => a.displayOrder - b.displayOrder);
+          .sort((a, b) => (a.displayOrder ?? a.id) - (b.displayOrder ?? b.id));
         setCategories(sortedCategories);
         setError(null);
       } catch (err: any) {
