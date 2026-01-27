@@ -24,9 +24,9 @@ import type {
  */
 export const getCategories = async (lang = "ko"): Promise<GetCategoriesResponse> => {
   console.log(`[getCategories] Requesting with lang=${lang}`);
-  const response = await apiRequest.get<GetCategoriesResponse>("/space-engineers/wiki/categories", {
-    params: { lang }
-  });
+  const response = await apiRequest.get<GetCategoriesResponse>(
+    `/space-engineers/wiki/categories?lang=${lang}`
+  );
   console.log(`[getCategories] Response:`, response.data);
   return response.data;
 };
@@ -42,8 +42,7 @@ export const getCategoryWithArticles = async (
 ): Promise<GetCategoryWithArticlesResponse> => {
   console.log(`[getCategoryWithArticles] Requesting with categorySlug=${categorySlug}, lang=${lang}`);
   const response = await apiRequest.get<GetCategoryWithArticlesResponse>(
-    `/space-engineers/wiki/categories/${categorySlug}`,
-    { params: { lang } }
+    `/space-engineers/wiki/categories/${categorySlug}?lang=${lang}`
   );
   console.log(`[getCategoryWithArticles] Response:`, response.data);
   return response.data;
@@ -62,8 +61,7 @@ export const getArticleDetail = async (
 ): Promise<GetArticleDetailResponse> => {
   console.log(`[getArticleDetail] Requesting with categorySlug=${categorySlug}, articleSlug=${articleSlug}, lang=${lang}`);
   const response = await apiRequest.get<GetArticleDetailResponse>(
-    `/space-engineers/wiki/categories/${categorySlug}/articles/${articleSlug}`,
-    { params: { lang } }
+    `/space-engineers/wiki/categories/${categorySlug}/articles/${articleSlug}?lang=${lang}`
   );
   console.log(`[getArticleDetail] Response:`, response.data);
   return response.data;
