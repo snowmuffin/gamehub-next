@@ -5,44 +5,42 @@ import { Button, Table, Alert, Form, Row, Col, Badge, Spinner } from "react-boot
 import { apiRequest } from "@/shared/api/request";
 
 interface SEUser {
-  id: string;
+  id: number;
   username: string;
-  steam_id: string;
-  last_seen: string;
-  storage_info?: {
-    total_items: number;
-    storage_size: string;
-  };
+  steamId: string;
+  email: string | null;
+  score: number;
+  roles: string[];
+  lastActiveAt: string;
+  createdAt: string;
+  hasSpaceEngineersStorage: boolean;
+  storageItemCount: number;
 }
 
 interface UserListResponse {
   users: SEUser[];
-  pagination: {
-    page: number;
-    limit: number;
-    total: number;
-    total_pages: number;
-  };
+  totalUsers: number;
+  spaceEngineersUsers: number;
 }
 
 const UserListPanel = () => {
   const [users, setUsers] = useState<SEUser[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(20);
-  const [pagination, setPagination] = useState<UserListResponse['pagination'] | null>(null);
+  const [totalUsers, setTotalUsers] = useState(0);
+  const [seUsers, setSeUsers] = useState(0);
 
-  const fetchUsers = async (pageNum: number = page, pageLimit: number = limit) => {
+  const fetchUsers = async () => {
     setLoading(true);
     setError(null);
     
     try {
       const response = await apiRequest.get<UserListResponse>(
-        `/admin/space-engineers/users?page=${pageNum}&limit=${pageLimit}`
+        `/admin/space-engineers/users`
       );
       setUsers(response.data.users);
-      setPagination(response.data.pagination);
+      setTotalUsers(response.data.totalUsers);
+      setSeUsers(response.data.spaceEngineersUsers);
     } catch (err: any) {
       setError(err.response?.data?.message || "Failed to fetch users");
     } finally {
@@ -52,16 +50,7 @@ const UserListPanel = () => {
 
   useEffect(() => {
     fetchUsers();
-  }, [page, limit]);
-
-  const handlePageChange = (newPage: number) => {
-    setPage(newPage);
-  };
-
-  const handleLimitChange = (newLimit: number) => {
-    setLimit(newLimit);
-    setPage(1); // Reset to first page when changing limit
-  };
+  }, []);
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleString();
@@ -70,43 +59,23 @@ const UserListPanel = () => {
   return (
     <div>
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h5 className="mb-0">
-          <i className="bi bi-people me-2"></i>
-          User Management
-        </h5>
+        <div>
+          <h5 className="mb-2">
+            <i className="bi bi-people me-2"></i>
+            User Management
+          </h5>
+          <small className="text-muted">
+            Total: <strong>{totalUsers}</strong> users | 
+            Space Engineers: <strong>{seUsers}</strong> users
+          </small>
+        </div>
         <Button variant="outline-primary" onClick={() => fetchUsers()} disabled={loading}>
           <i className="bi bi-arrow-clockwise me-1"></i>
           Refresh
         </Button>
       </div>
 
-      {/* Controls */}
-      <Row className="mb-3">
-        <Col md={6}>
-          <Form.Group>
-            <Form.Label>Items per page:</Form.Label>
-            <Form.Select
-              value={limit}
-              onChange={(e) => handleLimitChange(Number(e.target.value))}
-              style={{ width: "auto" }}
-            >
-              <option value={10}>10</option>
-              <option value={20}>20</option>
-              <option value={50}>50</option>
-              <option value={100}>100</option>
-            </Form.Select>
-          </Form.Group>
-        </Col>
-        {pagination && (
-          <Col md={6} className="text-end">
-            <small className="text-muted">
-              Showing {((pagination.page - 1) * pagination.limit) + 1} to{" "}
-              {Math.min(pagination.page * pagination.limit, pagination.total)} of{" "}
-              {pagination.total} users
-            </small>
-          </Col>
-        )}
-      </Row>
+      {/* Controls removed - no pagination needed */}
 
       {error && (
         <Alert variant="danger" dismissible onClose={() => setError(null)}>
@@ -130,8 +99,9 @@ const UserListPanel = () => {
                 <th>User ID</th>
                 <th>Username</th>
                 <th>Steam ID</th>
-                <th>Last Seen</th>
-                <th>Storage Info</th>
+                <th>Role</th>
+                <th>Last Active</th>
+                <th>SE Storage</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -145,25 +115,31 @@ const UserListPanel = () => {
                     <strong>{user.username}</strong>
                   </td>
                   <td>
-                    <code className="small">{user.steam_id}</code>
+                    <code className="small">{user.steamId}</code>
+                  </td>
+                  <td>
+                    {user.roles.map((role) => (
+                      <Badge
+                        key={role}
+                        bg={role === "SUPER_ADMIN" ? "danger" : role === "GAME_ADMIN" ? "warning" : "secondary"}
+                        className="me-1"
+                      >
+                        {role}
+                      </Badge>
+                    ))}
                   </td>
                   <td>
                     <small className="text-muted">
-                      {formatDate(user.last_seen)}
+                      {formatDate(user.lastActiveAt)}
                     </small>
                   </td>
                   <td>
-                    {user.storage_info ? (
-                      <div>
-                        <Badge bg="info" className="me-1">
-                          {user.storage_info.total_items} items
-                        </Badge>
-                        <Badge bg="secondary">
-                          {user.storage_info.storage_size}
-                        </Badge>
-                      </div>
+                    {user.hasSpaceEngineersStorage ? (
+                      <Badge bg="success" className="me-1">
+                        {user.storageItemCount} items
+                      </Badge>
                     ) : (
-                      <span className="text-muted">No data</span>
+                      <span className="text-muted small">No storage</span>
                     )}
                   </td>
                   <td>
@@ -183,37 +159,6 @@ const UserListPanel = () => {
               ))}
             </tbody>
           </Table>
-
-          {/* Pagination */}
-          {pagination && pagination.total_pages > 1 && (
-            <div className="d-flex justify-content-center align-items-center mt-4">
-              <Button
-                variant="outline-secondary"
-                size="sm"
-                disabled={pagination.page <= 1}
-                onClick={() => handlePageChange(pagination.page - 1)}
-                className="me-2"
-              >
-                <i className="bi bi-chevron-left"></i>
-                Previous
-              </Button>
-              
-              <span className="mx-3">
-                Page {pagination.page} of {pagination.total_pages}
-              </span>
-              
-              <Button
-                variant="outline-secondary"
-                size="sm"
-                disabled={pagination.page >= pagination.total_pages}
-                onClick={() => handlePageChange(pagination.page + 1)}
-                className="ms-2"
-              >
-                Next
-                <i className="bi bi-chevron-right"></i>
-              </Button>
-            </div>
-          )}
         </>
       )}
 
