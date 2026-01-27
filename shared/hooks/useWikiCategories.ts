@@ -25,7 +25,9 @@ export const useWikiCategories = () => {
     const fetchCategories = async () => {
       try {
         setLoading(true);
+        console.log(`[useWikiCategories] Fetching categories with language: ${language}`);
         const categories = await getCategories(language);
+        console.log(`[useWikiCategories] Received categories:`, categories);
         // Sort by displayOrder
         const sortedCategories = categories
           .sort((a, b) => a.displayOrder - b.displayOrder);

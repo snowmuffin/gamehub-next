@@ -23,9 +23,11 @@ import type {
  * @param lang Language code (ko, en)
  */
 export const getCategories = async (lang = "ko"): Promise<GetCategoriesResponse> => {
+  console.log(`[getCategories] Requesting with lang=${lang}`);
   const response = await apiRequest.get<GetCategoriesResponse>("/space-engineers/wiki/categories", {
     params: { lang }
   });
+  console.log(`[getCategories] Response:`, response.data);
   return response.data;
 };
 
