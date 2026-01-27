@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# PM2 redeployment script
-# This script redeploys the Next.js application using PM2.
+# Deployment script for GameHub Next.js
+# Reads SSH configuration from .env file and deploys to EC2
 
 set -e  # Stop script on error
 
-echo "🚀 Starting GameHub Next.js PM2 redeployment..."
+echo "🚀 Starting GameHub deployment..."
 
 # Color definitions
 RED='\033[0;31m'
@@ -14,40 +14,65 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-# Use current directory as project directory
-PROJECT_DIR=$(pwd)
-cd "$PROJECT_DIR"
-
-echo -e "${BLUE}📂 Project directory: $PROJECT_DIR${NC}"
-
-# Git pull (optional - uncomment to use)
-# echo -e "${YELLOW}📥 Fetching latest code...${NC}"
-# git pull origin main
-
-# Check and load environment variables file
-if [ -f ".env.production" ]; then
-    echo -e "${BLUE}📝 Loading .env.production file${NC}"
-    export $(grep -v '^#' .env.production | xargs)
-    echo "NEXT_PUBLIC_FRONTEND_URL: $NEXT_PUBLIC_FRONTEND_URL"
-    echo "NEXT_PUBLIC_API_URL: $NEXT_PUBLIC_API_URL"
-    echo "NODE_ENV: $NODE_ENV"
-    echo "PORT: $PORT"
-elif [ -f ".env" ]; then
-    echo -e "${BLUE}📝 Loading .env file${NC}"
-    export $(grep -v '^#' .env | xargs)
-    echo "NEXT_PUBLIC_FRONTEND_URL: $NEXT_PUBLIC_FRONTEND_URL"
-    echo "NEXT_PUBLIC_API_URL: $NEXT_PUBLIC_API_URL"
-    echo "NODE_ENV: $NODE_ENV"
-    echo "PORT: $PORT"
-else
-    echo -e "${RED}❌ Error: No environment variable file found!${NC}"
-    echo -e "${RED}Required: .env.production or .env file${NC}"
-    echo -e "${RED}Deployment aborted.${NC}"
+# Load environment variables from .env file
+if [ ! -f ".env" ]; then
+    echo -e "${RED}❌ Error: .env file not found!${NC}"
     exit 1
 fi
 
-# Check Node.js and npm versions
-echo -e "${BLUE}🔍 Environment information:${NC}"
+# Load .env file
+export $(grep -v '^#' .env | grep -v '^$' | xargs)
+
+# Validate required variables
+if [ -z "$SSH_KEY_PATH" ] || [ -z "$SSH_USER" ] || [ -z "$SSH_HOST" ] || [ -z "$DEPLOY_DIR" ]; then
+    echo -e "${RED}❌ Error: Missing required environment variables in .env!${NC}"
+    echo -e "${RED}Required: SSH_KEY_PATH, SSH_USER, SSH_HOST, DEPLOY_DIR${NC}"
+    exit 1
+fi
+
+# Expand tilde in SSH_KEY_PATH
+SSH_KEY_PATH="${SSH_KEY_PATH/#\~/$HOME}"
+
+# Validate SSH key exists
+if [ ! -f "$SSH_KEY_PATH" ]; then
+    echo -e "${RED}❌ Error: SSH key not found at $SSH_KEY_PATH${NC}"
+    exit 1
+fi
+
+echo -e "${BLUE}📝 Configuration:${NC}"
+echo -e "  SSH Key: $SSH_KEY_PATH"
+echo -e "  Server: $SSH_USER@$SSH_HOST"
+echo -e "  Directory: $DEPLOY_DIR"
+echo ""
+
+# Git operations
+echo -e "${YELLOW}📥 Committing and pushing changes...${NC}"
+git add -A
+read -p "Enter commit message (or press Enter for default): " COMMIT_MSG
+if [ -z "$COMMIT_MSG" ]; then
+    COMMIT_MSG="Deploy $(date '+%Y-%m-%d %H:%M:%S')"
+fi
+git commit -m "$COMMIT_MSG" || echo "No changes to commit"
+git push
+
+echo ""
+echo -e "${YELLOW}🚀 Deploying to server...${NC}"
+
+# SSH command to deploy
+ssh -i "$SSH_KEY_PATH" "$SSH_USER@$SSH_HOST" << EOF
+    set -e
+    cd $DEPLOY_DIR
+    echo "📥 Pulling latest code..."
+    git pull
+    echo "📦 Building application..."
+    npm run build
+    echo "🔄 Restarting PM2..."
+    pm2 restart gamehub-next
+    echo "✅ Deployment complete!"
+EOF
+
+echo ""
+echo -e "${GREEN}✅ Deployment completed successfully!${NC}"
 echo "Node.js version: $(node --version)"
 echo "npm version: $(npm --version)"
 
