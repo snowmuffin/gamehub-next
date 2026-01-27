@@ -5,11 +5,11 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Alert, Badge, Breadcrumb, Button, Card, Col, Row, Spinner } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
-import { getCategoryWithArticles } from "@/shared/api/wiki";
+import { getArticleDetail } from "@/shared/api/wiki";
 import MarkdownRenderer from "@/shared/components/MarkdownRenderer";
 import Seo from "@/shared/layout-components/seo";
 import type { RootState } from "@/shared/redux/store";
-import type { WikiArticle } from "@/shared/types/wiki.types";
+import type { WikiArticleDetail } from "@/shared/types/wiki.types";
 
 const WikiArticlePage = () => {
   const params = useParams();
@@ -19,8 +19,7 @@ const WikiArticlePage = () => {
   const categorySlug = params?.categorySlug as string;
   const articleSlug = params?.articleSlug as string;
 
-  const [article, setArticle] = useState<WikiArticle | null>(null);
-  const [categoryTitle, setCategoryTitle] = useState<string>("");
+  const [article, setArticle] = useState<WikiArticleDetail | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -34,16 +33,9 @@ const WikiArticlePage = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const category = await getCategoryWithArticles(categorySlug, language);
-        setCategoryTitle(category.title);
-        
-        const foundArticle = category.articles?.find((a) => a.slug === articleSlug);
-        if (!foundArticle) {
-          setError("Article not found");
-        } else {
-          setArticle(foundArticle);
-          setError(null);
-        }
+        const data = await getArticleDetail(categorySlug, articleSlug, language);
+        setArticle(data);
+        setError(null);
       } catch (err) {
         console.error("Failed to fetch article:", err);
         setError("Failed to load article. Please try again later.");
@@ -89,9 +81,9 @@ const WikiArticlePage = () => {
             </Breadcrumb.Item>
             <Breadcrumb.Item
               linkAs={Link}
-              linkProps={{ href: `/wiki/categories/${categorySlug}` }}
+              linkProps={{ href: `/wiki/categories/${article.category.slug}` }}
             >
-              {categoryTitle}
+              {article.category.title}
             </Breadcrumb.Item>
             <Breadcrumb.Item active>{article.title}</Breadcrumb.Item>
           </Breadcrumb>
@@ -106,7 +98,7 @@ const WikiArticlePage = () => {
                   )}
                   <div className="d-flex gap-2 flex-wrap">
                     <Badge bg="primary-transparent">
-                      {categoryTitle}
+                      {article.category.title}
                     </Badge>
                   </div>
                 </div>

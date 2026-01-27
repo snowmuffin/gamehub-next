@@ -5,11 +5,11 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Alert, Breadcrumb, Button, Card, Col, Row, Spinner } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
-import { getCategoryWithArticles } from "@/shared/api/wiki";
+import { getArticleDetail } from "@/shared/api/wiki";
 import MarkdownRenderer from "@/shared/components/MarkdownRenderer";
 import Seo from "@/shared/layout-components/seo";
 import type { RootState } from "@/shared/redux/store";
-import type { WikiArticle } from "@/shared/types/wiki.types";
+import type { WikiArticleDetail } from "@/shared/types/wiki.types";
 
 const WikiArticlePage = () => {
   const params = useParams();
@@ -17,8 +17,7 @@ const WikiArticlePage = () => {
   const articleSlug = params.articleSlug as string;
   const language = useSelector((state: RootState) => state?.language?.code || "ko");
   
-  const [article, setArticle] = useState<WikiArticle | null>(null);
-  const [categoryTitle, setCategoryTitle] = useState<string>("");
+  const [article, setArticle] = useState<WikiArticleDetail | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -26,20 +25,13 @@ const WikiArticlePage = () => {
     const fetchArticle = async () => {
       try {
         setLoading(true);
-        const category = await getCategoryWithArticles(categorySlug, language);
-        setCategoryTitle(category.title);
-        
-        const foundArticle = category.articles?.find((a) => a.slug === articleSlug);
-        if (!foundArticle) {
-          setError("Article not found");
-        } else {
-          setArticle(foundArticle);
-          setError(null);
-        }
+        const data = await getArticleDetail(categorySlug, articleSlug, language);
+        setArticle(data);
+        setError(null);
       } catch (err: any) {
         console.error("Failed to fetch article:", err);
         if (err.response?.status === 404) {
-          setError("Category not found");
+          setError("Article not found");
         } else {
           setError("Failed to load article");
         }
@@ -69,7 +61,7 @@ const WikiArticlePage = () => {
                 </li>
                 <li className="breadcrumb-item">
                   <Link href={`/wiki/${categorySlug}`}>
-                    {categoryTitle || categorySlug}
+                    {article?.category.title || categorySlug}
                   </Link>
                 </li>
                 <li className="breadcrumb-item active" aria-current="page">
@@ -127,18 +119,22 @@ const WikiArticlePage = () => {
                   </Card.Header>
                   <Card.Body>
                     <div className="wiki-content">
-                      <MarkdownRenderer content={article.content || ""} />
+                      <MarkdownRenderer content={article.content} />
                     </div>
                   </Card.Body>
                   <Card.Footer className="text-muted small">
                     <div className="d-flex justify-content-between align-items-center">
                       <div>
                         <i className="bi bi-calendar me-2"></i>
+                        {language === "ko" ? "최종 수정" : "Last updated"}:{" "}
+                        {new Date(article.updatedAt).toLocaleDateString(
+                          language === "ko" ? "ko-KR" : "en-US"
+                        )}
                       </div>
                       <Link href={`/wiki/${categorySlug}`}>
                         <Button variant="link" size="sm">
                           <i className="bi bi-arrow-left me-1"></i>
-                          {categoryTitle}
+                          {article.category.title}
                         </Button>
                       </Link>
                     </div>

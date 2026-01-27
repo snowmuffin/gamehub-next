@@ -61,7 +61,7 @@ export const getArticleDetail = async (
 ): Promise<GetArticleDetailResponse> => {
   console.log(`[getArticleDetail] Requesting with categorySlug=${categorySlug}, articleSlug=${articleSlug}, lang=${lang}`);
   const response = await apiRequest.get<GetArticleDetailResponse>(
-    `/space-engineers/wiki/categories/${categorySlug}/articles/${articleSlug}?lang=${lang}`
+    `/space-engineers/wiki/articles/${categorySlug}/${articleSlug}?lang=${lang}`
   );
   console.log(`[getArticleDetail] Response:`, response.data);
   return response.data;
