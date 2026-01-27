@@ -180,7 +180,12 @@ export default function ServerHealthCharts({
 
   const commonOptions = useMemo(
     () => ({
-      chart: { id: "health-chart", animations: { enabled: true } },
+      chart: { 
+        id: "health-chart", 
+        animations: { enabled: true },
+        zoom: { enabled: false },
+        toolbar: { show: false }
+      },
       xaxis: { type: "datetime" as const, labels: { datetimeUTC: false } },
       stroke: { width: 2, curve: "smooth" as const },
       dataLabels: { enabled: false },
