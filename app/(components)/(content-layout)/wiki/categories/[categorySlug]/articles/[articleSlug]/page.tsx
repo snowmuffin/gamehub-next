@@ -5,11 +5,11 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Alert, Badge, Breadcrumb, Button, Card, Col, Row, Spinner } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
-import { getArticleDetail } from "@/shared/api/wiki";
+import { getCategoryWithArticles } from "@/shared/api/wiki";
 import MarkdownRenderer from "@/shared/components/MarkdownRenderer";
 import Seo from "@/shared/layout-components/seo";
 import type { RootState } from "@/shared/redux/store";
-import type { WikiArticleDetail } from "@/shared/types/wiki.types";
+import type { WikiArticle } from "@/shared/types/wiki.types";
 
 const WikiArticlePage = () => {
   const params = useParams();
@@ -19,7 +19,8 @@ const WikiArticlePage = () => {
   const categorySlug = params?.categorySlug as string;
   const articleSlug = params?.articleSlug as string;
 
-  const [article, setArticle] = useState<WikiArticleDetail | null>(null);
+  const [article, setArticle] = useState<WikiArticle | null>(null);
+  const [categoryTitle, setCategoryTitle] = useState<string>("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -33,9 +34,16 @@ const WikiArticlePage = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const data = await getArticleDetail(categorySlug, articleSlug, language);
-        setArticle(data);
-        setError(null);
+        const category = await getCategoryWithArticles(categorySlug, language);
+        setCategoryTitle(category.title);
+        
+        const foundArticle = category.articles?.find((a) => a.slug === articleSlug);
+        if (!foundArticle) {
+          setError("Article not found");
+        } else {
+          setArticle(foundArticle);
+          setError(null);
+        }
       } catch (err) {
         console.error("Failed to fetch article:", err);
         setError("Failed to load article. Please try again later.");
@@ -46,15 +54,6 @@ const WikiArticlePage = () => {
 
     fetchData();
   }, [categorySlug, articleSlug, language]);
-
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString(language === "ko" ? "ko-KR" : "en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric"
-    });
-  };
 
   if (loading) {
     return (
@@ -90,9 +89,9 @@ const WikiArticlePage = () => {
             </Breadcrumb.Item>
             <Breadcrumb.Item
               linkAs={Link}
-              linkProps={{ href: `/wiki/categories/${article.category.slug}` }}
+              linkProps={{ href: `/wiki/categories/${categorySlug}` }}
             >
-              {article.category.title}
+              {categoryTitle}
             </Breadcrumb.Item>
             <Breadcrumb.Item active>{article.title}</Breadcrumb.Item>
           </Breadcrumb>
@@ -107,22 +106,14 @@ const WikiArticlePage = () => {
                   )}
                   <div className="d-flex gap-2 flex-wrap">
                     <Badge bg="primary-transparent">
-                      {article.category.title}
+                      {categoryTitle}
                     </Badge>
-                    <small className="text-muted">
-                      {language === "ko" ? "작성일" : "Created"}: {formatDate(article.createdAt)}
-                    </small>
-                    {article.updatedAt !== article.createdAt && (
-                      <small className="text-muted">
-                        {language === "ko" ? "수정일" : "Updated"}: {formatDate(article.updatedAt)}
-                      </small>
-                    )}
                   </div>
                 </div>
               </div>
             </Card.Header>
             <Card.Body>
-              <MarkdownRenderer content={article.content} />
+              <MarkdownRenderer content={article.content || ""} />
             </Card.Body>
           </Card>
 
@@ -130,7 +121,7 @@ const WikiArticlePage = () => {
             <Button
               variant="secondary"
               size="sm"
-              onClick={() => router.push(`/wiki/categories/${article.category.slug}`)}
+              onClick={() => router.push(`/wiki/categories/${categorySlug}`)}
             >
               {language === "ko" ? "← 목록으로" : "← Back to List"}
             </Button>
