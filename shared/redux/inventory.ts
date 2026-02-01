@@ -1,14 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface InventoryItem {
-  id: string;
-  name: string;
-  description?: string;
+  id: number;
+  displayName: string;
+  description: string;
   quantity: number;
-  rarity?: "common" | "uncommon" | "rare" | "epic" | "legendary";
-  image?: string;
-  type?: string;
-  price?: number;
+  rarity: number;
+  icons: string[];
+  category: string;
+  indexName: string;
 }
 
 interface InventoryState {
@@ -57,7 +57,7 @@ const inventorySlice = createSlice({
     setSelectedItem: (state, action: PayloadAction<InventoryItem | null>) => {
       state.selectedItem = action.payload;
     },
-    updateItem: (state, action: PayloadAction<{ id: string; updates: Partial<InventoryItem> }>) => {
+    updateItem: (state, action: PayloadAction<{ id: number; updates: Partial<InventoryItem> }>) => {
       const { id, updates } = action.payload;
       const itemIndex = state.items.findIndex((item) => item.id === id);
       if (itemIndex !== -1) {
@@ -70,7 +70,7 @@ const inventorySlice = createSlice({
     addItem: (state, action: PayloadAction<InventoryItem>) => {
       state.items.push(action.payload);
     },
-    removeItem: (state, action: PayloadAction<string>) => {
+    removeItem: (state, action: PayloadAction<number>) => {
       state.items = state.items.filter((item) => item.id !== action.payload);
       if (state.selectedItem?.id === action.payload) {
         state.selectedItem = null;

@@ -6,16 +6,17 @@ import { Card, Col, Row, Button } from "react-bootstrap";
 
 import { apiRequest } from "@/shared/api/request"; // Import API request utility
 import Seo from "@/shared/layout-components/seo";
+import { InventoryItem } from "@/shared/redux/inventory";
 
 const Inventory = () => {
-  const [products, setProducts] = useState<any[]>([]); // State to store API data
+  const [products, setProducts] = useState<InventoryItem[]>([]); // State to store API data
   const [loading, setLoading] = useState<boolean>(true); // Loading state management
 
   const fetchProducts = async () => {
     try {
       setLoading(true);
       const response = await apiRequest.get("/space-engineers/item"); // Call NestJS endpoint
-      setProducts(response.data as any[]);
+      setProducts(response.data as InventoryItem[]);
     } catch (error) {
       // Error handling without console or alert
       setProducts([]);
@@ -59,9 +60,7 @@ const Inventory = () => {
                       <Card.Body className="p-5">
                         <Link href="">
                           <Image
-                            src={`/assets/images/items/${
-                              product.icon ? `${product.icon}.png` : `${product.indexName}.png`
-                            }`} // Add .svg if icon is provided
+                            src={product.icons[0] || `/assets/images/items/${product.indexName}.png`}
                             className="card-img rounded-0 mb-3"
                             alt={product.displayName}
                             width={200}
