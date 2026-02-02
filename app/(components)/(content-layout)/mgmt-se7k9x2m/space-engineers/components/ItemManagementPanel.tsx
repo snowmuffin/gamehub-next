@@ -61,26 +61,31 @@ const ItemManagementPanel = () => {
   });
 
   // Fetch all items from game definitions
-  const fetchItems = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const response = await apiRequest.get<ItemsResponse>("/admin/space-engineers/items", {
-        params: { page, limit }
-      });
-      setItems(response.data.items || []);
-      setTotalItems(response.data.totalItems || 0);
-      setTotalPages(response.data.totalPages || 0);
-    } catch (err: any) {
-      setError(err.response?.data?.message || "Failed to fetch items");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const fetchItems = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const response = await apiRequest.get<ItemsResponse>("/admin/space-engineers/items", {
+          params: { page, limit }
+        });
+        setItems(response.data.items || []);
+        setTotalItems(response.data.totalItems || 0);
+        setTotalPages(response.data.totalPages || 0);
+      } catch (err: any) {
+        setError(err.response?.data?.message || "Failed to fetch items");
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchItems();
   }, [page, limit]);
+
+  // Manual refetch function
+  const refetchItems = () => {
+    setPage(1); // This will trigger useEffect
+  };
 
   // Handle update item
   const handleUpdate = async (e: React.FormEvent) => {
@@ -95,7 +100,7 @@ const ItemManagementPanel = () => {
       setSuccess("Item updated successfully!");
       setShowEditModal(false);
       resetForm();
-      fetchItems();
+      refetchItems();
     } catch (err: any) {
       setError(err.response?.data?.message || "Failed to update item");
     } finally {
