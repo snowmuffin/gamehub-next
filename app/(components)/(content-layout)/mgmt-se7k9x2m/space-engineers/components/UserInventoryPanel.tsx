@@ -25,6 +25,7 @@ interface InventoryItem {
   rarity?: string;
   description?: string;
   last_updated: string;
+  icon_url?: string;
 }
 
 interface UserInventory {
@@ -248,6 +249,7 @@ const UserInventoryPanel = () => {
                   <Table hover className="mb-0">
                     <thead className="table-light">
                       <tr>
+                        <th style={{ width: '50px' }}>Icon</th>
                         <th>Item</th>
                         <th>Type</th>
                         <th>Quantity</th>
@@ -258,6 +260,50 @@ const UserInventoryPanel = () => {
                     <tbody>
                       {inventory.items.map((item, index) => (
                         <tr key={`${item.item_id}-${index}`}>
+                          <td>
+                            {item.icon_url ? (
+                              <div 
+                                style={{
+                                  width: '40px',
+                                  height: '40px',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
+                                  overflow: 'hidden',
+                                  backgroundColor: '#f8f9fa',
+                                  borderRadius: '4px'
+                                }}
+                              >
+                                <img 
+                                  src={item.icon_url} 
+                                  alt={item.item_name}
+                                  style={{
+                                    maxWidth: '100%',
+                                    maxHeight: '100%',
+                                    objectFit: 'contain'
+                                  }}
+                                  onError={(e) => {
+                                    e.currentTarget.style.display = 'none';
+                                    e.currentTarget.parentElement!.innerHTML = '<i class="bi bi-box text-muted"></i>';
+                                  }}
+                                />
+                              </div>
+                            ) : (
+                              <div 
+                                style={{
+                                  width: '40px',
+                                  height: '40px',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
+                                  backgroundColor: '#f8f9fa',
+                                  borderRadius: '4px'
+                                }}
+                              >
+                                <i className="bi bi-box text-muted"></i>
+                              </div>
+                            )}
+                          </td>
                           <td>
                             <div>
                               <strong>{item.item_name}</strong>

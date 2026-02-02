@@ -42,6 +42,28 @@ const nextConfig = {
   },
 
   images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'snowmuffin-game-assets.s3.ap-northeast-2.amazonaws.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.cloudfront.net',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.amazonaws.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'snowmuffingame.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'api.snowmuffingame.com',
+      },
+    ],
     unoptimized: true,
     loader: "default",
     path: "/"

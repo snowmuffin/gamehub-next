@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import React, { Fragment, useEffect, useState } from "react";
 import { Card, Col, Row, Button } from "react-bootstrap";
@@ -59,12 +58,16 @@ const Inventory = () => {
                       <div className="bottom-right"></div>
                       <Card.Body className="p-5">
                         <Link href="">
-                          <Image
+                          <img
                             src={product.icons[0] || `/assets/images/items/${product.indexName}.png`}
                             className="card-img rounded-0 mb-3"
                             alt={product.displayName}
                             width={200}
                             height={200}
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.src = `/assets/images/items/${product.indexName}.png`;
+                            }}
                           />
                           <span className="badge bg-secondary top-left-badge">
                             {product.rarity}
