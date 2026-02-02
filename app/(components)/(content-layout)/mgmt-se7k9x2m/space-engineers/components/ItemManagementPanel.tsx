@@ -39,6 +39,9 @@ interface ItemsResponse {
 const ItemManagementPanel = () => {
   const [items, setItems] = useState<ItemData[]>([]);
   const [totalItems, setTotalItems] = useState<number>(0);
+  const [page, setPage] = useState<number>(1);
+  const [limit, setLimit] = useState<number>(50);
+  const [totalPages, setTotalPages] = useState<number>(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
@@ -63,10 +66,11 @@ const ItemManagementPanel = () => {
     setError(null);
     try {
       const response = await apiRequest.get<ItemsResponse>("/admin/space-engineers/items", {
-        params: { limit: 200 }
+        params: { page, limit }
       });
       setItems(response.data.items || []);
       setTotalItems(response.data.totalItems || 0);
+      setTotalPages(response.data.totalPages || 0);
     } catch (err: any) {
       setError(err.response?.data?.message || "Failed to fetch items");
     } finally {
@@ -76,7 +80,7 @@ const ItemManagementPanel = () => {
 
   useEffect(() => {
     fetchItems();
-  }, []);
+  }, [page, limit]);
 
   // Handle update item
   const handleUpdate = async (e: React.FormEvent) => {
@@ -150,19 +154,10 @@ const ItemManagementPanel = () => {
           Item Management
         </h5>
         <div className="text-muted small">
-          <i className="bi bi-info-circle me-1"></i>
-          {totalItems > 0 ? (
+          {totalItems > 0 && (
             <>
-              Showing {items.length} of {totalItems} items
-              {items.length < totalItems && (
-                <span className="text-warning ms-2">
-                  <i className="bi bi-exclamation-triangle me-1"></i>
-                  Limited to 200 items
-                </span>
-              )}
+              Page {page} of {totalPages} | Total: {totalItems} items
             </>
-          ) : (
-            "Manage game-defined items"
           )}
         </div>
       </div>
@@ -280,6 +275,63 @@ const ItemManagementPanel = () => {
             </div>
           )}
         </Card.Body>
+        {totalPages > 1 && (
+          <Card.Footer className="d-flex justify-content-between align-items-center">
+            <div>
+              <Form.Select
+                size="sm"
+                value={limit}
+                onChange={(e) => {
+                  setLimit(parseInt(e.target.value));
+                  setPage(1);
+                }}
+                style={{ width: 'auto' }}
+              >
+                <option value="25">25 per page</option>
+                <option value="50">50 per page</option>
+                <option value="100">100 per page</option>
+                <option value="200">200 per page</option>
+              </Form.Select>
+            </div>
+            <div className="d-flex align-items-center gap-2">
+              <Button
+                size="sm"
+                variant="outline-secondary"
+                onClick={() => setPage(1)}
+                disabled={page === 1}
+              >
+                <i className="bi bi-chevron-double-left"></i>
+              </Button>
+              <Button
+                size="sm"
+                variant="outline-secondary"
+                onClick={() => setPage(page - 1)}
+                disabled={page === 1}
+              >
+                <i className="bi bi-chevron-left"></i> Prev
+              </Button>
+              <span className="text-muted small">
+                Page {page} of {totalPages}
+              </span>
+              <Button
+                size="sm"
+                variant="outline-secondary"
+                onClick={() => setPage(page + 1)}
+                disabled={page >= totalPages}
+              >
+                Next <i className="bi bi-chevron-right"></i>
+              </Button>
+              <Button
+                size="sm"
+                variant="outline-secondary"
+                onClick={() => setPage(totalPages)}
+                disabled={page >= totalPages}
+              >
+                <i className="bi bi-chevron-double-right"></i>
+              </Button>
+            </div>
+          </Card.Footer>
+        )}
       </Card>
 
       {/* Edit Modal */}
