@@ -66,9 +66,9 @@ const ItemManagementPanel = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await apiRequest.get<ItemsResponse>("/admin/space-engineers/items", {
-          params: { page, limit }
-        });
+        const response = await apiRequest.get<ItemsResponse>(
+          `/admin/space-engineers/items?page=${page}&limit=${limit}`
+        );
         setItems(response.data.items || []);
         setTotalItems(response.data.totalItems || 0);
         setTotalPages(response.data.totalPages || 0);
