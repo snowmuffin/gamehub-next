@@ -8,6 +8,7 @@ import Seo from "@/shared/layout-components/seo";
 import UserListPanel from "./components/UserListPanel";
 import UserSearchPanel from "./components/UserSearchPanel";
 import UserInventoryPanel from "./components/UserInventoryPanel";
+import ItemManagementPanel from "./components/ItemManagementPanel";
 
 const SpaceEngineersAdmin = () => {
   const [activeTab, setActiveTab] = useState("users");
@@ -62,6 +63,12 @@ const SpaceEngineersAdmin = () => {
                           Inventory Lookup
                         </Nav.Link>
                       </Nav.Item>
+                      <Nav.Item>
+                        <Nav.Link eventKey="items">
+                          <i className="bi bi-box-seam me-2"></i>
+                          Item Management
+                        </Nav.Link>
+                      </Nav.Item>
                     </Nav>
 
                     <Tab.Content>
@@ -73,6 +80,9 @@ const SpaceEngineersAdmin = () => {
                       </Tab.Pane>
                       <Tab.Pane eventKey="inventory">
                         <UserInventoryPanel />
+                      </Tab.Pane>
+                      <Tab.Pane eventKey="items">
+                        <ItemManagementPanel />
                       </Tab.Pane>
                     </Tab.Content>
                   </Tab.Container>
