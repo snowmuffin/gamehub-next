@@ -38,6 +38,7 @@ interface ItemsResponse {
 
 const ItemManagementPanel = () => {
   const [items, setItems] = useState<ItemData[]>([]);
+  const [totalItems, setTotalItems] = useState<number>(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
@@ -61,8 +62,11 @@ const ItemManagementPanel = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await apiRequest.get<ItemsResponse>("/admin/space-engineers/items");
+      const response = await apiRequest.get<ItemsResponse>("/admin/space-engineers/items", {
+        params: { limit: 200 }
+      });
       setItems(response.data.items || []);
+      setTotalItems(response.data.totalItems || 0);
     } catch (err: any) {
       setError(err.response?.data?.message || "Failed to fetch items");
     } finally {
@@ -147,7 +151,19 @@ const ItemManagementPanel = () => {
         </h5>
         <div className="text-muted small">
           <i className="bi bi-info-circle me-1"></i>
-          Manage game-defined items
+          {totalItems > 0 ? (
+            <>
+              Showing {items.length} of {totalItems} items
+              {items.length < totalItems && (
+                <span className="text-warning ms-2">
+                  <i className="bi bi-exclamation-triangle me-1"></i>
+                  Limited to 200 items
+                </span>
+              )}
+            </>
+          ) : (
+            "Manage game-defined items"
+          )}
         </div>
       </div>
 
