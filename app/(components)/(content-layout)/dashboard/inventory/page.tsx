@@ -47,54 +47,100 @@ const Inventory = () => {
           <Col xxl={9} xl={8} lg={8} md={12}>
             <Row>
               {loading ? (
-                <p>Loading...</p> // Displayed while loading
+                <div className="d-flex justify-content-center align-items-center" style={{ minHeight: '400px' }}>
+                  <div className="spinner-border text-primary" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                  </div>
+                </div>
               ) : products.length > 0 ? (
                 products.map((product) => (
-                  <Col xxl={3} xl={6} lg={6} md={6} sm={12} className="" key={product.indexName}>
-                    <Card className="custom-card shadow-none my-4">
-                      <div className="top-left"></div>
-                      <div className="top-right"></div>
-                      <div className="bottom-left"></div>
-                      <div className="bottom-right"></div>
-                      <Card.Body className="p-5">
-                        <Link href="">
+                  <Col xxl={3} xl={4} lg={4} md={6} sm={12} key={product.indexName}>
+                    <Card className="custom-card shadow-sm my-3 h-100 border-0 hover-card">
+                      <Card.Body className="d-flex flex-column p-3">
+                        {/* Image Container with Fixed Aspect Ratio */}
+                        <div 
+                          className="position-relative mb-3 bg-light rounded d-flex align-items-center justify-content-center"
+                          style={{ 
+                            height: '180px',
+                            overflow: 'hidden'
+                          }}
+                        >
                           <img
                             src={product.icons[0] || `/assets/images/items/${product.indexName}.png`}
-                            className="card-img rounded-0 mb-3"
                             alt={product.displayName}
-                            width={200}
-                            height={200}
+                            style={{
+                              maxWidth: '100%',
+                              maxHeight: '100%',
+                              objectFit: 'contain'
+                            }}
                             onError={(e) => {
                               const target = e.target as HTMLImageElement;
                               target.src = `/assets/images/items/${product.indexName}.png`;
                             }}
                           />
-                          <span className="badge bg-secondary top-left-badge">
-                            {product.rarity}
-                          </span>
-                        </Link>
-                        <p className="product-name fw-medium mb-0">{product.displayName}</p>
-                        <p className="product-description fs-11 text-muted mb-2">
-                          {product.description}
-                        </p>
+                          {product.rarity && (
+                            <span 
+                              className="badge position-absolute top-0 start-0 m-2"
+                              style={{
+                                backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                                fontSize: '0.7rem'
+                              }}
+                            >
+                              {product.rarity}
+                            </span>
+                          )}
+                        </div>
 
-                        <span className="fs-11 text-success fw-medium mb-2">
-                          Available Quantity: {product.quantity}
-                        </span>
-                        <Button
-                          variant="primary"
-                          onClick={() =>
-                            copyToClipboard(`!cmd downloaditem ${product.indexName} 1`)
-                          }
-                        >
-                          Download
-                        </Button>
+                        {/* Product Info */}
+                        <div className="flex-grow-1 d-flex flex-column">
+                          <h6 className="mb-2 text-truncate" title={product.displayName}>
+                            {product.displayName}
+                          </h6>
+                          
+                          <p 
+                            className="text-muted small mb-2 flex-grow-1"
+                            style={{
+                              fontSize: '0.8rem',
+                              lineHeight: '1.4',
+                              display: '-webkit-box',
+                              WebkitLineClamp: 2,
+                              WebkitBoxOrient: 'vertical',
+                              overflow: 'hidden'
+                            }}
+                          >
+                            {product.description || 'No description available'}
+                          </p>
+
+                          {/* Bottom Section */}
+                          <div className="mt-auto">
+                            <div className="d-flex justify-content-between align-items-center mb-2">
+                              <span className="badge bg-success-transparent">
+                                Qty: {product.quantity}
+                              </span>
+                            </div>
+                            
+                            <Button
+                              variant="primary"
+                              size="sm"
+                              className="w-100"
+                              onClick={() =>
+                                copyToClipboard(`!cmd downloaditem ${product.indexName} 1`)
+                              }
+                            >
+                              <i className="bi bi-download me-1"></i>
+                              Download
+                            </Button>
+                          </div>
+                        </div>
                       </Card.Body>
                     </Card>
                   </Col>
                 ))
               ) : (
-                <p>No products available.</p> // Displayed when no data
+                <div className="text-center py-5">
+                  <i className="bi bi-inbox fs-1 text-muted"></i>
+                  <p className="text-muted mt-3">No products available</p>
+                </div>
               )}
             </Row>
           </Col>
