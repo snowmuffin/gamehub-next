@@ -357,9 +357,6 @@ const ItemManagementPanel = () => {
                 URL to the item's icon image
               </Form.Text>
             </Form.Group>
-                URL to the item's icon image
-              </Form.Text>
-            </Form.Group>
           </Modal.Body>
           <Modal.Footer>
             <Button 
