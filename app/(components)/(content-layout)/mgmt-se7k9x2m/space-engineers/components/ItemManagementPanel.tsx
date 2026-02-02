@@ -157,7 +157,9 @@ const ItemManagementPanel = () => {
   };
 
   const getRarityVariant = (rarity?: string) => {
-    switch (rarity?.toLowerCase()) {
+    if (!rarity || typeof rarity !== 'string') return "light";
+    
+    switch (rarity.toLowerCase()) {
       case "common": return "secondary";
       case "uncommon": return "success";
       case "rare": return "warning";
@@ -275,7 +277,7 @@ const ItemManagementPanel = () => {
                         )}
                       </td>
                       <td>
-                        {item.rarity && (
+                        {item.rarity && typeof item.rarity === 'string' && (
                           <Badge bg={getRarityVariant(item.rarity)}>
                             {item.rarity}
                           </Badge>

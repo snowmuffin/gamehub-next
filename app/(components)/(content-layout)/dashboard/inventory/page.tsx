@@ -82,7 +82,7 @@ const Inventory = () => {
                               target.src = `/assets/images/items/${product.indexName}.png`;
                             }}
                           />
-                          {product.rarity && (
+                          {product.rarity && typeof product.rarity === 'string' && (
                             <span 
                               className="badge position-absolute top-0 start-0 m-2"
                               style={{
