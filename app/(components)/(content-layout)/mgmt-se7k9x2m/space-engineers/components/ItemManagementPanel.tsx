@@ -55,8 +55,7 @@ const ItemManagementPanel = () => {
     setLoading(true);
     setError(null);
     try {
-      // TODO: Update this to use /admin/space-engineers/items when backend is ready
-      const response = await apiRequest.get<ItemData[]>("/space-engineers/item");
+      const response = await apiRequest.get<ItemData[]>("/admin/space-engineers/items");
       setItems(response.data);
     } catch (err: any) {
       setError(err.response?.data?.message || "Failed to fetch items");
