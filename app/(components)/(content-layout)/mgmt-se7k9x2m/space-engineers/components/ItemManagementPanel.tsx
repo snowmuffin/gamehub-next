@@ -55,7 +55,8 @@ const ItemManagementPanel = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await apiRequest.get<ItemData[]>("/admin/space-engineers/items");
+      // TODO: Update this to use /admin/space-engineers/items when backend is ready
+      const response = await apiRequest.get<ItemData[]>("/space-engineers/item");
       setItems(response.data);
     } catch (err: any) {
       setError(err.response?.data?.message || "Failed to fetch items");
@@ -181,7 +182,7 @@ const ItemManagementPanel = () => {
       {/* Items Table */}
       <Card>
         <Card.Body className="p-0">
-          {loading && !showEditModal && !showCreateModal ? (
+          {loading && !showEditModal ? (
             <div className="text-center p-4">
               <Spinner animation="border" variant="primary" />
               <p className="mt-2 mb-0">Loading items...</p>
@@ -399,7 +400,6 @@ const ItemManagementPanel = () => {
             <Button 
               variant="secondary" 
               onClick={() => {
-                setShowCreateModal(false);
                 setShowEditModal(false);
                 resetForm();
               }}
