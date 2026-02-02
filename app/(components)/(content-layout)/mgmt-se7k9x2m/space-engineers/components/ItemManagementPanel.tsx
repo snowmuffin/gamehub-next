@@ -42,6 +42,7 @@ const ItemManagementPanel = () => {
   const [page, setPage] = useState<number>(1);
   const [limit, setLimit] = useState<number>(50);
   const [totalPages, setTotalPages] = useState<number>(0);
+  const [search, setSearch] = useState<string>("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
@@ -66,9 +67,11 @@ const ItemManagementPanel = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await apiRequest.get<ItemsResponse>(
-          `/admin/space-engineers/items?page=${page}&limit=${limit}`
-        );
+        let url = `/admin/space-engineers/items?page=${page}&limit=${limit}`;
+        if (search.trim()) {
+          url += `&search=${encodeURIComponent(search.trim())}`;
+        }
+        const response = await apiRequest.get<ItemsResponse>(url);
         setItems(response.data.items || []);
         setTotalItems(response.data.totalItems || 0);
         setTotalPages(response.data.totalPages || 0);
@@ -80,7 +83,7 @@ const ItemManagementPanel = () => {
     };
 
     fetchItems();
-  }, [page, limit]);
+  }, [page, limit, search]);
 
   // Manual refetch function
   const refetchItems = () => {
@@ -182,6 +185,35 @@ const ItemManagementPanel = () => {
           {error}
         </Alert>
       )}
+
+      {/* Search Bar */}
+      <Card className="mb-3">
+        <Card.Body>
+          <Form.Group>
+            <Form.Label>Search Items</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Search by index name or display name..."
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value);
+                setPage(1); // Reset to first page on search
+              }}
+            />
+            {search && (
+              <Button
+                variant="link"
+                size="sm"
+                className="mt-1"
+                onClick={() => setSearch("")}
+              >
+                <i className="bi bi-x-circle me-1"></i>
+                Clear search
+              </Button>
+            )}
+          </Form.Group>
+        </Card.Body>
+      </Card>
 
       {/* Items Table */}
       <Card>
