@@ -37,7 +37,6 @@ const ItemManagementPanel = () => {
   
   // Modal states
   const [showEditModal, setShowEditModal] = useState(false);
-  const [showCreateModal, setShowCreateModal] = useState(false);
   const [editingItem, setEditingItem] = useState<ItemData | null>(null);
   
   // Form data
@@ -51,12 +50,12 @@ const ItemManagementPanel = () => {
     item_type: ""
   });
 
-  // Fetch all items
+  // Fetch all items from game definitions
   const fetchItems = async () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await apiRequest.get<ItemData[]>("/space-engineers/item");
+      const response = await apiRequest.get<ItemData[]>("/admin/space-engineers/items");
       setItems(response.data);
     } catch (err: any) {
       setError(err.response?.data?.message || "Failed to fetch items");
@@ -68,25 +67,6 @@ const ItemManagementPanel = () => {
   useEffect(() => {
     fetchItems();
   }, []);
-
-  // Handle create item
-  const handleCreate = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setError(null);
-    
-    try {
-      await apiRequest.post("/admin/space-engineers/items", formData);
-      setSuccess("Item created successfully!");
-      setShowCreateModal(false);
-      resetForm();
-      fetchItems();
-    } catch (err: any) {
-      setError(err.response?.data?.message || "Failed to create item");
-    } finally {
-      setLoading(false);
-    }
-  };
 
   // Handle update item
   const handleUpdate = async (e: React.FormEvent) => {
@@ -176,16 +156,10 @@ const ItemManagementPanel = () => {
           <i className="bi bi-box-seam me-2"></i>
           Item Management
         </h5>
-        <Button 
-          variant="primary" 
-          onClick={() => {
-            resetForm();
-            setShowCreateModal(true);
-          }}
-        >
-          <i className="bi bi-plus-circle me-2"></i>
-          Create New Item
-        </Button>
+        <div className="text-muted small">
+          <i className="bi bi-info-circle me-1"></i>
+          Manage game-defined items
+        </div>
       </div>
 
       {/* Success Alert */}
@@ -318,18 +292,17 @@ const ItemManagementPanel = () => {
         </Card.Body>
       </Card>
 
-      {/* Create/Edit Modal */}
-      <Modal show={showCreateModal || showEditModal} onHide={() => {
-        setShowCreateModal(false);
+      {/* Edit Modal */}
+      <Modal show={showEditModal} onHide={() => {
         setShowEditModal(false);
         resetForm();
       }} size="lg">
         <Modal.Header closeButton>
           <Modal.Title>
-            {showEditModal ? 'Edit Item' : 'Create New Item'}
+            Edit Item
           </Modal.Title>
         </Modal.Header>
-        <Form onSubmit={showEditModal ? handleUpdate : handleCreate}>
+        <Form onSubmit={handleUpdate}>
           <Modal.Body>
             <Row>
               <Col md={6}>
@@ -442,7 +415,7 @@ const ItemManagementPanel = () => {
               ) : (
                 <>
                   <i className="bi bi-check-circle me-2"></i>
-                  {showEditModal ? 'Update Item' : 'Create Item'}
+                  Update Item
                 </>
               )}
             </Button>
