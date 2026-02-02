@@ -17,16 +17,23 @@ import {
 import { apiRequest } from "@/shared/api/request";
 
 interface ItemData {
-  id?: number;
+  id: number;
   indexName: string;
   displayName: string;
-  description?: string;
-  rarity?: string;
-  quantity: number;
-  icons: string[];
-  item_type?: string;
-  created_at?: string;
-  updated_at?: string;
+  description: string | null;
+  rarity: number; // 1-10
+  category: string | null;
+  icons: any;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface ItemsResponse {
+  items: ItemData[];
+  totalItems: number;
+  page: number;
+  limit: number;
+  totalPages: number;
 }
 
 const ItemManagementPanel = () => {
@@ -40,14 +47,13 @@ const ItemManagementPanel = () => {
   const [editingItem, setEditingItem] = useState<ItemData | null>(null);
   
   // Form data
-  const [formData, setFormData] = useState<ItemData>({
+  const [formData, setFormData] = useState<Partial<ItemData>>({
     indexName: "",
     displayName: "",
     description: "",
-    rarity: "Common",
-    quantity: 0,
-    icons: [""],
-    item_type: ""
+    rarity: 1,
+    category: "",
+    icons: []
   });
 
   // Fetch all items from game definitions
@@ -55,8 +61,8 @@ const ItemManagementPanel = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await apiRequest.get<ItemData[]>("/admin/space-engineers/items");
-      setItems(response.data);
+      const response = await apiRequest.get<ItemsResponse>("/admin/space-engineers/items");
+      setItems(response.data.items || []);
     } catch (err: any) {
       setError(err.response?.data?.message || "Failed to fetch items");
     } finally {
@@ -89,24 +95,6 @@ const ItemManagementPanel = () => {
     }
   };
 
-  // Handle delete item
-  const handleDelete = async (id: number) => {
-    if (!confirm("Are you sure you want to delete this item?")) return;
-    
-    setLoading(true);
-    setError(null);
-    
-    try {
-      await apiRequest.delete(`/admin/space-engineers/items/${id}`);
-      setSuccess("Item deleted successfully!");
-      fetchItems();
-    } catch (err: any) {
-      setError(err.response?.data?.message || "Failed to delete item");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   // Open edit modal
   const openEditModal = (item: ItemData) => {
     setEditingItem(item);
@@ -114,10 +102,9 @@ const ItemManagementPanel = () => {
       indexName: item.indexName,
       displayName: item.displayName,
       description: item.description || "",
-      rarity: item.rarity || "Common",
-      quantity: item.quantity,
-      icons: item.icons.length > 0 ? item.icons : [""],
-      item_type: item.item_type || ""
+      rarity: item.rarity,
+      category: item.category || "",
+      icons: Array.isArray(item.icons) ? item.icons : (item.icons ? [item.icons] : [])
     });
     setShowEditModal(true);
   };
@@ -128,25 +115,27 @@ const ItemManagementPanel = () => {
       indexName: "",
       displayName: "",
       description: "",
-      rarity: "Common",
-      quantity: 0,
-      icons: [""],
-      item_type: ""
+      rarity: 1,
+      category: "",
+      icons: []
     });
     setEditingItem(null);
   };
 
-  const getRarityVariant = (rarity?: string) => {
-    if (!rarity || typeof rarity !== 'string') return "light";
-    
-    switch (rarity.toLowerCase()) {
-      case "common": return "secondary";
-      case "uncommon": return "success";
-      case "rare": return "warning";
-      case "epic": return "primary";
-      case "legendary": return "danger";
-      default: return "light";
-    }
+  const getRarityVariant = (rarity: number) => {
+    if (rarity <= 2) return "secondary";     // Common (1-2)
+    if (rarity <= 4) return "success";       // Uncommon (3-4)
+    if (rarity <= 6) return "info";          // Rare (5-6)
+    if (rarity <= 8) return "primary";       // Epic (7-8)
+    return "danger";                          // Legendary (9-10)
+  };
+
+  const getRarityLabel = (rarity: number) => {
+    if (rarity <= 2) return "Common";
+    if (rarity <= 4) return "Uncommon";
+    if (rarity <= 6) return "Rare";
+    if (rarity <= 8) return "Epic";
+    return "Legendary";
   };
 
   return (
@@ -200,16 +189,15 @@ const ItemManagementPanel = () => {
                     <th>Index Name</th>
                     <th>Display Name</th>
                     <th>Rarity</th>
-                    <th>Type</th>
-                    <th>Quantity</th>
+                    <th>Category</th>
                     <th style={{ width: '150px' }}>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {items.map((item) => (
-                    <tr key={item.id || item.indexName}>
+                    <tr key={item.id}>
                       <td>
-                        {item.icons[0] ? (
+                        {(Array.isArray(item.icons) && item.icons[0]) ? (
                           <div 
                             style={{
                               width: '40px',
@@ -251,17 +239,12 @@ const ItemManagementPanel = () => {
                         )}
                       </td>
                       <td>
-                        {item.rarity && typeof item.rarity === 'string' && (
-                          <Badge bg={getRarityVariant(item.rarity)}>
-                            {item.rarity}
-                          </Badge>
-                        )}
+                        <Badge bg={getRarityVariant(item.rarity)}>
+                          {getRarityLabel(item.rarity)} ({item.rarity})
+                        </Badge>
                       </td>
                       <td>
-                        <span className="small">{item.item_type || '-'}</span>
-                      </td>
-                      <td>
-                        <span className="fw-bold">{item.quantity.toLocaleString()}</span>
+                        <span className="small">{item.category || '-'}</span>
                       </td>
                       <td>
                         <div className="d-flex gap-2">
@@ -272,15 +255,6 @@ const ItemManagementPanel = () => {
                           >
                             <i className="bi bi-pencil"></i>
                           </Button>
-                          {item.id && (
-                            <Button
-                              size="sm"
-                              variant="danger"
-                              onClick={() => handleDelete(item.id!)}
-                            >
-                              <i className="bi bi-trash"></i>
-                            </Button>
-                          )}
                         </div>
                       </td>
                     </tr>
@@ -343,40 +317,29 @@ const ItemManagementPanel = () => {
             </Form.Group>
 
             <Row>
-              <Col md={4}>
+              <Col md={6}>
                 <Form.Group className="mb-3">
-                  <Form.Label>Rarity</Form.Label>
-                  <Form.Select
-                    value={formData.rarity}
-                    onChange={(e) => setFormData({ ...formData, rarity: e.target.value })}
-                  >
-                    <option value="Common">Common</option>
-                    <option value="Uncommon">Uncommon</option>
-                    <option value="Rare">Rare</option>
-                    <option value="Epic">Epic</option>
-                    <option value="Legendary">Legendary</option>
-                  </Form.Select>
-                </Form.Group>
-              </Col>
-              <Col md={4}>
-                <Form.Group className="mb-3">
-                  <Form.Label>Item Type</Form.Label>
-                  <Form.Control
-                    type="text"
-                    value={formData.item_type}
-                    onChange={(e) => setFormData({ ...formData, item_type: e.target.value })}
-                    placeholder="e.g., Weapon, Tool, Component"
-                  />
-                </Form.Group>
-              </Col>
-              <Col md={4}>
-                <Form.Group className="mb-3">
-                  <Form.Label>Quantity</Form.Label>
+                  <Form.Label>Rarity (1-10)</Form.Label>
                   <Form.Control
                     type="number"
-                    value={formData.quantity}
-                    onChange={(e) => setFormData({ ...formData, quantity: parseInt(e.target.value) || 0 })}
-                    min="0"
+                    value={formData.rarity}
+                    onChange={(e) => setFormData({ ...formData, rarity: parseInt(e.target.value) || 1 })}
+                    min="1"
+                    max="10"
+                  />
+                  <Form.Text className="text-muted">
+                    1-2: Common, 3-4: Uncommon, 5-6: Rare, 7-8: Epic, 9-10: Legendary
+                  </Form.Text>
+                </Form.Group>
+              </Col>
+              <Col md={6}>
+                <Form.Group className="mb-3">
+                  <Form.Label>Category</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={formData.category || ""}
+                    onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                    placeholder="e.g., Ore, Component, Tool"
                   />
                 </Form.Group>
               </Col>
@@ -386,11 +349,14 @@ const ItemManagementPanel = () => {
               <Form.Label>Icon URL</Form.Label>
               <Form.Control
                 type="text"
-                value={formData.icons[0] || ""}
-                onChange={(e) => setFormData({ ...formData, icons: [e.target.value] })}
+                value={Array.isArray(formData.icons) && formData.icons[0] ? formData.icons[0] : ""}
+                onChange={(e) => setFormData({ ...formData, icons: e.target.value ? [e.target.value] : [] })}
                 placeholder="https://example.com/icon.png"
               />
               <Form.Text className="text-muted">
+                URL to the item's icon image
+              </Form.Text>
+            </Form.Group>
                 URL to the item's icon image
               </Form.Text>
             </Form.Group>
