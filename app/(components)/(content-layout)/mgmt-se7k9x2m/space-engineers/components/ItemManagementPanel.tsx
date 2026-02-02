@@ -256,7 +256,7 @@ const ItemManagementPanel = () => {
                       </td>
                       <td>
                         <Badge bg={getRarityVariant(item.rarity)}>
-                          {getRarityLabel(item.rarity)} ({item.rarity})
+                          {item.rarity}
                         </Badge>
                       </td>
                       <td>
