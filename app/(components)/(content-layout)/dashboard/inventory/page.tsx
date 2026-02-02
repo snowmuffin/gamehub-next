@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { Fragment, useEffect, useState } from "react";
-import { Card, Col, Row, Button } from "react-bootstrap";
+import { Card, Col, Row, Button, Toast, ToastContainer } from "react-bootstrap";
 
 import { apiRequest } from "@/shared/api/request"; // Import API request utility
 import Seo from "@/shared/layout-components/seo";
@@ -10,6 +10,8 @@ import { InventoryItem } from "@/shared/redux/inventory";
 const Inventory = () => {
   const [products, setProducts] = useState<InventoryItem[]>([]); // State to store API data
   const [loading, setLoading] = useState<boolean>(true); // Loading state management
+  const [showToast, setShowToast] = useState<boolean>(false);
+  const [toastMessage, setToastMessage] = useState<string>("");
 
   const fetchProducts = async () => {
     try {
@@ -24,13 +26,15 @@ const Inventory = () => {
     }
   };
 
-  const copyToClipboard = (text: string) => {
+  const copyToClipboard = (text: string, itemName: string) => {
     navigator.clipboard.writeText(text).then(
       () => {
-        // Successfully copied - could add a toast notification here instead
+        setToastMessage(`Command copied! Paste it in the in-game chat to download "${itemName}"`);
+        setShowToast(true);
       },
       (err) => {
-        // Failed to copy - could add error handling here instead
+        setToastMessage("Failed to copy command. Please try again.");
+        setShowToast(true);
       }
     );
   };
@@ -124,7 +128,10 @@ const Inventory = () => {
                               size="sm"
                               className="w-100"
                               onClick={() =>
-                                copyToClipboard(`!cmd downloaditem ${product.indexName} 1`)
+                                copyToClipboard(
+                                  `!cmd downloaditem ${product.indexName} 1`,
+                                  product.displayName
+                                )
                               }
                             >
                               <i className="bi bi-download me-1"></i>
@@ -146,6 +153,25 @@ const Inventory = () => {
           </Col>
         </Row>
       </div>
+
+      {/* Toast Notification */}
+      <ToastContainer position="bottom-end" className="p-3" style={{ zIndex: 9999 }}>
+        <Toast 
+          show={showToast} 
+          onClose={() => setShowToast(false)} 
+          delay={5000} 
+          autohide
+          bg="success"
+        >
+          <Toast.Header>
+            <i className="bi bi-clipboard-check me-2"></i>
+            <strong className="me-auto">Command Copied!</strong>
+          </Toast.Header>
+          <Toast.Body className="text-white">
+            {toastMessage}
+          </Toast.Body>
+        </Toast>
+      </ToastContainer>
     </Fragment>
   );
 };
